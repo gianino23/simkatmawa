@@ -1,19 +1,3 @@
-<?php
-/* @var $this SiteController */
-/* @var $model LoginForm */
-/* @var $form CActiveForm  */
-
-$this->pageTitle=Yii::app()->name . ' - Login';
-$this->breadcrumbs=array(
-	'Login',
-);
-?>
-
-<h1>Login</h1>
-
-<p>Please fill out the following form with your login credentials:</p>
-
-<div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'login-form',
 	'enableClientValidation'=>true,
@@ -22,32 +6,48 @@ $this->breadcrumbs=array(
 	),
 )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model,'username'); ?>
-		<?php echo $form->error($model,'username'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'password'); ?>
-		<?php echo $form->passwordField($model,'password'); ?>
-		<?php echo $form->error($model,'password'); ?>
-		<p class="hint">
-			Hint: You may login with <kbd>demo</kbd>/<kbd>demo</kbd> or <kbd>admin</kbd>/<kbd>admin</kbd>.
-		</p>
-	</div>
-
-	<div class="row rememberMe">
-		<?php echo $form->checkBox($model,'rememberMe'); ?>
-		<?php echo $form->label($model,'rememberMe'); ?>
-		<?php echo $form->error($model,'rememberMe'); ?>
-	</div>
-
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Login'); ?>
-	</div>
-
+ <div id="loginform">
+ </br>
+ </br>
+ </br>
+                    <div class="logo text-center">
+                        <span class="db"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/logo-icon.png" alt="logo" /><br/>
+                            <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/logo-text.png" alt="Home" /></span>
+                    </div>
+					</br>
+					</br>
+					</br>
+					</br>
+                    <!-- Form -->
+                    <div class="row">
+                        <div class="col-12">
+                            <form class="form-horizontal mt-3 form-material">
+                                <div class="form-group mb-3">
+                                    <div class="col-xs-12">
+									<?php echo $form->textField($model, 'username', ['class' => "form-control form-control", 'placeholder' => "Username", 'required'=>true ]); ?>
+                                       
+										<label class="error jquery-validation-error small form-text invalid-feedback" for="validation-checkbox-custom-group-1" style="display: inline-block;"><strong><?php echo $form->error($model, 'username',['style'=>'text-align:center']); ?></strong></label>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <div class="col-xs-12">
+									<?php echo $form->passwordField($model, 'password', ['class' => "form-control form-control", 'placeholder' => 'Password', 'required'=>true]); ?>
+									<label class="error jquery-validation-error small form-text invalid-feedback" for="validation-checkbox-custom-group-1" style="display: inline-block;"><strong><?php echo $form->error($model, 'password',['style'=>'text-align:center']); ?></strong></label>
+                                </div>
+								
+                                <div class="form-group text-center mt-3">
+                                    <div class="col-xs-12">
+									<a href="<?php echo Yii::app()->request->baseUrl; ?>" class="btn btn-lg btn-danger col-xs-6 col-md-4" style="text-decoration:none;">Cancel</a>
+											<?php // echo CHtml::Button('Cancel',array('onClick'=>"location='index.php'",'class'=>'text-danger')); ?>
+											<?php echo CHtml::submitButton('Login', ['class' => 'btn btn-lg btn-primary col-xs-6 col-md-4']);?>
+                                        
+                                    </div>
+                                </div>
+                              
+                            </form>
+							</br>
+							</br>
+							<p class="text-center" style="bottom:0;width:100%;position:absolute;text-decoration:none;">Ulahan buhan <a href="https://borneomediateknologi.co.id/" target="_blank" class="text-primary">Borneo Media Teknologi</a> | 2021</p></center>
+                        </div>
+                    </div>
+                </div>
 <?php $this->endWidget(); ?>
-</div><!-- form -->
