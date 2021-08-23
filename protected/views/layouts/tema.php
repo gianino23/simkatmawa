@@ -12,9 +12,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/favicon.png">
     <title>Simkatmawa</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/xtremeadmin/" />
-	<link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
-    <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/dist/js/pages/chartist/chartist-init.css" rel="stylesheet">
-    <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+	 <!-- This page plugin CSS -->
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+	
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/c3/c3.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/dist/css/style.min.css" rel="stylesheet">
@@ -813,12 +813,21 @@
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/dist/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/chartist/dist/chartist.min.js"></script>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+	<!--This page plugins -->
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/dist/js/pages/datatable/custom-datatable.js"></script>
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/dist/js/pages/datatable/datatable-advanced.init.js"></script>
+   
     <!--c3 JavaScript -->
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/d3/dist/d3.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/c3/c3.min.js"></script>
-    <!-- Chart JS -->
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/dist/js/pages/dashboards/dashboard1.js"></script>
+   
 </body>
