@@ -215,3 +215,327 @@ Stack trace:
 REQUEST_URI=/bmt/simkatmawa/index.php?r=user/admin
 HTTP_REFERER=http://localhost/bmt/simkatmawa/index.php?r=user/admin
 ---
+2021/08/23 12:53:41 [error] [exception.CHttpException.404] CHttpException: Sistem tidak bisa menemukan action "create" seperti yang diminta. in C:\xampp72\htdocs\simkatmawa\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(270): CController->missingAction('create')
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('create')
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('user/create')
+#3 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/simkatmawa/index.php?r=user/create
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=user/admin
+---
+2021/08/23 15:00:53 [error] [exception.CHttpException.404] CHttpException: Sistem tidak bisa menemukan action "delete" seperti yang diminta. in C:\xampp72\htdocs\simkatmawa\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(270): CController->missingAction('delete')
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('delete')
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('user/delete')
+#3 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/simkatmawa/index.php?r=user/delete&id=2
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=user/admin
+---
+2021/08/23 15:21:07 [error] [php] Undefined index: modal_sername (C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:67)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): UserController->filterAccessControl()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): UserController->runActionWithFilters()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): UserController->run()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=user/tambah
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php (67)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/08/23 15:57:56 [error] [php] file_get_contents(?r=user/adminn): failed to open stream: No error (C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:77)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): UserController->filterAccessControl()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): UserController->runActionWithFilters()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): UserController->run()
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=user/tambah
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php (77)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/08/23 15:59:02 [error] [exception.CHttpException.404] CHttpException: Sistem tidak bisa menemukan action "adminn" seperti yang diminta. in C:\xampp72\htdocs\simkatmawa\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(270): CController->missingAction('adminn')
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('adminn')
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('user/adminn')
+#3 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/simkatmawa/index.php?r=user/adminn
+---
+2021/08/23 15:59:02 [error] [php] file_get_contents(http://localhost/simkatmawa/index.php?r=user/adminn): failed to open stream: HTTP request failed! HTTP/1.0 404 Not Found
+ (C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:77)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): UserController->filterAccessControl()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): UserController->runActionWithFilters()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): UserController->run()
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=user/tambah
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php (77)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/08/23 16:00:20 [error] [php] file_get_contents(localhost/simkatmawa/index.php?r=user/adminn): failed to open stream: No error (C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:77)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): UserController->filterAccessControl()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): UserController->runActionWithFilters()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): UserController->run()
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=user/tambah
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php (77)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/08/23 16:00:39 [error] [php] file_get_contents(?r=user/adminn): failed to open stream: No error (C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:77)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): UserController->filterAccessControl()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): UserController->runActionWithFilters()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): UserController->run()
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=user/tambah
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php (77)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/08/23 16:01:56 [error] [php] file_get_contents(?r=user/adminn): failed to open stream: No error (C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:77)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): UserController->filterAccessControl()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): UserController->runActionWithFilters()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): UserController->run()
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=user/tambah
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php (77)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/08/23 16:02:35 [error] [exception.CHttpException.404] CHttpException: Sistem tidak bisa menemukan action "adminn" seperti yang diminta. in C:\xampp72\htdocs\simkatmawa\framework\web\CController.php:486
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(270): CController->missingAction('adminn')
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('adminn')
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('user/adminn')
+#3 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/simkatmawa/index.php?r=user/adminn
+---
+2021/08/23 16:02:35 [error] [php] file_get_contents(http://localhost/simkatmawa/index.php?r=user/adminn): failed to open stream: HTTP request failed! HTTP/1.0 404 Not Found
+ (C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:77)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): UserController->filterAccessControl()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): UserController->runActionWithFilters()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): UserController->run()
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=user/tambah
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php (77)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/08/23 16:40:23 [error] [exception.CDbException] CDbException: Table "t_user" tidak memiliki kolom bernama "order". in C:\xampp72\htdocs\simkatmawa\framework\db\schema\CDbCommandBuilder.php:697
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\db\ar\CActiveRecord.php(1543): CDbCommandBuilder->createColumnCriteria(Object(CMysqlTableSchema), Array, '', Array, '`t`.')
+#1 C:\xampp72\htdocs\simkatmawa\protected\views\user\admin.php(79): CActiveRecord->findAllByAttributes(Array)
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CBaseController.php(126): require('C:\\xampp72\\htdo...')
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp72\\htdo...', Array, true)
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(872): CBaseController->renderFile('C:\\xampp72\\htdo...', Array, true)
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(785): CController->renderPartial('admin', Array, true)
+#6 C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php(169): CController->render('admin', Array)
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\actions\CInlineAction.php(49): UserController->actionAdmin()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#12 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('admin')
+#17 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('user/admin')
+#18 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#19 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/simkatmawa/index.php?r=user/admin
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=user/admin
+---
+2021/08/23 16:42:58 [error] [exception.CHttpException.404] CHttpException: The requested page does not exist. in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:184
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php(128): UserController->loadModel('24')
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\actions\CInlineAction.php(49): UserController->actionHapus()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('hapus')
+#11 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('user/hapus')
+#12 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/simkatmawa/index.php?r=user/hapus
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=user/admin
+---
+2021/08/23 16:47:14 [error] [exception.CHttpException.404] CHttpException: The requested page does not exist. in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:184
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php(128): UserController->loadModel('27')
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\actions\CInlineAction.php(49): UserController->actionHapus()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('hapus')
+#11 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('user/hapus')
+#12 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/simkatmawa/index.php?r=user/hapus
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=user/admin
+---
+2021/08/23 16:48:57 [error] [exception.CHttpException.404] CHttpException: The requested page does not exist. in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:184
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php(128): UserController->loadModel('30')
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\actions\CInlineAction.php(49): UserController->actionHapus()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('hapus')
+#11 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('user/hapus')
+#12 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/simkatmawa/index.php?r=user/hapus
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=user/admin
+---
+2021/08/23 16:49:49 [error] [exception.CHttpException.404] CHttpException: The requested page does not exist. in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:184
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php(128): UserController->loadModel('30')
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\actions\CInlineAction.php(49): UserController->actionHapus()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('hapus')
+#11 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('user/hapus')
+#12 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/simkatmawa/index.php?r=user/hapus
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=user/admin
+---
+2021/08/23 16:49:49 [error] [exception.CHttpException.404] CHttpException: The requested page does not exist. in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:184
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php(128): UserController->loadModel('29')
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\actions\CInlineAction.php(49): UserController->actionHapus()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('hapus')
+#11 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('user/hapus')
+#12 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/simkatmawa/index.php?r=user/hapus
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=user/admin
+---
+2021/08/24 00:19:19 [error] [php] Undefined index: modal_kduser (C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:103)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): UserController->filterAccessControl()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): UserController->runActionWithFilters()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): UserController->run()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=user/edit
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php (103)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/08/24 00:32:06 [error] [exception.CHttpException.404] CHttpException: The requested page does not exist. in C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php:191
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\protected\controllers\UserController.php(135): UserController->loadModel('35')
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\actions\CInlineAction.php(49): UserController->actionHapus()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('hapus')
+#11 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('user/hapus')
+#12 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/simkatmawa/index.php?r=user/hapus
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=user/admin
+---

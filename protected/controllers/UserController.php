@@ -28,7 +28,7 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','adminn','update'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -55,6 +55,15 @@ class UserController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
+	public function actionAdminn()
+	{
+		$this->renderpartial('adminn');
+	}
+	public function actionUpdate()
+	{
+		$this->renderpartial('update');
+	}
+	
 
 	/**
 	 * Creates a new model.
@@ -63,20 +72,25 @@ class UserController extends Controller
 	public function actionTambah()
 	{
 		$model=new User;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['User']))
-		{
-			$model->attributes=$_POST['User'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->kd_user));
-		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
+		
+		$model->username=$_POST['modal_username'];
+		$model->password=$_POST['modal_password'];
+		$model->nama=$_POST['modal_nama'];
+		$model->level=$_POST['modal_level'];
+		if($model->save())
+		 {
+		  // fungsi untuk membuat format json
+		  header('Content-Type: application/json');
+		  // untuk load data yang sudah ada dari tabel
+		  $content = file_get_contents('http://localhost/simkatmawa/index.php?r=user/adminn', true);
+		  $data = array('status'=>'success', 'data'=> $content);
+		  echo json_encode($data);
+		 }
+		 else // jika insert data gagal
+		 {
+		  $data = array('status'=>'failed', 'data'=> null);
+		  echo json_encode($data);
+		 }
 	}
 
 	/**
@@ -84,23 +98,30 @@ class UserController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionEdit($id)
+	public function actionEdit()
 	{
-		$model=$this->loadModel($id);
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['User']))
-		{
-			$model->attributes=$_POST['User'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->kd_user));
-		}
-
-		$this->render('update',array(
-			'model'=>$model,
-		));
+		$modal_kduser=$_POST['modal_kduser'];
+		$model=User::model()->findByAttributes(array('kd_user'=>$modal_kduser));
+		$model->username=$_POST['modal_username'];
+		$model->password=$_POST['modal_password'];
+		$model->nama=$_POST['modal_nama'];
+		$model->level=$_POST['modal_level'];
+		
+		if($model->save())
+		 {
+		  // fungsi untuk membuat format json
+		  header('Content-Type: application/json');
+		  // untuk load data yang sudah ada dari tabel
+		  $content = file_get_contents('http://localhost/simkatmawa/index.php?r=user/adminn', true);
+		  $data = array('status'=>'success', 'data'=> $content);
+		  echo json_encode($data);
+		 }
+		 else // jika insert data gagal
+		 {
+		  $data = array('status'=>'failed', 'data'=> null);
+		  echo json_encode($data);
+		 }
+		
 	}
 
 	/**
@@ -108,13 +129,26 @@ class UserController extends Controller
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionHapus($id)
+	public function actionHapus()
 	{
-		$this->loadModel($id)->delete();
+		$id=$_POST['kd_user'];
+		$model=$this->loadModel($id)->delete();
+		if($model)
+		 {
+		  // fungsi untuk membuat format json
+		  header('Content-Type: application/json');
+		  // untuk load data yang sudah ada dari tabel
+		  $content = file_get_contents('http://localhost/simkatmawa/index.php?r=user/adminn', true);
+		  $data = array('status'=>'success', 'data'=> $content);
+		  echo json_encode($data);
+		 }
+		 else // jika insert data gagal
+		 {
+		  $data = array('status'=>'failed', 'data'=> null);
+		  echo json_encode($data);
+		 }
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		
 	}
 
 	/**
