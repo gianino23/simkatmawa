@@ -82,7 +82,7 @@ class UserController extends Controller
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents('http://localhost/simkatmawa/index.php?r=user/adminn', true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('user/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
@@ -112,7 +112,7 @@ class UserController extends Controller
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents('http://localhost/simkatmawa/index.php?r=user/adminn', true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('user/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
@@ -138,7 +138,7 @@ class UserController extends Controller
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents('http://localhost/simkatmawa/index.php?r=user/adminn', true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('user/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
