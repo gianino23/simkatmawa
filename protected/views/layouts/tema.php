@@ -16,8 +16,11 @@
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
 	
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/c3/c3.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/select2/dist/css/select2.min.css">
     <!-- Custom CSS -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/dist/css/style.min.css" rel="stylesheet">
+	<!-- This Page CSS -->
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/extra-libs/prism/prism.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -433,6 +436,9 @@
 						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="?r=user/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
                                     class="hide-menu">Data Pengguna</span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="?r=pertukaranpelajar/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
+                                    class="hide-menu">Perjar</span></a></li>
                        
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="?r=site/logout" aria-expanded="false"><i
@@ -784,5 +790,12 @@
     <!--c3 JavaScript -->
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/d3/dist/d3.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/c3/c3.min.js"></script>
+	
+	 <!-- This Page JS -->
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/select2/dist/js/select2.full.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/select2/dist/js/select2.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/dist/js/pages/forms/select2/select2.init.js"></script>
    
+    <!-- This Page JS -->
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/extra-libs/prism/prism.js"></script>
 </body>
