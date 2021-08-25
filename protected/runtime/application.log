@@ -1035,3 +1035,19 @@ Stack trace:
 REQUEST_URI=/simkatmawa/index.php?r=pertukaranpelajar/tambah
 in C:\xampp72\htdocs\simkatmawa\protected\controllers\PertukaranpelajarController.php (81)
 in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/08/25 18:16:39 [error] [php] Trying to get property 'isi' of non-object (C:\xampp72\htdocs\simkatmawa\protected\controllers\PertukaranpelajarController.php:154)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): PertukaranpelajarController->runAction()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): PertukaranpelajarController->filterAccessControl()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): PertukaranpelajarController->runActionWithFilters()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): PertukaranpelajarController->run()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=pertukaranpelajar/hapus
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\PertukaranpelajarController.php (154)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)
