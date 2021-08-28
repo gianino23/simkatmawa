@@ -1,6 +1,6 @@
 <?php
 
-class PertukaranpelajarController extends Controller
+class ProjekdesaController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -55,7 +55,6 @@ class PertukaranpelajarController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
-	
 	public function actionAdminn()
 	{
 		$this->renderpartial('adminn');
@@ -83,12 +82,13 @@ class PertukaranpelajarController extends Controller
 		if (!file_exists($temp))
 			mkdir($temp);
 		
-		$model=new Pertukaranpelajar;
+		$model=new Projekdesa;
 		
 		$model->nama_program = $_POST['modal_program'];
-		$model->level = $_POST['modal_level'];
-		$model->status = $_POST['modal_status'];
+		$model->judul_program = $_POST['modal_judul'];
 		$model->jml_mhs = $_POST['modal_mhs'];
+		$model->jml_dosen = $_POST['modal_dosen'];
+		$model->luaran_kegiatan = $_POST['modal_luaran'];
 		$model->save();
 		
 		$countfiles = count($_FILES['files']['name']);
@@ -123,8 +123,8 @@ class PertukaranpelajarController extends Controller
 				 if(move_uploaded_file($_FILES['files']['tmp_name'][$index],$path)){
 					$files_arr[] = $path;
 				 }
-				$model1 =new Filepertukaranpelajar ;
-				$model1->pertukaranpelajar_id=$model->id_perpel;
+				$model1 =new Fileprojekdesa ;
+				$model1->projekdesa_id=$model->id_projekdesa;
 				$model1->isi=$NewImageName;
 				$model1->save();
 			  }
@@ -152,7 +152,7 @@ class PertukaranpelajarController extends Controller
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('pertukaranpelajar/adminn'), true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('projekdesa/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
@@ -161,7 +161,6 @@ class PertukaranpelajarController extends Controller
 		  $data = array('status'=>'failed', 'data'=> null);
 		  echo json_encode($data);
 		 }
-		
 	}
 
 	/**
@@ -176,11 +175,11 @@ class PertukaranpelajarController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Pertukaranpelajar']))
+		if(isset($_POST['Projekdesa']))
 		{
-			$model->attributes=$_POST['Pertukaranpelajar'];
+			$model->attributes=$_POST['Projekdesa'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_perpel));
+				$this->redirect(array('view','id'=>$model->id_projekdesa));
 		}
 
 		$this->render('update',array(
@@ -195,10 +194,10 @@ class PertukaranpelajarController extends Controller
 	 */
 	public function actionHapus()
 	{
-		$id=$_POST['id_perpel'];
-		$model1=Filepertukaranpelajar::model()->findAllByAttributes(array('pertukaranpelajar_id'=>$id));
+		$id=$_POST['id_projekdesa'];
+		$model1=Fileprojekdesa::model()->findAllByAttributes(array('projekdesa_id'=>$id));
 		if(count($model1)==1){
-			$model2=Filepertukaranpelajar::model()->findByAttributes(array('pertukaranpelajar_id'=>$id));
+			$model2=Fileprojekdesa::model()->findByAttributes(array('projekdesa_id'=>$id));
 			unlink(Yii::app()->basePath . '/../upload/'.$model2->isi);
 		}else{
 		foreach($model1 as $mdl){
@@ -213,7 +212,7 @@ class PertukaranpelajarController extends Controller
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('pertukaranpelajar/adminn'), true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('projekdesa/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
@@ -229,7 +228,7 @@ class PertukaranpelajarController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Pertukaranpelajar');
+		$dataProvider=new CActiveDataProvider('Projekdesa');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -240,10 +239,10 @@ class PertukaranpelajarController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Pertukaranpelajar('search');
+		$model=new Projekdesa('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Pertukaranpelajar']))
-			$model->attributes=$_GET['Pertukaranpelajar'];
+		if(isset($_GET['Projekdesa']))
+			$model->attributes=$_GET['Projekdesa'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -254,12 +253,12 @@ class PertukaranpelajarController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Pertukaranpelajar the loaded model
+	 * @return Projekdesa the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Pertukaranpelajar::model()->findByPk($id);
+		$model=Projekdesa::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -267,11 +266,11 @@ class PertukaranpelajarController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Pertukaranpelajar $model the model to be validated
+	 * @param Projekdesa $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='pertukaranpelajar-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='projekdesa-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

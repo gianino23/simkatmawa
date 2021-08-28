@@ -8,7 +8,8 @@
 										<td><?= $p->status; ?></td>
 										<td><?= $p->jml_mhs." Orang"; ?></td>
 										<td align="center">
-											<a href="javascript:void(0)" class='open_modal' id='<?php echo  $p->id_perpel; ?>'><i class="fas fa-edit"></i></a>
+											<a href="?r=pertukaranpelajar/detail&id=<?php echo  $p->id_perpel; ?>"><i class="fas fa-eye"></i></a>
+											<!--<a href="javascript:void(0)" class='open_modal' id='<?php echo  $p->id_perpel; ?>'><i class="fas fa-edit"></i></a>-->
 											<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id_perpel; ?>'><i class="fas fa-trash-alt"></i></a>
 										</td>
 									</tr>

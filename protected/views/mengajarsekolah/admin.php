@@ -8,7 +8,7 @@ $(document).ready(function() {
 		<h3 class="text-themecolor mb-0">SIMKATMAWA</h3>
 		<ol class="breadcrumb mb-0">
 			<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-			<li class="breadcrumb-item active">Pertukaran Pelajar</li>
+			<li class="breadcrumb-item active">Mengajar Sekolah</li>
 		</ol>
 	</div>
 	<!--
@@ -52,14 +52,10 @@ $(document).ready(function() {
 				<div class="row">
 					<div class="col-12">
 						<div class="float-left">
-							<h3 class="card-title">Halaman Pertukaran Pelajar</h3>
-							<h6 class="card-subtitle">Deskripsi Halaman Pertukaran Pelajar</h6>
+							<h3 class="card-title">Halaman Mengajar di Sekolah</h3>
+							<h6 class="card-subtitle">Deskripsi Halaman Mengajar di Sekolah</h6>
 						</div>
 						<div class="float-right">
-						<!--
-							<?= CHtml::link('Hapus', array(''),array('class'=>'btn waves-effect waves-light btn-danger')); ?>
-							<?= CHtml::link('Tambah', array('pertukaranpelajar/create'),array('class'=>'btn waves-effect waves-light btn-success')); ?>
-						-->
 						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
 						</div>
 					</div>
@@ -68,27 +64,27 @@ $(document).ready(function() {
 							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
 								<thead>
 									<tr>
-										<th>Nama Program</th>
-										<th>Level</th>
-										<th>Status</th>
-										<th width="10%">Jumlah Mahasiswa</th>
-										<th width="10%">Aksi</th>
+										<th>Nama Program Mengajar di Sekolah</th>
+										<th>Lokasi Sekolah</th>
+										<th>Waktu Pelaksanaan </th>
+										<th>Jumlah mahasiswa Pelaksana</th>
+										<th>Aksi</th>
+										
 									</tr>
 								</thead>
 								<tbody id="modal-data">
 									<?php
-										 	$perjar = Pertukaranpelajar::model()->findAll(array('order'=>'id_perpel ASC'));
-											 foreach ($perjar as $p) {
+										 	$praker = Mengajarsekolah::model()->findAll(array('order'=>'id_mengajar ASC'));
+											 foreach ($praker as $p) {
 										 ?>
 									<tr>
 										<td><?= $p->nama_program; ?></td>
-										<td><?= $p->level; ?></td>
-										<td><?= $p->status; ?></td>
-										<td><?= $p->jml_mhs." Orang"; ?></td>
+										<td><?= $p->lokasi; ?></td>
+										<td><?php echo Yii::app()->dateFormatter->format("dd MMMM y",$p->tanggal);?></td>
+										<td><?= $p->jml_mhs_pelaksana." Orang"; ?></td>
 										<td align="center">
-										<a href="?r=pertukaranpelajar/detail&id=<?php echo  $p->id_perpel; ?>"><i class="fas fa-eye"></i></a>
-											<!--<a href="javascript:void(0)" class='open_modal' id='<?php echo  $p->id_perpel; ?>'><i class="fas fa-edit"></i></a>-->
-											<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id_perpel; ?>'><i class="fas fa-trash-alt"></i></a>
+										<a href="?r=mengajarsekolah/detail&id=<?php echo  $p->id_mengajar; ?>"><i class="fas fa-eye"></i></a>
+										<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id_mengajar; ?>'><i class="fas fa-trash-alt"></i></a>	
 										</td>
 									</tr>
 									<?php } ?>
@@ -106,46 +102,40 @@ $(document).ready(function() {
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title" id="myModalLabel">Tambah Data Pertukaran Pelajar</h4>
+                                                <h4 class="modal-title" id="myModalLabel">Tambah Data Mengajar di Sekolah</h4>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-hidden="true">×</button>
                                             </div>
                                             <div class="modal-body">
-                                <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=pertukaranpelajar/tambah" method="POST" enctype='multipart/form-data'>
+                                <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=mengajarsekolah/tambah" method="POST" enctype='multipart/form-data'>
                                 <div class="card-body">
                                     <div class="form-group row align-items-center mb-0">
                                         <label for="inputUsername3"
-                                            class="col-md-3 text-right control-label col-form-label">Nama Program Pertukaran</label>
+                                            class="col-md-3 text-right control-label col-form-label">Nama Program Mengajar di Sekolah</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
                                             <input type="text" class="form-control" name="modal_program" id="modal-program"
-                                                placeholder="Nama Program Pertukaran" required>
+                                                placeholder="Nama Program Mengajar" required>
                                         </div>
                                     </div>
 									<div class="form-group row align-items-center mb-0">
                                         <label for="inputPassword3"
-                                            class="col-md-3 text-right control-label col-form-label">Level</label>
+                                            class="col-md-3 text-right control-label col-form-label">Lokasi Sekolah</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                           <select name="modal_level" id="modal-level" class="form-control select2" style="width: 100%;" required>
-												<option value="" selected="selected">-- Pilih Satu --</option>
-												<option value="Nasional">Nasional</option>
-												<option value="Internasional">Internasional</option>
-										   </select>
+                                           <input type="text" class="form-control" name="modal_lokasi" id="modal-lokasi"
+                                                placeholder="Nama Lokasi Sekolah" required>
                                         </div>
                                     </div>
 									<div class="form-group row align-items-center mb-0">
                                         <label for="inputNama3"
-                                            class="col-md-3 text-right control-label col-form-label">Status</label>
+                                            class="col-md-3 text-right control-label col-form-label">Waktu Pelaksanaan</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                            <select name="modal_status" id="modal-status" class="form-control select2" style="width: 100%;" required>
-												<option value="" selected="selected">-- Pilih Satu --</option>
-												<option value="SKS">SKS</option>
-												<option value="Non-SKS">Non-SKS</option>
-										   </select>
+                                             <input type="date" class="form-control" name="modal_waktu" id="modal-waktu"
+                                                placeholder="Waktu Pelaksanaan" required>
                                         </div>
                                     </div>
 									<div class="form-group row align-items-center mb-0">
                                         <label for="inputLevel3"
-                                            class="col-md-3 text-right control-label col-form-label">Jumlah Mahasiswa</label>
+                                            class="col-md-3 text-right control-label col-form-label">Jumlah Mahasiswa Pelaksana</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
                                            <input type="number" class="form-control" name="modal_mhs" id="modal-mhs"
                                                 placeholder="Jumlah Mahasiswa" required>
@@ -170,7 +160,7 @@ $(document).ready(function() {
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light"
                                                     data-dismiss="modal">Close</button>
-                                                <button id="submit-all" type="submit" class="btn btn-primary">Save changes</button>
+                                                <button type="submit" class="btn btn-primary">Save changes</button>
                                             </div>
 											</form>
 											
@@ -231,8 +221,8 @@ $(document).ready(function() {
       formData.append("files[]", document.getElementById('files').files[index]);
    }
   formData.append('modal_program', $('#modal-program').val());
-  formData.append('modal_level', $('#modal-level').val());
-  formData.append('modal_status', $('#modal-status').val());
+  formData.append('modal_lokasi', $('#modal-lokasi').val());
+  formData.append('modal_waktu', $('#modal-waktu').val());
   formData.append('modal_mhs', $('#modal-mhs').val());
   $('.progress').show();
   
@@ -264,8 +254,8 @@ $(document).ready(function() {
 	 $('.progress').hide();
     $("#tambahData").modal('hide');
     $('#modal-program').val('');
-    $('#modal-level').val('');
-    $('#modal-statu').val('');
+    $('#modal-lokasi').val('');
+    $('#modal-waktu').val('');
     $('#modal-mhs').val('');
     $('#modal-fileupload').val('');
     
@@ -322,15 +312,15 @@ $(document).ready(function() {
  <!-- Ajax untuk delete data--> 
 <script type="text/javascript">
     $('body').on('click','.delete_modal', function(e){
-  let id_perpel = $(this).data('id');
+  let id_mengajar = $(this).data('id');
   $('#modal_delete').modal('show', {backdrop: 'static'});
   $("#delete_link").on("click", function(){
    e.preventDefault();
    $.ajax({
     method:  'POST', // untuk mendapatkan attribut method pada form
-    url: '?r=pertukaranpelajar/hapus',  // untuk mendapatkan attribut action pada form
+    url: '?r=mengajarsekolah/hapus',  // untuk mendapatkan attribut action pada form
     data: { 
-     id_perpel: id_perpel
+     id_mengajar: id_mengajar
     },
     success:function(response){
 	//console.log(response);

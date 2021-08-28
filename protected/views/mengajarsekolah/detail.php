@@ -1,9 +1,13 @@
+
+<?php
+	$p = Mengajarsekolah::model()->findByAttributes(array('id_mengajar'=>$id),array('order'=>'id_mengajar ASC'));
+?>
 <div class="row page-titles">
 	<div class="col-md-5 col-12 align-self-center">
 		<h3 class="text-themecolor mb-0">SIMKATMAWA</h3>
 		<ol class="breadcrumb mb-0">
 			<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-			<li class="breadcrumb-item active">Dashboard</li>
+			<li class="breadcrumb-item active">Mengajar Sekolah</li>
 		</ol>
 	</div>
 	<!--
@@ -47,21 +51,65 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="float-left">
-							<h3 class="card-title">Halaman Dashboard</h3>
-							<h6 class="card-subtitle"></h6>
+							<h3 class="card-title">Halaman Detail Mengajar di Sekolah</h3>
+							<h6 class="card-subtitle">Deskripsi Halaman Detail Mengajar di Sekolah</h6>
 						</div>
 						<div class="float-right">
-						
+						<!--
+							<?= CHtml::link('Hapus', array(''),array('class'=>'btn waves-effect waves-light btn-danger')); ?>
+							<?= CHtml::link('Tambah', array('pertukaranpelajar/create'),array('class'=>'btn waves-effect waves-light btn-success')); ?>
+						-->
+						<button type="button" class="btn btn-sm btn-block btn-danger waves-effect waves-light" onclick="history.back();"><i class="mdi mdi-arrow-left mr-2"></i>Kembali</button>
 						
 						</div>
 					</div>
 					
 					
-				
+					<div class="col-6">
+					<h4>Nama Program Mengajar di Sekolah</h4>
+					<p><?= $p->nama_program; ?></p>
+					</div>
+					<div class="col-6">
+					<h4>Lokasi Sekolah</h4>
+					<p><?= $p->lokasi; ?></p>
+					</div>
+					<div class="col-6">
+					<h4>Waktu Pelaksanaan</h4>
+					<p><?= $p->tanggal; ?></p>
+					</div>
+					<div class="col-6">
+					<h4>Jumlah Mahasiswa Pelaksana</h4>
+					<p><?= $p->jml_mhs_pelaksana." Orang"; ?></p>
+					</div>
 					
 					<div class="col-12">
 						<div class="table-responsive">
-							
+							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
+								<thead>
+									<tr>
+										<th>No</th>
+										<th>Nama File</th>
+										<th>Aksi</th>
+									</tr>
+								</thead>
+								<tbody id="modal-data">
+									<?php
+									$i=0;
+										 	$perjar = Filemengajarsekolah::model()->findAllByAttributes(array('mengajarsekolah_id'=>$id));
+											 foreach ($perjar as $p) {
+												 $i++;
+										 ?>
+									<tr>
+									<td><?php echo $i;?></td>
+										<td><?= $p->isi; ?></td>
+										<td align="center">
+										<a href=""><i class="fas fa-download"></i></a>
+										<a href=""><i class="fas fa-trash"></i></a>
+										</td>
+									</tr>
+									<?php } ?>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>

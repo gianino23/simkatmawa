@@ -14,6 +14,8 @@
     <link rel="canonical" href="https://www.wrappixel.com/templates/xtremeadmin/" />
 	 <!-- This page plugin CSS -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+	 <!-- This Page CSS -->
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/dropzone/dist/min/dropzone.min.css">
 	
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/c3/c3.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/select2/dist/css/select2.min.css">
@@ -438,7 +440,22 @@
                                     class="hide-menu">Data Pengguna</span></a></li>
 						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="?r=pertukaranpelajar/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu">Perjar</span></a></li>
+                                    class="hide-menu"><marquee>Data Pertukaran Pelajar</marquee></span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="?r=praktikkerja/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
+                                    class="hide-menu"><marquee>Data Magang / Praktik Kerja</marquee></span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="?r=mengajarsekolah/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
+                                    class="hide-menu"><marquee>Data Mengajar di Sekolah</marquee></span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="?r=penelitian/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
+                                    class="hide-menu">Data Penelitian</span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="?r=projekkemanusian/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
+                                    class="hide-menu"><marquee>Data Projek Kemanusiaan</marquee></span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="?r=projekdesa/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
+                                    class="hide-menu"><marquee>Data Projek di Desa</marquee></span></a></li>
                        
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="?r=site/logout" aria-expanded="false"><i
@@ -798,4 +815,6 @@
    
     <!-- This Page JS -->
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/extra-libs/prism/prism.js"></script>
+	<!-- This Page JS -->
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/dropzone/dist/min/dropzone.min.js"></script>
 </body>

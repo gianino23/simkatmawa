@@ -1,9 +1,13 @@
+
+<?php
+	$p = Wirausaha::model()->findByAttributes(array('id_wirausaha'=>$id),array('order'=>'id_wirausaha ASC'));
+?>
 <div class="row page-titles">
 	<div class="col-md-5 col-12 align-self-center">
 		<h3 class="text-themecolor mb-0">SIMKATMAWA</h3>
 		<ol class="breadcrumb mb-0">
 			<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-			<li class="breadcrumb-item active">Dashboard</li>
+			<li class="breadcrumb-item active">Wirausaha</li>
 		</ol>
 	</div>
 	<!--
@@ -47,23 +51,49 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="float-left">
-							<h3 class="card-title">Halaman Dashboard</h3>
-							<h6 class="card-subtitle"></h6>
+							<h3 class="card-title">Halaman Detail Wirausaha</h3>
+							<h6 class="card-subtitle">Deskripsi Halaman Detail Wirausaha</h6>
 						</div>
 						<div class="float-right">
-						
+						<!--
+							<?= CHtml::link('Hapus', array(''),array('class'=>'btn waves-effect waves-light btn-danger')); ?>
+							<?= CHtml::link('Tambah', array('pertukaranpelajar/create'),array('class'=>'btn waves-effect waves-light btn-success')); ?>
+						-->
+						<button type="button" class="btn btn-sm btn-block btn-danger waves-effect waves-light" onclick="history.back();"><i class="mdi mdi-arrow-left mr-2"></i>Kembali</button>
 						
 						</div>
 					</div>
 					
 					
-				
-					
-					<div class="col-12">
-						<div class="table-responsive">
-							
-						</div>
+					<div class="col-6">
+					<h4>Nama Program kewirausahaan</h4>
+					<p><?= $p->nama_program; ?></p>
 					</div>
+					<div class="col-6">
+					<h4>Bidang usaha</h4>
+					<p><?= $p->bidang_usaha; ?></p>
+					</div>
+					<div class="col-4">
+					<h4>Jumlah Mahasiswa pelaksana</h4>
+					<p><?= $p->jml_mhspelaksana." Orang"; ?></p>
+					</div>
+					<div class="col-4">
+					<h4>Link Sosmed</h4>
+					<p><?= $p->link_sosmed; ?></p>
+					</div>
+					<div class="col-4">
+					<h4>Jumlah Mahasiswa terlibat</h4>
+					<p><?= $p->jml_mhsterlibat." Orang"; ?></p>
+					</div>
+					<div class="col-4">
+					<h4>Jumlah Dosen Terlibat</h4>
+					<p><?= $p->jml_dosen." Orang"; ?></p>
+					</div>
+					<div class="col-4">
+					<h4>Luaran Kegiatan</h4>
+					<p><?= $p->luaran_kegiatan; ?></p>
+					</div>
+					
 				</div>
 			</div>
 		</div>
