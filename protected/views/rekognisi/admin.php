@@ -8,7 +8,7 @@ $(document).ready(function() {
 		<h3 class="text-themecolor mb-0">SIMKATMAWA</h3>
 		<ol class="breadcrumb mb-0">
 			<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-			<li class="breadcrumb-item active"> Data Pengguna</li>
+			<li class="breadcrumb-item active">Rekognisi / Non Lomba</li>
 		</ol>
 	</div>
 	<!--
@@ -52,14 +52,10 @@ $(document).ready(function() {
 				<div class="row">
 					<div class="col-12">
 						<div class="float-left">
-							<h3 class="card-title">Halaman Pengguna</h3>
-							<h6 class="card-subtitle">Deskripsi Halaman Pengguna</h6>
+							<h3 class="card-title">Halaman Rekognisi / Non Lomba</h3>
+							<h6 class="card-subtitle">Deskripsi Halaman Rekognisi / Non Lomba</h6>
 						</div>
 						<div class="float-right">
-						<!--
-							<?= CHtml::link('Hapus', array(''),array('class'=>'btn waves-effect waves-light btn-danger')); ?>
-							<?= CHtml::link('Tambah', array('user/create'),array('class'=>'btn waves-effect waves-light btn-success')); ?>
-						-->
 						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
 						</div>
 					</div>
@@ -68,34 +64,33 @@ $(document).ready(function() {
 							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
 								<thead>
 									<tr>
-										<th>Username</th>
-										<th>Nama</th>
-										<th width="15%">Level</th>
-										<th width="10%"></th>
+										<th>Jenis Rekognisi</th>
+										<th>Identitas Rekognisi</th>
+										<th>Institusi Pemberi Rekognisi</th>
+										<th>Jumlah Mahasiswa Terlibat</th>
+										<th>Jumlah Dosen Terlibat</th>
+										<th>Luaran Kegiatan (Sertifikat)</th>
+										<th>Link Sosmed Kegiatan</th>
+										<th>Aksi</th>
+										
 									</tr>
 								</thead>
 								<tbody id="modal-data">
 									<?php
-										 	$user = User::model()->findAll(array('order'=>'kd_user ASC'));
-											 foreach ($user as $u) {
+										 	$praker = Rekognisi::model()->findAll(array('order'=>'id_rekognisi ASC'));
+											 foreach ($praker as $p) {
 										 ?>
 									<tr>
-										<td><?= $u->username; ?></td>
-										<td><?= $u->nama; ?></td>
-										<td>
-										<?php
-												if(($u->level)==1){
-													echo "Administrator";
-												}elseif(($u->level)==2){
-													echo "Operator";
-												}elseif(($u->level)==3){
-													echo "Non Operator";
-												}
-										?>
-										</td>
+										<td><?= $p->jenis; ?></td>
+										<td><?= $p->identitas; ?></td>
+										<td><?= $p->institusi; ?></td>
+										<td><?= $p->jml_mhs." Orang"; ?></td>
+										<td><?= $p->jml_dosen." Orang"; ?></td>
+										<td><?= $p->luaran_kegiatan; ?></td>
+										<td><?= $p->link_sosmed; ?></td>
 										<td align="center">
-											<a href="javascript:void(0)" class='open_modal' id='<?php echo  $u->kd_user; ?>'><i class="fas fa-edit"></i></a>
-											<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $u->kd_user; ?>'><i class="fas fa-trash-alt"></i></a>
+										<a href="?r=rekognisi/detail&id=<?php echo  $p->id_rekognisi; ?>"><i class="fas fa-eye"></i></a>
+										<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id_rekognisi; ?>'><i class="fas fa-trash-alt"></i></a>	
 										</td>
 									</tr>
 									<?php } ?>
@@ -113,50 +108,70 @@ $(document).ready(function() {
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title" id="myModalLabel">Tambah Data Pengguna</h4>
+                                                <h4 class="modal-title" id="myModalLabel">Tambah Data Rekognisi / Non Lomba</h4>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-hidden="true">×</button>
                                             </div>
                                             <div class="modal-body">
-                                <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=user/tambah" method="POST">
+                                <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=rekognisi/tambah" method="POST" >
                                 <div class="card-body">
                                     <div class="form-group row align-items-center mb-0">
                                         <label for="inputUsername3"
-                                            class="col-md-3 text-right control-label col-form-label">Username</label>
+                                            class="col-md-3 text-right control-label col-form-label">Jenis Rekognisi</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="text" class="form-control" name="modal_username" id="modal-username"
-                                                placeholder="Username" required>
+                                            <input type="text" class="form-control" name="modal_jenis" id="modal-jenis"
+                                                placeholder="Jenis Rekognisi " required>
                                         </div>
                                     </div>
 									<div class="form-group row align-items-center mb-0">
                                         <label for="inputPassword3"
-                                            class="col-md-3 text-right control-label col-form-label">Password</label>
+                                            class="col-md-3 text-right control-label col-form-label">Identitas Rekognisi</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="password" class="form-control" name="modal_password" id="modal-password"
-                                                placeholder="Password" required>
+                                           <input type="text" class="form-control" name="modal_identitas" id="modal-identitas"
+                                                placeholder="Identitas Rekognisi" required>
                                         </div>
                                     </div>
 									<div class="form-group row align-items-center mb-0">
                                         <label for="inputNama3"
-                                            class="col-md-3 text-right control-label col-form-label">Nama</label>
+                                            class="col-md-3 text-right control-label col-form-label">Institusi Pemberi Rekognisi</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="text" class="form-control" name="modal_nama" id="modal-nama"
-                                                placeholder="Nama" required>
+                                             <input type="text" class="form-control" name="modal_institusi" id="modal-institusi"
+                                                placeholder="Institusi Pemberi Rekognisi" required>
+                                        </div>
+                                    </div>
+									<div class="form-group row align-items-center mb-0">
+                                        <label for="inputNama3"
+                                            class="col-md-3 text-right control-label col-form-label">Jumlah Mahasiswa Terlibat</label>
+                                        <div class="col-md-9 border-left pb-2 pt-2">
+                                             <input type="number" class="form-control" name="modal_mhs" id="modal-mhs"
+                                                placeholder="Jumlah Mahasiswa" required>
+                                        </div>
+                                    </div>
+									<div class="form-group row align-items-center mb-0">
+                                        <label for="inputNama3"
+                                            class="col-md-3 text-right control-label col-form-label">Jumlah Dosen Terlibat</label>
+                                        <div class="col-md-9 border-left pb-2 pt-2">
+                                             <input type="number" class="form-control" name="modal_dosen" id="modal-dosen"
+                                                placeholder="Jumlah Dosen" required>
                                         </div>
                                     </div>
 									<div class="form-group row align-items-center mb-0">
                                         <label for="inputLevel3"
-                                            class="col-md-3 text-right control-label col-form-label">Level</label>
+                                            class="col-md-3 text-right control-label col-form-label">Luaran Kegiatan</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                           <select name="modal_level" id="modal-level" class="select2 form-control costum-select" style="width: 100%;" required>
-												<option value="" selected="selected">-- Pilih Satu --</option>
-												<option value=1>Administrator</option>
-												<option value=2>Operator</option>
-												<option value=3>Non Operator</option>
-										   </select>
+                                           <input type="text" class="form-control" name="modal_luaran" id="modal-luaran"
+                                                placeholder="Luaran Kegiatan" required>
                                         </div>
                                     </div>
-                                  
+									<div class="form-group row align-items-center mb-0">
+                                        <label for="inputLevel3"
+                                            class="col-md-3 text-right control-label col-form-label">Link Sosmed Kegiatan</label>
+                                        <div class="col-md-9 border-left pb-2 pt-2">
+                                           <input type="text" class="form-control" name="modal_link" id="modal-link"
+                                                placeholder="Link Sosial Media Kegiatan" required>
+                                        </div>
+                                    </div>
+								
                                 </div>
                             
                                             </div>
@@ -166,6 +181,7 @@ $(document).ready(function() {
                                                 <button type="submit" class="btn btn-primary">Save changes</button>
                                             </div>
 											</form>
+											
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->
                                 </div><!-- /.modal -->
@@ -214,34 +230,48 @@ $(document).ready(function() {
 <script type="text/javascript">
  $("#form-save").on('submit', function(e){
   e.preventDefault();
+ 
+  
+  let formData = new FormData();
+ 
+  formData.append('modal_jenis', $('#modal-jenis').val());
+  formData.append('modal_identitas', $('#modal-identitas').val());
+  formData.append('modal_institusi', $('#modal-institusi').val());
+  formData.append('modal_mhs', $('#modal-mhs').val());
+  formData.append('modal_dosen', $('#modal-dosen').val());
+  formData.append('modal_luaran', $('#modal-luaran').val());
+  formData.append('modal_link', $('#modal-link').val());
+  
   $.ajax({
+	
+			
    method:  $(this).attr("method"), // untuk mendapatkan attribut method pada form
    url: $(this).attr("action"),  // untuk mendapatkan attribut action pada form
-   data: { 
-    modal_username: $('#modal-username').val(),
-    modal_password: $('#modal-password').val(),
-    modal_nama: $('#modal-nama').val(),
-    modal_level: $('#modal-level').val(),
-   
-   },
+   data: formData,
+    processData: false,
+    contentType: false,
+    cache: false,
    success:function(response){
-    //console.log(response);
+	   
+    console.log(response);
   $("#modal-data").empty();
     $("#modal-data").html(response.data);
     $("#tambahData").modal('hide');
-    $('#modal-username').val('');
-    $('#modal-password').val('');
-    $('#modal-nama').val('');
-    $('#modal-level').val('').change();
-	$('#mytable').DataTable();
+    $('#modal-jenis').val('');
+    $('#modal-identitas').val('');
+    $('#modal-institusi').val('');
+    $('#modal-mhs').val('');
+    $('#modal-dosen').val('');
+    $('#modal-luaran').val('');
+    $('#modal-link').val('');
     
    },
-   error: function(e)
-   {
-    // Error function here
-   },
+  error: function (xhr, ajaxOptions, thrownError) {
+                  console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                },
    beforeSend:function(b){
     // Before function here
+	
    }
   })
   .done(function(d) {
@@ -288,15 +318,15 @@ $(document).ready(function() {
  <!-- Ajax untuk delete data--> 
 <script type="text/javascript">
     $('body').on('click','.delete_modal', function(e){
-  let kd_user = $(this).data('id');
+  let id_rekognisi = $(this).data('id');
   $('#modal_delete').modal('show', {backdrop: 'static'});
   $("#delete_link").on("click", function(){
    e.preventDefault();
    $.ajax({
     method:  'POST', // untuk mendapatkan attribut method pada form
-    url: '?r=user/hapus',  // untuk mendapatkan attribut action pada form
+    url: '?r=rekognisi/hapus',  // untuk mendapatkan attribut action pada form
     data: { 
-     kd_user: kd_user
+     id_rekognisi: id_rekognisi
     },
     success:function(response){
 	//console.log(response);

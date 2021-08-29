@@ -22,14 +22,18 @@ DROP TABLE IF EXISTS `t_belanegara`;
 
 CREATE TABLE `t_belanegara` (
   `id_belanegara` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_program` varchar(200) DEFAULT NULL,
   `judul` varchar(200) DEFAULT NULL,
   `jml_mhs` int(11) DEFAULT NULL,
   `jml_dosen` int(11) DEFAULT NULL,
   `luaran_kegiatan` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id_belanegara`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_belanegara` */
+
+insert  into `t_belanegara`(`id_belanegara`,`nama_program`,`judul`,`jml_mhs`,`jml_dosen`,`luaran_kegiatan`) values 
+(1,'1','1',1,1,'1');
 
 /*Table structure for table `t_filemengajarsekolah` */
 
@@ -131,7 +135,7 @@ CREATE TABLE `t_ikatanalumni` (
   `program_kerja` text,
   `luaran_kegiatan` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id_alumni`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_ikatanalumni` */
 
@@ -225,9 +229,13 @@ CREATE TABLE `t_profil` (
   `isi` text,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_profil`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_profil` */
+
+insert  into `t_profil`(`id_profil`,`nama`,`isi`,`status`) values 
+(1,'TENTANG PUSBINPRES','BLA BLA BLA ..... BLA BLA BLA',1),
+(2,'STRUKTUR ORGANISASI','BLA BLA BLA BLA ... BLA BLA BLA',1);
 
 /*Table structure for table `t_projekdesa` */
 
@@ -250,15 +258,20 @@ CREATE TABLE `t_projekdesa` (
 DROP TABLE IF EXISTS `t_projekindependen`;
 
 CREATE TABLE `t_projekindependen` (
-  `id_independen` int(11) NOT NULL,
-  `produk` text NOT NULL,
-  `link_sosmed` text NOT NULL,
-  `jml_mhs` int(11) NOT NULL,
-  `jml_dosen` int(11) NOT NULL,
-  `luaran_kegiatan` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id_independen` int(11) NOT NULL AUTO_INCREMENT,
+  `program` text,
+  `produk` text,
+  `link_sosmed` text,
+  `jml_mhs` int(11) DEFAULT NULL,
+  `jml_dosen` int(11) DEFAULT NULL,
+  `luaran_kegiatan` text,
+  PRIMARY KEY (`id_independen`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_projekindependen` */
+
+insert  into `t_projekindependen`(`id_independen`,`program`,`produk`,`link_sosmed`,`jml_mhs`,`jml_dosen`,`luaran_kegiatan`) values 
+(1,'1','1','1',1,1,'1');
 
 /*Table structure for table `t_projekkemanusian` */
 
@@ -286,7 +299,7 @@ CREATE TABLE `t_regulasimhs` (
   `isi` text,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_regulasimhs`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_regulasimhs` */
 
@@ -297,31 +310,19 @@ DROP TABLE IF EXISTS `t_rekognisi`;
 CREATE TABLE `t_rekognisi` (
   `id_rekognisi` int(11) NOT NULL AUTO_INCREMENT,
   `jenis` varchar(200) DEFAULT NULL,
+  `identitas` varchar(200) DEFAULT NULL,
   `institusi` varchar(200) DEFAULT NULL,
   `jml_mhs` int(11) DEFAULT NULL,
   `jml_dosen` int(11) DEFAULT NULL,
   `luaran_kegiatan` varchar(200) DEFAULT NULL,
   `link_sosmed` text,
   PRIMARY KEY (`id_rekognisi`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_rekognisi` */
 
-/*Table structure for table `t_studi` */
-
-DROP TABLE IF EXISTS `t_studi`;
-
-CREATE TABLE `t_studi` (
-  `id_studi` int(11) NOT NULL AUTO_INCREMENT,
-  `nama_program` varchar(200) DEFAULT NULL,
-  `link_sosmed` text,
-  `jml_mhs` int(11) DEFAULT NULL,
-  `jml_dosen` int(11) DEFAULT NULL,
-  `luaran_kegiatan` varchar(200) DEFAULT NULL,
-  PRIMARY KEY (`id_studi`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `t_studi` */
+insert  into `t_rekognisi`(`id_rekognisi`,`jenis`,`identitas`,`institusi`,`jml_mhs`,`jml_dosen`,`luaran_kegiatan`,`link_sosmed`) values 
+(1,'1','1','1',1,1,'1','1');
 
 /*Table structure for table `t_user` */
 
@@ -334,12 +335,29 @@ CREATE TABLE `t_user` (
   `nama` varchar(100) DEFAULT NULL,
   `level` int(11) DEFAULT NULL,
   PRIMARY KEY (`kd_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_user` */
 
 insert  into `t_user`(`kd_user`,`username`,`password`,`nama`,`level`) values 
-(1,'admin','21232f297a57a5a743894a0e4a801fc3','Administrator',1);
+(33,'admin','21232f297a57a5a743894a0e4a801fc3','administrator',1),
+(34,'bem','d3c654d99bdfaf101e012bfe2810679e','bem',2),
+(35,'dpm','49677814b41e9ff6cdc497c85472a4ac','DPM',2),
+(36,'hima pspd','31d828b1b3e8b94bcd4b1bb3cd68567d','HIMA PSPD',2),
+(37,'hima psik','0c726d2750e18a114ddce8dd0f018d4c','HIMA PSIK',2),
+(38,'hima psikologi','9afbe67b7305535ebfc998103c71ce7e','HIMA PSIKOLOGI',2),
+(39,'hima kesmas','71fe3431c58060add4f13cbbaee7a7f3','HIMA KESMAS',2),
+(40,'arbor vitae','14f9a8287e5c210d69307db88ede11b7','ARBOR VITAE',2),
+(41,'ksi-asyifa','5b3f862b902b6c5a7cf40e93c0c58891','KSI-ASYIFA',2),
+(43,'tbm-cs','100afac15f6a4ed52f7c238b2ed7e808','TBM-CS',2),
+(44,'hipocampus','2fb2fa43b21202a7a5cd058bb761ea5f','HIPOCAMPUS',2),
+(45,'cimsa','ca89b7c959937c2bd09d7f99e6fbeac2','CIMSA',2),
+(46,'medis','68045a2d10a96ed788dbedf1b71895a9','MEDIS',2),
+(47,'fsim','82593e680c668a7ff2f4304a671ab8b2','FSIM',2),
+(48,'mfc','3800f845ae86a2e1a26be414d8cadd0f','MFC',2),
+(49,'mub','daa551f036a22f6a1d9396b4d52ba522','MUB',2),
+(50,'medicartes','c42e6a202ff9eca5191af43d629c8af5','MEDICARTES',2),
+(59,'tensi','8d6daab29063cc56717b284aa51c15fd','TENSI',2);
 
 /*Table structure for table `t_wirausaha` */
 

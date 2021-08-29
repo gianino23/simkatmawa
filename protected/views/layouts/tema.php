@@ -432,12 +432,21 @@
                                 href="?r=site/index" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
                                     class="hide-menu">Dashboard</span></a></li>
 									
-                       
+                       <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
+                            <span class="hide-menu">Web Profil</span></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="?r=profil/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
+                                    class="hide-menu">Profil</span></a></li>
+					   <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="?r=regulasimhs/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
+                                    class="hide-menu"><marquee>Regulasi Bidang Kemahasiswaan</marquee></span></a></li>
                         <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
                             <span class="hide-menu">Pengguna</span></li>
 						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="?r=user/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
                                     class="hide-menu">Data Pengguna</span></a></li>
+						<li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
+                            <span class="hide-menu">Simkatmawa</span></li>
 						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="?r=pertukaranpelajar/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
                                     class="hide-menu"><marquee>Data Pertukaran Pelajar</marquee></span></a></li>
@@ -456,6 +465,21 @@
 						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="?r=projekdesa/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
                                     class="hide-menu"><marquee>Data Projek di Desa</marquee></span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="?r=wirausaha/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
+                                    class="hide-menu">Data Wirausaha</span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="?r=projekindependen/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
+                                    class="hide-menu"><marquee>Data Studi / Projek Independen</marquee></span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="?r=rekognisi/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
+                                    class="hide-menu"><marquee>Data Rekognisi / Non lomba</marquee></span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="?r=belanegara/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
+                                    class="hide-menu"><marquee>Data Bela Negara</marquee></span></a></li>
+						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                href="?r=ikatanalumni/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
+                                    class="hide-menu"><marquee>Ikatan Alumni</marquee></span></a></li>
                        
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="?r=site/logout" aria-expanded="false"><i
