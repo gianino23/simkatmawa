@@ -1,9 +1,9 @@
 <nav class="sidebar-nav">
 	<ul id="sidebarnav">
-		<li class="nav-small-cap">
+		<!-- <li class="nav-small-cap">
 			<i class="mdi mdi-dots-horizontal"></i>
 			<span class="hide-menu">Personal</span>
-		</li>
+		</li> -->
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?r=site/index"
 				aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard</span></a></li>
 
@@ -53,7 +53,7 @@
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?r=ikatanalumni/admin"
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Ikatan Alumni</span></a></li> -->
 
-		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?r=site/logout"
-				aria-expanded="false"><i class="mdi mdi-directions"></i><span class="hide-menu">Log Out</span></a></li>
+		<!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?r=site/logout"
+				aria-expanded="false"><i class="mdi mdi-directions"></i><span class="hide-menu">Log Out</span></a></li> -->
 	</ul>
 </nav>

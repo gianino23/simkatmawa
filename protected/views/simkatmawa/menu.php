@@ -1,3 +1,16 @@
+<style>
+	.card {
+		height:135px;
+	}
+</style>
+<div class="row page-titles">
+	<div class="col-md-5 col-12 align-self-center">
+		<h3 class="text-themecolor mb-0">SIMKATMAWA</h3>
+		<ol class="breadcrumb mb-0">
+			<li class="breadcrumb-item active">Menu</li>
+		</ol>
+	</div>
+</div>
 <div class="container-fluid note-has-grid">
 	<!-- <ul class="nav nav-pills p-3 bg-white mb-3 rounded-pill align-items-center">
 		<li class="nav-item"> <a href="javascript:void(0)"
@@ -68,8 +81,7 @@
 						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
-								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi Bla bla bla</p>
 						</div>
 					</div>
 				</a>

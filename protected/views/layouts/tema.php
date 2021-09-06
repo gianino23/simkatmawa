@@ -401,7 +401,7 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- User profile -->
-                <div class="user-profile position-relative" style="background: url(<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/background/user-info.jpg) no-repeat;">
+                <div class="user-profile position-relative" style="background: url(<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/background/user-info.jpg) no-repeat; display:none;">
                     <!-- User profile image -->
                     <div class="profile-img"> <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/users/profile.png" alt="user" class="w-100" /> </div>
                     <!-- User profile text-->
@@ -433,7 +433,7 @@
                 <!-- item-->
                 <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
                 <!-- item-->
-                <a href="?r=site/logout" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+                <a href="<?= Yii::app()->createAbsoluteUrl('site/logout')?>" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-logout"></i></a>
             </div>
             <!-- End Bottom points-->
         </aside>
