@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/favicon.png">
-    <title>Simkatmawa</title>
+    <title>SIMKATMAWA</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/xtremeadmin/" />
 	 <!-- This page plugin CSS -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">

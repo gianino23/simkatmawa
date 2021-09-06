@@ -4,8 +4,8 @@
 	}
 </style>
 <div class="row page-titles">
-	<div class="col-md-5 col-12 align-self-center">
-		<h3 class="text-themecolor mb-0">SIMKATMAWA</h3>
+	<div class="col-md-12 col-12 align-self-center">
+		<h3 class="text-themecolor mb-0">Sistem Informasi Pemeringkatan Bidang Kemahasiswaan</h3>
 		<ol class="breadcrumb mb-0">
 			<li class="breadcrumb-item active">Menu</li>
 		</ol>
@@ -66,8 +66,7 @@
 						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
-								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi singkat bla bla bla 2 baris cukup aja.</p>
 						</div>
 					</div>
 				</a>
@@ -81,7 +80,7 @@
 						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi Bla bla bla</p>
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi singkat bla bla bla 2 baris cukup aja.</p>
 						</div>
 					</div>
 				</a>
@@ -95,8 +94,7 @@
 						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
-								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi singkat bla bla bla 2 baris cukup aja.</p>
 						</div>
 					</div>
 				</a>
@@ -110,8 +108,7 @@
 						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
-								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi singkat bla bla bla 2 baris cukup aja.</p>
 						</div>
 					</div>
 				</a>
@@ -125,8 +122,7 @@
 						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
-								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi singkat bla bla bla 2 baris cukup aja.</p>
 						</div>
 					</div>
 				</a>
@@ -140,8 +136,7 @@
 						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
-								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi singkat bla bla bla 2 baris cukup aja.</p>
 						</div>
 					</div>
 				</a>
@@ -155,8 +150,7 @@
 						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
-								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi singkat bla bla bla 2 baris cukup aja.</p>
 						</div>
 					</div>
 				</a>
@@ -170,8 +164,7 @@
 						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
-								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi singkat bla bla bla 2 baris cukup aja.</p>
 						</div>
 					</div>
 				</a>
@@ -185,8 +178,7 @@
 						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
-								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi singkat bla bla bla 2 baris cukup aja.</p>
 						</div>
 					</div>
 				</a>
@@ -200,8 +192,7 @@
 						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
-								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi singkat bla bla bla 2 baris cukup aja.</p>
 						</div>
 					</div>
 				</a>
@@ -215,8 +206,7 @@
 						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
-								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi singkat bla bla bla 2 baris cukup aja.</p>
 						</div>
 					</div>
 				</a>
