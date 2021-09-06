@@ -22,437 +22,193 @@
 				<i class="icon-note m-1"></i><span class="d-none d-md-block font-14">Add Notes</span></a>
 		</li>
 	</ul> -->
+	<!-- <div class="row">
+		<div class="col-lg-3 col-md-6">
+			<div class="card bg-white">
+				<div class="card-body">
+					<div id="myCarousel4" class="carousel vert slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item flex-column">
+								<i class="ti-wordpress font-20"></i>
+								<p>SIMKATMAWA</p>
+								<h3>Dynamic website with responsive</h3>
+								<div>
+									<button class="btn btn-info justify-content-start waves-effect waves-light mt-3">Default</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
 	<div class="tab-content">
 		<div id="note-full-container" class="note-has-grid row">
-			<a href="<?= Yii::app()->createAbsoluteUrl('pertukaranpelajar/admin')?>">
-				<div class="col-md-4 single-note-item all-category" style="">
+			<div class="col-md-4 single-note-item all-category">
+				<a href="<?= Yii::app()->createAbsoluteUrl('pertukaranpelajar/admin')?>">
 					<div class="card card-body">
 						<span class="side-stick"></span>
-						<h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Pertukaran Pelajar</h5>
+						<p class="note-date font-12 text-muted mb-0">SIMKATMAWA</p>
+						<h5 class="note-title text-truncate w-75 mb-0">Pertukaran Pelajar
+						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
 								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
 						</div>
-						<div class="d-flex align-items-center">
-							<span class="mr-1"><i class="far fa-star favourite-note"></i></span>
-							<span class="mr-1"><i class="far fa-trash-alt remove-note"></i></span>
-							<div class="ml-auto">
-								<div class="category-selector btn-group">
-									<a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#"
-										role="button" aria-haspopup="true" aria-expanded="true">
-										<div class="category">
-											<div class="category-business"></div>
-											<div class="category-social"></div>
-											<div class="category-important"></div>
-											<span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-										</div>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right category-menu">
-										<a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business</a>
-										<a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social</a>
-										<a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>
-											Important</a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-				</div>
-			</a>
-			<a href="<?= Yii::app()->createAbsoluteUrl('praktikkerja/admin')?>">
-				<div class="col-md-4 single-note-item all-category" style="">
+				</a>
+			</div>
+			<div class="col-md-4 single-note-item all-category">
+				<a href="<?= Yii::app()->createAbsoluteUrl('praktikkerja/admin')?>">
 					<div class="card card-body">
 						<span class="side-stick"></span>
-						<h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Magang/Praktik Kerja</h5>
+						<p class="note-date font-12 text-muted mb-0">SIMKATMAWA</p>
+						<h5 class="note-title text-truncate w-75 mb-0">Magang/Praktik Kerja
+						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
 								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
 						</div>
-						<div class="d-flex align-items-center">
-							<span class="mr-1"><i class="far fa-star favourite-note"></i></span>
-							<span class="mr-1"><i class="far fa-trash-alt remove-note"></i></span>
-							<div class="ml-auto">
-								<div class="category-selector btn-group">
-									<a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#"
-										role="button" aria-haspopup="true" aria-expanded="true">
-										<div class="category">
-											<div class="category-business"></div>
-											<div class="category-social"></div>
-											<div class="category-important"></div>
-											<span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-										</div>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right category-menu">
-										<a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business</a>
-										<a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social</a>
-										<a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>
-											Important</a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-				</div>
-			</a>
-			<a href="<?= Yii::app()->createAbsoluteUrl('mengajarsekolah/admin')?>">
-				<div class="col-md-4 single-note-item all-category" style="">
+				</a>
+			</div>
+			<div class="col-md-4 single-note-item all-category">
+				<a href="<?= Yii::app()->createAbsoluteUrl('mengajarsekolah/admin')?>">
 					<div class="card card-body">
 						<span class="side-stick"></span>
-						<h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Mengajar di Sekolah</h5>
+						<p class="note-date font-12 text-muted mb-0">SIMKATMAWA</p>
+						<h5 class="note-title text-truncate w-75 mb-0">Mengajar di Sekolah
+						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
 								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
 						</div>
-						<div class="d-flex align-items-center">
-							<span class="mr-1"><i class="far fa-star favourite-note"></i></span>
-							<span class="mr-1"><i class="far fa-trash-alt remove-note"></i></span>
-							<div class="ml-auto">
-								<div class="category-selector btn-group">
-									<a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#"
-										role="button" aria-haspopup="true" aria-expanded="true">
-										<div class="category">
-											<div class="category-business"></div>
-											<div class="category-social"></div>
-											<div class="category-important"></div>
-											<span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-										</div>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right category-menu">
-										<a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business</a>
-										<a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social</a>
-										<a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>
-											Important</a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-				</div>
-			</a>
-			<a href="<?= Yii::app()->createAbsoluteUrl('penelitian/admin')?>">
-				<div class="col-md-4 single-note-item all-category" style="">
+				</a>
+			</div>
+			<div class="col-md-4 single-note-item all-category">
+				<a href="<?= Yii::app()->createAbsoluteUrl('penelitian/admin')?>">
 					<div class="card card-body">
 						<span class="side-stick"></span>
-						<h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Penelitian</h5>
+						<p class="note-date font-12 text-muted mb-0">SIMKATMAWA</p>
+						<h5 class="note-title text-truncate w-75 mb-0">Penelitian
+						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
 								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
 						</div>
-						<div class="d-flex align-items-center">
-							<span class="mr-1"><i class="far fa-star favourite-note"></i></span>
-							<span class="mr-1"><i class="far fa-trash-alt remove-note"></i></span>
-							<div class="ml-auto">
-								<div class="category-selector btn-group">
-									<a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#"
-										role="button" aria-haspopup="true" aria-expanded="true">
-										<div class="category">
-											<div class="category-business"></div>
-											<div class="category-social"></div>
-											<div class="category-important"></div>
-											<span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-										</div>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right category-menu">
-										<a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business</a>
-										<a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social</a>
-										<a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>
-											Important</a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-				</div>
-			</a>
-			<a href="<?= Yii::app()->createAbsoluteUrl('projekkemanusian/admin')?>">
-				<div class="col-md-4 single-note-item all-category" style="">
+				</a>
+			</div>
+			<div class="col-md-4 single-note-item all-category">
+				<a href="<?= Yii::app()->createAbsoluteUrl('projekkemanusian/admin')?>">
 					<div class="card card-body">
 						<span class="side-stick"></span>
-						<h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Proyek Kemanusiaan</h5>
+						<p class="note-date font-12 text-muted mb-0">SIMKATMAWA</p>
+						<h5 class="note-title text-truncate w-75 mb-0">Proyek Kemanusiaan
+						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
 								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
 						</div>
-						<div class="d-flex align-items-center">
-							<span class="mr-1"><i class="far fa-star favourite-note"></i></span>
-							<span class="mr-1"><i class="far fa-trash-alt remove-note"></i></span>
-							<div class="ml-auto">
-								<div class="category-selector btn-group">
-									<a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#"
-										role="button" aria-haspopup="true" aria-expanded="true">
-										<div class="category">
-											<div class="category-business"></div>
-											<div class="category-social"></div>
-											<div class="category-important"></div>
-											<span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-										</div>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right category-menu">
-										<a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business</a>
-										<a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social</a>
-										<a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>
-											Important</a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-				</div>
-			</a>
-			<a href="<?= Yii::app()->createAbsoluteUrl('projekdesa/admin')?>">
-				<div class="col-md-4 single-note-item all-category" style="">
+				</a>
+			</div>
+			<div class="col-md-4 single-note-item all-category">
+				<a href="<?= Yii::app()->createAbsoluteUrl('projekdesa/admin')?>">
 					<div class="card card-body">
 						<span class="side-stick"></span>
-						<h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Proyek di Desa</h5>
+						<p class="note-date font-12 text-muted mb-0">SIMKATMAWA</p>
+						<h5 class="note-title text-truncate w-75 mb-0">Proyek di Desa
+						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
 								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
 						</div>
-						<div class="d-flex align-items-center">
-							<span class="mr-1"><i class="far fa-star favourite-note"></i></span>
-							<span class="mr-1"><i class="far fa-trash-alt remove-note"></i></span>
-							<div class="ml-auto">
-								<div class="category-selector btn-group">
-									<a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#"
-										role="button" aria-haspopup="true" aria-expanded="true">
-										<div class="category">
-											<div class="category-business"></div>
-											<div class="category-social"></div>
-											<div class="category-important"></div>
-											<span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-										</div>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right category-menu">
-										<a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business</a>
-										<a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social</a>
-										<a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>
-											Important</a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-				</div>
-			</a>
-			<a href="<?= Yii::app()->createAbsoluteUrl('wirausaha/admin')?>">
-				<div class="col-md-4 single-note-item all-category" style="">
+				</a>
+			</div>
+			<div class="col-md-4 single-note-item all-category">
+				<a href="<?= Yii::app()->createAbsoluteUrl('wirausaha/admin')?>">
 					<div class="card card-body">
 						<span class="side-stick"></span>
-						<h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Wirausaha</h5>
+						<p class="note-date font-12 text-muted mb-0">SIMKATMAWA</p>
+						<h5 class="note-title text-truncate w-75 mb-0">Wirausaha
+						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
 								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
 						</div>
-						<div class="d-flex align-items-center">
-							<span class="mr-1"><i class="far fa-star favourite-note"></i></span>
-							<span class="mr-1"><i class="far fa-trash-alt remove-note"></i></span>
-							<div class="ml-auto">
-								<div class="category-selector btn-group">
-									<a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#"
-										role="button" aria-haspopup="true" aria-expanded="true">
-										<div class="category">
-											<div class="category-business"></div>
-											<div class="category-social"></div>
-											<div class="category-important"></div>
-											<span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-										</div>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right category-menu">
-										<a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business</a>
-										<a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social</a>
-										<a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>
-											Important</a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-				</div>
-			</a>
-			<a href="<?= Yii::app()->createAbsoluteUrl('projekindependen/admin')?>">
-				<div class="col-md-4 single-note-item all-category" style="">
+				</a>
+			</div>
+			<div class="col-md-4 single-note-item all-category">
+				<a href="<?= Yii::app()->createAbsoluteUrl('projekindependen/admin')?>">
 					<div class="card card-body">
 						<span class="side-stick"></span>
-						<h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Studi/Proyek Independen</h5>
+						<p class="note-date font-12 text-muted mb-0">SIMKATMAWA</p>
+						<h5 class="note-title text-truncate w-75 mb-0">Studi/Proyek Independen
+						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
 								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
 						</div>
-						<div class="d-flex align-items-center">
-							<span class="mr-1"><i class="far fa-star favourite-note"></i></span>
-							<span class="mr-1"><i class="far fa-trash-alt remove-note"></i></span>
-							<div class="ml-auto">
-								<div class="category-selector btn-group">
-									<a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#"
-										role="button" aria-haspopup="true" aria-expanded="true">
-										<div class="category">
-											<div class="category-business"></div>
-											<div class="category-social"></div>
-											<div class="category-important"></div>
-											<span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-										</div>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right category-menu">
-										<a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business</a>
-										<a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social</a>
-										<a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>
-											Important</a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-				</div>
-			</a>
-			<a href="<?= Yii::app()->createAbsoluteUrl('rekognisi/admin')?>">
-				<div class="col-md-4 single-note-item all-category" style="">
+				</a>
+			</div>
+			<div class="col-md-4 single-note-item all-category">
+				<a href="<?= Yii::app()->createAbsoluteUrl('rekognisi/admin')?>">
 					<div class="card card-body">
 						<span class="side-stick"></span>
-						<h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Rekognisi/Non Lomba</h5>
+						<p class="note-date font-12 text-muted mb-0">SIMKATMAWA</p>
+						<h5 class="note-title text-truncate w-75 mb-0">Rekognisi/Non Lomba
+						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
 								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
 						</div>
-						<div class="d-flex align-items-center">
-							<span class="mr-1"><i class="far fa-star favourite-note"></i></span>
-							<span class="mr-1"><i class="far fa-trash-alt remove-note"></i></span>
-							<div class="ml-auto">
-								<div class="category-selector btn-group">
-									<a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#"
-										role="button" aria-haspopup="true" aria-expanded="true">
-										<div class="category">
-											<div class="category-business"></div>
-											<div class="category-social"></div>
-											<div class="category-important"></div>
-											<span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-										</div>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right category-menu">
-										<a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business</a>
-										<a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social</a>
-										<a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>
-											Important</a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-				</div>
-			</a>
-			<a href="<?= Yii::app()->createAbsoluteUrl('belanegara/admin')?>">
-				<div class="col-md-4 single-note-item all-category" style="">
+				</a>
+			</div>
+			<div class="col-md-4 single-note-item all-category">
+				<a href="<?= Yii::app()->createAbsoluteUrl('belanegara/admin')?>">
 					<div class="card card-body">
 						<span class="side-stick"></span>
-						<h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Bela Negara</h5>
+						<p class="note-date font-12 text-muted mb-0">SIMKATMAWA</p>
+						<h5 class="note-title text-truncate w-75 mb-0">Bela Negara
+						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
 								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
 						</div>
-						<div class="d-flex align-items-center">
-							<span class="mr-1"><i class="far fa-star favourite-note"></i></span>
-							<span class="mr-1"><i class="far fa-trash-alt remove-note"></i></span>
-							<div class="ml-auto">
-								<div class="category-selector btn-group">
-									<a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#"
-										role="button" aria-haspopup="true" aria-expanded="true">
-										<div class="category">
-											<div class="category-business"></div>
-											<div class="category-social"></div>
-											<div class="category-important"></div>
-											<span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-										</div>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right category-menu">
-										<a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business</a>
-										<a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social</a>
-										<a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>
-											Important</a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-				</div>
-			</a>
-			<a href="<?= Yii::app()->createAbsoluteUrl('ikatanalumni/admin')?>">
-				<div class="col-md-4 single-note-item all-category" style="">
+				</a>
+			</div>
+			<div class="col-md-4 single-note-item all-category">
+				<a href="<?= Yii::app()->createAbsoluteUrl('ikatanalumni/admin')?>">
 					<div class="card card-body">
 						<span class="side-stick"></span>
-						<h5 class="note-title text-truncate w-75 mb-0" data-noteheading="Book a Ticket for Movie">Ikatan Alumni</h5>
+						<p class="note-date font-12 text-muted mb-0">SIMKATMAWA</p>
+						<h5 class="note-title text-truncate w-75 mb-0">Ikatan Alumni
+						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
-								data-notecontent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus
 								porttitor aasfs. Integer posuere erat a ante venenatis.</p>
 						</div>
-						<div class="d-flex align-items-center">
-							<span class="mr-1"><i class="far fa-star favourite-note"></i></span>
-							<span class="mr-1"><i class="far fa-trash-alt remove-note"></i></span>
-							<div class="ml-auto">
-								<div class="category-selector btn-group">
-									<a class="nav-link dropdown-toggle category-dropdown label-group p-0" data-toggle="dropdown" href="#"
-										role="button" aria-haspopup="true" aria-expanded="true">
-										<div class="category">
-											<div class="category-business"></div>
-											<div class="category-social"></div>
-											<div class="category-important"></div>
-											<span class="more-options text-dark"><i class="icon-options-vertical"></i></span>
-										</div>
-									</a>
-									<div class="dropdown-menu dropdown-menu-right category-menu">
-										<a class="note-business badge-group-item badge-business dropdown-item position-relative category-business text-success"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>Business</a>
-										<a class="note-social badge-group-item badge-social dropdown-item position-relative category-social text-info"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i> Social</a>
-										<a class="note-important badge-group-item badge-important dropdown-item position-relative category-important text-danger"
-											href="javascript:void(0);"><i class="mdi mdi-checkbox-blank-circle-outline mr-1"></i>
-											Important</a>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-				</div>
-			</a>
+				</a>
+			</div>
 		</div>
 	</div>
 </div>

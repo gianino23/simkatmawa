@@ -9,20 +9,20 @@
 
 		<li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
 			<span class="hide-menu">Web Profil</span></li>
-		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?r=profil/admin"
+		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('profil/admin')?>"
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Profil</span></a></li>
-		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?r=regulasimhs/admin"
+		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('regulasimhs/admin')?>"
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
 					<marquee>Regulasi Bidang Kemahasiswaan</marquee>
 				</span></a></li>
 		<li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
 			<span class="hide-menu">DATA</span></li>
-		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="?r=user/admin"
+		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('user/admin')?>"
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Data Pengguna</span></a></li>
 		<!-- <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
 			<span class="hide-menu">SIMKATMAWA</span></li> -->
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-				href="?r=simkatmawa/menu" aria-expanded="false"><i class="mdi mdi-view-grid"></i><span
+				href="<?= Yii::app()->createAbsoluteUrl('simkatmawa/menu')?>" aria-expanded="false"><i class="mdi mdi-view-grid"></i><span
 					class="hide-menu">SIMKATMAWA</span></a></li>
 		<!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
 				href="?r=pertukaranpelajar/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
