@@ -10,6 +10,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Document title -->
     <title>POLO | The Multi-Purpose HTML5 Template</title>
+    <!-- Full Calendar files -->
+    <link href='<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/fullcalendar/fullcalendar.min.css' rel='stylesheet' /> 
     <!-- Stylesheets & Fonts -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/css/plugins.css" rel="stylesheet">
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/css/style.css" rel="stylesheet">
@@ -699,8 +701,26 @@
             <!-- end: Slide 2 -->
         </div>
         <!--end: Inspiro Slider -->
+        <section id="page-content" class="no-sidebar">
+            <div class="container">
+                <!-- Calendar -->
+                <div class="row mb-5">
+                    <div class="col-lg-6">
+                        <h4>Basic veiws</h4>
+                    </div>
+                    <!-- <div class="col-lg-6"><button type="button" class="btn btn-light btn-shadow float-right"><i class="icon-calendar"></i>
+                            Add Event</button></div> -->
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+                <!-- end: Calendar -->
+            </div>
+        </section>
         <!-- WELCOME -->
-        <section id="welcome" class="p-b-0">
+        <section id="welcome" class="p-b-0" style="display:none">
             <div class="container">
                 <div class="heading-text heading-section text-center m-b-40" data-animate="animate__fadeInUp">
                     <h2>WELCOME TO THE WORLD OF POLO</h2>
@@ -715,7 +735,7 @@
         </section>
         <!-- end: WELCOME -->
         <!-- WHAT WE DO -->
-        <section class="background-grey">
+        <section class="background-grey" style="display:none">
             <div class="container">
                 <div class="heading-text heading-section">
                     <h2>WHAT WE DO</h2>
@@ -763,7 +783,7 @@
         </section>
         <!-- END WHAT WE DO -->
         <!-- PORTFOLIO -->
-        <section class="p-b-0">
+        <section class="p-b-0" style="display:none">
             <div class="container">
                 <div class="heading-text heading-section">
                     <h2>Recent Work</h2>
@@ -891,7 +911,7 @@
         </section>
         <!-- end: PORTFOLIO -->
         <!-- SERVICES -->
-        <section>
+        <section style="display:none">
             <div class="container">
                 <div class="heading-text heading-section text-center">
                     <h2>SERVICES</h2>
@@ -994,7 +1014,7 @@
         </section>
         <!-- end: SERVICES -->
         <!-- COUNTERS -->
-        <section class="text-light p-t-150 p-b-150 " data-bg-parallax="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/parallax/12.jpg">
+        <section class="text-light p-t-150 p-b-150 " data-bg-parallax="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/parallax/12.jpg" style="display:none">
             <div class="bg-overlay"></div>
             <div class="container">
                 <div class="row">
@@ -1035,7 +1055,7 @@
         </section>
         <!-- end: COUNTERS -->
         <!-- BLOG -->
-        <section class="content background-grey">
+        <section class="content background-grey" style="display:none">
             <div class="container">
                 <div class="heading-text heading-section">
                     <h2>OUR BLOG</h2>
@@ -1113,7 +1133,7 @@
         </section>
         <!-- end: BLOG -->
         <!-- CLIENTS -->
-        <section class="p-t-60">
+        <section class="p-t-60" style="display:none">
             <div class="container">
                 <div class="heading-text heading-section text-center">
                     <h2>CLIENTS</h2>
@@ -1152,7 +1172,7 @@
         </section>
         <!-- end: CLIENTS -->
         <!-- TEAM -->
-        <section class="background-grey">
+        <section class="background-grey" style="display:none">
             <div class="container">
                 <div class="heading-text heading-section text-center">
                     <h2>MEET OUR TEAM</h2>
@@ -1363,6 +1383,69 @@
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/js/plugins.js"></script>
     <!--Template functions-->
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/js/functions.js"></script>
+    <script src='<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/moment/moment.min.js'></script>
+    <script src='<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/fullcalendar/fullcalendar.min.js'></script>
+    <script>
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,basicWeek,basicDay'
+            },
+            defaultDate: '2021-01-12',
+            navLinks: false, // can click day/week names to navigate views
+            editable: false,
+            eventLimit: true, // allow "more" link when too many events
+            events: [{
+                title: 'All Day Event',
+                start: '2021-01-01',
+            }, {
+                title: 'Long Event',
+                start: '2021-01-07',
+                end: '2021-01-10',
+                className: 'fc-event-primary'
+            }, {
+                id: 999,
+                title: 'Repeating Event',
+                start: '2021-01-09T16:00:00'
+            }, {
+                id: 999,
+                title: 'Repeating Event',
+                start: '2021-01-16T16:00:00'
+            }, {
+                title: 'Conference',
+                start: '2021-01-11',
+                end: '2021-01-13',
+                className: 'fc-event-warning',
+                description: "Lorem ipsum dolor sit incid idunt ut",
+            }, {
+                title: 'Meeting',
+                start: '2021-01-12T10:30:00',
+                end: '2021-01-12T12:30:00'
+            }, {
+                title: 'Lunch',
+                start: '2021-01-12T12:00:00'
+            }, {
+                title: 'Meeting',
+                start: '2021-01-12T14:30:00'
+            }, {
+                title: 'Happy Hour',
+                start: '2021-01-12T17:30:00'
+            }, {
+                title: 'Dinner',
+                start: '2021-01-12T20:00:00'
+            }, {
+                title: 'Birthday Party',
+                start: '2021-01-13T07:00:00',
+                className: 'fc-event-danger'
+            }, {
+                title: 'Click for Google',
+                url: 'http://google.com/',
+                start: '2021-01-28',
+                className: 'fc-event-info'
+            }]
+        });
+    </script>
 </body>
 
 </html>
