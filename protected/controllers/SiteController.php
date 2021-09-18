@@ -28,7 +28,7 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
 		if(Yii::app()->user->isGuest):
-		
+		$this->layout='public';
 		endif;
 		if(!Yii::app()->user->isGuest):
 		$this->layout='tema';
