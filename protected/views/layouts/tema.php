@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/favicon.png">
-    <title>Simkatmawa</title>
+    <title>SIMKATMAWA</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/xtremeadmin/" />
 	 <!-- This page plugin CSS -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
@@ -401,7 +401,7 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- User profile -->
-                <div class="user-profile position-relative" style="background: url(<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/background/user-info.jpg) no-repeat;">
+                <div class="user-profile position-relative" style="background: url(<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/background/user-info.jpg) no-repeat; display:none;">
                     <!-- User profile image -->
                     <div class="profile-img"> <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/users/profile.png" alt="user" class="w-100" /> </div>
                     <!-- User profile text-->
@@ -422,70 +422,7 @@
                 </div>
                 <!-- End User profile text-->
                 <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="nav-small-cap">
-                            <i class="mdi mdi-dots-horizontal"></i>
-                            <span class="hide-menu">Personal</span>
-                        </li>
-						 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=site/index" aria-expanded="false"><i class="mdi mdi-gauge"></i><span
-                                    class="hide-menu">Dashboard</span></a></li>
-									
-                       <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
-                            <span class="hide-menu">Web Profil</span></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=profil/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu">Profil</span></a></li>
-					   <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=regulasimhs/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu"><marquee>Regulasi Bidang Kemahasiswaan</marquee></span></a></li>
-                        <li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
-                            <span class="hide-menu">Pengguna</span></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=user/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu">Data Pengguna</span></a></li>
-						<li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
-                            <span class="hide-menu">Simkatmawa</span></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=pertukaranpelajar/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu"><marquee>Data Pertukaran Pelajar</marquee></span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=praktikkerja/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu"><marquee>Data Magang / Praktik Kerja</marquee></span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=mengajarsekolah/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu"><marquee>Data Mengajar di Sekolah</marquee></span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=penelitian/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu">Data Penelitian</span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=projekkemanusian/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu"><marquee>Data Projek Kemanusiaan</marquee></span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=projekdesa/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu"><marquee>Data Projek di Desa</marquee></span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=wirausaha/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu">Data Wirausaha</span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=projekindependen/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu"><marquee>Data Studi / Projek Independen</marquee></span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=rekognisi/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu"><marquee>Data Rekognisi / Non lomba</marquee></span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=belanegara/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu"><marquee>Data Bela Negara</marquee></span></a></li>
-						<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=ikatanalumni/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
-                                    class="hide-menu"><marquee>Ikatan Alumni</marquee></span></a></li>
-                       
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="?r=site/logout" aria-expanded="false"><i
-                                    class="mdi mdi-directions"></i><span class="hide-menu">Log Out</span></a></li>
-                    </ul>
-                </nav>
+                <?php require ('_sidebar.php'); ?>
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -496,7 +433,7 @@
                 <!-- item-->
                 <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
                 <!-- item-->
-                <a href="?r=site/logout" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+                <a href="<?= Yii::app()->createAbsoluteUrl('site/logout')?>" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-logout"></i></a>
             </div>
             <!-- End Bottom points-->
         </aside>
@@ -799,9 +736,9 @@
             NavbarBg: 'skin6', // You can change the Value to be skin1/skin2/skin3/skin4/skin5/skin6
             SidebarType: 'full', // You can change it full / mini-sidebar / iconbar / overlay
             SidebarColor: 'skin6', // You can change the Value to be skin1/skin2/skin3/skin4/skin5/skin6
-            SidebarPosition: false, // it can be true / false ( true means Fixed and false means absolute )
-            HeaderPosition: false, // it can be true / false ( true means Fixed and false means absolute )
-            BoxedLayout: true, // it can be true / false ( true means Boxed and false means Fluid ) 
+            SidebarPosition: true, // it can be true / false ( true means Fixed and false means absolute )
+            HeaderPosition: true, // it can be true / false ( true means Fixed and false means absolute )
+            BoxedLayout: false, // it can be true / false ( true means Boxed and false means Fluid ) 
         });
     });
     </script>

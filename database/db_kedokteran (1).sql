@@ -1,5 +1,5 @@
 /*
-SQLyog Ultimate v12.4.3 (64 bit)
+SQLyog Ultimate v12.5.1 (64 bit)
 MySQL - 10.1.38-MariaDB : Database - db_kedokteran
 *********************************************************************
 */
@@ -125,6 +125,36 @@ CREATE TABLE `t_fileprojekkemanusian` (
 
 /*Data for the table `t_fileprojekkemanusian` */
 
+/*Table structure for table `t_folder` */
+
+DROP TABLE IF EXISTS `t_folder`;
+
+CREATE TABLE `t_folder` (
+  `id_folder` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_folder` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id_folder`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+
+/*Data for the table `t_folder` */
+
+/*Table structure for table `t_galery` */
+
+DROP TABLE IF EXISTS `t_galery`;
+
+CREATE TABLE `t_galery` (
+  `id_galery` int(11) NOT NULL AUTO_INCREMENT,
+  `judul` varchar(200) DEFAULT NULL,
+  `deskripsi` text,
+  `folder` int(11) DEFAULT NULL,
+  `file` text,
+  `tgl_entry` date DEFAULT NULL,
+  PRIMARY KEY (`id_galery`),
+  KEY `folder` (`folder`),
+  CONSTRAINT `t_galery_ibfk_1` FOREIGN KEY (`folder`) REFERENCES `t_folder` (`id_folder`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `t_galery` */
+
 /*Table structure for table `t_ikatanalumni` */
 
 DROP TABLE IF EXISTS `t_ikatanalumni`;
@@ -135,7 +165,7 @@ CREATE TABLE `t_ikatanalumni` (
   `program_kerja` text,
   `luaran_kegiatan` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id_alumni`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_ikatanalumni` */
 
@@ -299,7 +329,7 @@ CREATE TABLE `t_regulasimhs` (
   `isi` text,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id_regulasimhs`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_regulasimhs` */
 
