@@ -15,7 +15,6 @@
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
 					<marquee>Regulasi Bidang Kemahasiswaan</marquee>
 				</span></a></li>
-<<<<<<< HEAD
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('folder/admin')?>"
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
 					Folder Galery
@@ -24,8 +23,7 @@
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
 					Galery
 				</span></a></li>
-=======
->>>>>>> b65b4f675ab1d18d015fccca24ea52b14a594d84
+
 		<li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
 			<span class="hide-menu">DATA</span></li>
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('user/admin')?>"
