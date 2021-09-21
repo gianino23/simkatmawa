@@ -70,9 +70,12 @@ class GaleryController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
+	
+
 	public function actionTambah()
 	{
 		$folder_name = 'upload/';
+		$sources = 'images/thumbnail/';
 		//$folder = $_POST['modal_namafolder'];
 if(!empty($_FILES)){
  $f = $_POST['modal_namafolder'];
@@ -85,7 +88,21 @@ if(!empty($_FILES)){
  $model->tgl_entry=date('Y-m-d');
  $temp_file = $_FILES['file']['tmp_name'];
  $location = $folder_name.$f.'/'. $_FILES['file']['name'];
+ $location1 = $sources.'/'. $_FILES['file']['name'];
+ 
  move_uploaded_file($temp_file, $location);
+ /*
+     $thumbnail = $sources.$temp_file;
+            list($width,$height) = getimagesize($location);
+			$thumb_width=256;
+			$thumb_height=144;
+            $thumb_create = imagecreatetruecolor($thumb_width,$thumb_height);
+            $source = imagecreatefromjpeg($folder_name.$f.'/'. $_FILES['file']['name']);
+
+            imagecopyresized($thumb_create,$source,0,0,0,0,$thumb_width,$thumb_height,$width,$height);
+*/
+copy($location,$location1);
+        
  $model->save();
 }
 
@@ -93,9 +110,11 @@ if(isset($_POST["name"])){
  $model=Galery::model()->FindByAttributes(array('judul'=>$_POST["name"]));
  $folders = Folder::model()->findByAttributes(array('id_folder'=>$model->folder));
  $filename = $folder_name.$folders->nama_folder.'/'.$_POST["name"];
+ $filename1 = $sources.$_POST["name"];
  $id=$model->id_galery;
  $model=$this->loadModel($id)->delete();
  unlink($filename);
+ unlink($filename1);
 
 }
 
