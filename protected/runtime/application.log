@@ -4971,3 +4971,20 @@ Stack trace:
 REQUEST_URI=/simkatmawa/index.php?r=galery/tambah
 in C:\xampp72\htdocs\simkatmawa\protected\controllers\GaleryController.php (111)
 in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/09/22 01:29:39 [error] [php] unlink(upload/Berita/156340.jpg): No such file or directory (C:\xampp72\htdocs\simkatmawa\protected\controllers\GaleryController.php:116)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): GaleryController->runAction()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): GaleryController->filterAccessControl()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): GaleryController->runActionWithFilters()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): GaleryController->run()
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=galery/tambah
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\GaleryController.php (116)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)

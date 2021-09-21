@@ -75,7 +75,7 @@ if(false !== $files){
    $output .= '
    <div class="col-md-3">
     <img src="'.$folder_name.$file.'" class="img-thumbnail" width="175" height="175" style="height:175px;" />
-    <button type="button" class="btn btn-link remove_image" id="'.$file.'">Remove</button>
+    <button type="button" class="btn btn-link remove_image" id="'.$file.'">Hapus Gambar</button>
    </div>
    ';
   }
