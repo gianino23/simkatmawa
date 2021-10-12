@@ -95,7 +95,9 @@
 		<li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
 			<span class="hide-menu">Web Profil</span></li>
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('childormawa/admin')?>"
-				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Ormawa</span></a></li>
+				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Profil Ormawa</span></a></li>
+		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('proker/admin')?>"
+				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Kalender Proker</span></a></li>
 		
 	</ul>
 </nav>

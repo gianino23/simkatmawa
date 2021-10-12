@@ -51,7 +51,7 @@ CREATE TABLE `t_childormawa` (
   KEY `ormawa_id` (`ormawa_id`),
   CONSTRAINT `t_childormawa_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE,
   CONSTRAINT `t_childormawa_ibfk_2` FOREIGN KEY (`ormawa_id`) REFERENCES `t_ormawa` (`id_ormawa`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_childormawa` */
 
@@ -401,7 +401,7 @@ DROP TABLE IF EXISTS `t_proker`;
 CREATE TABLE `t_proker` (
   `id_proker` int(11) NOT NULL AUTO_INCREMENT,
   `ormawa_id` int(11) NOT NULL,
-  `periode` year(4) NOT NULL,
+  `periode` int(4) NOT NULL,
   `jenis` int(11) NOT NULL COMMENT '1=spesifik,2=kondisional bulan,3=kondisional semua',
   `agenda` text NOT NULL,
   `waktu` datetime DEFAULT NULL,
@@ -409,10 +409,15 @@ CREATE TABLE `t_proker` (
   `keterangan` text,
   PRIMARY KEY (`id_proker`),
   KEY `ormawa_id` (`ormawa_id`),
-  CONSTRAINT `t_proker_ibfk_1` FOREIGN KEY (`ormawa_id`) REFERENCES `t_ormawa` (`id_ormawa`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `periode` (`periode`),
+  CONSTRAINT `t_proker_ibfk_1` FOREIGN KEY (`ormawa_id`) REFERENCES `t_ormawa` (`id_ormawa`) ON DELETE CASCADE,
+  CONSTRAINT `t_proker_ibfk_2` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_proker` */
+
+insert  into `t_proker`(`id_proker`,`ormawa_id`,`periode`,`jenis`,`agenda`,`waktu`,`status`,`keterangan`) values 
+(5,2,5,2,'1','2021-10-13 04:44:00',1,'-');
 
 /*Table structure for table `t_regulasimhs` */
 

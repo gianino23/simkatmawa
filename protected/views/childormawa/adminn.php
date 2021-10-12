@@ -4,7 +4,7 @@
 											foreach($periode as $per){
 											$re=$per->id;
 											}
-										 	$praker = Childormawa::model()->findAllByAttributes(array('periode'=>$re),array('order'=>'id ASC'));
+										 	$praker = Childormawa::model()->findAllByAttributes(array('ormawa_id'=>Yii::app()->user->ormawa,'periode'=>$re),array('order'=>'id ASC'));
 											 foreach ($praker as $p) {
 										 ?>
 									<tr>
