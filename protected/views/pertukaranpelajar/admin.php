@@ -77,7 +77,12 @@ $(document).ready(function() {
 								</thead>
 								<tbody id="modal-data">
 									<?php
-										 	$perjar = Pertukaranpelajar::model()->findAll(array('order'=>'id_perpel ASC'));
+											$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));														
+											$re=0;
+											foreach($periode as $per){
+											$re=$per->id;
+											}
+										 	$perjar = Pertukaranpelajar::model()->findAllByAttributes(array('periode'=>$re),array('order'=>'id_perpel ASC'));
 											 foreach ($perjar as $p) {
 										 ?>
 									<tr>
@@ -149,6 +154,23 @@ $(document).ready(function() {
                                         <div class="col-md-9 border-left pb-2 pt-2">
                                            <input type="number" class="form-control" name="modal_mhs" id="modal-mhs"
                                                 placeholder="Jumlah Mahasiswa" required>
+                                        </div>
+                                    </div>
+									<div class="form-group row align-items-center mb-0">
+                                        <label for="inputLevel3"
+                                            class="col-md-3 text-right control-label col-form-label">Periode</label>
+                                        <div class="col-md-9 border-left pb-2 pt-2">
+                                           <select name="modal_periode" id="modal-periode" class="form-control select2" style="width: 100%;" required>
+												<option value="" selected="selected">-- Pilih Satu --</option>
+												<?php
+												$periode=Periode::model()->findAllByAttributes(array('status'=>1));
+												foreach($periode as $per){
+												?>
+												<option value=<?php echo $per->id;?>><?php echo $per->periode;?></option>
+												<?php
+												}
+												?>
+										   </select>
                                         </div>
                                     </div>
 									<div class="form-group row align-items-center mb-0">
@@ -234,6 +256,7 @@ $(document).ready(function() {
   formData.append('modal_level', $('#modal-level').val());
   formData.append('modal_status', $('#modal-status').val());
   formData.append('modal_mhs', $('#modal-mhs').val());
+  formData.append('modal_periode', $('#modal-periode').val());
   $('.progress').show();
   
   $.ajax({
@@ -267,8 +290,9 @@ $(document).ready(function() {
     $('#modal-level').val('');
     $('#modal-statu').val('');
     $('#modal-mhs').val('');
+    $('#modal-periode').val('');
     $('#modal-fileupload').val('');
-    
+    	 location.reload();
    },
   error: function (xhr, ajaxOptions, thrownError) {
                   console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
@@ -298,12 +322,14 @@ $(document).ready(function() {
     modal_password: $('#edit-password').val(),
     modal_nama: $('#edit-nama').val(),
     modal_level: $('#edit-level').val(),
+    modal_periode: $('#edit-periode').val(),
    },
    success:function(response){
    // console.log(response);
     $("#modal-data").empty();
     $("#modal-data").html(response.data);
  $("#ModalEdit").modal('hide');
+ 	 location.reload();
    },
    error: function(e)
    {
@@ -337,6 +363,7 @@ $(document).ready(function() {
      $("#modal-data").empty();
      $("#modal-data").html(response.data);
      $("#modal_delete").modal('hide');
+	 	 location.reload();
     },
     error: function(e)
     {

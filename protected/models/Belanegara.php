@@ -10,6 +10,10 @@
  * @property integer $jml_mhs
  * @property integer $jml_dosen
  * @property string $luaran_kegiatan
+ * @property integer $periode
+ *
+ * The followings are the available model relations:
+ * @property TPeriode $periode0
  */
 class Belanegara extends CActiveRecord
 {
@@ -29,11 +33,12 @@ class Belanegara extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('jml_mhs, jml_dosen', 'numerical', 'integerOnly'=>true),
+			array('periode', 'required'),
+			array('jml_mhs, jml_dosen, periode', 'numerical', 'integerOnly'=>true),
 			array('nama_program, judul, luaran_kegiatan', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_belanegara, nama_program, judul, jml_mhs, jml_dosen, luaran_kegiatan', 'safe', 'on'=>'search'),
+			array('id_belanegara, nama_program, judul, jml_mhs, jml_dosen, luaran_kegiatan, periode', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -45,6 +50,7 @@ class Belanegara extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'periode0' => array(self::BELONGS_TO, 'TPeriode', 'periode'),
 		);
 	}
 
@@ -60,6 +66,7 @@ class Belanegara extends CActiveRecord
 			'jml_mhs' => 'Jml Mhs',
 			'jml_dosen' => 'Jml Dosen',
 			'luaran_kegiatan' => 'Luaran Kegiatan',
+			'periode' => 'Periode',
 		);
 	}
 
@@ -87,6 +94,7 @@ class Belanegara extends CActiveRecord
 		$criteria->compare('jml_mhs',$this->jml_mhs);
 		$criteria->compare('jml_dosen',$this->jml_dosen);
 		$criteria->compare('luaran_kegiatan',$this->luaran_kegiatan,true);
+		$criteria->compare('periode',$this->periode);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

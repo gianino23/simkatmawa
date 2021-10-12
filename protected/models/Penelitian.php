@@ -10,9 +10,11 @@
  * @property integer $jml_mhs
  * @property integer $jml_dosen
  * @property string $luaran_penelitian
+ * @property integer $periode
  *
  * The followings are the available model relations:
  * @property TFilepenilitian[] $tFilepenilitians
+ * @property TPeriode $periode0
  */
 class Penelitian extends CActiveRecord
 {
@@ -32,12 +34,13 @@ class Penelitian extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('jml_mhs, jml_dosen', 'numerical', 'integerOnly'=>true),
+			array('periode', 'required'),
+			array('jml_mhs, jml_dosen, periode', 'numerical', 'integerOnly'=>true),
 			array('nama_program, luaran_penelitian', 'length', 'max'=>200),
 			array('judul_penelitian', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_penelitian, nama_program, judul_penelitian, jml_mhs, jml_dosen, luaran_penelitian', 'safe', 'on'=>'search'),
+			array('id_penelitian, nama_program, judul_penelitian, jml_mhs, jml_dosen, luaran_penelitian, periode', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,6 +53,7 @@ class Penelitian extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'tFilepenilitians' => array(self::HAS_MANY, 'TFilepenilitian', 'penilitian_id'),
+			'periode0' => array(self::BELONGS_TO, 'TPeriode', 'periode'),
 		);
 	}
 
@@ -65,6 +69,7 @@ class Penelitian extends CActiveRecord
 			'jml_mhs' => 'Jml Mhs',
 			'jml_dosen' => 'Jml Dosen',
 			'luaran_penelitian' => 'Luaran Penelitian',
+			'periode' => 'Periode',
 		);
 	}
 
@@ -92,6 +97,7 @@ class Penelitian extends CActiveRecord
 		$criteria->compare('jml_mhs',$this->jml_mhs);
 		$criteria->compare('jml_dosen',$this->jml_dosen);
 		$criteria->compare('luaran_penelitian',$this->luaran_penelitian,true);
+		$criteria->compare('periode',$this->periode);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

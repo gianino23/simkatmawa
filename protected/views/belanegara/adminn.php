@@ -1,5 +1,10 @@
 <?php
-										 	$praker = Belanegara::model()->findAll(array('order'=>'id_belanegara ASC'));
+										 	$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));														
+											$re=0;
+											foreach($periode as $per){
+											$re=$per->id;
+											}
+											$praker = Belanegara::model()->findAllByAttributes(array('periode'=>$re),array('order'=>'id_belanegara ASC'));
 											 foreach ($praker as $p) {
 										 ?>
 									<tr>

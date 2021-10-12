@@ -86,6 +86,7 @@ class RekognisiController extends Controller
 		$model->jml_dosen = $_POST['modal_dosen'];
 		$model->luaran_kegiatan = $_POST['modal_luaran'];
 		$model->link_sosmed = $_POST['modal_link'];
+		$model->periode = $_POST['modal_periode'];
 		$model->save();
 		
 	

@@ -76,7 +76,12 @@ $(document).ready(function() {
 								</thead>
 								<tbody id="modal-data">
 									<?php
-										 	$praker = Projekindependen::model()->findAll(array('order'=>'id_independen ASC'));
+									$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));														
+											$re=0;
+											foreach($periode as $per){
+											$re=$per->id;
+											}
+										 	$praker = Projekindependen::model()->findAllByAttributes(array('periode'=>$re),array('order'=>'id_independen ASC'));
 											 foreach ($praker as $p) {
 										 ?>
 									<tr>
@@ -161,6 +166,23 @@ $(document).ready(function() {
                                                 placeholder="Luaran Kegiatan" required>
                                         </div>
                                     </div>
+									<div class="form-group row align-items-center mb-0">
+                                        <label for="inputLevel3"
+                                            class="col-md-3 text-right control-label col-form-label">Periode</label>
+                                        <div class="col-md-9 border-left pb-2 pt-2">
+                                           <select name="modal_periode" id="modal-periode" class="form-control select2" style="width: 100%;" required>
+												<option value="" selected="selected">-- Pilih Satu --</option>
+												<?php
+												$periode=Periode::model()->findAllByAttributes(array('status'=>1));
+												foreach($periode as $per){
+												?>
+												<option value=<?php echo $per->id;?>><?php echo $per->periode;?></option>
+												<?php
+												}
+												?>
+										   </select>
+                                        </div>
+                                    </div>
 								
                                 </div>
                             
@@ -230,6 +252,7 @@ $(document).ready(function() {
   formData.append('modal_mhs', $('#modal-mhs').val());
   formData.append('modal_dosen', $('#modal-dosen').val());
   formData.append('modal_luaran', $('#modal-luaran').val());
+  formData.append('modal_periode', $('#modal-periode').val());
   
   $.ajax({
 	
@@ -251,8 +274,9 @@ $(document).ready(function() {
     $('#modal-link').val('');
     $('#modal-mhs').val('');
     $('#modal-dosen').val('');
+    $('#modal-periode').val('');
     $('#modal-luaran').val('');
-    
+    location.reload();
    },
   error: function (xhr, ajaxOptions, thrownError) {
                   console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
@@ -306,7 +330,7 @@ $(document).ready(function() {
  <!-- Ajax untuk delete data--> 
 <script type="text/javascript">
     $('body').on('click','.delete_modal', function(e){
-  let id_projekindependen = $(this).data('id');
+  let id_independen = $(this).data('id');
   $('#modal_delete').modal('show', {backdrop: 'static'});
   $("#delete_link").on("click", function(){
    e.preventDefault();
@@ -314,13 +338,14 @@ $(document).ready(function() {
     method:  'POST', // untuk mendapatkan attribut method pada form
     url: '?r=projekindependen/hapus',  // untuk mendapatkan attribut action pada form
     data: { 
-     id_projekindependen: id_projekindependen
+     id_independen: id_independen
     },
     success:function(response){
 	//console.log(response);
      $("#modal-data").empty();
      $("#modal-data").html(response.data);
      $("#modal_delete").modal('hide');
+	 location.reload();
     },
     error: function(e)
     {

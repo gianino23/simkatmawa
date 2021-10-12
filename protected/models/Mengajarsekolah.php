@@ -9,9 +9,11 @@
  * @property string $lokasi
  * @property string $tanggal
  * @property integer $jml_mhs_pelaksana
+ * @property integer $periode
  *
  * The followings are the available model relations:
  * @property TFilemengajarsekolah[] $tFilemengajarsekolahs
+ * @property TPeriode $periode0
  */
 class Mengajarsekolah extends CActiveRecord
 {
@@ -31,13 +33,14 @@ class Mengajarsekolah extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('jml_mhs_pelaksana', 'numerical', 'integerOnly'=>true),
+			array('periode', 'required'),
+			array('jml_mhs_pelaksana, periode', 'numerical', 'integerOnly'=>true),
 			array('nama_program', 'length', 'max'=>200),
 			array('lokasi', 'length', 'max'=>100),
 			array('tanggal', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_mengajar, nama_program, lokasi, tanggal, jml_mhs_pelaksana', 'safe', 'on'=>'search'),
+			array('id_mengajar, nama_program, lokasi, tanggal, jml_mhs_pelaksana, periode', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -50,6 +53,7 @@ class Mengajarsekolah extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'tFilemengajarsekolahs' => array(self::HAS_MANY, 'TFilemengajarsekolah', 'mengajarsekolah_id'),
+			'periode0' => array(self::BELONGS_TO, 'TPeriode', 'periode'),
 		);
 	}
 
@@ -64,6 +68,7 @@ class Mengajarsekolah extends CActiveRecord
 			'lokasi' => 'Lokasi',
 			'tanggal' => 'Tanggal',
 			'jml_mhs_pelaksana' => 'Jml Mhs Pelaksana',
+			'periode' => 'Periode',
 		);
 	}
 
@@ -90,6 +95,7 @@ class Mengajarsekolah extends CActiveRecord
 		$criteria->compare('lokasi',$this->lokasi,true);
 		$criteria->compare('tanggal',$this->tanggal,true);
 		$criteria->compare('jml_mhs_pelaksana',$this->jml_mhs_pelaksana);
+		$criteria->compare('periode',$this->periode);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

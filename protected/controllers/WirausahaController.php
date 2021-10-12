@@ -86,6 +86,7 @@ class WirausahaController extends Controller
 		$model->jml_mhsterlibat = $_POST['modal_mhsterlibat'];
 		$model->jml_dosen = $_POST['modal_dosen'];
 		$model->luaran_kegiatan = $_POST['modal_luaran'];
+		$model->periode = $_POST['modal_periode'];
 		$model->save();
 		
 	

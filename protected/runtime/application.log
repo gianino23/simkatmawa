@@ -5349,3 +5349,167 @@ REQUEST_URI=/simkatmawa/index.php?r=periode/admin
 in C:\xampp72\htdocs\simkatmawa\protected\views\layouts\tema.php (258)
 in C:\xampp72\htdocs\simkatmawa\protected\controllers\PeriodeController.php (182)
 in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/10/12 14:33:28 [error] [php] Undefined index: periode (C:\xampp72\htdocs\simkatmawa\protected\controllers\PenelitianController.php:91)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): PenelitianController->runAction()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): PenelitianController->filterAccessControl()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): PenelitianController->runActionWithFilters()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): PenelitianController->run()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=penelitian/tambah
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\PenelitianController.php (91)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/10/12 14:52:50 [error] [exception.CHttpException.400] CHttpException: Request anda tidak valid in C:\xampp72\htdocs\simkatmawa\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('hapus')
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('projekindepende...')
+#10 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/simkatmawa/index.php?r=projekindependen/hapus
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=projekindependen/admin
+---
+2021/10/12 14:52:52 [error] [exception.CHttpException.400] CHttpException: Request anda tidak valid in C:\xampp72\htdocs\simkatmawa\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('hapus')
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('projekindepende...')
+#10 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/simkatmawa/index.php?r=projekindependen/hapus
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=projekindependen/admin
+---
+2021/10/12 14:52:59 [error] [exception.CHttpException.400] CHttpException: Request anda tidak valid in C:\xampp72\htdocs\simkatmawa\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('hapus')
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('projekindepende...')
+#10 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/simkatmawa/index.php?r=projekindependen/hapus
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=projekindependen/admin
+---
+2021/10/12 14:53:07 [error] [exception.CHttpException.400] CHttpException: Request anda tidak valid in C:\xampp72\htdocs\simkatmawa\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('hapus')
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('projekindepende...')
+#10 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/simkatmawa/index.php?r=projekindependen/hapus
+---
+2021/10/12 14:53:39 [error] [exception.CHttpException.400] CHttpException: Request anda tidak valid in C:\xampp72\htdocs\simkatmawa\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('hapus')
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('projekindepende...')
+#10 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/simkatmawa/index.php?r=projekindependen/hapus
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=projekindependen/admin
+---
+2021/10/12 14:53:39 [error] [exception.CHttpException.400] CHttpException: Request anda tidak valid in C:\xampp72\htdocs\simkatmawa\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('hapus')
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('projekindepende...')
+#10 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/simkatmawa/index.php?r=projekindependen/hapus
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=projekindependen/admin
+---
+2021/10/12 14:54:43 [error] [php] Undefined index: id_independen (C:\xampp72\htdocs\simkatmawa\protected\controllers\ProjekindependenController.php:140)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): ProjekindependenController->runAction()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): ProjekindependenController->filterAccessControl()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): ProjekindependenController->runActionWithFilters()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): ProjekindependenController->run()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=projekindependen/hapus
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\ProjekindependenController.php (140)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/10/12 15:08:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() gagal: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'db_kedokteran.t_ikatanalumni' doesn't exist. Statement SQL yang dijalankan: SHOW FULL COLUMNS FROM `t_ikatanalumni`.
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\IkatanalumniController.php (173)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/10/12 15:08:01 [error] [exception.CDbException] CDbException: Table "t_ikatanalumni" untuk kelas active record "Ikatanalumni" tidak ditemukan dalam database. in C:\xampp72\htdocs\simkatmawa\framework\db\ar\CActiveRecord.php:2390
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct(Object(Ikatanalumni))
+#1 C:\xampp72\htdocs\simkatmawa\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 C:\xampp72\htdocs\simkatmawa\protected\controllers\IkatanalumniController.php(173): CActiveRecord->__construct('search')
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\actions\CInlineAction.php(49): IkatanalumniController->actionAdmin()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): CController->run('admin')
+#13 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController('ikatanalumni/ad...')
+#14 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 C:\xampp72\htdocs\simkatmawa\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/simkatmawa/index.php?r=ikatanalumni/admin
+HTTP_REFERER=http://localhost/simkatmawa/index.php?r=simkatmawa/menu
+---

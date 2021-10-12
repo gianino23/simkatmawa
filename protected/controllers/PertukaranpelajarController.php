@@ -89,6 +89,7 @@ class PertukaranpelajarController extends Controller
 		$model->level = $_POST['modal_level'];
 		$model->status = $_POST['modal_status'];
 		$model->jml_mhs = $_POST['modal_mhs'];
+		$model->periode = $_POST['modal_periode'];
 		$model->save();
 		
 		$countfiles = count($_FILES['files']['name']);

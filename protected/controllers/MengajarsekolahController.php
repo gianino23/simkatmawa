@@ -88,6 +88,7 @@ class MengajarsekolahController extends Controller
 		$model->lokasi = $_POST['modal_lokasi'];
 		$model->tanggal = $_POST['modal_waktu'];
 		$model->jml_mhs_pelaksana = $_POST['modal_mhs'];
+		$model->periode = $_POST['modal_periode'];
 		$model->save();
 		
 		$countfiles = count($_FILES['files']['name']);

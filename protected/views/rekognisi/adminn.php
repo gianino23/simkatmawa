@@ -1,5 +1,10 @@
 <?php
-										 	$praker = Rekognisi::model()->findAll(array('order'=>'id_rekognisi ASC'));
+										 	$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));														
+											$re=0;
+											foreach($periode as $per){
+											$re=$per->id;
+											}
+											$praker = Rekognisi::model()->findAllByAttributes(array('periode'=>$re),array('order'=>'id_rekognisi ASC'));
 											 foreach ($praker as $p) {
 										 ?>
 									<tr>

@@ -12,6 +12,10 @@
  * @property integer $jml_mhsterlibat
  * @property integer $jml_dosen
  * @property string $luaran_kegiatan
+ * @property integer $periode
+ *
+ * The followings are the available model relations:
+ * @property TPeriode $periode0
  */
 class Wirausaha extends CActiveRecord
 {
@@ -31,13 +35,14 @@ class Wirausaha extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('jml_mhspelaksana, jml_mhsterlibat, jml_dosen', 'numerical', 'integerOnly'=>true),
+			array('periode', 'required'),
+			array('jml_mhspelaksana, jml_mhsterlibat, jml_dosen, periode', 'numerical', 'integerOnly'=>true),
 			array('nama_program, luaran_kegiatan', 'length', 'max'=>200),
 			array('bidang_usaha', 'length', 'max'=>100),
 			array('link_sosmed', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_wirausaha, nama_program, bidang_usaha, jml_mhspelaksana, link_sosmed, jml_mhsterlibat, jml_dosen, luaran_kegiatan', 'safe', 'on'=>'search'),
+			array('id_wirausaha, nama_program, bidang_usaha, jml_mhspelaksana, link_sosmed, jml_mhsterlibat, jml_dosen, luaran_kegiatan, periode', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,6 +54,7 @@ class Wirausaha extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'periode0' => array(self::BELONGS_TO, 'TPeriode', 'periode'),
 		);
 	}
 
@@ -66,6 +72,7 @@ class Wirausaha extends CActiveRecord
 			'jml_mhsterlibat' => 'Jml Mhsterlibat',
 			'jml_dosen' => 'Jml Dosen',
 			'luaran_kegiatan' => 'Luaran Kegiatan',
+			'periode' => 'Periode',
 		);
 	}
 
@@ -95,6 +102,7 @@ class Wirausaha extends CActiveRecord
 		$criteria->compare('jml_mhsterlibat',$this->jml_mhsterlibat);
 		$criteria->compare('jml_dosen',$this->jml_dosen);
 		$criteria->compare('luaran_kegiatan',$this->luaran_kegiatan,true);
+		$criteria->compare('periode',$this->periode);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

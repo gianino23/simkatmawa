@@ -77,7 +77,12 @@ $(document).ready(function() {
 								</thead>
 								<tbody id="modal-data">
 									<?php
-										 	$praker = Rekognisi::model()->findAll(array('order'=>'id_rekognisi ASC'));
+									$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));														
+											$re=0;
+											foreach($periode as $per){
+											$re=$per->id;
+											}
+										 	$praker = Rekognisi::model()->findAllByAttributes(array('periode'=>$re),array('order'=>'id_rekognisi ASC'));
 											 foreach ($praker as $p) {
 										 ?>
 									<tr>
@@ -171,6 +176,23 @@ $(document).ready(function() {
                                                 placeholder="Link Sosial Media Kegiatan" required>
                                         </div>
                                     </div>
+									<div class="form-group row align-items-center mb-0">
+                                        <label for="inputLevel3"
+                                            class="col-md-3 text-right control-label col-form-label">Periode</label>
+                                        <div class="col-md-9 border-left pb-2 pt-2">
+                                           <select name="modal_periode" id="modal-periode" class="form-control select2" style="width: 100%;" required>
+												<option value="" selected="selected">-- Pilih Satu --</option>
+												<?php
+												$periode=Periode::model()->findAllByAttributes(array('status'=>1));
+												foreach($periode as $per){
+												?>
+												<option value=<?php echo $per->id;?>><?php echo $per->periode;?></option>
+												<?php
+												}
+												?>
+										   </select>
+                                        </div>
+                                    </div>
 								
                                 </div>
                             
@@ -241,6 +263,7 @@ $(document).ready(function() {
   formData.append('modal_dosen', $('#modal-dosen').val());
   formData.append('modal_luaran', $('#modal-luaran').val());
   formData.append('modal_link', $('#modal-link').val());
+  formData.append('modal_periode', $('#modal-periode').val());
   
   $.ajax({
 	
@@ -264,7 +287,8 @@ $(document).ready(function() {
     $('#modal-dosen').val('');
     $('#modal-luaran').val('');
     $('#modal-link').val('');
-    
+    $('#modal-periode').val('');
+     location.reload();
    },
   error: function (xhr, ajaxOptions, thrownError) {
                   console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
@@ -333,6 +357,7 @@ $(document).ready(function() {
      $("#modal-data").empty();
      $("#modal-data").html(response.data);
      $("#modal_delete").modal('hide');
+	  location.reload();
     },
     error: function(e)
     {

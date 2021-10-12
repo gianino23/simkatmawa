@@ -89,6 +89,7 @@ class ProjekkemanusianController extends Controller
 		$model->jml_mhs = $_POST['modal_mhs'];
 		$model->jml_dosen = $_POST['modal_dosen'];
 		$model->luaran_kegiatan = $_POST['modal_luaran'];
+		$model->periode = $_POST['modal_periode'];
 		$model->save();
 		
 		$countfiles = count($_FILES['files']['name']);

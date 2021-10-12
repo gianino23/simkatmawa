@@ -9,9 +9,11 @@
  * @property string $level
  * @property string $status
  * @property integer $jml_mhs
+ * @property integer $periode
  *
  * The followings are the available model relations:
  * @property TFilepertukaranpelajar[] $tFilepertukaranpelajars
+ * @property TPeriode $periode0
  */
 class Pertukaranpelajar extends CActiveRecord
 {
@@ -31,12 +33,13 @@ class Pertukaranpelajar extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('jml_mhs', 'numerical', 'integerOnly'=>true),
+			array('periode', 'required'),
+			array('jml_mhs, periode', 'numerical', 'integerOnly'=>true),
 			array('nama_program', 'length', 'max'=>200),
 			array('level, status', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_perpel, nama_program, level, status, jml_mhs', 'safe', 'on'=>'search'),
+			array('id_perpel, nama_program, level, status, jml_mhs, periode', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,6 +52,7 @@ class Pertukaranpelajar extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'tFilepertukaranpelajars' => array(self::HAS_MANY, 'TFilepertukaranpelajar', 'pertukaranpelajar_id'),
+			'periode0' => array(self::BELONGS_TO, 'TPeriode', 'periode'),
 		);
 	}
 
@@ -63,6 +67,7 @@ class Pertukaranpelajar extends CActiveRecord
 			'level' => 'Level',
 			'status' => 'Status',
 			'jml_mhs' => 'Jml Mhs',
+			'periode' => 'Periode',
 		);
 	}
 
@@ -89,6 +94,7 @@ class Pertukaranpelajar extends CActiveRecord
 		$criteria->compare('level',$this->level,true);
 		$criteria->compare('status',$this->status,true);
 		$criteria->compare('jml_mhs',$this->jml_mhs);
+		$criteria->compare('periode',$this->periode);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -197,20 +197,7 @@
 					</div>
 				</a>
 			</div>
-			<div class="col-md-4 single-note-item all-category">
-				<a href="<?= Yii::app()->createAbsoluteUrl('ikatanalumni/admin')?>">
-					<div class="card card-body">
-						<span class="side-stick"></span>
-						<p class="note-date font-12 text-muted mb-0">SIMKATMAWA</p>
-						<h5 class="note-title text-truncate w-75 mb-0">Ikatan Alumni
-						</h5>
-						<div class="note-content">
-							<p class="note-inner-content text-muted"
-								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Deskripsi singkat bla bla bla 2 baris cukup aja.</p>
-						</div>
-					</div>
-				</a>
-			</div>
+			
 		</div>
 	</div>
 </div>

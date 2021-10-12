@@ -1,5 +1,10 @@
 <?php
-										 	$perjar = Pertukaranpelajar::model()->findAll(array('order'=>'id_perpel ASC'));
+											$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));														
+											$re=0;
+											foreach($periode as $per){
+											$re=$per->id;
+											}
+										 	$perjar = Pertukaranpelajar::model()->findAllByAttributes(array('periode'=>$re),array('order'=>'id_perpel ASC'));
 											 foreach ($perjar as $p) {
 										 ?>
 									<tr>

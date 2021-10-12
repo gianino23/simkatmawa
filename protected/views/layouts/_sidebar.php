@@ -36,7 +36,7 @@
 			<span class="hide-menu">SIMKATMAWA</span></li> -->
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
 				href="<?= Yii::app()->createAbsoluteUrl('simkatmawa/menu')?>" aria-expanded="false"><i class="mdi mdi-view-grid"></i><span
-					class="hide-menu">SIMKATMAWA</span></a></li>
+					class="hide-menu">SIMKIMAHAL</span></a></li>
 		<!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
 				href="?r=pertukaranpelajar/admin" aria-expanded="false"><i class="mdi mdi-account-box"></i><span
 					class="hide-menu">Pertukaran Pelajar</span></a></li> -->
