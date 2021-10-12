@@ -1,6 +1,6 @@
 <?php
 
-class ProfilController extends Controller
+class PeriodeController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -55,7 +55,7 @@ class ProfilController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
-	public function actionAdminn()
+		public function actionAdminn()
 	{
 		$this->renderpartial('adminn');
 	}
@@ -64,6 +64,7 @@ class ProfilController extends Controller
 	{
 		$this->renderpartial('update');
 	}
+	
 	public function actionDetail($id)
 	{
 		$this->render('detail',array(
@@ -77,11 +78,10 @@ class ProfilController extends Controller
 	 */
 	public function actionTambah()
 	{
-		$model=new Profil;
+		$model=new Periode;
 
-		$model->nama = $_POST['modal_nama'];
-		$model->isi = $_POST['modal_isi'];
-		$model->periode=$_POST['modal_periode'];
+		$model->periode = $_POST['modal_periode'];
+		$model->status = 0;
 		$model->save();
 		
 	
@@ -91,7 +91,7 @@ class ProfilController extends Controller
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('profil/adminn'), true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('periode/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
@@ -109,18 +109,17 @@ class ProfilController extends Controller
 	 */
 	public function actionEdit()
 	{
-		$modal_idprofil=$_POST['modal_idprofil'];
-		$model=Profil::model()->findByAttributes(array('id_profil'=>$modal_idprofil));
-		$model->nama=$_POST['modal_nama'];
-		$model->isi=$_POST['modal_isi'];
+		$modal_id=$_POST['modal_id'];
+		$model=Periode::model()->findByAttributes(array('id'=>$modal_id));
 		$model->periode=$_POST['modal_periode'];
+		$model->status=$_POST['modal_status'];
 		
 		if($model->save())
 		 {
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('profil/adminn'), true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('periode/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
@@ -138,7 +137,7 @@ class ProfilController extends Controller
 	 */
 	public function actionHapus()
 	{
-		$id=$_POST['id_profil'];
+		$id=$_POST['id'];
 		$model=$this->loadModel($id)->delete();
 		
 		
@@ -147,7 +146,7 @@ class ProfilController extends Controller
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('profil/adminn'), true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('periode/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
@@ -163,7 +162,7 @@ class ProfilController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Profil');
+		$dataProvider=new CActiveDataProvider('Periode');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -174,10 +173,10 @@ class ProfilController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Profil('search');
+		$model=new Periode('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Profil']))
-			$model->attributes=$_GET['Profil'];
+		if(isset($_GET['Periode']))
+			$model->attributes=$_GET['Periode'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -188,12 +187,12 @@ class ProfilController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Profil the loaded model
+	 * @return Periode the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Profil::model()->findByPk($id);
+		$model=Periode::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -201,11 +200,11 @@ class ProfilController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Profil $model the model to be validated
+	 * @param Periode $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='profil-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='periode-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

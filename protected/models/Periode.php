@@ -1,25 +1,21 @@
 <?php
 
 /**
- * This is the model class for table "t_profil".
+ * This is the model class for table "t_periode".
  *
- * The followings are the available columns in table 't_profil':
- * @property integer $id_profil
- * @property string $nama
- * @property string $isi
- * @property integer $periode
- *
- * The followings are the available model relations:
- * @property TPeriode $periode0
+ * The followings are the available columns in table 't_periode':
+ * @property integer $id
+ * @property string $periode
+ * @property integer $status
  */
-class Profil extends CActiveRecord
+class Periode extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 't_profil';
+		return 't_periode';
 	}
 
 	/**
@@ -30,13 +26,12 @@ class Profil extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('periode', 'required'),
-			array('periode', 'numerical', 'integerOnly'=>true),
-			array('nama', 'length', 'max'=>200),
-			array('isi', 'safe'),
+			array('periode, status', 'required'),
+			array('status', 'numerical', 'integerOnly'=>true),
+			array('periode', 'length', 'max'=>4),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_profil, nama, isi, periode', 'safe', 'on'=>'search'),
+			array('id, periode, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,7 +43,6 @@ class Profil extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'periode0' => array(self::BELONGS_TO, 'TPeriode', 'periode'),
 		);
 	}
 
@@ -58,10 +52,9 @@ class Profil extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_profil' => 'Id Profil',
-			'nama' => 'Nama',
-			'isi' => 'Isi',
+			'id' => 'ID',
 			'periode' => 'Periode',
+			'status' => 'Status',
 		);
 	}
 
@@ -83,10 +76,9 @@ class Profil extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_profil',$this->id_profil);
-		$criteria->compare('nama',$this->nama,true);
-		$criteria->compare('isi',$this->isi,true);
-		$criteria->compare('periode',$this->periode);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('periode',$this->periode,true);
+		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -97,7 +89,7 @@ class Profil extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Profil the static model class
+	 * @return Periode the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

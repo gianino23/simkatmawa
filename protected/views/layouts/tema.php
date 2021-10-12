@@ -19,7 +19,9 @@
 	
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/c3/c3.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/select2/dist/css/select2.min.css">
-    <!-- Custom CSS -->
+     <!-- This Page CSS -->
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/summernote/dist/summernote-bs4.css">
+	<!-- Custom CSS -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/dist/css/style.min.css" rel="stylesheet">
 	<!-- This Page CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/extra-libs/prism/prism.css">
@@ -249,6 +251,20 @@
                         <!-- ============================================================== -->
                         <!-- Comment -->
                         <!-- ============================================================== -->
+						
+                        <li class="nav-item dropdown">
+						<?php
+							$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));
+						?>
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" > Periode : 
+								<?php 
+								foreach($periode as $per){
+								echo $per->periode;
+								}
+								?>
+                                <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                            </a>
+						</li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
@@ -778,4 +794,5 @@
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/extra-libs/prism/prism.js"></script>
 	<!-- This Page JS -->
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/dropzone/dist/min/dropzone.min.js"></script>
+	 <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/summernote/dist/summernote-bs4.min.js"></script>
 </body>
