@@ -257,6 +257,7 @@
 							$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));
 						?>
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" > Periode : 
+							
 								<?php 
 								foreach($periode as $per){
 								echo $per->periode;
