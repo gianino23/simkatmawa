@@ -42,11 +42,27 @@ $users=User::model()->findByAttributes(array('kd_user'=>$kd_user));
                                         <label for="inputLevel3"
                                             class="col-md-3 text-right control-label col-form-label">Level</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                           <select name="modal_level" id="edit-level" class="form-control select2" style="width: 100%;" required>
+                                           <select name="modal_level" id="edit-level" class="select2 form-control costum-select" style="width: 100%;" required>
 												<option value="" selected="selected">-- Pilih Satu --</option>
-												<option value=1>Administrator</option>
-												<option value=2>Operator</option>
-												<option value=3>Non Operator</option>
+												<option value=1>Superadmin</option>
+												<option value=2>Ormawa</option>
+										   </select>
+                                        </div>
+                                    </div>
+									<div class="form-group row align-items-center mb-0">
+                                        <label for="inputOrmawa3"
+                                            class="col-md-3 text-right control-label col-form-label">Ormawa</label>
+                                        <div class="col-md-9 border-left pb-2 pt-2">
+                                           <select name="modal_ormawa" id="edit-ormawa" class="select2 form-control costum-select" style="width: 100%;" required>
+												<option value="" selected="selected">-- Pilih Satu --</option>
+												<?php
+												$periode=Ormawa::model()->findAll();
+												foreach($periode as $per){
+												?>
+												<option value=<?php echo $per->id_ormawa;?>><?php echo $per->nama_ormawa;?></option>
+												<?php
+												}
+												?>
 										   </select>
                                         </div>
                                     </div>

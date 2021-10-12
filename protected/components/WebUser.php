@@ -30,6 +30,13 @@ class WebUser extends CWebUser{
 			return $user->level;
 		return 100;
 	}
+	function getOrmawa()
+	{
+		$user=$this->loadUser();
+		if($user)
+			return $user->ormawa_id;
+		return 100;
+	}
 
 
     function getUn()

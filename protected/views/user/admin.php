@@ -85,18 +85,29 @@ $(document).ready(function() {
 										<td>
 										<?php
 												if(($u->level)==1){
-													echo "Administrator";
+													echo "Superadmin";
 												}elseif(($u->level)==2){
-													echo "Operator";
-												}elseif(($u->level)==3){
-													echo "Non Operator";
+													echo "Ormawa";
 												}
 										?>
 										</td>
+										<?php
+										if(($u->level)!=1){
+										$e=1;
+										?>
 										<td align="center">
 											<a href="javascript:void(0)" class='open_modal' id='<?php echo  $u->kd_user; ?>'><i class="fas fa-edit"></i></a>
 											<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $u->kd_user; ?>'><i class="fas fa-trash-alt"></i></a>
 										</td>
+										<?php
+										}else{
+										?>
+										<td align="center">
+										<a href="javascript:void(0)" class='open_modal' id='<?php echo  $u->kd_user; ?>'><i class="fas fa-edit"></i></a>
+										</td>
+										<?php
+										}
+										?>
 									</tr>
 									<?php } ?>
 								</tbody>
@@ -150,9 +161,25 @@ $(document).ready(function() {
                                         <div class="col-md-9 border-left pb-2 pt-2">
                                            <select name="modal_level" id="modal-level" class="select2 form-control costum-select" style="width: 100%;" required>
 												<option value="" selected="selected">-- Pilih Satu --</option>
-												<option value=1>Administrator</option>
-												<option value=2>Operator</option>
-												<option value=3>Non Operator</option>
+												<option value=1>Superadmin</option>
+												<option value=2>Ormawa</option>
+										   </select>
+                                        </div>
+                                    </div>
+									<div class="form-group row align-items-center mb-0">
+                                        <label for="inputLevel3"
+                                            class="col-md-3 text-right control-label col-form-label">Ormawa</label>
+                                        <div class="col-md-9 border-left pb-2 pt-2">
+                                           <select name="modal_ormawa" id="modal-ormawa" class="form-control select2" style="width: 100%;" required>
+												<option value="" selected="selected">-- Pilih Satu --</option>
+												<?php
+												$periode=Ormawa::model()->findAll();
+												foreach($periode as $per){
+												?>
+												<option value=<?php echo $per->id_ormawa;?>><?php echo $per->nama_ormawa;?></option>
+												<?php
+												}
+												?>
 										   </select>
                                         </div>
                                     </div>
@@ -193,5 +220,129 @@ $(document).ready(function() {
     </div>
   </div>
 </div>
-<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/user.js'); ?>
+<script>
+$(document).ready(function () {
+  $('#mytable').on('click', '.open_modal', function (e) {
+    var m = $(this).attr("id");
+    $.ajax({
+      url: "?r=user/update",
+      type: "GET",
+      data: {
+        kd_user: m,
+      },
+      success: function (ajaxData) {
+        $("#ModalEdit").html(ajaxData);
+        $("#ModalEdit").modal('show', {
+          backdrop: 'true'
+        });
+      }
+    });
+  });
+
+  $("#form-save").on('submit', function (e) {
+    e.preventDefault();
+    $.ajax({
+        method: $(this).attr("method"), // untuk mendapatkan attribut method pada form
+        url: $(this).attr("action"), // untuk mendapatkan attribut action pada form
+        data: {
+          modal_username: $('#modal-username').val(),
+          modal_password: $('#modal-password').val(),
+          modal_nama: $('#modal-nama').val(),
+          modal_level: $('#modal-level').val(),
+          modal_ormawa: $('#modal-ormawa').val(),
+
+        },
+        success: function (response) {
+          //console.log(response);
+          $("#modal-data").empty();
+          $("#modal-data").html(response.data);
+          $("#tambahData").modal('hide');
+          $('#modal-username').val('');
+          $('#modal-password').val('');
+          $('#modal-nama').val('');
+          $('#modal-ormawa').val('');
+          $('#modal-level').val('').change();
+          $('#mytable').DataTable();
+		   location.reload();
+        },
+        error: function (e) {
+          // Error function here
+        },
+        beforeSend: function (b) {
+          // Before function here
+        }
+      })
+      .done(function (d) {
+        // When ajax finished
+
+      });
+  });
+
+  $('body').on('submit', '#form-update', function (e) {
+    e.preventDefault();
+    $.ajax({
+        method: $(this).attr("method"), // untuk mendapatkan attribut method pada form
+        url: $(this).attr("action"), // untuk mendapatkan attribut action pada form
+        data: {
+          modal_kduser: $('#edit-id').val(),
+          modal_username: $('#edit-username').val(),
+          modal_password: $('#edit-password').val(),
+          modal_nama: $('#edit-nama').val(),
+          modal_level: $('#edit-level').val(),
+          modal_ormawa: $('#edit-ormawa').val(),
+        },
+        success: function (response) {
+          // console.log(response);
+          $("#modal-data").empty();
+          $("#modal-data").html(response.data);
+          $("#ModalEdit").modal('hide');
+		   location.reload();
+        },
+        error: function (e) {
+          // Error function here
+        },
+        beforeSend: function (b) {
+          // Before function here
+        }
+      })
+      .done(function (d) {
+        // When ajax finished
+      });
+  });
+
+  $('body').on('click', '.delete_modal', function (e) {
+    let kd_user = $(this).data('id');
+    $('#modal_delete').modal('show', {
+      backdrop: 'static'
+    });
+    $("#delete_link").on("click", function () {
+      e.preventDefault();
+      $.ajax({
+          method: 'POST', // untuk mendapatkan attribut method pada form
+          url: '?r=user/hapus', // untuk mendapatkan attribut action pada form
+          data: {
+            kd_user: kd_user
+          },
+          success: function (response) {
+            //console.log(response);
+            $("#modal-data").empty();
+            $("#modal-data").html(response.data);
+            $("#modal_delete").modal('hide');
+			 location.reload();
+          },
+          error: function (e) {
+            // Error function here
+          },
+          beforeSend: function (b) {
+            // Before function here
+          }
+        })
+        .done(function (d) {
+          // When ajax finished
+
+        });
+    });
+  });
+});
+</script>
 		

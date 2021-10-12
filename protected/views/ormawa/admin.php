@@ -8,7 +8,7 @@ $(document).ready(function() {
 		<h3 class="text-themecolor mb-0">SIMKATMAWA</h3>
 		<ol class="breadcrumb mb-0">
 			<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-			<li class="breadcrumb-item active">Profil</li>
+			<li class="breadcrumb-item active">Ormawa</li>
 		</ol>
 	</div>
 	<!--
@@ -52,8 +52,8 @@ $(document).ready(function() {
 				<div class="row">
 					<div class="col-12">
 						<div class="float-left">
-							<h3 class="card-title">Halaman Profil</h3>
-							<h6 class="card-subtitle">Deskripsi Halaman Profil</h6>
+							<h3 class="card-title">Halaman Ormawa</h3>
+							<h6 class="card-subtitle">Deskripsi Halaman Ormawa </h6>
 						</div>
 						<div class="float-right">
 						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
@@ -64,29 +64,22 @@ $(document).ready(function() {
 							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
 								<thead>
 									<tr>
-										<th>Nama Profil</th>
-										<th>Isi Profil</th>
+										<th>Ormawa</th>
 										<th>Aksi</th>
 										
 									</tr>
 								</thead>
 								<tbody id="modal-data">
 									<?php
-									
-											$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));														
-											$re=0;
-											foreach($periode as $per){
-											$re=$per->id;
-											}
-										 	$praker = Profil::model()->findAllByAttributes(array('periode'=>$re),array('order'=>'id_profil ASC'));
+										 	$praker = Ormawa::model()->findAll(array('order'=>'id_ormawa ASC'));
 											 foreach ($praker as $p) {
 										 ?>
 									<tr>
-										<td><?= $p->nama; ?></td>
-										<td><?= $p->isi; ?></td>
+										<td><?= $p->nama_ormawa; ?></td>
+										
 										<td align="center">
-										<a href="javascript:void(0)" class='open_modal' id='<?php echo  $p->id_profil; ?>'><i class="fas fa-edit"></i></a>
-										<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id_profil; ?>'><i class="fas fa-trash-alt"></i></a>	
+										<a href="javascript:void(0)" class='open_modal' id='<?php echo  $p->id_ormawa; ?>'><i class="fas fa-edit"></i></a>
+										<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id_ormawa; ?>'><i class="fas fa-trash-alt"></i></a>	
 										</td>
 									</tr>
 									<?php } ?>
@@ -101,47 +94,22 @@ $(document).ready(function() {
 </div>
 							<div id="tambahData" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                                    <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title" id="myModalLabel">Tambah Data Profil</h4>
+                                                <h4 class="modal-title" id="myModalLabel">Tambah Data Ormawa</h4>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-hidden="true">×</button>
                                             </div>
                                             <div class="modal-body">
-                                <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=profil/tambah" method="POST" >
+                                <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=ormawa/tambah" method="POST" >
                                 <div class="card-body">
                                     <div class="form-group row align-items-center mb-0">
                                         <label for="inputUsername3"
-                                            class="col-md-3 text-right control-label col-form-label">Nama Profil</label>
+                                            class="col-md-3 text-right control-label col-form-label">Nama Ormawa</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="text" class="summernote" name="modal_nama" id="modal-nama"
-                                                placeholder="Nama Profil" required>
-                                        </div>
-                                    </div>
-									<div class="form-group row align-items-center mb-0">
-                                        <label for="inputPassword3"
-                                            class="col-md-3 text-right control-label col-form-label">Isi Profil</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-                                           <textarea cols="3" rows="3" class="summernote" name="modal_isi" id="modal-isi"
-                                                placeholder="Isi Profil" required></textarea>
-                                        </div>
-                                    </div>
-									<div class="form-group row align-items-center mb-0">
-                                        <label for="inputLevel3"
-                                            class="col-md-3 text-right control-label col-form-label">Periode</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-                                           <select name="modal_periode" id="modal-periode" class="form-control select2" style="width: 100%;" required>
-												<option value="" selected="selected">-- Pilih Satu --</option>
-												<?php
-												$periode=Periode::model()->findAllByAttributes(array('status'=>1));
-												foreach($periode as $per){
-												?>
-												<option value=<?php echo $per->id;?>><?php echo $per->periode;?></option>
-												<?php
-												}
-												?>
-										   </select>
+                                            <input type="text" class="form-control" name="modal_nama" id="modal-nama"
+                                                placeholder="Nama Ormawa" required>
                                         </div>
                                     </div>
 								
@@ -188,9 +156,9 @@ $(document).ready(function() {
    $('#mytable').on('click', '.open_modal', function(e){
        var m = $(this).attr("id");
      $.ajax({
-          url: "?r=profil/update",
+          url: "?r=ormawa/update",
           type: "GET",
-          data : {id_profil: m,},
+          data : {id_ormawa: m,},
           success: function (ajaxData){
             $("#ModalEdit").html(ajaxData);
             $("#ModalEdit").modal('show',{backdrop: 'true'});
@@ -208,8 +176,6 @@ $(document).ready(function() {
   let formData = new FormData();
  
   formData.append('modal_nama', $('#modal-nama').val());
-  formData.append('modal_isi', $('#modal-isi').val());
-  formData.append('modal_periode', $('#modal-periode').val());
   
   $.ajax({
 	
@@ -227,8 +193,6 @@ $(document).ready(function() {
     $("#modal-data").html(response.data);
     $("#tambahData").modal('hide');
     $('#modal-nama').val('');
-    $('#modal-isi').val('');
-    $('#modal-periode').val('');
     location.reload();
    },
   error: function (xhr, ajaxOptions, thrownError) {
@@ -254,17 +218,15 @@ $(document).ready(function() {
    method:  $(this).attr("method"), // untuk mendapatkan attribut method pada form
    url: $(this).attr("action"),  // untuk mendapatkan attribut action pada form
    data: { 
-    modal_idprofil: $('#edit-idprofil').val(),
+    modal_id: $('#edit-id').val(),
     modal_nama: $('#edit-nama').val(),
-    modal_isi: $('#edit-isi').val(),
-    modal_periode: $('#edit-periode').val(),
    },
    success:function(response){
    // console.log(response);
     $("#modal-data").empty();
     $("#modal-data").html(response.data);
- $("#ModalEdit").modal('hide');
- location.reload();
+	$("#ModalEdit").modal('hide');
+	 location.reload();
    },
    error: function(e)
    {
@@ -283,22 +245,22 @@ $(document).ready(function() {
  <!-- Ajax untuk delete data--> 
 <script type="text/javascript">
     $('body').on('click','.delete_modal', function(e){
-  let id_profil = $(this).data('id');
+  let id_ormawa = $(this).data('id');
   $('#modal_delete').modal('show', {backdrop: 'static'});
   $("#delete_link").on("click", function(){
    e.preventDefault();
    $.ajax({
     method:  'POST', // untuk mendapatkan attribut method pada form
-    url: '?r=profil/hapus',  // untuk mendapatkan attribut action pada form
+    url: '?r=ormawa/hapus',  // untuk mendapatkan attribut action pada form
     data: { 
-     id_profil: id_profil
+     id_ormawa: id_ormawa
     },
     success:function(response){
 	//console.log(response);
      $("#modal-data").empty();
      $("#modal-data").html(response.data);
      $("#modal_delete").modal('hide');
-	 location.reload();
+	  location.reload();
     },
     error: function(e)
     {
@@ -315,5 +277,4 @@ $(document).ready(function() {
   });
  });
 </script>
-
 		

@@ -1,41 +1,28 @@
 <?php
 
 /**
- * This is the model class for table "t_user".
+ * This is the model class for table "t_childormawa".
  *
- * The followings are the available columns in table 't_user':
- * @property integer $kd_user
- * @property string $username
- * @property string $password
- * @property string $nama
- * @property integer $level
+ * The followings are the available columns in table 't_childormawa':
+ * @property integer $id
  * @property integer $ormawa_id
+ * @property string $profil
+ * @property string $struktur_organisasi
+ * @property string $visi_misi
+ * @property integer $periode
  *
  * The followings are the available model relations:
+ * @property TPeriode $periode0
  * @property TOrmawa $ormawa
  */
-class User extends CActiveRecord
+class Childormawa extends CActiveRecord
 {
-	public $password_lama;
-    public $password_baru;
-    public $ulang_password_baru;
-	
-	 protected function afterValidate() {
-        parent::afterValidate();
-
-        //melakukan enkripsi pada data yang di input
-        $this->password = $this->encrypt($this->password);
-    }
-	
-	  public function encrypt($value){
-        return md5($value);
-    }
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 't_user';
+		return 't_childormawa';
 	}
 
 	/**
@@ -46,12 +33,12 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('level, ormawa_id', 'numerical', 'integerOnly'=>true),
-			array('username, nama', 'length', 'max'=>100),
-			array('password', 'length', 'max'=>32),
+			array('ormawa_id, profil, periode', 'required'),
+			array('ormawa_id, periode', 'numerical', 'integerOnly'=>true),
+			array('struktur_organisasi, visi_misi', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('kd_user, username, password, nama, level, ormawa_id', 'safe', 'on'=>'search'),
+			array('id, ormawa_id, profil, struktur_organisasi, visi_misi, periode', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,6 +50,7 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'periode0' => array(self::BELONGS_TO, 'TPeriode', 'periode'),
 			'ormawa' => array(self::BELONGS_TO, 'TOrmawa', 'ormawa_id'),
 		);
 	}
@@ -73,12 +61,12 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'kd_user' => 'Kd User',
-			'username' => 'Username',
-			'password' => 'Password',
-			'nama' => 'Nama',
-			'level' => 'Level',
+			'id' => 'ID',
 			'ormawa_id' => 'Ormawa',
+			'profil' => 'Profil',
+			'struktur_organisasi' => 'Struktur Organisasi',
+			'visi_misi' => 'Visi Misi',
+			'periode' => 'Periode',
 		);
 	}
 
@@ -100,12 +88,12 @@ class User extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('kd_user',$this->kd_user);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('password',$this->password,true);
-		$criteria->compare('nama',$this->nama,true);
-		$criteria->compare('level',$this->level);
+		$criteria->compare('id',$this->id);
 		$criteria->compare('ormawa_id',$this->ormawa_id);
+		$criteria->compare('profil',$this->profil,true);
+		$criteria->compare('struktur_organisasi',$this->struktur_organisasi,true);
+		$criteria->compare('visi_misi',$this->visi_misi,true);
+		$criteria->compare('periode',$this->periode);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -116,7 +104,7 @@ class User extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return User the static model class
+	 * @return Childormawa the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

@@ -1,41 +1,25 @@
 <?php
 
 /**
- * This is the model class for table "t_user".
+ * This is the model class for table "t_ormawa".
  *
- * The followings are the available columns in table 't_user':
- * @property integer $kd_user
- * @property string $username
- * @property string $password
- * @property string $nama
- * @property integer $level
- * @property integer $ormawa_id
+ * The followings are the available columns in table 't_ormawa':
+ * @property integer $id_ormawa
+ * @property string $nama_ormawa
  *
  * The followings are the available model relations:
- * @property TOrmawa $ormawa
+ * @property TChildormawa[] $tChildormawas
+ * @property TProker[] $tProkers
+ * @property TUser[] $tUsers
  */
-class User extends CActiveRecord
+class Ormawa extends CActiveRecord
 {
-	public $password_lama;
-    public $password_baru;
-    public $ulang_password_baru;
-	
-	 protected function afterValidate() {
-        parent::afterValidate();
-
-        //melakukan enkripsi pada data yang di input
-        $this->password = $this->encrypt($this->password);
-    }
-	
-	  public function encrypt($value){
-        return md5($value);
-    }
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 't_user';
+		return 't_ormawa';
 	}
 
 	/**
@@ -46,12 +30,10 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('level, ormawa_id', 'numerical', 'integerOnly'=>true),
-			array('username, nama', 'length', 'max'=>100),
-			array('password', 'length', 'max'=>32),
+			array('nama_ormawa', 'required'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('kd_user, username, password, nama, level, ormawa_id', 'safe', 'on'=>'search'),
+			array('id_ormawa, nama_ormawa', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,7 +45,9 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'ormawa' => array(self::BELONGS_TO, 'TOrmawa', 'ormawa_id'),
+			'tChildormawas' => array(self::HAS_MANY, 'TChildormawa', 'ormawa_id'),
+			'tProkers' => array(self::HAS_MANY, 'TProker', 'ormawa_id'),
+			'tUsers' => array(self::HAS_MANY, 'TUser', 'ormawa_id'),
 		);
 	}
 
@@ -73,12 +57,8 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'kd_user' => 'Kd User',
-			'username' => 'Username',
-			'password' => 'Password',
-			'nama' => 'Nama',
-			'level' => 'Level',
-			'ormawa_id' => 'Ormawa',
+			'id_ormawa' => 'Id Ormawa',
+			'nama_ormawa' => 'Nama Ormawa',
 		);
 	}
 
@@ -100,12 +80,8 @@ class User extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('kd_user',$this->kd_user);
-		$criteria->compare('username',$this->username,true);
-		$criteria->compare('password',$this->password,true);
-		$criteria->compare('nama',$this->nama,true);
-		$criteria->compare('level',$this->level);
-		$criteria->compare('ormawa_id',$this->ormawa_id);
+		$criteria->compare('id_ormawa',$this->id_ormawa);
+		$criteria->compare('nama_ormawa',$this->nama_ormawa,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -116,7 +92,7 @@ class User extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return User the static model class
+	 * @return Ormawa the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

@@ -41,13 +41,17 @@ DROP TABLE IF EXISTS `t_childormawa`;
 
 CREATE TABLE `t_childormawa` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ormas_id` int(11) NOT NULL,
+  `ormawa_id` int(11) NOT NULL,
   `profil` text NOT NULL,
   `struktur_organisasi` text,
   `visi_misi` text,
   `periode` int(4) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`),
+  KEY `periode` (`periode`),
+  KEY `ormawa_id` (`ormawa_id`),
+  CONSTRAINT `t_childormawa_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `t_childormawa_ibfk_2` FOREIGN KEY (`ormawa_id`) REFERENCES `t_ormawa` (`id_ormawa`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_childormawa` */
 
@@ -217,13 +221,30 @@ DROP TABLE IF EXISTS `t_ormawa`;
 CREATE TABLE `t_ormawa` (
   `id_ormawa` int(11) NOT NULL AUTO_INCREMENT,
   `nama_ormawa` text NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_ormawa`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `t_ormawa_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `t_user` (`kd_user`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id_ormawa`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_ormawa` */
+
+insert  into `t_ormawa`(`id_ormawa`,`nama_ormawa`) values 
+(2,'BEM'),
+(3,'DPM'),
+(4,'HIMA PSPD'),
+(5,'HIMA PSIK'),
+(6,'HIMA PSIKOLOGI'),
+(7,'HIMA KESMAS'),
+(8,'ARBOR VITAE'),
+(9,'KSI-ASYIFA'),
+(10,'TENSI'),
+(11,'TBM-CS'),
+(12,'HIPOCAMPUS'),
+(13,'CIMSA'),
+(14,'MEDIS'),
+(15,'FSIM'),
+(16,'MFC'),
+(17,'MUB'),
+(18,'MEDICARTES'),
+(19,'IKA');
 
 /*Table structure for table `t_penelitian` */
 
@@ -379,14 +400,16 @@ DROP TABLE IF EXISTS `t_proker`;
 
 CREATE TABLE `t_proker` (
   `id_proker` int(11) NOT NULL AUTO_INCREMENT,
-  `ormas_id` int(11) NOT NULL,
+  `ormawa_id` int(11) NOT NULL,
   `periode` year(4) NOT NULL,
   `jenis` int(11) NOT NULL COMMENT '1=spesifik,2=kondisional bulan,3=kondisional semua',
   `agenda` text NOT NULL,
   `waktu` datetime DEFAULT NULL,
   `status` int(1) NOT NULL,
   `keterangan` text,
-  PRIMARY KEY (`id_proker`)
+  PRIMARY KEY (`id_proker`),
+  KEY `ormawa_id` (`ormawa_id`),
+  CONSTRAINT `t_proker_ibfk_1` FOREIGN KEY (`ormawa_id`) REFERENCES `t_ormawa` (`id_ormawa`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_proker` */
@@ -455,30 +478,33 @@ CREATE TABLE `t_user` (
   `password` varchar(32) DEFAULT NULL,
   `nama` varchar(100) DEFAULT NULL,
   `level` int(11) DEFAULT NULL,
-  PRIMARY KEY (`kd_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
+  `ormawa_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`kd_user`),
+  KEY `ormawa_id` (`ormawa_id`),
+  CONSTRAINT `t_user_ibfk_1` FOREIGN KEY (`ormawa_id`) REFERENCES `t_ormawa` (`id_ormawa`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_user` */
 
-insert  into `t_user`(`kd_user`,`username`,`password`,`nama`,`level`) values 
-(33,'admin','21232f297a57a5a743894a0e4a801fc3','administrator',1),
-(34,'bem','d3c654d99bdfaf101e012bfe2810679e','bem',2),
-(35,'dpm','49677814b41e9ff6cdc497c85472a4ac','DPM',2),
-(36,'hima pspd','31d828b1b3e8b94bcd4b1bb3cd68567d','HIMA PSPD',2),
-(37,'hima psik','0c726d2750e18a114ddce8dd0f018d4c','HIMA PSIK',2),
-(38,'hima psikologi','9afbe67b7305535ebfc998103c71ce7e','HIMA PSIKOLOGI',2),
-(39,'hima kesmas','71fe3431c58060add4f13cbbaee7a7f3','HIMA KESMAS',2),
-(40,'arbor vitae','14f9a8287e5c210d69307db88ede11b7','ARBOR VITAE',2),
-(41,'ksi-asyifa','5b3f862b902b6c5a7cf40e93c0c58891','KSI-ASYIFA',2),
-(43,'tbm-cs','100afac15f6a4ed52f7c238b2ed7e808','TBM-CS',2),
-(44,'hipocampus','2fb2fa43b21202a7a5cd058bb761ea5f','HIPOCAMPUS',2),
-(45,'cimsa','ca89b7c959937c2bd09d7f99e6fbeac2','CIMSA',2),
-(46,'medis','68045a2d10a96ed788dbedf1b71895a9','MEDIS',2),
-(47,'fsim','82593e680c668a7ff2f4304a671ab8b2','FSIM',2),
-(48,'mfc','3800f845ae86a2e1a26be414d8cadd0f','MFC',2),
-(49,'mub','daa551f036a22f6a1d9396b4d52ba522','MUB',2),
-(50,'medicartes','c42e6a202ff9eca5191af43d629c8af5','MEDICARTES',2),
-(59,'tensi','8d6daab29063cc56717b284aa51c15fd','TENSI',2);
+insert  into `t_user`(`kd_user`,`username`,`password`,`nama`,`level`,`ormawa_id`) values 
+(33,'admin','21232f297a57a5a743894a0e4a801fc3','administrator',1,NULL),
+(34,'bem','827ccb0eea8a706c4c34a16891f84e7b','bem',2,2),
+(35,'dpm','49677814b41e9ff6cdc497c85472a4ac','DPM',2,5),
+(36,'hima pspd','31d828b1b3e8b94bcd4b1bb3cd68567d','HIMA PSPD',2,5),
+(37,'hima psik','0c726d2750e18a114ddce8dd0f018d4c','HIMA PSIK',2,5),
+(38,'hima psikologi','9afbe67b7305535ebfc998103c71ce7e','HIMA PSIKOLOGI',2,5),
+(39,'hima kesmas','71fe3431c58060add4f13cbbaee7a7f3','HIMA KESMAS',2,5),
+(40,'arbor vitae','827ccb0eea8a706c4c34a16891f84e7b','ARBOR VITAE',2,8),
+(41,'ksi-asyifa','5b3f862b902b6c5a7cf40e93c0c58891','KSI-ASYIFA',2,5),
+(43,'tbm-cs','100afac15f6a4ed52f7c238b2ed7e808','TBM-CS',2,5),
+(44,'hipocampus','2fb2fa43b21202a7a5cd058bb761ea5f','HIPOCAMPUS',2,5),
+(45,'cimsa','ca89b7c959937c2bd09d7f99e6fbeac2','CIMSA',2,5),
+(46,'medis','68045a2d10a96ed788dbedf1b71895a9','MEDIS',2,5),
+(47,'fsim','82593e680c668a7ff2f4304a671ab8b2','FSIM',2,5),
+(48,'mfc','3800f845ae86a2e1a26be414d8cadd0f','MFC',2,5),
+(49,'mub','daa551f036a22f6a1d9396b4d52ba522','MUB',2,5),
+(50,'medicartes','c42e6a202ff9eca5191af43d629c8af5','MEDICARTES',2,5),
+(59,'tensi','8d6daab29063cc56717b284aa51c15fd','TENSI',2,5);
 
 /*Table structure for table `t_wirausaha` */
 

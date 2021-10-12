@@ -1,6 +1,6 @@
 <?php
 
-class UserController extends Controller
+class OrmawaController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -28,7 +28,7 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','adminn','update'),
+				'actions'=>array('index','view','adminn','update','detail'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -49,21 +49,21 @@ class UserController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id)
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
 	public function actionAdminn()
 	{
 		$this->renderpartial('adminn');
 	}
+	
 	public function actionUpdate()
 	{
 		$this->renderpartial('update');
 	}
-	
+	public function actionDetail($id)
+	{
+		$this->render('detail',array(
+			'id'=>$id,
+		));
+	}
 
 	/**
 	 * Creates a new model.
@@ -71,19 +71,19 @@ class UserController extends Controller
 	 */
 	public function actionTambah()
 	{
-		$model=new User;
+		$model=new Ormawa;
+
+		$model->nama_ormawa = $_POST['modal_nama'];
+		$model->save();
 		
-		$model->username=$_POST['modal_username'];
-		$model->password=$_POST['modal_password'];
-		$model->nama=$_POST['modal_nama'];
-		$model->level=$_POST['modal_level'];
-		$model->ormawa_id=$_POST['modal_ormawa'];
+	
 		if($model->save())
 		 {
+			
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('user/adminn'), true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('ormawa/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
@@ -101,20 +101,16 @@ class UserController extends Controller
 	 */
 	public function actionEdit()
 	{
-		$modal_kduser=$_POST['modal_kduser'];
-		$model=User::model()->findByAttributes(array('kd_user'=>$modal_kduser));
-		$model->username=$_POST['modal_username'];
-		$model->password=$_POST['modal_password'];
-		$model->nama=$_POST['modal_nama'];
-		$model->level=$_POST['modal_level'];
-		$model->ormawa_id=$_POST['modal_ormawa'];
+		$modal_id=$_POST['modal_id'];
+		$model=Ormawa::model()->findByAttributes(array('id_ormawa'=>$modal_id));
+		$model->nama_ormawa=$_POST['modal_nama'];
 		
 		if($model->save())
 		 {
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('user/adminn'), true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('ormawa/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
@@ -123,7 +119,6 @@ class UserController extends Controller
 		  $data = array('status'=>'failed', 'data'=> null);
 		  echo json_encode($data);
 		 }
-		
 	}
 
 	/**
@@ -133,14 +128,16 @@ class UserController extends Controller
 	 */
 	public function actionHapus()
 	{
-		$id=$_POST['kd_user'];
+		$id=$_POST['id_ormawa'];
 		$model=$this->loadModel($id)->delete();
+		
+		
 		if($model)
 		 {
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('user/adminn'), true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('ormawa/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
@@ -149,8 +146,6 @@ class UserController extends Controller
 		  $data = array('status'=>'failed', 'data'=> null);
 		  echo json_encode($data);
 		 }
-
-		
 	}
 
 	/**
@@ -158,7 +153,7 @@ class UserController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('User');
+		$dataProvider=new CActiveDataProvider('Ormawa');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -169,10 +164,10 @@ class UserController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new User('search');
+		$model=new Ormawa('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['User']))
-			$model->attributes=$_GET['User'];
+		if(isset($_GET['Ormawa']))
+			$model->attributes=$_GET['Ormawa'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -183,12 +178,12 @@ class UserController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return User the loaded model
+	 * @return Ormawa the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=User::model()->findByPk($id);
+		$model=Ormawa::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -196,11 +191,11 @@ class UserController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param User $model the model to be validated
+	 * @param Ormawa $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='user-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='ormawa-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

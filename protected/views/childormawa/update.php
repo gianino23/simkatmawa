@@ -1,15 +1,15 @@
 <?php
-$id_profil=$_GET['id_profil'];
-$users=Profil::model()->findByAttributes(array('id_profil'=>$id_profil));
+$id=$_GET['id'];
+$users=Childormawa::model()->findByAttributes(array('id'=>$id));
 ?>
-								<div class="modal-dialog modal-lg modal-dialog-scrollable">
+								<div class="modal-dialog modal-dialog-scrollable modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title" id="myModalLabel">Edit Data Profil</h4>
+                                                <h4 class="modal-title" id="myModalLabel">Edit Data Ormawa</h4>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-hidden="true">×</button>
                                             </div>
-											<form id="form-update" class="form-horizontal r-separator" name="modal_popup" action="?r=profil/edit" method="POST">
+											<form id="form-update" class="form-horizontal r-separator" name="modal_popup" action="?r=childormawa/edit" method="POST">
                                 <div class="modal-body">
                                 
                                 <div class="card-body">
@@ -17,17 +17,25 @@ $users=Profil::model()->findByAttributes(array('id_profil'=>$id_profil));
                                         <label for="inputUsername3"
                                             class="col-md-3 text-right control-label col-form-label">Nama Profil</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-										 <input type="hidden" name="modal_idprofil" id="edit-idprofil"  class="form-control" value="<?php echo $users->id_profil; ?>" />
-                                            <input type="text" class="summernote" name="modal_nama" id="edit-nama"
-                                                value="<?php echo $users->nama; ?>" required>
+										 <input type="hidden" name="modal_id" id="edit-id"  class="form-control" value="<?php echo $users->id; ?>" />
+                                             <textarea cols="3" rows="3" class="summernote" name="modal_profil" id="edit-profil"
+                                                 required><?php echo $users->profil; ?></textarea>
                                         </div>
                                     </div>
 									<div class="form-group row align-items-center mb-0">
                                         <label for="inputPassword3"
                                             class="col-md-3 text-right control-label col-form-label">Isi Profil</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                           <textarea cols="3" rows="3" class="summernote" name="modal_isi" id="edit-isi"
-                                                 required><?php echo $users->isi; ?></textarea>
+                                           <textarea cols="3" rows="3" class="summernote" name="modal_struktur" id="edit-struktur"
+                                                 required><?php echo $users->struktur_organisasi; ?></textarea>
+                                        </div>
+                                    </div>
+									<div class="form-group row align-items-center mb-0">
+                                        <label for="inputPassword3"
+                                            class="col-md-3 text-right control-label col-form-label">Isi Visi dan Misi</label>
+                                        <div class="col-md-9 border-left pb-2 pt-2">
+                                           <textarea cols="3" rows="3" class="summernote" name="modal_visi" id="edit-visi"
+                                                 required><?php echo $users->visi_misi; ?></textarea>
                                         </div>
                                     </div>
 									<div class="form-group row align-items-center mb-0">
@@ -58,7 +66,7 @@ $users=Profil::model()->findByAttributes(array('id_profil'=>$id_profil));
 								</form>
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->
-<script>
+									  <script>
         /************************************/
         //default editor
         /************************************/

@@ -26,6 +26,7 @@ $(document).ready(function () {
           modal_password: $('#modal-password').val(),
           modal_nama: $('#modal-nama').val(),
           modal_level: $('#modal-level').val(),
+          modal_ormawa: $('#modal-ormawa').val(),
 
         },
         success: function (response) {
@@ -36,8 +37,10 @@ $(document).ready(function () {
           $('#modal-username').val('');
           $('#modal-password').val('');
           $('#modal-nama').val('');
+          $('#modal-ormawa').val('');
           $('#modal-level').val('').change();
           $('#mytable').DataTable();
+		   location.reload();
         },
         error: function (e) {
           // Error function here
@@ -63,12 +66,14 @@ $(document).ready(function () {
           modal_password: $('#edit-password').val(),
           modal_nama: $('#edit-nama').val(),
           modal_level: $('#edit-level').val(),
+          modal_ormawa: $('#edit-ormawa').val(),
         },
         success: function (response) {
           // console.log(response);
           $("#modal-data").empty();
           $("#modal-data").html(response.data);
           $("#ModalEdit").modal('hide');
+		   location.reload();
         },
         error: function (e) {
           // Error function here
@@ -100,6 +105,7 @@ $(document).ready(function () {
             $("#modal-data").empty();
             $("#modal-data").html(response.data);
             $("#modal_delete").modal('hide');
+			 location.reload();
           },
           error: function (e) {
             // Error function here
