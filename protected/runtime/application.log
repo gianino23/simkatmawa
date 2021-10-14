@@ -6266,3 +6266,35 @@ Stack trace:
 REQUEST_URI=/simkatmawa/index.php?r=proker/hapus
 HTTP_REFERER=http://localhost/simkatmawa/index.php?r=proker/admin
 ---
+2021/10/15 01:43:01 [error] [php] Undefined index: modal_program (C:\xampp72\htdocs\simkatmawa\protected\controllers\SlideController.php:88)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): SlideController->runAction()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): SlideController->filterAccessControl()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): SlideController->runActionWithFilters()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): SlideController->run()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=slide/tambah
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\SlideController.php (88)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)
+2021/10/15 01:44:07 [error] [php] Undefined variable: model (C:\xampp72\htdocs\simkatmawa\protected\controllers\SlideController.php:135)
+Stack trace:
+#0 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(134): SlideController->runAction()
+#1 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#3 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CInlineFilter.php(58): SlideController->filterAccessControl()
+#4 C:\xampp72\htdocs\simkatmawa\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp72\htdocs\simkatmawa\framework\web\CController.php(265): SlideController->runActionWithFilters()
+#7 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(282): SlideController->run()
+#8 C:\xampp72\htdocs\simkatmawa\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp72\htdocs\simkatmawa\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 C:\xampp72\htdocs\simkatmawa\index.php(13): CWebApplication->run()
+REQUEST_URI=/simkatmawa/index.php?r=slide/tambah
+in C:\xampp72\htdocs\simkatmawa\protected\controllers\SlideController.php (135)
+in C:\xampp72\htdocs\simkatmawa\index.php (13)

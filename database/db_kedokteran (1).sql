@@ -31,7 +31,7 @@ CREATE TABLE `t_belanegara` (
   PRIMARY KEY (`id_belanegara`),
   KEY `periode` (`periode`),
   CONSTRAINT `t_belanegara_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_belanegara` */
 
@@ -51,7 +51,7 @@ CREATE TABLE `t_childormawa` (
   KEY `ormawa_id` (`ormawa_id`),
   CONSTRAINT `t_childormawa_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE,
   CONSTRAINT `t_childormawa_ibfk_2` FOREIGN KEY (`ormawa_id`) REFERENCES `t_ormawa` (`id_ormawa`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_childormawa` */
 
@@ -80,7 +80,7 @@ CREATE TABLE `t_filemengajarsekolah` (
   PRIMARY KEY (`id_file`),
   KEY `mengajarsekolah_id` (`mengajarsekolah_id`),
   CONSTRAINT `t_filemengajarsekolah_ibfk_1` FOREIGN KEY (`mengajarsekolah_id`) REFERENCES `t_mengajarsekolah` (`id_mengajar`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_filemengajarsekolah` */
 
@@ -98,7 +98,7 @@ CREATE TABLE `t_filepenilitian` (
   PRIMARY KEY (`id_file`),
   KEY `penilitian_id` (`penilitian_id`),
   CONSTRAINT `t_filepenilitian_ibfk_1` FOREIGN KEY (`penilitian_id`) REFERENCES `t_penelitian` (`id_penelitian`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_filepenilitian` */
 
@@ -116,7 +116,7 @@ CREATE TABLE `t_filepertukaranpelajar` (
   PRIMARY KEY (`id_filepp`),
   KEY `pertukaranpelajar_id` (`pertukaranpelajar_id`),
   CONSTRAINT `t_filepertukaranpelajar_ibfk_1` FOREIGN KEY (`pertukaranpelajar_id`) REFERENCES `t_pertukaranpelajar` (`id_perpel`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_filepertukaranpelajar` */
 
@@ -131,7 +131,7 @@ CREATE TABLE `t_filepraktikkerja` (
   PRIMARY KEY (`id_file`),
   KEY `praktikkerja_id` (`praktikkerja_id`),
   CONSTRAINT `t_filepraktikkerja_ibfk_1` FOREIGN KEY (`praktikkerja_id`) REFERENCES `t_praktikkerja` (`id_praktikkerja`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_filepraktikkerja` */
 
@@ -146,7 +146,7 @@ CREATE TABLE `t_fileprojekdesa` (
   PRIMARY KEY (`id_file`),
   KEY `projekdesa_id` (`projekdesa_id`),
   CONSTRAINT `t_fileprojekdesa_ibfk_1` FOREIGN KEY (`projekdesa_id`) REFERENCES `t_projekdesa` (`id_projekdesa`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_fileprojekdesa` */
 
@@ -161,7 +161,7 @@ CREATE TABLE `t_fileprojekkemanusian` (
   PRIMARY KEY (`id_file`),
   KEY `projekkemanusian_id` (`projekkemanusian_id`),
   CONSTRAINT `t_fileprojekkemanusian_ibfk_1` FOREIGN KEY (`projekkemanusian_id`) REFERENCES `t_projekkemanusian` (`id_projekkemanusian`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_fileprojekkemanusian` */
 
@@ -210,7 +210,7 @@ CREATE TABLE `t_mengajarsekolah` (
   PRIMARY KEY (`id_mengajar`),
   KEY `periode` (`periode`),
   CONSTRAINT `t_mengajarsekolah_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_mengajarsekolah` */
 
@@ -261,7 +261,7 @@ CREATE TABLE `t_penelitian` (
   PRIMARY KEY (`id_penelitian`),
   KEY `periode` (`periode`),
   CONSTRAINT `t_penelitian_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_penelitian` */
 
@@ -296,7 +296,7 @@ CREATE TABLE `t_pertukaranpelajar` (
   PRIMARY KEY (`id_perpel`),
   KEY `periode` (`periode`),
   CONSTRAINT `t_pertukaranpelajar_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_pertukaranpelajar` */
 
@@ -314,7 +314,7 @@ CREATE TABLE `t_praktikkerja` (
   PRIMARY KEY (`id_praktikkerja`),
   KEY `periode` (`periode`),
   CONSTRAINT `t_praktikkerja_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_praktikkerja` */
 
@@ -353,7 +353,7 @@ CREATE TABLE `t_projekdesa` (
   PRIMARY KEY (`id_projekdesa`),
   KEY `periode` (`periode`),
   CONSTRAINT `t_projekdesa_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_projekdesa` */
 
@@ -371,7 +371,7 @@ CREATE TABLE `t_projekindependen` (
   `luaran_kegiatan` text,
   `periode` int(4) NOT NULL,
   PRIMARY KEY (`id_independen`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_projekindependen` */
 
@@ -390,7 +390,7 @@ CREATE TABLE `t_projekkemanusian` (
   PRIMARY KEY (`id_projekkemanusian`),
   KEY `periode` (`periode`),
   CONSTRAINT `t_projekkemanusian_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_projekkemanusian` */
 
@@ -452,9 +452,25 @@ CREATE TABLE `t_rekognisi` (
   PRIMARY KEY (`id_rekognisi`),
   KEY `periode` (`periode`),
   CONSTRAINT `t_rekognisi_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_rekognisi` */
+
+/*Table structure for table `t_slide` */
+
+DROP TABLE IF EXISTS `t_slide`;
+
+CREATE TABLE `t_slide` (
+  `id_slide` int(11) NOT NULL AUTO_INCREMENT,
+  `judul` text,
+  `subjudul` text,
+  `file` text,
+  `urutan` int(100) DEFAULT NULL,
+  `status` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id_slide`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `t_slide` */
 
 /*Table structure for table `t_studi` */
 
@@ -487,7 +503,7 @@ CREATE TABLE `t_user` (
   PRIMARY KEY (`kd_user`),
   KEY `ormawa_id` (`ormawa_id`),
   CONSTRAINT `t_user_ibfk_1` FOREIGN KEY (`ormawa_id`) REFERENCES `t_ormawa` (`id_ormawa`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_user` */
 
@@ -528,7 +544,7 @@ CREATE TABLE `t_wirausaha` (
   PRIMARY KEY (`id_wirausaha`),
   KEY `periode` (`periode`),
   CONSTRAINT `t_wirausaha_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_wirausaha` */
 
