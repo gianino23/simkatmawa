@@ -28,7 +28,7 @@ class ProfilController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','adminn','update','detail'),
+				'actions'=>array('index','view','adminn','update','detail','tentang','strukturorganisasi'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -58,6 +58,18 @@ class ProfilController extends Controller
 	public function actionAdminn()
 	{
 		$this->renderpartial('adminn');
+	}
+
+	public function actionTentang()
+	{
+		$this->layout='public';
+		$this->render('tentang');
+	}
+
+	public function actionStrukturOrganisasi()
+	{
+		$this->layout='public';
+		$this->render('struktur');
 	}
 	
 	public function actionUpdate()
