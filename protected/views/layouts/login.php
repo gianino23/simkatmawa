@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/favicon.png">
-    <title>Simkatmawa</title>
+    <title>SIMKIMAHAL</title>
 	<link rel="canonical" href="https://www.wrappixel.com/templates/monsteradmin/" />
     <!-- Custom CSS -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/dist/css/style.min.css" rel="stylesheet">
@@ -39,7 +39,7 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/background/login-register.jpg) no-repeat center center; background-size: cover;">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url('https://images.pexels.com/photos/159740/library-la-trobe-study-students-159740.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center center; background-size: cover;">
             <div class="auth-box on-sidebar p-4 bg-white m-0">
                <?php echo $content;?>
             </div>

@@ -69,7 +69,7 @@
                         <div class="container">
                             <nav>
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
+                                    <li><?= CHtml::link('Home',array('site/index')) ?></li>
                                     <li class="dropdown"><a href="#">Profil</a>
                                         <ul class="dropdown-menu">
                                             <li><?= CHtml::link('Tentang Pusbinpres',array('profil/tentang')) ?></li>
@@ -85,24 +85,26 @@
                                             ?>
                                             <li class="dropdown-submenu"><a href="#"><?= $o->nama_ormawa; ?></a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="slider-revolution-slider.html">Profil</a></li>
-                                                    <li><a href="slider-inspiro-slider.html">Struktur Organisasi</a></li>
-                                                    <li><a href="slider-static-media-image.html">Visi dan Misi</a></li>
-                                                    <li><a href="slider-static-media-parallax.html">Kalender Proker</a></li>
-                                                    <li><a href="slider-static-media-text-rotator.html">Luaran Kinerja</a></li>
+                                                    <li><a href="#">Profil</a></li>
+                                                    <li><a href="#">Struktur Organisasi</a></li>
+                                                    <li><a href="#">Visi dan Misi</a></li>
+                                                    <li><a href="#">Kalender Proker</a></li>
+                                                    <li><a href="#">Luaran Kinerja</a></li>
                                                 </ul>
                                             </li>
                                             <?php } ?>
                                         </ul>
                                     </li>
-                                    <li><a href="index.html">Galeri</a></li>
+                                    <li><a href="#">Galeri</a></li>
                                     <li class="dropdown"><a href="#">Regulasi Bid. Kemahasiswaan</a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="widgets.html">Tentang Pusbinpres</a></li>
-                                            <li><a href="widgets.html">Struktur Organisasi</a></li>
+                                            <li><a href="#">SOP Peminjaman Fasum</a></li>
+                                            <li><a href="#">Pedoman Etika</a></li>
+                                            <li><a href="#">Pedoman SKPI</a></li>
+                                            <li><a href="#">SOP Pengajuan Insentif Prestasi</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="index.html">SIMKIMAHAL</a></li>
+                                            <li><?= CHtml::link('SIMKIMAHAL',array('site/login')) ?></li>
                                 </ul>
                             </nav>
                         </div>
@@ -178,7 +180,7 @@
             </div>
             <div class="copyright-content">
                 <div class="container">
-                    <div class="copyright-text text-center">&copy; 2021 POLO - Responsive Multi-Purpose HTML5 Template. All Rights Reserved.<a href="https://www.inspiro-media.com" target="_blank" rel="noopener"> INSPIRO</a> </div>
+                    <div class="copyright-text text-center">&copy; 2021 SIMKIMAHAL - Ulahan Buhan<a href="https://borneomediateknologi.co.id" target="_blank" rel="noopener"> BMT</a> </div>
                 </div>
             </div>
         </footer>
