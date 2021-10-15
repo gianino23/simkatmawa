@@ -116,18 +116,46 @@ class PeriodeController extends Controller
 		
 		if($model->save())
 		 {
+			
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
 		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('periode/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
+		   $re=$model->id;
+		   $model1=Periode::model()->findAll();
+			 foreach($model1 as $mod1)
+			 {
+				$qw=Periode::model()->findByAttributes(array('id'=>$mod1->id));
+				if($qw->id==$re){
+				$ew=0;
+				$ed=0;
+				}else{
+					$mod1->status=0;
+					$mod1->save();
+				}
+			 }
 		 }
 		 else // jika insert data gagal
 		 {
 		  $data = array('status'=>'failed', 'data'=> null);
 		  echo json_encode($data);
+		    $re=$model->id;
+		   $model1=Periode::model()->findAll();
+			 foreach($model1 as $mod1)
+			 {
+				$qw=Periode::model()->findByAttributes(array('id'=>$mod1->id));
+				if($qw->id==$re){
+				$ew=0;
+				$ed=0;
+				}else{
+					$mod1->status=0;
+					$mod1->save();
+				}
+			 }
 		 }
+		
 	}
 
 	/**
