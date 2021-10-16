@@ -161,7 +161,6 @@ $(document).ready(function() {
                                         <div class="col-md-9 border-left pb-2 pt-2">
                                            <select name="modal_level" id="modal-level" class="select2 form-control costum-select" style="width: 100%;" required>
 												<option value="" selected="selected">-- Pilih Satu --</option>
-												<option value=1>Superadmin</option>
 												<option value=2>Ormawa</option>
 										   </select>
                                         </div>
