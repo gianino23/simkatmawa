@@ -6,7 +6,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="INSPIRO" />
     <meta name="description" content="Themeforest Template Polo, html template">
-    <link rel="icon" type="image/png" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/favicon.png">
+    <link rel="icon" type="image/png" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ulm.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Document title -->
     <title><?php echo CHtml::encode(Yii::app()->name); ?></title>

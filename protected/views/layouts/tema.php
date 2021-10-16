@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ulm.png">
     <title>SIMKIMAHAL</title>
     <link rel="canonical" href="https://www.wrappixel.com/templates/xtremeadmin/" />
 	 <!-- This page plugin CSS -->
