@@ -191,7 +191,7 @@ $(document).ready(function() {
     $("#tambahData").modal('hide');
     $('#modal-namafolder').val('');
 	$('#mytable').DataTable();
-    
+    location.reload();
    },
    error: function(e)
    {
@@ -224,6 +224,7 @@ $(document).ready(function() {
     $("#modal-data").empty();
     $("#modal-data").html(response.data);
  $("#ModalEdit").modal('hide');
+ location.reload();
    },
    error: function(e)
    {
@@ -257,6 +258,7 @@ $(document).ready(function() {
      $("#modal-data").empty();
      $("#modal-data").html(response.data);
      $("#modal_delete").modal('hide');
+	 location.reload();
     },
     error: function(e)
     {

@@ -77,7 +77,7 @@ class PraktikkerjaController extends Controller
 	 */
 	public function actionTambah()
 	{
-		$temp = "upload/";
+		$temp = "uploaddokumen/";
 		
 		if (!file_exists($temp))
 			mkdir($temp);
@@ -198,10 +198,10 @@ class PraktikkerjaController extends Controller
 		$model1=Filepraktikkerja::model()->findAllByAttributes(array('praktikkerja_id'=>$id));
 		if(count($model1)==1){
 			$model2=Filepraktikkerja::model()->findByAttributes(array('praktikkerja_id'=>$id));
-			unlink(Yii::app()->basePath . '/../upload/'.$model2->isi);
+			unlink(Yii::app()->basePath . '/../uploaddokumen/'.$model2->isi);
 		}else{
 		foreach($model1 as $mdl){
-		unlink(Yii::app()->basePath . '/../upload/'.$mdl->isi);
+		unlink(Yii::app()->basePath . '/../uploaddokumen/'.$mdl->isi);
 		}
 		}
 		$model=$this->loadModel($id)->delete();

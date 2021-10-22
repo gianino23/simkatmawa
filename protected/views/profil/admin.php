@@ -115,8 +115,8 @@ $(document).ready(function() {
                                         <label for="inputUsername3"
                                             class="col-md-3 text-right control-label col-form-label">Nama Profil</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="text" class="summernote" name="modal_nama" id="modal-nama"
-                                                placeholder="Nama Profil" required>
+                                            <textarea cols="3" rows="3" class="summernote" name="modal_nama" id="modal-nama"
+                                                placeholder="Nama Profil" required></textarea>
                                         </div>
                                     </div>
 									<div class="form-group row align-items-center mb-0">

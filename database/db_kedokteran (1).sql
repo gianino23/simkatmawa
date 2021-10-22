@@ -84,9 +84,6 @@ CREATE TABLE `t_filemengajarsekolah` (
 
 /*Data for the table `t_filemengajarsekolah` */
 
-insert  into `t_filemengajarsekolah`(`id_file`,`isi`,`mengajarsekolah_id`) values 
-(1,'55986648.pdf',NULL);
-
 /*Table structure for table `t_filepenilitian` */
 
 DROP TABLE IF EXISTS `t_filepenilitian`;
@@ -101,9 +98,6 @@ CREATE TABLE `t_filepenilitian` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_filepenilitian` */
-
-insert  into `t_filepenilitian`(`id_file`,`isi`,`penilitian_id`) values 
-(1,'26607003.pdf',NULL);
 
 /*Table structure for table `t_filepertukaranpelajar` */
 
@@ -174,9 +168,13 @@ CREATE TABLE `t_folder` (
   `nama_folder` varchar(200) DEFAULT NULL,
   `ormas_id` int(11) NOT NULL,
   PRIMARY KEY (`id_folder`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_folder` */
+
+insert  into `t_folder`(`id_folder`,`nama_folder`,`ormas_id`) values 
+(1,'a',0),
+(3,'b',0);
 
 /*Table structure for table `t_galery` */
 
@@ -192,7 +190,7 @@ CREATE TABLE `t_galery` (
   PRIMARY KEY (`id_galery`),
   KEY `folder` (`folder`),
   CONSTRAINT `t_galery_ibfk_1` FOREIGN KEY (`folder`) REFERENCES `t_folder` (`id_folder`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_galery` */
 
@@ -330,7 +328,7 @@ CREATE TABLE `t_profil` (
   PRIMARY KEY (`id_profil`),
   KEY `periode` (`periode`),
   CONSTRAINT `t_profil_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_profil` */
 
@@ -468,7 +466,7 @@ CREATE TABLE `t_slide` (
   `urutan` int(100) DEFAULT NULL,
   `status` int(10) DEFAULT NULL,
   PRIMARY KEY (`id_slide`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_slide` */
 
