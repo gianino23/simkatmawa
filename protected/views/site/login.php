@@ -35,12 +35,10 @@
                             style="display: inline-block;"><strong><?php echo $form->error($model, 'password',['style'=>'text-align:center']); ?></strong></label>
                     </div>
         </div>
-                    <div class="form-group text-center mt-3">
+                    <div class="form-group text-right mt-3">
                         <div class="col-xs-12">
-                            <a href="<?php echo Yii::app()->request->baseUrl; ?>"
-                                class="btn btn-danger col-xs-6 col-md-4" style="text-decoration:none;">Cancel</a>
-                            <?php  echo CHtml::Button('Cancel',array('onClick'=>"location='index.php'",'class'=>'text-danger')); ?>
-                            <?php echo CHtml::submitButton('Login', ['class' => 'btn btn-primary col-xs-6 col-md-4']);?>
+                            <?php echo CHtml::link('Cancel',['site/index'],array('class'=>'text-danger')); ?>
+                            <?php echo CHtml::submitButton('Login', ['class' => 'btn btn-primary ml-2 col-xs-6 col-md-4']);?>
 
                         </div>
                     </div>

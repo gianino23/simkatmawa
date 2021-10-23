@@ -15,7 +15,7 @@ $users=Periode::model()->findByAttributes(array('id'=>$id));
                                 <div class="card-body">
                                     <div class="form-group row align-items-center mb-0">
                                         <label for="inputUsername3"
-                                            class="col-md-3 text-right control-label col-form-label">Nama Periode</label>
+                                            class="col-md-3 text-right control-label col-form-label">Tahun Periode</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
 										 <input type="hidden" name="modal_id" id="edit-id"  class="form-control" value="<?php echo $users->id; ?>" />
                                             <input type="text" class="form-control" name="modal_periode" id="edit-periode"
@@ -27,7 +27,7 @@ $users=Periode::model()->findByAttributes(array('id'=>$id));
                                             class="col-md-3 text-right control-label col-form-label">Status</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
                                            <select name="modal_status" id="edit-status" class="form-control select2" style="width: 100%;" required>
-												<option value="" selected="selected">-- Pilih Satu --</option>
+												<option value="" selected="selected" disabled>-- Pilih --</option>
 												<option value=1>Aktif</option>
 												<option value=0>Tidak Aktif</option>
 										   </select>

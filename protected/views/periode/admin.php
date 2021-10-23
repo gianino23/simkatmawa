@@ -44,11 +44,10 @@ $(document).ready(function() {
 <!-- Container fluid  -->
 <!-- ============================================================== -->
 <div class="container-fluid">
-	<!-- Row -->
-	<div class="row">
-		<!-- Column -->
-		<div class="card">
-			<div class="card-body">
+<div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
 				<div class="row">
 					<div class="col-12">
 						<div class="float-left">
@@ -66,7 +65,7 @@ $(document).ready(function() {
 									<tr>
 										<th>Periode</th>
 										<th>Status</th>
-										<th>Aksi</th>
+										<th width="100px">Aksi</th>
 										
 									</tr>
 								</thead>
@@ -87,9 +86,11 @@ $(document).ready(function() {
 										?>
 										</td>
 										<td align="center">
-										<a href="javascript:void(0)" class='open_modal' id='<?php echo  $p->id; ?>'><i class="fas fa-edit"></i></a>
-										<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id; ?>'><i class="fas fa-trash-alt"></i></a>	
-										</td>
+                                            <div class="btn-group">
+										<a href="javascript:void(0)" class='btn btn-sm btn-warning open_modal' id='<?php echo  $p->id; ?>'><i class="fas fa-edit"></i></a>
+										<a href="javascript:void(0)" class="btn btn-sm btn-danger delete_modal" data-id='<?php echo  $p->id; ?>'><i class="fas fa-trash-alt"></i></a>	
+                                            </div>
+                                    </td>
 									</tr>
 									<?php } ?>
 								</tbody>
@@ -97,9 +98,10 @@ $(document).ready(function() {
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </div>
 							<div id="tambahData" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
@@ -115,10 +117,10 @@ $(document).ready(function() {
                                 <div class="card-body">
                                     <div class="form-group row align-items-center mb-0">
                                         <label for="inputUsername3"
-                                            class="col-md-3 text-right control-label col-form-label">Nama Periode</label>
+                                            class="col-md-3 text-right control-label col-form-label">Tahun Periode</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
                                             <input type="number" class="form-control" name="modal_periode" id="modal-periode"
-                                                placeholder="Nama Periode" required>
+                                                 required>
                                         </div>
                                     </div>
 								
@@ -128,7 +130,7 @@ $(document).ready(function() {
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light"
                                                     data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
                                             </div>
 											</form>
 											

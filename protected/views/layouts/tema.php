@@ -800,9 +800,15 @@
         //default editor
         /************************************/
         $('.summernote').summernote({
-            height: 350, // set editor height
-            minHeight: null, // set minimum height of editor
-            maxHeight: null, // set maximum height of editor
+            // height: 200, // set editor height
+            // minHeight: 100, // set minimum height of editor
+            // maxHeight: 300, // set maximum height of editor
+            // focus: false // set focus to editable area after initializing summernote
+        });
+        $('.summernote-u').summernote({
+            height: 200, // set editor height
+            minHeight: 100, // set minimum height of editor
+            maxHeight: 300, // set maximum height of editor
             focus: false // set focus to editable area after initializing summernote
         });
 
