@@ -20,12 +20,12 @@
 				</span></a></li>
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('folder/admin')?>"
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
-					Folder Galery
+					Galeri
 				</span></a></li>
-		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('galery/admin')?>"
+		<!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('galery/admin')?>"
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
 					Galery
-				</span></a></li>
+				</span></a></li> -->
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('periode/admin')?>"
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
 					Periode
