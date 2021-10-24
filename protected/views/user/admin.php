@@ -47,6 +47,7 @@ $(document).ready(function() {
 	<!-- Row -->
 	<div class="row">
 		<!-- Column -->
+		<div class="col-12">
 		<div class="card">
 			<div class="card-body">
 				<div class="row">
@@ -96,14 +97,14 @@ $(document).ready(function() {
 										$e=1;
 										?>
 										<td align="center">
-											<a href="javascript:void(0)" class='open_modal' id='<?php echo  $u->kd_user; ?>'><i class="fas fa-edit"></i></a>
-											<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $u->kd_user; ?>'><i class="fas fa-trash-alt"></i></a>
+											<a href="javascript:void(0)" class='open_modal' id='<?php echo  $u->kd_user; ?>'><i class="fas fa-edit text-warning"></i></a>
+											<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $u->kd_user; ?>'><i class="fas fa-trash-alt text-danger"></i></a>
 										</td>
 										<?php
 										}else{
 										?>
 										<td align="center">
-										<a href="javascript:void(0)" class='open_modal' id='<?php echo  $u->kd_user; ?>'><i class="fas fa-edit"></i></a>
+										<a href="javascript:void(0)" class='open_modal' id='<?php echo  $u->kd_user; ?>'><i class="fas fa-edit text-warning"></i></a>
 										</td>
 										<?php
 										}
@@ -116,6 +117,7 @@ $(document).ready(function() {
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 </div>

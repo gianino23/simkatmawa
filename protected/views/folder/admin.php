@@ -15,7 +15,7 @@
     <div class="col-md-7 col-12 align-self-center d-none d-md-block">
         <div class="d-flex mt-2 justify-content-end">
             <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal"
-                data-target="#tambahData">New Folder</button>
+                data-target="#tambahData">Folder Baru</button>
         </div>
     </div>
 
@@ -46,12 +46,12 @@
                 </div>
                 <div class="card-footer">
 
-                <?= CHtml::link('<i class="fas fa-search"></i>',['galery/admin'],['class'=>'btn btn-sm btn-success']) ?>
+                <?= CHtml::link('<i class="fas fa-search text-info"></i>',['galery/admin']) ?>
                     <div class="float-right">
-                        <a href="javascript:void(0)" class='btn btn-sm btn-warning open_modal'
-                            id='<?php echo  $fg->id_folder; ?>'><i class="fas fa-edit"></i></a>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-danger delete_modal"
-                            data-id='<?php echo  $fg->id_folder; ?>'><i class="fas fa-trash-alt"></i></a>
+                        <a href="javascript:void(0)" class='open_modal'
+                            id='<?php echo  $fg->id_folder; ?>'><i class="fas fa-edit text-warning"></i></a>
+                        <a href="javascript:void(0)" class="delete_modal"
+                            data-id='<?php echo  $fg->id_folder; ?>'><i class="fas fa-trash-alt text-danger"></i></a>
                     </div>
                 </div>
             </div>

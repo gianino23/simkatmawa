@@ -45,8 +45,8 @@ $(document).ready(function() {
 <!-- ============================================================== -->
 <div class="container-fluid">
 	<!-- Row -->
-	<div class="row">
-		<!-- Column -->
+    <div class="row">
+                    <div class="col-12">
 		<div class="card">
 			<div class="card-body">
 				<div class="row">
@@ -64,8 +64,7 @@ $(document).ready(function() {
 							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
 								<thead>
 									<tr>
-										<th>Judul</th>
-										<th>Subjudul</th>
+										<th>Teks</th>
 										<th>File</th>
 										<th>Urutan</th>
 										<th>Status</th>
@@ -80,8 +79,7 @@ $(document).ready(function() {
 											 foreach ($praker as $p) {
 										 ?>
 									<tr>
-										<td><?= $p->judul; ?></td>
-										<td><?= $p->subjudul; ?></td>
+										<td><?= $p->judul.'<br>'.$p->subjudul; ?></td>
 										<td><?= $p->file; ?></td>
 										<td><?= $p->urutan; ?></td>
 										<td><?= $p->status; ?></td>
@@ -98,7 +96,8 @@ $(document).ready(function() {
 				</div>
 			</div>
 		</div>
-	</div>
+                    </div>
+                </div>
 </div>
 							<div id="tambahData" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
@@ -149,7 +148,7 @@ $(document).ready(function() {
                                     </div>
 									<div class="form-group row align-items-center mb-0">
                                         <label for="inputLevel3"
-                                            class="col-md-3 text-right control-label col-form-label">Upload File Pendukung</label>
+                                            class="col-md-3 text-right control-label col-form-label">Upload File Background</label>
                                         <div class="col-md-9 border-left pb-2 pt-2 ">
                                            <input type="file" name="files[]" id="files" class="form-control" required />
                                         </div>
