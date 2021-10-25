@@ -21,6 +21,85 @@
 
 </div>
 
+
+<div class="container-fluid note-has-grid">
+	<!-- <ul class="nav nav-pills p-3 bg-white mb-3 rounded-pill align-items-center">
+		<li class="nav-item"> <a href="javascript:void(0)"
+				class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2 active"
+				id="all-category">
+				<i class="icon-layers mr-1"></i><span class="d-none d-md-block">All Notes</span></a>
+		</li>
+		<li class="nav-item"> <a href="javascript:void(0)"
+				class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" id="note-business">
+				<i class="icon-briefcase mr-1"></i><span class="d-none d-md-block">Business</span></a>
+		</li>
+		<li class="nav-item"> <a href="javascript:void(0)"
+				class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" id="note-social">
+				<i class="icon-share-alt mr-1"></i><span class="d-none d-md-block">Social</span></a>
+		</li>
+		<li class="nav-item"> <a href="javascript:void(0)"
+				class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" id="note-important">
+				<i class="icon-tag mr-1"></i><span class="d-none d-md-block">Important</span></a>
+		</li>
+		<li class="nav-item ml-auto"> <a href="javascript:void(0)"
+				class="nav-link btn-primary rounded-pill d-flex align-items-center px-3" id="add-notes">
+				<i class="icon-note m-1"></i><span class="d-none d-md-block font-14">Add Notes</span></a>
+		</li>
+	</ul> -->
+	<!-- <div class="row">
+		<div class="col-lg-3 col-md-6">
+			<div class="card bg-white">
+				<div class="card-body">
+					<div id="myCarousel4" class="carousel vert slide" data-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item flex-column">
+								<i class="ti-wordpress font-20"></i>
+								<p>SIMKATMAWA</p>
+								<h3>Dynamic website with responsive</h3>
+								<div>
+									<button class="btn btn-info justify-content-start waves-effect waves-light mt-3">Default</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+	<div class="tab-content">
+		<div id="note-full-container" class="note-has-grid row">
+
+        <?php
+            $folder = Folder::model()->findAll(array('order'=>'id_folder DESC'));
+            foreach ($folder as $fg) {
+        ?>
+			<div class="col-md-4 single-note-item all-category">
+					<div class="card" style="max-height:150px">
+                    <img class="card-img" src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/background/socialbg.jpg" style="max-height: inherit;object-fit: cover;" alt="Card image">
+					<div class="card-body card-img-overlay text-white">
+						<span class="side-stick"></span>
+						<p class="note-date font-12 mb-0">Galeri</p>
+						<h5 class="note-title text-truncate w-75 mb-0 text-white"><?= $fg->nama_folder; ?>
+						</h5>
+						<div class="note-content">
+							<p class="note-inner-content"
+								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis."><?= $fg->ormas_id; ?></p>
+						</div>
+					</div>
+                    <div class="card-footer">
+                <?= CHtml::link('<i class="fas fa-search text-info"></i>',['galery/admin']) ?>
+                    <div class="float-right">
+                    <a href="javascript:void(0)" class='open_modal' id='<?php echo  $fg->id_folder; ?>'><i class="fas fa-edit text-warning"></i></a>
+										<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $fg->id_folder; ?>'><i class="fas fa-trash-alt text-danger"></i></a>	
+										
+                    </div>
+                    </div>
+					</div>
+			</div>
+			<?php } ?>
+		</div>
+	</div>
+</div>
 <!-- ============================================================== -->
 <!-- End Bread crumb and right sidebar toggle -->
 <!-- ============================================================== -->
@@ -29,34 +108,8 @@
 <!-- ============================================================== -->
 <div class="container-fluid">
     <!-- Row -->
+    
     <div class="row">
-        <?php
-            $folder = Folder::model()->findAll(array('order'=>'id_folder DESC'));
-            foreach ($folder as $fg) {
-        ?>
-        <div class="col-sm-6 col-md-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title"><?= $fg->nama_folder ?></h5>
-
-                    <small><?= $fg->ormas_id ?></small>
-                    <!-- <hr>
-                                <h2>$612</h2>
-                    <hr>-->
-                </div>
-                <div class="card-footer">
-
-                <?= CHtml::link('<i class="fas fa-search text-info"></i>',['galery/admin']) ?>
-                    <div class="float-right">
-                        <a href="javascript:void(0)" class='open_modal'
-                            id='<?php echo  $fg->id_folder; ?>'><i class="fas fa-edit text-warning"></i></a>
-                        <a href="javascript:void(0)" class="delete_modal"
-                            data-id='<?php echo  $fg->id_folder; ?>'><i class="fas fa-trash-alt text-danger"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?php } ?>
         <!-- Column -->
         <div class="card">
             <div class="card-body">
