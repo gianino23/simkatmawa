@@ -1,9 +1,10 @@
 <?php
 										 	$perjar = Regulasimhs::model()->findAll(array('order'=>'id_regulasimhs ASC'));
 											 foreach ($perjar as $p) {
+												  $jenis=Jenis::model()->findByAttributes(array('id_jenis'=>$p->jenis_id));
 										 ?>
 									<tr>
-										<td><?= $p->nama; ?></td>
+										<td><?= $jenis->nama; ?></td>
 										<td><?= $p->isi; ?></td>
 										<td><?= $p->status; ?></td>
 										<td align="center">

@@ -5,9 +5,11 @@
  *
  * The followings are the available columns in table 't_regulasimhs':
  * @property integer $id_regulasimhs
- * @property string $nama
+ * @property integer $jenis_id
  * @property string $isi
  * @property integer $status
+ * @property integer $periode
+ * @property string $tgl_entry
  */
 class Regulasimhs extends CActiveRecord
 {
@@ -27,12 +29,12 @@ class Regulasimhs extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('status', 'numerical', 'integerOnly'=>true),
-			array('nama', 'length', 'max'=>200),
-			array('isi', 'safe'),
+			array('periode, tgl_entry', 'required'),
+			array('jenis_id, status, periode', 'numerical', 'integerOnly'=>true),
+			
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_regulasimhs, nama, isi, status', 'safe', 'on'=>'search'),
+			array('id_regulasimhs, jenis_id, status, periode, tgl_entry', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,9 +56,11 @@ class Regulasimhs extends CActiveRecord
 	{
 		return array(
 			'id_regulasimhs' => 'Id Regulasimhs',
-			'nama' => 'Nama',
+			'jenis_id' => 'Jenis',
 			'isi' => 'Isi',
 			'status' => 'Status',
+			'periode' => 'Periode',
+			'tgl_entry' => 'Tgl Entry',
 		);
 	}
 
@@ -79,9 +83,11 @@ class Regulasimhs extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id_regulasimhs',$this->id_regulasimhs);
-		$criteria->compare('nama',$this->nama,true);
+		$criteria->compare('jenis_id',$this->jenis_id);
 		$criteria->compare('isi',$this->isi,true);
 		$criteria->compare('status',$this->status);
+		$criteria->compare('periode',$this->periode);
+		$criteria->compare('tgl_entry',$this->tgl_entry,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

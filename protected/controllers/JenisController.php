@@ -1,6 +1,6 @@
 <?php
 
-class ProfilController extends Controller
+class JenisController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -89,11 +89,10 @@ class ProfilController extends Controller
 	 */
 	public function actionTambah()
 	{
-		$model=new Profil;
+		$model=new Jenis;
 
 		$model->nama = $_POST['modal_nama'];
-		$model->isi = $_POST['modal_isi'];
-		$model->periode=$_POST['modal_periode'];
+		$model->tabel = $_POST['modal_tabel'];
 		$model->save();
 		
 	
@@ -103,7 +102,7 @@ class ProfilController extends Controller
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('profil/adminn'), true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('jenis/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
@@ -121,17 +120,17 @@ class ProfilController extends Controller
 	 */
 	public function actionEdit()
 	{
-		$modal_idprofil=$_POST['modal_idprofil'];
-		$model=Profil::model()->findByAttributes(array('id_profil'=>$modal_idprofil));
-		$model->isi=$_POST['modal_isi'];
-		$model->periode=$_POST['modal_periode'];
+		$modal_idjenis=$_POST['modal_idjenis'];
+		$model=Jenis::model()->findByAttributes(array('id_jenis'=>$modal_idjenis));
+		$model->nama = $_POST['modal_nama'];
+		$model->tabel = $_POST['modal_tabel'];
 		
 		if($model->save())
 		 {
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('profil/adminn'), true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('jenis/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
@@ -149,7 +148,7 @@ class ProfilController extends Controller
 	 */
 	public function actionHapus()
 	{
-		$id=$_POST['id_profil'];
+		$id=$_POST['id_jenis'];
 		$model=$this->loadModel($id)->delete();
 		
 		
@@ -158,7 +157,7 @@ class ProfilController extends Controller
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');
 		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('profil/adminn'), true);
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('jenis/adminn'), true);
 		  $data = array('status'=>'success', 'data'=> $content);
 		  echo json_encode($data);
 		 }
@@ -174,7 +173,7 @@ class ProfilController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Profil');
+		$dataProvider=new CActiveDataProvider('Jenis');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -185,10 +184,10 @@ class ProfilController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Profil('search');
+		$model=new Jenis('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Profil']))
-			$model->attributes=$_GET['Profil'];
+		if(isset($_GET['Jenis']))
+			$model->attributes=$_GET['Jenis'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -199,12 +198,12 @@ class ProfilController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Profil the loaded model
+	 * @return Jenis the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Profil::model()->findByPk($id);
+		$model=Jenis::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -212,11 +211,11 @@ class ProfilController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Profil $model the model to be validated
+	 * @param Jenis $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='profil-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='jenis-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

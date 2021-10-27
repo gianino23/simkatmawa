@@ -74,13 +74,14 @@ $(document).ready(function() {
             }
                 $praker = Profil::model()->findAllByAttributes(array('periode'=>$re),array('order'=>'id_profil ASC'));
                 foreach ($praker as $p) {
+					 $jenis=Jenis::model()->findByAttributes(array('id_jenis'=>$p->jenis_id));
             ?>
 			<div class="col-md-4 single-note-item all-category">
 					<div class="card">
 					<div class="card-body">
 						<span class="side-stick"></span>
 						<p class="note-date font-12 text-muted mb-0">Profile</p>
-						<h5 class="note-title text-truncate w-75 mb-0"><?= $p->nama; ?>
+						<h5 class="note-title text-truncate w-75 mb-0"><?= $jenis->nama; ?>
 						</h5>
 						<div class="note-content">
 							<p class="note-inner-content text-muted"
@@ -141,9 +142,10 @@ $(document).ready(function() {
 											}
 										 	$praker = Profil::model()->findAllByAttributes(array('periode'=>$re),array('order'=>'id_profil ASC'));
 											 foreach ($praker as $p) {
+												 $jenis=Jenis::model()->findByAttributes(array('id_jenis'=>$p->jenis_id));
 										 ?>
 									<tr>
-										<td><?= $p->nama; ?></td>
+										<td><?= $jenis->nama; ?></td>
 										<td><?= $p->isi; ?></td>
 										<td align="center">
 										<a href="javascript:void(0)" class='open_modal' id='<?php echo  $p->id_profil; ?>'><i class="fas fa-edit"></i></a>
@@ -176,8 +178,18 @@ $(document).ready(function() {
                                         <label for="inputUsername3"
                                             class="col-md-3 text-right control-label col-form-label">Nama Profil</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="text" name="modal_nama" id="modal-nama" class="form-control">
-                                            <!-- <textarea cols="3" rows="3" class="summernote" name="modal_nama" id="modal-nama" placeholder="Nama Profil" required></textarea> -->
+											 <select name="modal_nama" id="modal-nama" class="form-control select2" style="width: 100%;" required>
+												<option value="" selected="selected">-- Pilih Satu --</option>
+												<?php
+												$jenis=Jenis::model()->findAllByAttributes(array('tabel'=>'profil'));
+												foreach($jenis as $jen){
+												?>
+												<option value=<?php echo $jen->id_jenis;?>><?php echo $jen->nama;?></option>
+												<?php
+												}
+												?>
+										   </select>
+                                          
                                         </div>
                                     </div>
 									<div class="form-group row align-items-center mb-0">
@@ -287,7 +299,7 @@ $(document).ready(function() {
   $("#modal-data").empty();
     $("#modal-data").html(response.data);
     $("#tambahData").modal('hide');
-    $('#modal-nama').val('');
+     $('#modal-nama').val('').change();
     $('#modal-isi').val('');
     $('#modal-periode').val('');
     location.reload();

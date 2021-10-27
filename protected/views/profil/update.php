@@ -13,15 +13,7 @@ $users=Profil::model()->findByAttributes(array('id_profil'=>$id_profil));
                                 <div class="modal-body">
                                 <form id="form-update" class="form-horizontal r-separator" name="modal_popup" action="?r=profil/edit" method="POST">
                                 <div class="card-body">
-                                    <div class="form-group row align-items-center mb-0">
-                                        <label for="inputUsername3"
-                                            class="col-md-3 text-right control-label col-form-label">Nama Profil</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-										 <input type="hidden" name="modal_idprofil" id="edit-idprofil"  class="form-control" value="<?php echo $users->id_profil; ?>" />
-                                            <textarea cols="3" rows="3" class="summernote" name="modal_nama" id="edit-nama"
-                                                value="<?php echo $users->nama; ?>" required><?php echo $users->isi; ?></textarea>
-                                        </div>
-                                    </div>
+								<input type="hidden" name="modal_idprofil" id="edit-idprofil"  class="form-control" value="<?php echo $users->id_profil; ?>" />
 									<div class="form-group row align-items-center mb-0">
                                         <label for="inputPassword3"
                                             class="col-md-3 text-right control-label col-form-label">Isi Profil</label>
