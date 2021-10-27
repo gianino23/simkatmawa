@@ -82,65 +82,53 @@ class RegulasimhsController extends Controller
 		if (!file_exists($temp))
 			mkdir($temp);
 		
-		//$countfiles = count($_FILES['files']['name']);
-		//$files_arr = array();
+		
+		$countfiles = count($_FILES['files']['name']);
+		$files_arr = array();
 		// Loop all files
-		//for($index = 0;$index < $countfiles;$index++){
+		for($index = 0;$index < $countfiles;$index++){
 
-		 //  if(isset($_FILES['files']['name'][$index]) && $_FILES['files']['name'][$index] != ''){
+		   if(isset($_FILES['files']['name'][$index]) && $_FILES['files']['name'][$index] != ''){
 			  // File name
-		//	  $filename = $_FILES['files']['name'][$index];
-		//	  $ImageType       = $_FILES['files']['type'][$index];
+			  $filename = $_FILES['files']['name'][$index];
+			  $ImageType       = $_FILES['files']['type'][$index];
 			  
-		//		$acak           = rand(11111111, 99999999);
-		//		$ImageExt       = substr($filename, strrpos($filename, '.'));
-		//		$ImageExt       = str_replace('.','',$ImageExt); // Extension
-		//		$ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $filename);
-		//		$NewImageName   = str_replace(' ', '', $acak.'.'.$ImageExt);
+				$acak           = rand(11111111, 99999999);
+				$ImageExt       = substr($filename, strrpos($filename, '.'));
+				$ImageExt       = str_replace('.','',$ImageExt); // Extension
+				$ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $filename);
+				$NewImageName   = str_replace(' ', '', $acak.'.'.$ImageExt);
 
 			  // Get extension
-		//	  $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+			  $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 
 			  // Valid image extension
-		//	  $valid_ext = array("PNG","png","jpeg","jpg","zip","pdf","docx");
+			  $valid_ext = array("png","jpeg","jpg","zip","pdf","docx");
 
 			  // Check extension
-		//	  if(in_array($ext, $valid_ext)){
+			  if(in_array($ext, $valid_ext)){
 
 				 // File path
-		//		 $path = $temp.$NewImageName;
+				 $path = $temp.$NewImageName;
 
 				 // Upload file
-		//		 if(move_uploaded_file($_FILES['files']['tmp_name'][$index],$path)){
-		//			$files_arr[] = $path;
-		//		 }
+				 if(move_uploaded_file($_FILES['files']['tmp_name'][$index],$path)){
+					$files_arr[] = $path;
+				 }
 				$model1 =new Regulasimhs ;
 				$model1->jenis_id=$_POST['modal_nama'];
-				//$model1->isi=$NewImageName;
-				$model->periode=$_POST['modal_periode'];
+				$model1->isi=$NewImageName;
 				$model1->status=1;
+				$model1->periode=$_POST['modal_periode'];
+				$model1->tgl_entry=date('Y-m-d');
 				$model1->save();
-		//	  }
-		//   }
-	//	}
+			  }
+		   }
+		}
 		
-		
-		
-		//$fileupload      = $_FILES['modal_fileupload']['tmp_name'];
-		//$ImageName       = $_FILES['modal_fileupload']['name'];
-		//$ImageType       = $_FILES['modal_fileupload']['type'];
 	
 		if($model1->save())
 		 {
-			//$acak           = rand(11111111, 99999999);
-			//$ImageExt       = substr($ImageName, strrpos($ImageName, '.'));
-			//$ImageExt       = str_replace('.','',$ImageExt); // Extension
-			//$ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $ImageName);
-			//$NewImageName   = str_replace(' ', '', $acak.'.'.$ImageExt);
-		 
-			//move_uploaded_file($_FILES["modal_fileupload"]["tmp_name"], $temp.$NewImageName); // Menyimpan file 
-			
-			
 			
 		  // fungsi untuk membuat format json
 		  header('Content-Type: application/json');

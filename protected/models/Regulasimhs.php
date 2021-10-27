@@ -31,10 +31,10 @@ class Regulasimhs extends CActiveRecord
 		return array(
 			array('periode, tgl_entry', 'required'),
 			array('jenis_id, status, periode', 'numerical', 'integerOnly'=>true),
-			
+			array('isi', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_regulasimhs, jenis_id, status, periode, tgl_entry', 'safe', 'on'=>'search'),
+			array('id_regulasimhs, jenis_id, isi, status, periode, tgl_entry', 'safe', 'on'=>'search'),
 		);
 	}
 

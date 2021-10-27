@@ -258,7 +258,7 @@ $(document).ready(function() {
     $('#modal-nama').val('');
     $('#modal-periode').val('');
     $('#modal-fileupload').val('');
-    
+    location.reload();
    },
   error: function (xhr, ajaxOptions, thrownError) {
                   console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
@@ -327,6 +327,7 @@ $(document).ready(function() {
      $("#modal-data").empty();
      $("#modal-data").html(response.data);
      $("#modal_delete").modal('hide');
+	   location.reload();
     },
     error: function(e)
     {
