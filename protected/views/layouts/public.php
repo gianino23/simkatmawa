@@ -117,7 +117,7 @@
         <?= $content; ?>                                                
         <!-- Footer -->
         <footer id="footer">
-            <div class="footer-content">
+            <div class="footer-content" style="display:none">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5">
