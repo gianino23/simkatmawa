@@ -28,7 +28,7 @@ class RegulasimhsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','adminn','update','detail'),
+				'actions'=>array('index','view','adminn','update','detail','post'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -49,9 +49,9 @@ class RegulasimhsController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id)
+	public function actionPost($id)
 	{
-		$this->render('view',array(
+		$this->render('post',array(
 			'model'=>$this->loadModel($id),
 		));
 	}

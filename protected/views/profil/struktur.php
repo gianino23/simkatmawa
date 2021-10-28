@@ -1,5 +1,5 @@
 
-        <section id="page-title" data-bg-parallax="images/parallax/14.jpg">
+        <section id="page-title" data-bg-parallax="https://images.pexels.com/photos/7078661/pexels-photo-7078661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
             <div class="bg-overlay"></div>
             <div class="container">
                 <div class="page-title">
@@ -16,7 +16,7 @@
 
                         <?php
                                 $periode = Periode::model()->findByAttributes(array('status'=>1));
-                                $profil = Profil::model()->findByAttributes(['jenis_id'=>2]);
+                                $profil = Profil::model()->findByAttributes(['jenis_id'=>2,'periode'=>$periode->periode]);
                                 echo "<center>".$profil->isi."</center>";
                             ?>
                             <!-- <div class="col-lg-6">The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis. A true story, that never

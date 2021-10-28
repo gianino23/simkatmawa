@@ -95,13 +95,22 @@
                                             <?php } ?>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Galeri</a></li>
+                                    <li><?= CHtml::link('Galeri',array('galery/folder')) ?></li>
                                     <li class="dropdown"><a href="#">Regulasi Bid. Kemahasiswaan</a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">SOP Peminjaman Fasum</a></li>
+                                            <?php
+                                                $jenis = Jenis::model()->findAllByAttributes(['tabel'=>'regulasi']);
+                                                $periode = Periode::model()->findByAttributes(array('status'=>1));
+                                                foreach ($jenis as $j) {
+                                                    $regulasimhs = Regulasimhs::model()->findByAttributes(['jenis_id'=>$j->id_jenis,'periode'=>$periode->periode]);
+                                                    if(!empty($regulasimhs)) {
+                                            ?>
+                                            <li><?= CHtml::link($j->nama, $this->createAbsoluteUrl('regulasimhs/post',array('id'=>$j->id_regulasimhs))); ?></li>
+                                            <?php }} ?>
+                                            <!-- <li><a href="#">SOP Peminjaman Fasum</a></li>
                                             <li><a href="#">Pedoman Etika</a></li>
                                             <li><a href="#">Pedoman SKPI</a></li>
-                                            <li><a href="#">SOP Pengajuan Insentif Prestasi</a></li>
+                                            <li><a href="#">SOP Pengajuan Insentif Prestasi</a></li> -->
                                         </ul>
                                     </li>
                                             <li><?= CHtml::link('SIMKIMAHAL',array('site/login')) ?></li>
