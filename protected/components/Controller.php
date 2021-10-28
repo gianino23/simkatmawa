@@ -20,4 +20,9 @@ class Controller extends CController
 	 * for more details on how to specify this property.
 	 */
 	public $breadcrumbs=array();
+
+	public $periode = ''; // declare the product image folder variable with value as empty
+	public function init(){
+		$this->periode = Periode::model()->findByAttributes(['status'=>1]);//assign the config variable value.
+	}
 }

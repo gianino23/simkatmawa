@@ -4,8 +4,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="INSPIRO" />
-    <meta name="description" content="Themeforest Template Polo, html template">
+    <meta name="author" content="ULM" />
+    <meta name="description" content="simkimahal">
     <link rel="icon" type="image/png" href="<?php echo Yii::app()->request->baseUrl; ?>/images/ulm.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Document title -->
@@ -16,7 +16,6 @@
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/css/plugins.css" rel="stylesheet">
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/css/style.css" rel="stylesheet">
 </head>
-
 <body>
     <!-- Body Inner -->
     <div class="body-inner">
@@ -100,9 +99,8 @@
                                         <ul class="dropdown-menu">
                                             <?php
                                                 $jenis = Jenis::model()->findAllByAttributes(['tabel'=>'regulasi']);
-                                                $periode = Periode::model()->findByAttributes(array('status'=>1));
                                                 foreach ($jenis as $j) {
-                                                    $regulasimhs = Regulasimhs::model()->findByAttributes(['jenis_id'=>$j->id_jenis,'periode'=>$periode->periode]);
+                                                    $regulasimhs = Regulasimhs::model()->findByAttributes(['jenis_id'=>$j->id_jenis,'periode'=>$this->periode->id]);
                                                     if(!empty($regulasimhs)) {
                                             ?>
                                             <li><?= CHtml::link($j->nama, $this->createAbsoluteUrl('regulasimhs/post',array('id'=>$j->id_regulasimhs))); ?></li>

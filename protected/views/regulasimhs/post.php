@@ -15,8 +15,8 @@
                         <div class="row">
 
                         <?php
-                                $periode = Periode::model()->findByAttributes(array('status'=>1));
-                                $regulasi = Regulasimhs::model()->findByAttributes(['jenis_id'=>$id,'periode'=>$periode->periode]);
+                                // $periode = Periode::model()->findByAttributes(array('status'=>1));
+                                $regulasi = Regulasimhs::model()->findByAttributes(['jenis_id'=>$id,'periode'=>$this->periode->id]);
                                 echo "<center>".$regulasi->isi."</center>";
                             ?>
                             <!-- <div class="col-lg-6">The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis. A true story, that never
