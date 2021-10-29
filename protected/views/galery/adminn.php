@@ -121,6 +121,7 @@ echo $output;
 $(document).ready(function(){
  
  Dropzone.options.dropzoneFrom = {
+  parallelUploads: 20,
   autoProcessQueue: false,
   acceptedFiles:".png,.jpg,.gif,.bmp,.jpeg",
   init: function(){
