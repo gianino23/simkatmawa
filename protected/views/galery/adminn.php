@@ -121,10 +121,12 @@ echo $output;
 $(document).ready(function(){
  
  Dropzone.options.dropzoneFrom = {
-  parallelUploads: 20,
+  parallelUploads: 50,
+   maxFiles : 500,
   autoProcessQueue : false,
   autoQueue : true,
   autoProcessQueue: false,
+   dictDefaultMessage: "Letakan File Disini | File Maksimal 50 File",
   acceptedFiles:".png,.jpg,.gif,.bmp,.jpeg",
   init: function(){
    var submitButton = document.querySelector('#submit-all');
@@ -133,13 +135,14 @@ $(document).ready(function(){
     myDropzone.processQueue();
 	
    });
-   this.on("complete", function(){
-    if(this.getQueuedFiles().length == 0 && this.getUploadingFiles().length == 0){
-     var _this = this;
-     _this.removeAllFiles();
-    }
-    location.reload();
-   });
+   this.on("complete", function (file) {
+                if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
+                    location.reload();
+                }
+                else {
+                    Dropzone.forElement("#dropzoneFrom").processQueue();
+                }               
+            });
   },
  };
 
