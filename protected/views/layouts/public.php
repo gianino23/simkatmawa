@@ -103,7 +103,7 @@
                                                     $regulasimhs = Regulasimhs::model()->findByAttributes(['jenis_id'=>$j->id_jenis,'periode'=>$this->periode->id]);
                                                     if(!empty($regulasimhs)) {
                                             ?>
-                                            <li><?= CHtml::link($j->nama, $this->createAbsoluteUrl('regulasimhs/post',array('id'=>$j->id_regulasimhs))); ?></li>
+                                            <li><?/*= CHtml::link($j->nama, $this->createAbsoluteUrl('regulasimhs/post',array('id'=>$j->id_regulasimhs))); */?></li>
                                             <?php }} ?>
                                             <!-- <li><a href="#">SOP Peminjaman Fasum</a></li>
                                             <li><a href="#">Pedoman Etika</a></li>

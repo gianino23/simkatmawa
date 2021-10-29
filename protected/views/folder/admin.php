@@ -1,8 +1,4 @@
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#mytable').DataTable();
-    });
-</script>
+
 <div class="row page-titles">
     <div class="col-md-5 col-12 align-self-center">
         <h3 class="text-themecolor mb-0">SIMKATMAWA</h3>
@@ -87,8 +83,9 @@
 						</div>
 					</div>
                     <div class="card-footer">
-                <?= CHtml::link('<i class="fas fa-search text-info"></i>',['galery/admin']) ?>
-                    <div class="float-right">
+					<a href="?r=galery/adminn&id=<?php echo $fg->id_folder;?>"><i class="fas fa-search text-info"></i></a>
+              <!--  <?= CHtml::link('<i class="fas fa-search text-info"></i>',['galery/admin']) ?>-->
+                    <div class="float-right" id="mytable">
                     <a href="javascript:void(0)" class='open_modal' id='<?php echo  $fg->id_folder; ?>'><i class="fas fa-edit text-warning"></i></a>
 										<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $fg->id_folder; ?>'><i class="fas fa-trash-alt text-danger"></i></a>	
 										
@@ -106,11 +103,12 @@
 <!-- ============================================================== -->
 <!-- Container fluid  -->
 <!-- ============================================================== -->
+<!--
 <div class="container-fluid">
-    <!-- Row -->
+   
     
     <div class="row">
-        <!-- Column -->
+       
         <div class="card">
             <div class="card-body">
                 <div class="row">
@@ -120,10 +118,7 @@
                             <h6 class="card-subtitle">Deskripsi Halaman Folder</h6>
                         </div>
                         <div class="float-right">
-                            <!--
-							<?= CHtml::link('Hapus', array(''),array('class'=>'btn waves-effect waves-light btn-danger')); ?>
-							<?= CHtml::link('Tambah', array('folder/create'),array('class'=>'btn waves-effect waves-light btn-success')); ?>
-						-->
+                         
                             <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal"
                                 data-target="#tambahData">Tambah Data</button>
                         </div>
@@ -167,6 +162,7 @@
         </div>
     </div>
 </div>
+-->
 <div id="tambahData" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -259,7 +255,7 @@
                     $("#modal-data").html(response.data);
                     $("#tambahData").modal('hide');
                     $('#modal-namafolder').val('');
-                    $('#mytable').DataTable();
+                   
                     location.reload();
                 },
                 error: function (e) {

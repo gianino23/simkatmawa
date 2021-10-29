@@ -97,19 +97,11 @@ if(!empty($_FILES)){
  $location1 = $sources.'/'. $_FILES['file']['name'];
  
  move_uploaded_file($temp_file, $location);
- /*
-     $thumbnail = $sources.$temp_file;
-            list($width,$height) = getimagesize($location);
-			$thumb_width=256;
-			$thumb_height=144;
-            $thumb_create = imagecreatetruecolor($thumb_width,$thumb_height);
-            $source = imagecreatefromjpeg($folder_name.$f.'/'. $_FILES['file']['name']);
 
-            imagecopyresized($thumb_create,$source,0,0,0,0,$thumb_width,$thumb_height,$width,$height);
-*/
 copy($location,$location1);
         
  $model->save();
+ $this->refresh();
 }
 
 if(isset($_POST["name"])){
@@ -121,28 +113,10 @@ if(isset($_POST["name"])){
  $model=$this->loadModel($id)->delete();
  unlink($filename);
  unlink($filename1);
-
+$this->refresh();
 }
 
-$result = array();
-$files = scandir('upload');
-$output = '<div class="row">';
 
-if(false !== $files){
- foreach($files as $file){
-  if('.' !=  $file && '..' != $file){
-	  $fd=Folder::model()->findByAttributes(array('nama_folder'=>$file));
-   $output .= '
-   <div class="col-md-2">
-    <a href="?r=galery/adminn&id='.$fd->id_folder.'"><img src="images/folder.png" class="img-thumbnail" width="175" height="175" style="height:175px;" /></a>
-    <a href="?r=galery/adminn&id='.$fd->id_folder.'">'.$file.'</a>
-   </div>
-   ';
-  }
- }
-}
-$output .= '</div>';
-echo $output;
 	}
 
 	/**
