@@ -1,8 +1,3 @@
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#mytable').DataTable();
-});
-</script>
 <div class="row page-titles">
 	<div class="col-md-5 col-12 align-self-center">
 		<h3 class="text-themecolor mb-0">SIMKATMAWA</h3>
@@ -88,7 +83,7 @@ $(document).ready(function() {
 								data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis."><?= $p->isi; ?></p>
 						</div>
 					</div>
-                    <div class="card-footer">
+                    <div class="card-footer" id="mytable" >
                     <a href="javascript:void(0)" class='open_modal' id='<?php echo  $p->id_profil; ?>'><i class="fas fa-edit text-warning"></i></a>
 										<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id_profil; ?>'><i class="fas fa-trash-alt text-danger"></i></a>	
 										
@@ -105,63 +100,7 @@ $(document).ready(function() {
 <!-- ============================================================== -->
 <!-- Container fluid  -->
 <!-- ============================================================== -->
-<div class="container-fluid">
-	<!-- Row -->
-	<div class="row">
-		<!-- Column -->
-		<div class="card">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-12">
-						<div class="float-left">
-							<h3 class="card-title">Halaman Profil</h3>
-							<h6 class="card-subtitle">Deskripsi Halaman Profil</h6>
-						</div>
-						<div class="float-right">
-						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
-						</div>
-					</div>
-					<div class="col-12">
-						<div class="table-responsive">
-							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
-								<thead>
-									<tr>
-										<th>Nama Profil</th>
-										<th>Isi Profil</th>
-										<th>Aksi</th>
-										
-									</tr>
-								</thead>
-								<tbody id="modal-data">
-									<?php
-									
-											$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));														
-											$re=0;
-											foreach($periode as $per){
-											$re=$per->id;
-											}
-										 	$praker = Profil::model()->findAllByAttributes(array('periode'=>$re),array('order'=>'id_profil ASC'));
-											 foreach ($praker as $p) {
-												 $jenis=Jenis::model()->findByAttributes(array('id_jenis'=>$p->jenis_id));
-										 ?>
-									<tr>
-										<td><?= $jenis->nama; ?></td>
-										<td><?= $p->isi; ?></td>
-										<td align="center">
-										<a href="javascript:void(0)" class='open_modal' id='<?php echo  $p->id_profil; ?>'><i class="fas fa-edit"></i></a>
-										<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id_profil; ?>'><i class="fas fa-trash-alt"></i></a>	
-										</td>
-									</tr>
-									<?php } ?>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+
 							<div id="tambahData" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg modal-dialog-scrollable">

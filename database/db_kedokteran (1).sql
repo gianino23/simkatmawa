@@ -165,7 +165,7 @@ CREATE TABLE `t_folder` (
   `nama_folder` varchar(200) DEFAULT NULL,
   `ormas_id` int(11) NOT NULL,
   PRIMARY KEY (`id_folder`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_folder` */
 
@@ -186,7 +186,7 @@ CREATE TABLE `t_galery` (
   PRIMARY KEY (`id_galery`),
   KEY `folder` (`folder`),
   CONSTRAINT `t_galery_ibfk_1` FOREIGN KEY (`folder`) REFERENCES `t_folder` (`id_folder`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_galery` */
 
@@ -350,7 +350,7 @@ CREATE TABLE `t_profil` (
 /*Data for the table `t_profil` */
 
 insert  into `t_profil`(`id_profil`,`jenis_id`,`isi`,`periode`) values 
-(1,1,'tentang pusbinpres',5),
+(1,1,'tentang pusbinpresdfadfasfasf',5),
 (2,2,'struktur organisasi123234',5);
 
 /*Table structure for table `t_projekdesa` */
@@ -545,6 +545,24 @@ insert  into `t_user`(`kd_user`,`username`,`password`,`nama`,`level`,`ormawa_id`
 (49,'mub','daa551f036a22f6a1d9396b4d52ba522','MUB',2,5),
 (50,'medicartes','c42e6a202ff9eca5191af43d629c8af5','MEDICARTES',2,5),
 (59,'tensi','8d6daab29063cc56717b284aa51c15fd','TENSI',2,5);
+
+/*Table structure for table `t_visitor` */
+
+DROP TABLE IF EXISTS `t_visitor`;
+
+CREATE TABLE `t_visitor` (
+  `id_visitor` bigint(20) NOT NULL AUTO_INCREMENT,
+  `tanggal` date DEFAULT NULL,
+  `ip_address` varchar(20) DEFAULT NULL,
+  `counter` varchar(20) DEFAULT NULL,
+  `browser` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id_visitor`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*Data for the table `t_visitor` */
+
+insert  into `t_visitor`(`id_visitor`,`tanggal`,`ip_address`,`counter`,`browser`) values 
+(1,'2021-10-30','::1','1','Chrome/Opera');
 
 /*Table structure for table `t_wirausaha` */
 

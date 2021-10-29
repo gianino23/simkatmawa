@@ -267,3 +267,31 @@
 </body>
 
 </html>
+<?php
+// Jenis Browser
+$browser = $_SERVER['HTTP_USER_AGENT'];
+$chrome = '/Chrome/';
+$firefox = '/Firefox/';
+$ie = '/IE/';
+if (preg_match($chrome, $browser))
+    $data = "Chrome/Opera";
+if (preg_match($firefox, $browser))
+    $data = "Firefox";
+if (preg_match($ie, $browser))
+    $data = "IE";
+ 
+// untuk mengambil informasi dari pengunjung
+$ipaddress = $_SERVER['REMOTE_ADDR']."";
+$browser = $data;
+$tanggal = date('Y-m-d');
+$kunjungan = 1;
+if (!isset($_SESSION['counterdb'])){
+$_SESSION['counterdb']=$ipaddress;
+$model = new Visitor;
+$model->tanggal=$tanggal;
+$model->ip_address=$ipaddress;
+$model->counter=$kunjungan;
+$model->browser=$browser;
+$model->save();
+}
+?>
