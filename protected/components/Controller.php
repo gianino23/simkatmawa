@@ -21,8 +21,8 @@ class Controller extends CController
 	 */
 	public $breadcrumbs=array();
 
-	public $periode = ''; // declare the product image folder variable with value as empty
+	public $periode = '';
 	public function init(){
-		$this->periode = Periode::model()->findByAttributes(['status'=>1]);//assign the config variable value.
+		$this->periode = Periode::model()->findByAttributes(['status'=>1]);
 	}
 }

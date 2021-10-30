@@ -49,12 +49,13 @@ class RegulasimhsController extends Controller
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionPost($id)
-	{
-		$this->render('post',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
+	// public function actionPost($id)
+	// {
+	// 	$this->layout = 'public';
+	// 	$this->render('post',array(
+	// 		'model'=>$this->loadModel($id),
+	// 	));
+	// }
 	public function actionAdminn()
 	{
 		$this->renderpartial('adminn');
@@ -67,6 +68,13 @@ class RegulasimhsController extends Controller
 	public function actionDetail($id)
 	{
 		$this->render('detail',array(
+			'id'=>$id,
+		));
+	}
+	public function actionPost($id)
+	{
+		$this->layout = 'public';
+		$this->render('post',array(
 			'id'=>$id,
 		));
 	}
