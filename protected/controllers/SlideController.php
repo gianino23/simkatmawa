@@ -103,7 +103,7 @@ class SlideController extends Controller
 			  $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 
 			  // Valid image extension
-			  $valid_ext = array("png","jpeg","jpg","mp4");
+			  $valid_ext = array("png","jpeg","jpg","mkv","mp4");
 
 			  // Check extension
 			  if(in_array($ext, $valid_ext)){

@@ -1,34 +1,31 @@
         <!-- Inspiro Slider -->
         <div id="slider" class="inspiro-slider slider-fullscreen dots-creative" data-fade="true">
             <!-- Slide 1 -->
-            <div class="slide kenburns" data-bg-image="https://images.pexels.com/photos/4778611/pexels-photo-4778611.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
+            <?php
+                $slide = Slide::model()->findAllByAttributes(['status'=>1],['order'=>'urutan ASC','limit'=>3]);
+                foreach ($slide as $s) {
+                    $filename = $s->file;    
+                    $ext = substr($filename, -4);
+                    if($ext == ".jpg" || $ext == ".png" || $ext == "jpeg") {
+            ?>
+            <div class="slide kenburns" data-bg-image="<?php echo Yii::app()->request->baseUrl; ?>/upload/slide/<?= $s->file; ?>">
+            <?php } elseif ($ext == ".mp4" || $ext == ".mkv") { ?>
+                <div class="slide" data-bg-video="<?php echo Yii::app()->request->baseUrl; ?>/upload/slide/<?= $s->file; ?>">
+                <?php } ?>
                 <div class="bg-overlay"></div>
                 <div class="container">
                     <div class="slide-captions text-center text-light">
                         <!-- Captions -->
-                        <h1 data-caption-animate="zoom-out">WELCOME TO THE WORLD OF POLO</h1>
-                        <p>Say hello to the smartest and most flexible bootstrap template. Polo is an powerful template that can build any type of websites, and quite possibly the only one you will ever need.</p>
-                        <div><a href="#welcome" class="btn btn-primary scroll-to">Explore more</a></div>
+                        <h1 data-caption-animate="zoom-out"><?= $s->judul ?></h1>
+                        <p><?= $s->subjudul; ?></p>
+                        <!-- <div><a href="#welcome" class="btn btn-primary scroll-to">Explore more</a></div> -->
                         </span>
                         <!-- end: Captions -->
                     </div>
                 </div>
             </div>
+            <?php } ?>
             <!-- end: Slide 1 -->
-            <!-- Slide 2 -->
-            <div class="slide" data-bg-video="https://cdn.videvo.net/videvo_files/video/free/2015-02/large_watermarked/New_Chapter_001_Videvo_preview.mp4">
-                <div class="bg-overlay"></div>
-                <div class="container">
-                    <div class="slide-captions text-start text-light">
-                        <!-- Captions -->
-                        <h1>220+ Laytout Demos</h1>
-                        <p class="text-small">POLO is packed with 220+ pre-made layouts that allow you to quickly jumpstart your project. Completely customizable for creating your own designs.</p>
-                        <div><a href="#welcome" class="btn btn-primary scroll-to">Explore more</a></div>
-                        <!-- end: Captions -->
-                    </div>
-                </div>
-            </div>
-            <!-- end: Slide 2 -->
         </div>
         <!--end: Inspiro Slider -->
         <section id="page-content" class="no-sidebar">
