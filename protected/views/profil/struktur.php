@@ -3,7 +3,8 @@
             <div class="bg-overlay"></div>
             <div class="container">
                 <div class="page-title">
-                    <h1 class="text-uppercase text-medium">Struktur Organisasi</h1>
+                    <span>PROFIL</span>
+                    <h1>Struktur Organisasi</h1>
                 </div>
             </div>
         </section>

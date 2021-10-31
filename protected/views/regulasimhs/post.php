@@ -3,7 +3,14 @@
             <div class="bg-overlay"></div>
             <div class="container">
                 <div class="page-title">
-                    <h1 class="text-uppercase text-medium">Regulasi Bidang Kemahasiswaan</h1>
+                    <span class="text-uppercase">Regulasi Bidang Kemahasiswaan</span>
+                    <h1>
+                    <?php
+                        $regulasi = Regulasimhs::model()->findByAttributes(['id_regulasimhs'=>$id]);
+                        $jenis = Jenis::model()->findByAttributes(['id_jenis'=>$regulasi->jenis_id]);
+                        echo $jenis->nama;
+                    ?></h1>
+
                 </div>
             </div>
         </section>
@@ -13,11 +20,6 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
-
-                        <?php
-                                // $periode = Periode::model()->findByAttributes(array('status'=>1));
-                                $regulasi = Regulasimhs::model()->findByAttributes(['id_regulasimhs'=>$id]);
-                            ?>
                             <embed src="<?= Yii::app()->request->baseUrl.'/upload/'.$regulasi->isi; ?>" height="1000px" />
                             <!-- <div class="col-lg-6">The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida tortor, vel interdum mi sapien ut justo. Nulla varius consequat magna, id molestie ipsum volutpat quis. A true story, that never
                                 been told!. Fusce id mi diam, non ornare orci. Pellentesque ipsum erat, <br> <br> facilisis ut venenatis eu, sodales vel dolor. The most happiest time of the day!. Morbi sagittis, sem quis lacinia faucibus, orci ipsum gravida

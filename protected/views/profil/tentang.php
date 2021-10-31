@@ -3,8 +3,8 @@
             <div class="bg-overlay"></div>
             <div class="container">
                 <div class="page-title">
-                    <h1 class="text-uppercase text-medium">TENTANG KAMI</h1>
-                    <!-- <span>Work is easy when you have all tools around you!</span> -->
+                    <span>PROFIL</span>
+                    <h1>Tentang Kami</h1>
                 </div>
             </div>
         </section>
