@@ -98,7 +98,9 @@ if(!empty($_FILES)){
  $location1 = $sources.'/'. $_FILES['file']['name'];
  
  move_uploaded_file($temp_file, $location);
-	 //$imagepath = $imagename;
+	$path_info = pathinfo($location);
+	if(($path_info['extension']=="jpeg")||($path_info['extension']=="JPEG")||($path_info['extension']=="jpg")){
+		
           $save = $location1; //This is the new file you saving
           $file = $location; //This is the original file
 
@@ -110,8 +112,8 @@ if(!empty($_FILES)){
           imagecopyresampled($tn, $image, 0, 0, 0, 0, $width, $height, $width, $height) ; 
 
           imagejpeg($tn, $save, 100) ; 
-
-           $save = $location1; //This is the new file you saving
+		
+          $save = $location1; //This is the new file you saving
           $file = $location; //This is the original file
 
           list($width, $height) = getimagesize($file) ; 
@@ -125,7 +127,37 @@ if(!empty($_FILES)){
           $image = imagecreatefromjpeg($file) ; 
           imagecopyresampled($tn, $image, 0, 0, 0, 0, $modwidth, $modheight, $width, $height) ; 
 
-          imagejpeg($tn, $save, 100) ; 
+          imagejpeg($tn, $save, 100) ;
+	}elseif(($path_info['extension']=="png")||($path_info['extension']=="PNG")){
+		
+          $save = $location1; //This is the new file you saving
+          $file = $location; //This is the original file
+
+          list($width, $height) = getimagesize($file) ; 
+
+
+          $tn = imagecreatetruecolor($width, $height) ; 
+          $image = imagecreatefrompng($file) ; 
+          imagecopyresampled($tn, $image, 0, 0, 0, 0, $width, $height, $width, $height) ; 
+
+          imagepng($tn, $save) ; 
+		
+          $save = $location1; //This is the new file you saving
+          $file = $location; //This is the original file
+
+          list($width, $height) = getimagesize($file) ; 
+
+          $modwidth = 256; 
+
+          $diff = $width / $modwidth;
+
+          $modheight = 144; 
+          $tn = imagecreatetruecolor($modwidth, $modheight) ; 
+          $image = imagecreatefrompng($file) ; 
+          imagecopyresampled($tn, $image, 0, 0, 0, 0, $modwidth, $modheight, $width, $height) ; 
+
+          imagepng($tn, $save) ;
+	}
 //copy($location,$location1);
 
         
