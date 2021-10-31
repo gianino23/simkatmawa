@@ -28,7 +28,7 @@ class GaleryController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','adminn','update','emptydir','folder'),
+				'actions'=>array('index','view','adminn','update','emptydir','folder','compressImage'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -98,11 +98,40 @@ if(!empty($_FILES)){
  $location1 = $sources.'/'. $_FILES['file']['name'];
  
  move_uploaded_file($temp_file, $location);
+	 //$imagepath = $imagename;
+          $save = $location1; //This is the new file you saving
+          $file = $location; //This is the original file
 
-copy($location,$location1);
+          list($width, $height) = getimagesize($file) ; 
+
+
+          $tn = imagecreatetruecolor($width, $height) ; 
+          $image = imagecreatefromjpeg($file) ; 
+          imagecopyresampled($tn, $image, 0, 0, 0, 0, $width, $height, $width, $height) ; 
+
+          imagejpeg($tn, $save, 100) ; 
+
+           $save = $location1; //This is the new file you saving
+          $file = $location; //This is the original file
+
+          list($width, $height) = getimagesize($file) ; 
+
+          $modwidth = 256; 
+
+          $diff = $width / $modwidth;
+
+          $modheight = 144; 
+          $tn = imagecreatetruecolor($modwidth, $modheight) ; 
+          $image = imagecreatefromjpeg($file) ; 
+          imagecopyresampled($tn, $image, 0, 0, 0, 0, $modwidth, $modheight, $width, $height) ; 
+
+          imagejpeg($tn, $save, 100) ; 
+//copy($location,$location1);
+
         
  $model->save();
  $this->refresh();
+ 
 }
 
 if(isset($_POST["name"])){
