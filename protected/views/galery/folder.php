@@ -43,7 +43,7 @@
         <section id="page-content">
             <div class="container">
                 <!-- Portfolio Filter -->
-                <nav class="grid-filter gf-outline" data-layout="#portfolio">
+                <!-- <nav class="grid-filter gf-outline" data-layout="#portfolio">
                     <ul>
                         <li class="active"><a href="#" data-category="*">Show All</a></li>
                         <li><a href="#" data-category=".ct-branding">Branding</a></li>
@@ -53,7 +53,7 @@
                         <li><a href="#" data-category=".ct-webdesign">Web design</a></li>
                     </ul>
                     <div class="grid-active-title">Show All</div>
-                </nav>
+                </nav> -->
                 <!-- end: Portfolio Filter -->
                 <!-- Portfolio -->
                 <div id="portfolio" class="grid-layout portfolio-3-columns" data-margin="20">
@@ -71,7 +71,7 @@
                                         if(!empty($galeri)) {
                                         foreach ($galeri as $gal) {
                                     ?>
-                                    <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/64.jpg" alt=""></a>
+                                    <a href="<?= Yii::app()->createAbsoluteUrl('galery/view',['id'=>$fol->id_folder])?>"><img src="<?php echo Yii::app()->request->baseUrl.'/images/thumbnail/'.$gal->file; ?>" alt=""></a>
                                     <?php }
                                     } else { ?>
                                     <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/22.jpg" alt=""></a>
@@ -81,7 +81,7 @@
                                 </div>
                             </div>
                             <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
+                                <a href="<?= Yii::app()->createAbsoluteUrl('galery/view',['id'=>$fol->id_folder])?>">
                                     <h3><?= $fol->nama_folder; ?></h3>
                                     <?php if($fol->ormas_id != 0) echo '<span>'.$fol->ormas_id.'</span>'; ?>
                                 </a>
@@ -89,157 +89,6 @@
                         </div>
                     </div>
                     <?php } ?>
-                    <!-- end: portfolio item -->
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-photography ct-marketing ct-media">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/60.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Paper Pouch</h3>
-                                    <span>Branding / Graphics</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/67.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Towel World</h3>
-                                    <span>Graphics</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay overlay-light img-zoom ct-photography ct-media ct-branding ct-Media ct-webdesign">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-slider">
-                                <div class="carousel dots-inside arrows-dark dots-dark" data-items="1" data-loop="true" data-autoplay="true" data-autoplay="1800">
-                                    <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/22.jpg" alt=""></a>
-                                    <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/23.jpg" alt=""></a>
-                                    <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/24.jpg" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Stockholm Fashion</h3>
-                                    <span>Illustrations / Graphics</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-photography ct-media ct-branding ct-Media">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/61.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Let's Go Outside</h3>
-                                    <span>Illustrations / Graphics</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/65.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Towel World</h3>
-                                    <span>Graphics</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-marketing ct-media ct-branding ct-marketing ct-webdesign">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/66.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Last Iceland Sunshine</h3>
-                                    <span>Graphics</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay ct-photography ct-media ct-branding ct-Media ct-marketing ct-webdesign">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-slider">
-                                <div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="1500">
-                                    <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/68.jpg" alt=""></a>
-                                    <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/71.jpg" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-photography ct-marketing ct-media">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/69.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Luxury Wine</h3>
-                                    <span>Graphics / Branding</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-marketing ct-media ct-branding ct-marketing ct-webdesign">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/70.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Last Iceland Sunshine</h3>
-                                    <span>Graphics</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end: portfolio item -->
-                    <!-- portfolio item -->
-                    <div class="portfolio-item no-overlay img-zoom ct-photography ct-media ct-branding ct-marketing ct-webdesign">
-                        <div class="portfolio-item-wrap">
-                            <div class="portfolio-image">
-                                <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/72.jpg" alt=""></a>
-                            </div>
-                            <div class="portfolio-description">
-                                <a href="portfolio-page-grid-gallery.html">
-                                    <h3>Towel World</h3>
-                                    <span>Graphics</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                     <!-- end: portfolio item -->
                 </div>
                 <!-- end: Portfolio -->

@@ -73,6 +73,7 @@ class FolderController extends Controller
 		$model=new Folder;
 
 		$model->nama_folder=$_POST['modal_namafolder'];
+		if(Yii::app()->user->level == 1) $model->ormas_id = 0;
 		if($model->save())
 		 {
 			 $temp = "upload/".$model->nama_folder."/";

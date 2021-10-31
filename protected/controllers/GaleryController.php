@@ -57,8 +57,9 @@ class GaleryController extends Controller
 
 	public function actionView($id)
 	{
+		$this->layout = 'public';
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'id'=>$id,
 		));
 	}
 	public function actionAdminn($id)
