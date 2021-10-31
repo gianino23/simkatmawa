@@ -1,6 +1,7 @@
 
         <!-- Page title -->
-        <section id="page-title" class="page-title-center text-light" style="background-image:url(https://images.pexels.com/photos/296649/pexels-photo-296649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+        <section id="page-title" class="text-light" data-bg-parallax="https://images.pexels.com/photos/296649/pexels-photo-296649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+        <!-- <section id="page-title" class="page-title-center text-light" style="background-image:url(https://images.pexels.com/photos/296649/pexels-photo-296649.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);"> -->
             <div class="bg-overlay"></div>
             <div class="container">
                 <div class="page-title">
