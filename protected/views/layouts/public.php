@@ -82,17 +82,19 @@
                                             <?php
                                                 $ormawa = Ormawa::model()->findAll();
                                                 foreach ($ormawa as $o) {
+                                                    $co = Childormawa::model()->findByAttributes(['ormawa_id'=>$o->id_ormawa,'periode'=>$this->periode->id]);
+                                                    if(!empty($co)){
                                             ?>
                                             <li class="dropdown-submenu"><a href="#"><?= $o->nama_ormawa; ?></a>
                                                 <ul class="dropdown-menu">
-                                                    <li><a href="#">Profil</a></li>
-                                                    <li><a href="#">Struktur Organisasi</a></li>
-                                                    <li><a href="#">Visi dan Misi</a></li>
+                                                    <li><?= CHtml::link('Profil', $this->createAbsoluteUrl('ormawa/profil',array('id'=>$co->id))); ?></li>
+                                                    <li><?= CHtml::link('Struktur Organisasi', $this->createAbsoluteUrl('ormawa/strukturorganisasi',array('id'=>$co->id))); ?></li>
+                                                    <li><?= CHtml::link('Visi Misi', $this->createAbsoluteUrl('ormawa/visimisi',array('id'=>$co->id))); ?></li>
                                                     <li><a href="#">Kalender Proker</a></li>
                                                     <li><a href="#">Luaran Kinerja</a></li>
                                                 </ul>
                                             </li>
-                                            <?php } ?>
+                                            <?php }} ?>
                                         </ul>
                                     </li>
                                     <li><?= CHtml::link('Galeri',array('galery/folder')) ?></li>

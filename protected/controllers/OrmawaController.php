@@ -28,7 +28,7 @@ class OrmawaController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','adminn','update','detail'),
+				'actions'=>array('index','view','adminn','update','detail','profil','visimisi','strukturorganisasi'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -54,6 +54,31 @@ class OrmawaController extends Controller
 		$this->renderpartial('adminn');
 	}
 	
+
+	public function actionProfil($id)
+	{
+		$this->layout='public';
+		$this->render('profil',array(
+			'id'=>$id,
+		));
+	}
+
+	public function actionVisimisi($id)
+	{
+		$this->layout='public';
+		$this->render('visimisi',array(
+			'id'=>$id,
+		));
+	}
+
+	public function actionStrukturOrganisasi($id)
+	{
+		$this->layout='public';
+		$this->render('struktur',array(
+			'id'=>$id,
+		));
+	}
+
 	public function actionUpdate()
 	{
 		$this->renderpartial('update');
