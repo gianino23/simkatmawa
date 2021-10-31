@@ -111,10 +111,12 @@ class RegulasimhsController extends Controller
 			  $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
 
 			  // Valid image extension
-			  $valid_ext = array("png","jpeg","jpg","zip","pdf","docx");
+			  $valid_ext = array("pdf");
 
 			  // Check extension
-			  if(in_array($ext, $valid_ext)){
+			    if(in_array($ext,$valid_ext)=== false){
+					$this->redirect(array('admin'));
+				}elseif(in_array($ext, $valid_ext)){
 
 				 // File path
 				 $path = $temp.$NewImageName;
