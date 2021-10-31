@@ -147,7 +147,7 @@ $(document).ready(function() {
                                     </div>
 									<div class="form-group row align-items-center mb-0">
                                         <label for="inputLevel3"
-                                            class="col-md-3 text-right control-label col-form-label">Upload File Pendukung</label>
+                                            class="col-md-3 text-right control-label col-form-label">Upload File Pendukung (.pdf)</label>
                                         <div class="col-md-9 border-left pb-2 pt-2 ">
                                            <input type="file" name="files[]" id="files" class="form-control" multiple required />
                                         </div>
