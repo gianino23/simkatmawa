@@ -60,6 +60,10 @@ class RegulasimhsController extends Controller
 	{
 		$this->renderpartial('adminn');
 	}
+	public function actionView()
+	{
+		$this->renderpartial('view');
+	}
 	
 	public function actionUpdate()
 	{

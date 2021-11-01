@@ -83,9 +83,16 @@ $(document).ready(function() {
 									<tr>
 										<td><?= $jenis->nama; ?></td>
 										<td><?= $p->isi; ?></td>
-										<td><?= $p->status; ?></td>
+										<td><?php
+												if(($p->status)==1){
+													echo "Aktif";
+												}elseif(($p->status)==0){
+													echo "Tidak Aktif";
+												}
+										?></td>
 										<td align="center">
-											<a href="upload/<?php echo $p->isi;?>" onclick="return confirm('Apakah Anda ingin mendownload file ini ?');"><i class="fas fa-download"></i></a>
+											<!--<a href="upload/<?php echo $p->isi;?>" onclick="return confirm('Apakah Anda ingin mendownload file ini ?');"><i class="fas fa-download"></i></a>-->
+											<a href="javascript:void(0)" class="view_modal" id='<?php echo  $p->id_regulasimhs; ?>'><i class="fas fa-download"></i></a>
 											<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id_regulasimhs; ?>'><i class="fas fa-trash-alt"></i></a>
 										</td>
 									</tr>
@@ -175,6 +182,10 @@ $(document).ready(function() {
 <div id="ModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
 </div>
+<!-- Modal Popup untuk View--> 
+<div id="ModalView" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+</div>
 
 <!-- Modal Popup untuk delete--> 
 <div class="modal fade" id="modal_delete">
@@ -198,16 +209,18 @@ $(document).ready(function() {
 
 <script type="text/javascript">
  $(document).ready(function () {
-   $('#mytable').on('click', '.open_modal', function(e){
+   $('#mytable').on('click', '.view_modal', function(e){
        var m = $(this).attr("id");
      $.ajax({
-          url: "?r=user/update",
+          url: "?r=regulasimhs/view",
           type: "GET",
-          data : {kd_user: m,},
-          success: function (ajaxData){
-            $("#ModalEdit").html(ajaxData);
-            $("#ModalEdit").modal('show',{backdrop: 'true'});
-           }
+          data : {id_regulasimhs: m,},
+          success: function (ajaxData) {
+        $("#ModalView").html(ajaxData);
+        $("#ModalView").modal('show', {
+          backdrop: 'true'
+        });
+      }
          });
         });
     });
