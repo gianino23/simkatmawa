@@ -91,7 +91,7 @@ class ProfilController extends Controller
 	{
 		$model=new Profil;
 
-		$model->nama = $_POST['modal_nama'];
+		$model->jenis_id = $_POST['modal_nama'];
 		$model->isi = $_POST['modal_isi'];
 		$model->periode=$_POST['modal_periode'];
 		$model->save();
