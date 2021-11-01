@@ -90,25 +90,25 @@ $folder = Folder::model()->findByAttributes(array('id_folder'=>$id));
 						
 					<?php
 					
-$folder_name = 'upload/'.$folder->nama_folder.'/';
-$result = array();
-$files = scandir('upload/'.$folder->nama_folder);
-$output = '<div class="row">';
+						$folder_name = 'upload/'.$folder->nama_folder.'/';
+						$result = array();
+						$files = scandir('upload/'.$folder->nama_folder);
+						$output = '<div class="row">';
 
-if(false !== $files){
- foreach($files as $file){
-  if('.' !=  $file && '..' != $file){
-   $output .= '
-   <div class="col-md-3">
-    <img src="'.$folder_name.$file.'" class="img-thumbnail" width="175" height="175" style="height:175px;" />
-    <button type="button" class="btn btn-link remove_image" id="'.$file.'">Hapus Gambar</button>
-   </div>
-   ';
-  }
- }
-}
-$output .= '</div>';
-echo $output;
+						if(false !== $files){
+						 foreach($files as $file){
+						  if('.' !=  $file && '..' != $file){
+						   $output .= '
+						   <div class="col-md-3">
+							<img src="'.$folder_name.$file.'" class="img-thumbnail" width="175" height="175" style="height:175px;" />
+							<button type="button" class="btn btn-link remove_image" id="'.$file.'">Hapus Gambar</button>
+						   </div>
+						   ';
+						  }
+						 }
+						}
+						$output .= '</div>';
+						echo $output;
 					?>	 
 					</div>
 				</div>
