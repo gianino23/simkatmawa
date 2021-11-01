@@ -119,7 +119,7 @@ $(document).ready(function() {
                                         <label for="inputUsername3"
                                             class="col-md-3 text-right control-label col-form-label">Tahun Periode</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="number" class="form-control" name="modal_periode" id="modal-periode"
+                                            <input type="number" min="<?php echo date('Y');?>" class="form-control" name="modal_periode" id="modal-periode"
                                                  required>
                                         </div>
                                     </div>

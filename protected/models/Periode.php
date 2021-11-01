@@ -26,6 +26,7 @@ class Periode extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('periode', 'unique'),
 			array('periode, status', 'required'),
 			array('status', 'numerical', 'integerOnly'=>true),
 			array('periode', 'length', 'max'=>4),
