@@ -276,12 +276,18 @@ $browser = $_SERVER['HTTP_USER_AGENT'];
 $chrome = '/Chrome/';
 $firefox = '/Firefox/';
 $ie = '/IE/';
+$safari = '/Safari/';
+$edge = '/Edge/';
 if (preg_match($chrome, $browser))
     $data = "Chrome/Opera";
 if (preg_match($firefox, $browser))
     $data = "Firefox";
 if (preg_match($ie, $browser))
     $data = "IE";
+if (preg_match($safari, $browser))
+    $data = "Safari";
+if (preg_match($edge, $browser))
+    $data = "Edge";
  
 // untuk mengambil informasi dari pengunjung
 $ipaddress = $_SERVER['REMOTE_ADDR']."";
