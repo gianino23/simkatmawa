@@ -26,6 +26,7 @@ class Jenis extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('nama', 'unique'),
 			array('nama, tabel', 'required'),
 			array('tabel', 'length', 'max'=>10),
 			// The following rule is used by search().

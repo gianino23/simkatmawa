@@ -38,9 +38,7 @@ $(document).ready(function() {
 							<h3 class="card-title">Halaman Jenis</h3>
 							<h6 class="card-subtitle">Deskripsi Halaman Jenis</h6>
 						</div>
-						<div class="float-right">
-						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
-						</div>
+						
 					</div>
 					<div class="col-12">
 						<div class="table-responsive">
@@ -231,11 +229,12 @@ $(document).ready(function() {
    // console.log(response);
     $("#modal-data").empty();
     $("#modal-data").html(response.data);
- $("#ModalEdit").modal('hide');
+	$("#ModalEdit").modal('hide');
  location.reload();
    },
    error: function(e)
    {
+	   alert("data tidak tersimpan");
     // Error function here
    },
    beforeSend:function(b){
