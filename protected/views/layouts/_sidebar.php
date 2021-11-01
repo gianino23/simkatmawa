@@ -38,11 +38,12 @@
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
 					Slider
 				</span></a></li>
+		<!--
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('jenis/admin')?>"
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
 					Jenis
 				</span></a></li>
-
+		-->
 		<li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
 			<span class="hide-menu">DATA</span></li>
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('user/admin')?>"

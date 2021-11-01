@@ -27,6 +27,7 @@ class JenisController extends Controller
 	public function accessRules()
 	{
 		return array(
+		/*
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view','adminn','update','detail','tentang','strukturorganisasi'),
 				'users'=>array('*'),
@@ -39,11 +40,14 @@ class JenisController extends Controller
 				'actions'=>array('admin','hapus'),
 				'users'=>array('admin'),
 			),
-			array('deny',  // deny all users
+		*/
+			array('deny',
+				'actions'=>array('index','view','adminn','update','detail','tentang','strukturorganisasi','admin','hapus','tambah','edit'),			// deny all users
 				'users'=>array('*'),
 			),
 		);
 	}
+	
 
 	/**
 	 * Displays a particular model.

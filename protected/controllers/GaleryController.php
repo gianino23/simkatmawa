@@ -117,15 +117,18 @@ if(!empty($_FILES)){
           $file = $location; //This is the original file
 
           list($width, $height) = getimagesize($file) ; 
-
-          $modwidth = 256; 
+		  $rasio = $height / 480 ;
+		  $compreheight = 480 ;
+		  $comprewidth = $width / $rasio ;
+          
+		  $modwidth = 256; 
 
           $diff = $width / $modwidth;
 
           $modheight = 480; 
-          $tn = imagecreatetruecolor($width, $modheight) ; 
+          $tn = imagecreatetruecolor($comprewidth, $compreheight) ; 
           $image = imagecreatefromjpeg($file) ; 
-          imagecopyresampled($tn, $image, 0, 0, 0, 0, $width, $modheight, $width, $height) ; 
+          imagecopyresampled($tn, $image, 0, 0, 0, 0, $comprewidth, $compreheight, $width, $height) ; 
 
           imagejpeg($tn, $save, 100) ;
 	}elseif(($path_info['extension']=="png")||($path_info['extension']=="PNG")){
@@ -146,15 +149,18 @@ if(!empty($_FILES)){
           $file = $location; //This is the original file
 
           list($width, $height) = getimagesize($file) ; 
-
+		  $rasio = $height / 480 ;
+		  $compreheight = 480 ;
+		  $comprewidth = $width / $rasio ;
+		  
           $modwidth = 256; 
 
           $diff = $width / $modwidth;
 
           $modheight = 480; 
-          $tn = imagecreatetruecolor($width, $modheight) ; 
+          $tn = imagecreatetruecolor($comprewidth, $compreheight) ; 
           $image = imagecreatefrompng($file) ; 
-          imagecopyresampled($tn, $image, 0, 0, 0, 0, $width, $modheight, $width, $height) ; 
+          imagecopyresampled($tn, $image, 0, 0, 0, 0, $comprewidth, $compreheight, $width, $height) ; 
 
           imagepng($tn, $save) ;
 	}

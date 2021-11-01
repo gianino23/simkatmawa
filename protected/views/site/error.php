@@ -8,8 +8,14 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h2>Error <?php echo $code; ?></h2>
-
+<script>alert('Error <?php echo $code; ?> | <?php echo CHtml::encode($message); ?>')</script>
+<script>
+setTimeout(function () {
+   window.location.href= '?r=site/index';
+},1000); 
+</script>
+<!--
 <div class="error">
 <?php echo CHtml::encode($message); ?>
 </div>
+-->
