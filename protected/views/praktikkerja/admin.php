@@ -119,7 +119,7 @@ $(document).ready(function() {
                                         <label for="inputUsername3"
                                             class="col-md-3 text-right control-label col-form-label">Nama Program Magang</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="text" class="form-control" name="modal_program" id="modal-program"
+                                            <input type="text" maxlength="200" class="form-control" name="modal_program" id="modal-program"
                                                 placeholder="Nama Program Magang" required>
                                         </div>
                                     </div>
@@ -127,7 +127,7 @@ $(document).ready(function() {
                                         <label for="inputPassword3"
                                             class="col-md-3 text-right control-label col-form-label">Lokasi Magang</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                           <input type="text" class="form-control" name="modal_lokasi" id="modal-lokasi"
+                                           <input type="text" maxlength="100" class="form-control" name="modal_lokasi" id="modal-lokasi"
                                                 placeholder="Nama Lokasi Magang" required>
                                         </div>
                                     </div>

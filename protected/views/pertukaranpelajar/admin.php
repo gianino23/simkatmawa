@@ -122,7 +122,7 @@ $(document).ready(function() {
                                         <label for="inputUsername3"
                                             class="col-md-3 text-right control-label col-form-label">Nama Program Pertukaran</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="text" class="form-control" name="modal_program" id="modal-program"
+                                            <input type="text" maxlength="200" class="form-control" name="modal_program" id="modal-program"
                                                 placeholder="Nama Program Pertukaran" required>
                                         </div>
                                     </div>

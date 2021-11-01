@@ -120,7 +120,7 @@ $(document).ready(function() {
                                         <label for="inputUsername3"
                                             class="col-md-3 text-right control-label col-form-label">Nama Program Bela Negara</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                            <textarea cols="3" rows="3" class="form-control" name="modal_program" id="modal-program"
+                                            <textarea cols="3" rows="3" maxlength="200" class="form-control" name="modal_program" id="modal-program"
                                                 placeholder="Nama Program Bela Negara" required></textarea>
                                         </div>
                                     </div>
@@ -128,7 +128,7 @@ $(document).ready(function() {
                                         <label for="inputPassword3"
                                             class="col-md-3 text-right control-label col-form-label">Judul Kegiatan dan Topik Kegiatan</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                           <textarea cols="3" rows="3" class="form-control" name="modal_judul" id="modal-judul"
+                                           <textarea cols="3" rows="3" maxlength="200" class="form-control" name="modal_judul" id="modal-judul"
                                                 placeholder="Judul Kegiatan dan Topik Kegiatan" required></textarea>
                                         </div>
                                     </div>
@@ -152,7 +152,7 @@ $(document).ready(function() {
                                         <label for="inputLevel3"
                                             class="col-md-3 text-right control-label col-form-label">Luaran Kegiatan (LPJ Kegiatan)</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                           <textarea cols="3" rows="3" class="form-control" name="modal_luaran" id="modal-luaran"
+                                           <textarea cols="3" rows="3" maxlength="200" class="form-control" name="modal_luaran" id="modal-luaran"
                                                 placeholder="Luaran Kegiatan (LPJ Kegiatan)" required></textarea>
                                         </div>
                                     </div>

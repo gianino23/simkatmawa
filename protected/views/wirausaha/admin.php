@@ -124,7 +124,7 @@ $(document).ready(function() {
                                         <label for="inputUsername3"
                                             class="col-md-3 text-right control-label col-form-label">Nama Program/</br>Kewirausahaan</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="text" class="form-control" name="modal_program" id="modal-program"
+                                            <input type="text" maxlength="200" class="form-control" name="modal_program" id="modal-program"
                                                 placeholder="Nama Program " required>
                                         </div>
                                     </div>
@@ -132,7 +132,7 @@ $(document).ready(function() {
                                         <label for="inputPassword3"
                                             class="col-md-3 text-right control-label col-form-label">Bidang Usaha</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                           <input type="text" class="form-control" name="modal_bidang" id="modal-bidang"
+                                           <input type="text" maxlength="100" class="form-control" name="modal_bidang" id="modal-bidang"
                                                 placeholder="Nama Bidang Usaha" required>
                                         </div>
                                     </div>
@@ -172,7 +172,7 @@ $(document).ready(function() {
                                         <label for="inputLevel3"
                                             class="col-md-3 text-right control-label col-form-label">Luaran Kegiatan</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                           <input type="text" class="form-control" name="modal_luaran" id="modal-luaran"
+                                           <input type="text" maxlength="200" class="form-control" name="modal_luaran" id="modal-luaran"
                                                 placeholder="Luaran Kegiatan" required>
                                         </div>
                                     </div>

@@ -120,7 +120,7 @@ $(document).ready(function() {
                                         <label for="inputUsername3"
                                             class="col-md-3 text-right control-label col-form-label">Nama Program/</br>Skim Penelitian/</br>Riset Mahasiswa</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="text" class="form-control" name="modal_program" id="modal-program"
+                                            <input type="text" maxlength="200" class="form-control" name="modal_program" id="modal-program"
                                                 placeholder="Nama Program Penelitian" required>
                                         </div>
                                     </div>
@@ -152,7 +152,7 @@ $(document).ready(function() {
                                         <label for="inputLevel3"
                                             class="col-md-3 text-right control-label col-form-label">Luaran Penelitian</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
-                                           <input type="text" class="form-control" name="modal_luaran" id="modal-luaran"
+                                           <input type="text" maxlength="200" class="form-control" name="modal_luaran" id="modal-luaran"
                                                 placeholder="Luaran Penelitian" required>
                                         </div>
                                     </div>
