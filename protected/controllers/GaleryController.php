@@ -122,10 +122,10 @@ if(!empty($_FILES)){
 
           $diff = $width / $modwidth;
 
-          $modheight = 144; 
-          $tn = imagecreatetruecolor($modwidth, $modheight) ; 
+          $modheight = 480; 
+          $tn = imagecreatetruecolor($width, $modheight) ; 
           $image = imagecreatefromjpeg($file) ; 
-          imagecopyresampled($tn, $image, 0, 0, 0, 0, $modwidth, $modheight, $width, $height) ; 
+          imagecopyresampled($tn, $image, 0, 0, 0, 0, $width, $modheight, $width, $height) ; 
 
           imagejpeg($tn, $save, 100) ;
 	}elseif(($path_info['extension']=="png")||($path_info['extension']=="PNG")){
@@ -151,10 +151,10 @@ if(!empty($_FILES)){
 
           $diff = $width / $modwidth;
 
-          $modheight = 144; 
-          $tn = imagecreatetruecolor($modwidth, $modheight) ; 
+          $modheight = 480; 
+          $tn = imagecreatetruecolor($width, $modheight) ; 
           $image = imagecreatefrompng($file) ; 
-          imagecopyresampled($tn, $image, 0, 0, 0, 0, $modwidth, $modheight, $width, $height) ; 
+          imagecopyresampled($tn, $image, 0, 0, 0, 0, $width, $modheight, $width, $height) ; 
 
           imagepng($tn, $save) ;
 	}
