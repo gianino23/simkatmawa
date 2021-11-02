@@ -60,7 +60,14 @@ $(document).ready(function() {
 							<?= CHtml::link('Hapus', array(''),array('class'=>'btn waves-effect waves-light btn-danger')); ?>
 							<?= CHtml::link('Tambah', array('pertukaranpelajar/create'),array('class'=>'btn waves-effect waves-light btn-success')); ?>
 						-->
+                        <?php
+        $jenis = Jenis::model()->findAllByAttributes(['tabel'=>'regulasi']);
+        $reg = Regulasimhs::model()->findAllByAttributes(['periode'=>$this->periode->id]);
+        // echo count($reg);
+        if(count($reg) != count($jenis)) {
+      ?>
 						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
+                         <?php } ?>
 						</div>
 					</div>
 					<div class="col-12">
@@ -125,12 +132,15 @@ $(document).ready(function() {
                                            <select name="modal_nama" id="modal-nama" class="form-control select2" style="width: 100%;" required>
 												<option value="" selected="selected">-- Pilih Satu --</option>
 												<?php
+                                                    
 												$jenis=Jenis::model()->findAllByAttributes(array('tabel'=>'regulasi'));
 												foreach($jenis as $jen){
+                                                    $reg = Regulasimhs::model()->findByAttributes(['jenis_id'=>$jen->id_jenis,'periode'=>$this->periode->id]);
+                                                    if(empty($reg)){
 												?>
 												<option value=<?php echo $jen->id_jenis;?>><?php echo $jen->nama;?></option>
 												<?php
-												}
+												}}
 												?>
 										   </select>
                                         </div>

@@ -129,18 +129,14 @@
                 <select name="modal_nama" id="modal-nama" class="form-control select2" style="width: 100%;" required>
                   <option value="" selected="selected">-- Pilih Satu --</option>
                   <?php
-                        if((empty($tentang)) && (empty($struktur))) 
 												  $jeniss=Jenis::model()->findAllByAttributes(array('tabel'=>'profil'));
-                        elseif(!empty($tentang))
-                          $jeniss=Jenis::model()->findAllByAttributes(array('id_jenis'=>2));
-                        elseif(!empty($struktur))
-                          $jeniss=Jenis::model()->findAllByAttributes(array('id_jenis'=>1));
-                          else "";
 												foreach($jeniss as $jen){
+                          $prof = Profil::model()->findByAttributes(['jenis_id'=>$jen->id_jenis,'periode'=>$this->periode->id]);
+                                                    if(empty($prof)){
 												?>
                   <option value=<?php echo $jen->id_jenis;?>><?php echo $jen->nama;?></option>
                   <?php
-												}
+												}}
 												?>
                 </select>
 
