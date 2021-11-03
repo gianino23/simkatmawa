@@ -22,8 +22,11 @@
      <!-- This Page CSS -->
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/summernote/dist/summernote-bs4.css">
 	<!-- Custom CSS -->
+    
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/dist/css/style.min.css" rel="stylesheet">
 	<!-- This Page CSS -->
+
+    <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/extra-libs/prism/prism.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -795,6 +798,8 @@
 	<!-- This Page JS -->
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/dropzone/dist/min/dropzone.min.js"></script>
 	 <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/summernote/dist/summernote-bs4.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/magnific-popup/meg.init.js"></script>
 	  <script>
         /************************************/
         //default editor

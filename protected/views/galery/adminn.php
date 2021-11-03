@@ -11,30 +11,13 @@ $folder = Folder::model()->findByAttributes(array('id_folder'=>$id));
 			<li class="breadcrumb-item active"> <?php echo $folder->nama_folder;?></li>
 		</ol>
 	</div>
-	<!--
                 <div class="col-md-7 col-12 align-self-center d-none d-md-block">
                     <div class="d-flex mt-2 justify-content-end">
-                        <div class="d-flex mr-3 ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>THIS MONTH</small></h6>
-                                <h4 class="mt-0 text-info">$58,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="monthchart"></div>
-                            </div>
-                        </div>
-                        <div class="d-flex ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>LAST MONTH</small></h6>
-                                <h4 class="mt-0 text-primary">$48,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="lastmonthchart"></div>
-                            </div>
-                        </div>
+						 <a href="?r=folder/admin" type="button" class="btn waves-effect waves-light btn-danger mr-2" >Kembali</a>
+						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
                     </div>
                 </div>
-				-->
+
 </div>
 
 <!-- ============================================================== -->
@@ -47,19 +30,6 @@ $folder = Folder::model()->findByAttributes(array('id_folder'=>$id));
 	<!-- Row -->
 	<div class="row">
 		<!-- Column -->
-		<div class="card">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-12">
-						<div class="float-left">
-							<h3 class="card-title">Halaman Galery <?php echo $folder->nama_folder;?></h3>
-							<h6 class="card-subtitle">Deskripsi Halaman Galery <?php echo $folder->nama_folder;?></h6>
-						</div>
-						<div class="float-right">
-						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
-						 <a href="?r=folder/admin" type="button" class="btn waves-effect waves-light btn-danger" >Kembali</a>
-						</div>
-					</div>
 					
 					<div id="tambahData" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
@@ -85,37 +55,44 @@ $folder = Folder::model()->findByAttributes(array('id_folder'=>$id));
                                         </div><!-- /.modal-content -->
                                     </div><!-- /.modal-dialog -->
                                 </div><!-- /.modal -->
-								
-					<div class="col-12">
-						
+					
+                                <div class="col-12">
+                                <!-- <div class="card-columns el-element-overlay"> -->
+
 					<?php
 					
-						$folder_name = 'upload/'.$folder->nama_folder.'/';
-						$result = array();
-						$files = scandir('upload/'.$folder->nama_folder);
-						$output = '<div class="row">';
+                    $folder_name = 'upload/'.$folder->nama_folder.'/';
+                    $result = array();
+                    $files = scandir('upload/'.$folder->nama_folder);
+                    $output = '<div class="card-columns el-element-overlay">';
 
-						if(false !== $files){
-						 foreach($files as $file){
-						  if('.' !=  $file && '..' != $file){
-						   $output .= '
-						   <div class="col-md-3">
-							<img src="'.$folder_name.$file.'" class="img-thumbnail" width="175" height="175" style="height:175px;" />
-							<button type="button" class="btn btn-link remove_image" id="'.$file.'">Hapus Gambar</button>
-						   </div>
-						   ';
-						  }
-						 }
-						}
-						$output .= '</div>';
-						echo $output;
-					?>	 
-					</div>
+                    if(false !== $files){
+                     foreach($files as $file){
+                      if('.' !=  $file && '..' != $file){
+                       $output .= '
+                       <div class="card">
+                        <div class="el-card-item pb-3">
+                            <div class="el-card-avatar el-overlay-1 w-100 overflow-hidden position-relative text-center">
+                                <a class="image-popup-vertical-fit" href="'.$folder_name.$file.'"> <img src="'.$folder_name.$file.'" class="d-block position-relative w-100" alt="user" /> </a>
+                            </div>
+                        </div>
+
+                        <div class="el-card-content text-center pb-3">
+                        <button type="button" class="btn btn-danger btn-sm remove_image" id="'.$file.'">Hapus Gambar</button>
+                    </div>
+                    </div>
+                       
+                       ';
+                      }
+                     }
+                    }
+                    $output .= '</div>';
+                    echo $output;
+                ?>	 
+                </div>			
+					
 				</div>
-			</div>
-		</div>
 	</div>
-</div>
 <script>
 
 $(document).ready(function(){
