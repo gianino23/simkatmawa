@@ -1,3 +1,8 @@
+<style>
+                  .note-content img {
+                    width: -webkit-fill-available !important;
+                  }
+                </style>
 <div class="row page-titles">
   <div class="col-md-5 col-12 align-self-center">
     <h3 class="text-themecolor mb-0">SIMKATMAWA</h3>
@@ -79,7 +84,7 @@
                 foreach ($praker as $p) {
 					 $jenis=Jenis::model()->findByAttributes(array('id_jenis'=>$p->jenis_id));
             ?>
-      <div class="col-md-4 single-note-item all-category">
+      <div class="col-md-6 single-note-item all-category">
         <div class="card">
           <div class="card-body">
             <span class="side-stick"></span>
@@ -89,6 +94,7 @@
             <div class="note-content">
               <p class="note-inner-content text-muted"
                 data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">
+
                 <?= $p->isi; ?></p>
             </div>
           </div>
