@@ -6,10 +6,12 @@
  * The followings are the available columns in table 't_galery':
  * @property integer $id_galery
  * @property string $judul
- * @property string $deskripsi
  * @property integer $folder
  * @property string $file
  * @property string $tgl_entry
+ *
+ * The followings are the available model relations:
+ * @property TFolder $folder0
  */
 class Galery extends CActiveRecord
 {
@@ -31,10 +33,10 @@ class Galery extends CActiveRecord
 		return array(
 			array('folder', 'numerical', 'integerOnly'=>true),
 			array('judul', 'length', 'max'=>200),
-			array('deskripsi, file, tgl_entry', 'safe'),
+			array('file, tgl_entry', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_galery, judul, deskripsi, folder, file, tgl_entry', 'safe', 'on'=>'search'),
+			array('id_galery, judul, folder, file, tgl_entry', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -46,6 +48,7 @@ class Galery extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'folder0' => array(self::BELONGS_TO, 'TFolder', 'folder'),
 		);
 	}
 
@@ -57,7 +60,6 @@ class Galery extends CActiveRecord
 		return array(
 			'id_galery' => 'Id Galery',
 			'judul' => 'Judul',
-			'deskripsi' => 'Deskripsi',
 			'folder' => 'Folder',
 			'file' => 'File',
 			'tgl_entry' => 'Tgl Entry',
@@ -84,7 +86,6 @@ class Galery extends CActiveRecord
 
 		$criteria->compare('id_galery',$this->id_galery);
 		$criteria->compare('judul',$this->judul,true);
-		$criteria->compare('deskripsi',$this->deskripsi,true);
 		$criteria->compare('folder',$this->folder);
 		$criteria->compare('file',$this->file,true);
 		$criteria->compare('tgl_entry',$this->tgl_entry,true);

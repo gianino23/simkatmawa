@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="el-card-content text-center">
-                                    <h4 class="mb-0"><?= $fg->nama_folder; ?></h4> <span class="text-muted">subtitle of project</span>
+                                    <h4 class="mb-0"><?= $fg->nama_folder; ?></h4> <span class="text-muted"><?= $fg->deskripsi; ?></span>
                                 </div>
                             </div>
                         </div>
@@ -182,6 +182,15 @@
                             </div>
                         </div>
                     </div>
+					  <div class="card-body">
+                        <div class="form-group row align-items-center mb-0">
+                            <label for="inputUsername3" class="col-md-3 text-right control-label col-form-label">Deskripsi</label>
+                            <div class="col-md-9 border-left pb-2 pt-2">
+                                <textarea cols="3" rows="3" class="form-control" name="modal_deskripsi" id="modal-deskripsi"
+                                    placeholder="Deskripsi" required></textarea>
+                            </div>
+                        </div>
+                    </div>
 
             </div>
             <div class="modal-footer">
@@ -246,6 +255,7 @@
                 url: $(this).attr("action"), // untuk mendapatkan attribut action pada form
                 data: {
                     modal_namafolder: $('#modal-namafolder').val(),
+                    modal_deskripsi: $('#modal-deskripsi').val(),
 
                 },
                 success: function (response) {
@@ -281,6 +291,7 @@
                 data: {
                     modal_idfolder: $('#edit-id').val(),
                     modal_namafolder: $('#edit-namafolder').val(),
+                    modal_deskripsi: $('#edit-deskripsi').val(),
                 },
                 success: function (response) {
                     // console.log(response);

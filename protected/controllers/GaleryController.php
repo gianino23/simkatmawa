@@ -89,7 +89,6 @@ if(!empty($_FILES)){
  $folders = Folder::model()->findByAttributes(array('nama_folder'=>$f));
  $model=new Galery;
  $model->judul=$_FILES['file']['name'];
- $model->deskripsi="";
  $model->folder=$folders->id_folder;
  $model->file=$_FILES['file']['name'];
  $model->tgl_entry=date('Y-m-d');

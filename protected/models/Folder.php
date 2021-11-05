@@ -6,6 +6,11 @@
  * The followings are the available columns in table 't_folder':
  * @property integer $id_folder
  * @property string $nama_folder
+ * @property string $deskripsi
+ * @property integer $ormas_id
+ *
+ * The followings are the available model relations:
+ * @property TGalery[] $tGaleries
  */
 class Folder extends CActiveRecord
 {
@@ -25,10 +30,13 @@ class Folder extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('ormas_id', 'required'),
+			array('ormas_id', 'numerical', 'integerOnly'=>true),
 			array('nama_folder', 'length', 'max'=>200),
+			array('deskripsi', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_folder, nama_folder', 'safe', 'on'=>'search'),
+			array('id_folder, nama_folder, deskripsi, ormas_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -40,6 +48,7 @@ class Folder extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'tGaleries' => array(self::HAS_MANY, 'TGalery', 'folder'),
 		);
 	}
 
@@ -51,6 +60,8 @@ class Folder extends CActiveRecord
 		return array(
 			'id_folder' => 'Id Folder',
 			'nama_folder' => 'Nama Folder',
+			'deskripsi' => 'Deskripsi',
+			'ormas_id' => 'Ormas',
 		);
 	}
 
@@ -74,6 +85,8 @@ class Folder extends CActiveRecord
 
 		$criteria->compare('id_folder',$this->id_folder);
 		$criteria->compare('nama_folder',$this->nama_folder,true);
+		$criteria->compare('deskripsi',$this->deskripsi,true);
+		$criteria->compare('ormas_id',$this->ormas_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -12,9 +12,6 @@ MySQL - 10.1.38-MariaDB : Database - db_kedokteran
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_kedokteran` /*!40100 DEFAULT CHARACTER SET latin1 */;
-
-USE `db_kedokteran`;
 
 /*Table structure for table `t_belanegara` */
 
@@ -31,7 +28,7 @@ CREATE TABLE `t_belanegara` (
   PRIMARY KEY (`id_belanegara`),
   KEY `periode` (`periode`),
   CONSTRAINT `t_belanegara_ibfk_1` FOREIGN KEY (`periode`) REFERENCES `t_periode` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_belanegara` */
 
@@ -169,14 +166,15 @@ DROP TABLE IF EXISTS `t_folder`;
 CREATE TABLE `t_folder` (
   `id_folder` int(11) NOT NULL AUTO_INCREMENT,
   `nama_folder` varchar(200) DEFAULT NULL,
+  `deskripsi` text,
   `ormas_id` int(11) NOT NULL,
   PRIMARY KEY (`id_folder`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_folder` */
 
-insert  into `t_folder`(`id_folder`,`nama_folder`,`ormas_id`) values 
-(12,'c',0);
+insert  into `t_folder`(`id_folder`,`nama_folder`,`deskripsi`,`ormas_id`) values 
+(12,'c','tes deskripsi',0);
 
 /*Table structure for table `t_galery` */
 
@@ -185,14 +183,13 @@ DROP TABLE IF EXISTS `t_galery`;
 CREATE TABLE `t_galery` (
   `id_galery` int(11) NOT NULL AUTO_INCREMENT,
   `judul` varchar(200) DEFAULT NULL,
-  `deskripsi` text,
   `folder` int(11) DEFAULT NULL,
   `file` text,
   `tgl_entry` date DEFAULT NULL,
   PRIMARY KEY (`id_galery`),
   KEY `folder` (`folder`),
   CONSTRAINT `t_galery_ibfk_1` FOREIGN KEY (`folder`) REFERENCES `t_folder` (`id_folder`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_galery` */
 
@@ -205,7 +202,7 @@ CREATE TABLE `t_jenis` (
   `nama` text NOT NULL,
   `tabel` varchar(10) NOT NULL,
   PRIMARY KEY (`id_jenis`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `t_jenis` */
 
@@ -452,12 +449,9 @@ CREATE TABLE `t_regulasimhs` (
   `periode` int(4) NOT NULL,
   `tgl_entry` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_regulasimhs`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_regulasimhs` */
-
-insert  into `t_regulasimhs`(`id_regulasimhs`,`jenis_id`,`isi`,`status`,`periode`,`tgl_entry`) values 
-(1,3,'23012697.pdf',1,5,'2021-11-01 00:00:00');
 
 /*Table structure for table `t_rekognisi` */
 
@@ -562,7 +556,7 @@ CREATE TABLE `t_visitor` (
   `counter` varchar(20) DEFAULT NULL,
   `browser` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id_visitor`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_visitor` */
 
@@ -572,7 +566,9 @@ insert  into `t_visitor`(`id_visitor`,`tanggal`,`ip_address`,`counter`,`browser`
 (3,'2021-10-31','127.0.0.1','1','Chrome/Opera'),
 (4,'2021-10-31','::1','1','Chrome/Opera'),
 (5,'2021-10-31','::1','1','Chrome/Opera'),
-(6,'2021-11-01','::1','1','Chrome/Opera');
+(6,'2021-11-01','::1','1','Chrome/Opera'),
+(7,'2021-11-02','::1','1','Safari'),
+(8,'2021-11-05','::1','1','Safari');
 
 /*Table structure for table `t_wirausaha` */
 

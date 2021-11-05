@@ -73,6 +73,7 @@ class FolderController extends Controller
 		$model=new Folder;
 
 		$model->nama_folder=$_POST['modal_namafolder'];
+		$model->deskripsi=$_POST['modal_deskripsi'];
 		if(Yii::app()->user->level == 1) $model->ormas_id = 0;
 		if($model->save())
 		 {
@@ -123,6 +124,7 @@ class FolderController extends Controller
 				if (file_exists($temp))
 					rmdir($temp);
 		$model->nama_folder=$_POST['modal_namafolder'];
+		$model->deskripsi=$_POST['modal_deskripsi'];
 		
 		if($model->save())
 		 {

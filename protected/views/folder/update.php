@@ -21,8 +21,17 @@ $folders=Folder::model()->findByAttributes(array('id_folder'=>$id_folder));
                                             <input type="text" class="form-control" name="modal_namafolder" id="edit-namafolder"
                                                 value="<?php echo $folders->nama_folder; ?>" required>
                                         </div>
-                                    </div>
-											
+                                    </div>		
+                                </div>
+								 <div class="card-body">
+                                    <div class="form-group row align-items-center mb-0">
+                                        <label for="inputUsername3"
+                                            class="col-md-3 text-right control-label col-form-label">Deskripsi</label>
+                                        <div class="col-md-9 border-left pb-2 pt-2">
+                                            <textarea cols="3" rows="3" class="form-control" name="modal_deskripsi" id="edit-deskripsi"
+                                               required><?php echo $folders->deskripsi; ?></textarea>
+                                        </div>
+                                    </div>		
                                 </div>
                             
                                 </div>
