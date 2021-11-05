@@ -13,13 +13,13 @@
 		<li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
 			<span class="hide-menu">Web Profil</span></li>
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('profil/admin')?>"
-				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Profil</span></a></li>
+				aria-expanded="false"><i class="mdi mdi-comment-processing-outline"></i><span class="hide-menu">Profil</span></a></li>
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('regulasimhs/admin')?>"
-				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
-					<marquee>Regulasi Bidang Kemahasiswaan</marquee>
+				aria-expanded="false"><i class="mdi mdi-bulletin-board"></i><span class="hide-menu">
+					Regulasi
 				</span></a></li>
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('folder/admin')?>"
-				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
+				aria-expanded="false"><i class="mdi mdi-book"></i><span class="hide-menu">
 					Galeri
 				</span></a></li>
 		<!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('galery/admin')?>"
@@ -27,15 +27,15 @@
 					Galery
 				</span></a></li> -->
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('periode/admin')?>"
-				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
+				aria-expanded="false"><i class="mdi mdi-arrange-bring-forward"></i><span class="hide-menu">
 					Periode
 				</span></a></li>
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('ormawa/admin')?>"
-				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
+				aria-expanded="false"><i class="mdi mdi-cube-send"></i><span class="hide-menu">
 					Ormawa
 				</span></a></li>
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('slide/admin')?>"
-				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
+				aria-expanded="false"><i class="mdi mdi-creation"></i><span class="hide-menu">
 					Slider
 				</span></a></li>
 		<!--
@@ -104,7 +104,7 @@
 		<li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
 			<span class="hide-menu">Web Profil</span></li>
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('childormawa/admin')?>"
-				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Profil Ormawa</span></a></li>
+				aria-expanded="false"><i class="mdi mdi-comment-processing-outline"></i><span class="hide-menu">Profil Ormawa</span></a></li>
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('proker/admin')?>"
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">Kalender Proker</span></a></li>
 		
