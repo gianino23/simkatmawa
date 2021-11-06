@@ -6,10 +6,10 @@
                 foreach ($slide as $s) {
                     $filename = $s->file;    
                     $ext = substr($filename, -4);
-                    if($ext == ".jpg" || $ext == ".png" || $ext == "jpeg") {
+                    if($ext == ".jpg" || $ext == ".JPG" || $ext == ".png" || $ext == ".PNG" || $ext == "jpeg" || $ext == "JPEG") {
             ?>
             <div class="slide kenburns" data-bg-image="<?php echo Yii::app()->request->baseUrl; ?>/upload/slide/<?= $s->file; ?>">
-            <?php } elseif ($ext == ".mp4" || $ext == ".mkv") { ?>
+            <?php } elseif ($ext == ".mp4" || $ext == ".MP4" || $ext == ".mkv" || $ext == ".MKV") { ?>
                 <div class="slide" data-bg-video="<?php echo Yii::app()->request->baseUrl; ?>/upload/slide/<?= $s->file; ?>">
                 <?php } ?>
                 <div class="bg-overlay"></div>
