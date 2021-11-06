@@ -35,8 +35,7 @@
                                 <a href="#"><img src="<?php echo Yii::app()->request->baseUrl.'/images/thumbnail/'.$gal->file; ?>" alt=""></a>
                             </div>
                             <div class="portfolio-description">
-                                <a title="" data-lightbox="image" href="<?php echo Yii::app()->request->baseUrl.'/upload/'.$folder->nama_folder.'/'.$gal->file; ?>"><i class="icon-maximize"></i><!--<h3><?= $gal->judul; ?></h3>
-                                    <span><?= $gal->deskripsi; ?></span>--></a>
+                                <a title="" data-lightbox="image" href="<?php echo Yii::app()->request->baseUrl.'/upload/'.$folder->nama_folder.'/'.$gal->file; ?>"><i class="icon-maximize"></i></a>
                                 <!-- <a href="portfolio-page-grid-gallery.html"><i class="icon-link"></i></a> -->
                             </div>
                         </div>

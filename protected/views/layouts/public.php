@@ -15,6 +15,9 @@
     <!-- Stylesheets & Fonts -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/css/plugins.css" rel="stylesheet">
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/css/style.css" rel="stylesheet">
+    <style>
+        #header .header-inner #logo a, #header .header-inner #logo a span, #header #header-wrap #logo a, #header #header-wrap #logo a span { font-size: 30px; }
+    </style>
 </head>
 <body>
     <!-- Body Inner -->
