@@ -96,15 +96,14 @@
 									<?php
 									$i=0;
 										 	$perjar = Filepraktikkerja::model()->findAllByAttributes(array('praktikkerja_id'=>$id));
-											 foreach ($perjar as $p) {
+											 foreach ($perjar as $pe) {
 												 $i++;
 										 ?>
 									<tr>
 									<td><?php echo $i;?></td>
-										<td><?= $p->isi; ?></td>
+										<td><?= $pe->isi; ?></td>
 										<td align="center">
-										<a href=""><i class="fas fa-download"></i></a>
-										<a href=""><i class="fas fa-trash"></i></a>
+										<a href="<?= Yii::app()->request->baseUrl.'/uploaddokumen/'.$pe->isi; ?>" target="_BLANK"><i class="fas fa-download"></i></a>
 										</td>
 									</tr>
 									<?php } ?>
@@ -117,4 +116,5 @@
 		</div>
 	</div>
 </div>
+
 							

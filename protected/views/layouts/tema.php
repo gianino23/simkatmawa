@@ -106,6 +106,7 @@
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
+						<!--
                         <li class="nav-item d-none d-md-block search-box"> <a
                                 class="nav-link d-none d-md-block waves-effect waves-dark" href="javascript:void(0)"><i
                                     class="ti-search"></i></a>
@@ -114,9 +115,11 @@
                                 <a class="srh-btn"><i class="ti-close"></i></a> 
                             </form>
                         </li>
+						-->
                         <!-- ============================================================== -->
                         <!-- Mega Menu -->
                         <!-- ============================================================== -->
+						<!--
                         <li class="nav-item dropdown mega-dropdown"> <a
                                 class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-view-grid"></i></a>
@@ -124,7 +127,7 @@
                                 <ul class="mega-dropdown-menu row p-0 m-0 list-inline">
                                     <li class="col-lg-3 col-xlg-2 mb-4">
                                         <h4 class="mb-3">CAROUSEL</h4>
-                                        <!-- CAROUSEL -->
+                                        <!-- CAROUSEL 
                                         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                                             <div class="carousel-inner" role="listbox">
                                                 <div class="carousel-item active">
@@ -150,11 +153,11 @@
                                                     class="carousel-control-next-icon" aria-hidden="true"></span>
                                                 <span class="sr-only">Next</span> </a>
                                         </div>
-                                        <!-- End CAROUSEL -->
+                                        <!-- End CAROUSEL 
                                     </li>
                                     <li class="col-lg-3 mb-4">
                                         <h4 class="mb-3">ACCORDION</h4>
-                                        <!-- Accordian -->
+                                        <!-- Accordian 
                                         <div id="accordion" class="nav-accordion" role="tablist"
                                             aria-multiselectable="true">
                                             <div class="card mb-1">
@@ -209,7 +212,7 @@
                                     </li>
                                     <li class="col-lg-3  mb-4">
                                         <h4 class="mb-3">CONTACT US</h4>
-                                        <!-- Contact -->
+                                        <!-- Contact 
                                         <form>
                                             <div class="form-group">
                                                 <input type="text" class="form-control" id="exampleInputname1"
@@ -226,7 +229,7 @@
                                     </li>
                                     <li class="col-lg-3 col-xlg-4 mb-4">
                                         <h4 class="mb-3">List style</h4>
-                                        <!-- List style -->
+                                        <!-- List style 
                                         <ul class="list-style-none">
                                             <li><a href="javascript:void(0)"><i class="fa fa-check text-success"></i>
                                                     You can give link</a></li>
@@ -243,6 +246,7 @@
                                 </ul>
                             </div>
                         </li>
+						-->
                         <!-- ============================================================== -->
                         <!-- End Mega Menu -->
                         <!-- ============================================================== -->
@@ -268,6 +272,7 @@
                                 <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
                             </a>
 						</li>
+						<!--
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
@@ -282,25 +287,25 @@
                                     </li>
                                     <li>
                                         <div class="message-center notifications position-relative" style="height:250px;">
-                                            <!-- Message -->
+                                            <!-- Message 
                                             <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
                                                 <span class="btn btn-danger rounded-circle btn-circle"><i class="fa fa-link"></i></span>
                                                 <div class="w-75 d-inline-block v-middle pl-2">
                                                     <h5 class="message-title mb-0 mt-1">Luanch Admin</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">Just see the my new admin!</span> <span class="font-12 text-nowrap d-block text-muted">9:30 AM</span> </div>
                                             </a>
-                                            <!-- Message -->
+                                            <!-- Message 
                                             <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
                                                 <span class="btn btn-success rounded-circle btn-circle"><i class="ti-calendar"></i></span>
                                                 <div class="w-75 d-inline-block v-middle pl-2">
                                                     <h5 class="message-title mb-0 mt-1">Event today</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">Just a reminder that you have event</span> <span class="font-12 text-nowrap d-block text-muted">9:10 AM</span> </div>
                                             </a>
-                                            <!-- Message -->
+                                            <!-- Message 
                                             <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
                                                 <span class="btn btn-info rounded-circle btn-circle"><i class="ti-settings"></i></span>
                                                 <div class="w-75 d-inline-block v-middle pl-2">
                                                     <h5 class="message-title mb-0 mt-1">Settings</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">You can customize this template as you want</span> <span class="font-12 text-nowrap d-block text-muted">9:08 AM</span> </div>
                                             </a>
-                                            <!-- Message -->
+                                            <!-- Message 
                                             <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
                                                 <span class="btn btn-primary rounded-circle btn-circle"><i class="ti-user"></i></span>
                                                 <div class="w-75 d-inline-block v-middle pl-2">
@@ -314,12 +319,14 @@
                                 </ul>
                             </div>
                         </li>
+						-->
                         <!-- ============================================================== -->
                         <!-- End Comment -->
                         <!-- ============================================================== -->
                         <!-- ============================================================== -->
                         <!-- Messages -->
                         <!-- ============================================================== -->
+						<!--
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
@@ -335,25 +342,25 @@
                                     </li>
                                     <li>
                                         <div class="message-center message-body position-relative" style="height:250px;">
-                                            <!-- Message -->
+                                            <!-- Message 
                                             <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
                                                 <span class="user-img position-relative d-inline-block"> <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/users/1.jpg" alt="user" class="rounded-circle w-100"> <span class="profile-status rounded-circle online"></span> </span>
                                                 <div class="w-75 d-inline-block v-middle pl-2">
                                                     <h5 class="message-title mb-0 mt-1">Pavan kumar</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">Just see the my admin!</span> <span class="font-12 text-nowrap d-block text-muted">9:30 AM</span> </div>
                                             </a>
-                                            <!-- Message -->
+                                            <!-- Message 
                                             <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
                                                 <span class="user-img position-relative d-inline-block"> <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/users/2.jpg" alt="user" class="rounded-circle w-100"> <span class="profile-status rounded-circle busy"></span> </span>
                                                 <div class="w-75 d-inline-block v-middle pl-2">
                                                     <h5 class="message-title mb-0 mt-1">Sonu Nigam</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">I've sung a song! See you at</span> <span class="font-12 text-nowrap d-block text-muted">9:10 AM</span> </div>
                                             </a>
-                                            <!-- Message -->
+                                            <!-- Message 
                                             <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
                                                 <span class="user-img position-relative d-inline-block"> <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/users/3.jpg" alt="user" class="rounded-circle w-100"> <span class="profile-status rounded-circle away"></span> </span>
                                                 <div class="w-75 d-inline-block v-middle pl-2">
                                                     <h5 class="message-title mb-0 mt-1">Arijit Sinh</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">I am a singer!</span> <span class="font-12 text-nowrap d-block text-muted">9:08 AM</span> </div>
                                             </a>
-                                            <!-- Message -->
+                                            <!-- Message 
                                             <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
                                                 <span class="user-img position-relative d-inline-block"> <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/users/4.jpg" alt="user" class="rounded-circle w-100"> <span class="profile-status rounded-circle offline"></span> </span>
                                                 <div class="w-75 d-inline-block v-middle pl-2">
@@ -367,6 +374,7 @@
                                 </ul>
                             </div>
                         </li>
+						-->
                         <!-- ============================================================== -->
                         <!-- End Messages -->
                         <!-- ============================================================== -->
@@ -384,19 +392,23 @@
                                         <div class="dw-user-box p-3 d-flex">
                                             <div class="u-img"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/users/1.jpg" alt="user" class="rounded" width="80"></div>
                                             <div class="u-text ml-2">
-                                                <h4 class="mb-0">Steave Jobs</h4>
-                                                <p class="text-muted mb-1 font-14">varun@gmail.com</p>
+                                                <h4 class="mb-0"><?php echo Yii::app()->user->nama;?></h4>
+                                                <p class="text-muted mb-1 font-14"><?php echo Yii::app()->user->nama;?>@gmail.com</p>
+												<!--
                                                 <a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm text-white d-inline-block">View
                                                     Profile</a>
+												-->
                                             </div>
                                         </div>
                                     </li>
+									<!--
                                     <li role="separator" class="dropdown-divider"></li>
                                     <li class="user-list"><a class="px-3 py-2" href="#"><i class="ti-user"></i> My Profile</a></li>
                                     <li class="user-list"><a class="px-3 py-2" href="#"><i class="ti-wallet"></i> My Balance</a></li>
                                     <li class="user-list"><a class="px-3 py-2" href="#"><i class="ti-email"></i> Inbox</a></li>
                                     <li role="separator" class="dropdown-divider"></li>
                                     <li class="user-list"><a class="px-3 py-2" href="#"><i class="ti-settings"></i> Account Setting</a></li>
+									-->
                                     <li role="separator" class="dropdown-divider"></li>
                                     <li class="user-list"><a class="px-3 py-2" href="?r=site/logout"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
@@ -446,14 +458,16 @@
             </div>
             <!-- End Sidebar scroll-->
             <!-- Bottom points-->
+			<!--
             <div class="sidebar-footer">
-                <!-- item-->
-                <a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
-                <!-- item-->
-                <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-                <!-- item-->
+                <!-- item
+                <a href="" class="link" ></a>
+                <!-- item
+                <a href="" class="link" ></a>
+                <!-- item
                 <a href="<?= Yii::app()->createAbsoluteUrl('site/logout')?>" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-logout"></i></a>
             </div>
+			-->
             <!-- End Bottom points-->
         </aside>
         <!-- ============================================================== -->
