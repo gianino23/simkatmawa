@@ -17,6 +17,7 @@
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/css/style.css" rel="stylesheet">
     <style>
         #header .header-inner #logo a, #header .header-inner #logo a span, #header #header-wrap #logo a, #header #header-wrap #logo a span { font-size: 30px; }
+        /* .fc-event .fc-content span{ display: block; } */
     </style>
 </head>
 <body>
@@ -216,14 +217,24 @@
                 center: 'title',
                 right: 'month,basicWeek,basicDay'
             },
-            defaultDate: '2021-01-12',
-            navLinks: false, // can click day/week names to navigate views
+            defaultDate: '<?= date('Y-m-d'); ?>',
+            navLinks: true, // can click day/week names to navigate views
             editable: false,
             eventLimit: true, // allow "more" link when too many events
-            events: [{
-                title: 'All Day Event',
-                start: '2021-01-01',
-            }, {
+            events: [
+                <?php
+                    $proker = Proker::model()->findAllByAttributes(['periode'=>$this->periode->id]);
+                    foreach ($proker as $pr) {
+                        $ormawa = Ormawa::model()->findByAttributes(['id_ormawa'=>$pr->ormawa_id]);
+                ?>
+                {
+                title: '<?=  '('.$ormawa->nama_ormawa.') '.$pr->agenda; ?>',
+                start: '<?= $pr->waktu; ?>',
+                description: "<?= $pr->ormawa_id; ?>",
+                className: 'fc-event-info'
+            },
+            <?php } ?>
+             {
                 title: 'Long Event',
                 start: '2021-01-07',
                 end: '2021-01-10',
@@ -267,7 +278,7 @@
                 url: 'http://google.com/',
                 start: '2021-01-28',
                 className: 'fc-event-info'
-            }]
+            }],
         });
     </script>
 </body>
