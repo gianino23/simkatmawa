@@ -95,7 +95,7 @@
                                                     <li><?= CHtml::link('Struktur Organisasi', $this->createAbsoluteUrl('ormawa/strukturorganisasi',array('id'=>$co->id))); ?></li>
                                                     <li><?= CHtml::link('Visi Misi', $this->createAbsoluteUrl('ormawa/visimisi',array('id'=>$co->id))); ?></li>
                                                     <li><?= CHtml::link('Kalender Proker', $this->createAbsoluteUrl('ormawa/kalender',array('id'=>$co->ormawa_id))); ?></li>
-                                                    <li><a href="#">Luaran Kinerja</a></li>
+                                                    <li><?= CHtml::link('Luaran Kinerja', $this->createAbsoluteUrl('ormawa/luarankinerja',array('id'=>$co->ormawa_id))); ?></li>
                                                 </ul>
                                             </li>
                                             <?php }} ?>
