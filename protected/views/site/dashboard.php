@@ -3,25 +3,6 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                                                
-                            <div class="">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="card-body b-l calender-sidebar">
-																				<h3 class="card-title">Kalender Program Kerja</h3>
-                                                <h6 class="card-subtitle">Sub Title Bla Bla Bla</h6>
-                                            <div id="calendar"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
