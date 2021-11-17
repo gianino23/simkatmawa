@@ -28,7 +28,7 @@ class PraktikkerjaController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','adminn','update','detail'),
+				'actions'=>array('index','view','adminn','update','detail','export'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -63,6 +63,10 @@ class PraktikkerjaController extends Controller
 	public function actionUpdate()
 	{
 		$this->renderpartial('update');
+	}
+	public function actionExport()
+	{
+		$this->renderpartial('export');
 	}
 	public function actionDetail($id)
 	{

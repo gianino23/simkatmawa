@@ -57,6 +57,7 @@ $(document).ready(function() {
 						</div>
 						<div class="float-right">
 						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
+						  <a href="?r=wirausaha/export" type="button" class="btn waves-effect waves-light btn-danger" >Export Excel</a>
 						</div>
 					</div>
 					<div class="col-12">

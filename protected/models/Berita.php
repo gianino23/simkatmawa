@@ -1,23 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "t_fileluaran".
+ * This is the model class for table "t_berita".
  *
- * The followings are the available columns in table 't_fileluaran':
- * @property integer $id
- * @property integer $ormas_id
- * @property string $file
+ * The followings are the available columns in table 't_berita':
+ * @property integer $id_berita
+ * @property string $judul
+ * @property string $isi
+ * @property string $author
+ * @property integer $status
  * @property string $tgl_entry
- * @property integer $periode
  */
-class Luarankinerja extends CActiveRecord
+class Berita extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 't_fileluaran';
+		return 't_berita';
 	}
 
 	/**
@@ -28,11 +29,12 @@ class Luarankinerja extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ormas_id, file, tgl_entry, periode', 'required'),
-			array('ormas_id, periode', 'numerical', 'integerOnly'=>true),
+			array('judul, isi, author, status, tgl_entry', 'required'),
+			array('status', 'numerical', 'integerOnly'=>true),
+			array('author', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, ormas_id, file, tgl_entry, periode', 'safe', 'on'=>'search'),
+			array('id_berita, judul, isi, author, status, tgl_entry', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,11 +55,12 @@ class Luarankinerja extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'ormas_id' => 'Ormas',
-			'file' => 'File',
+			'id_berita' => 'Id Berita',
+			'judul' => 'Judul',
+			'isi' => 'Isi',
+			'author' => 'Author',
+			'status' => 'Status',
 			'tgl_entry' => 'Tgl Entry',
-			'periode' => 'Periode',
 		);
 	}
 
@@ -79,11 +82,12 @@ class Luarankinerja extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('ormas_id',$this->ormas_id);
-		$criteria->compare('file',$this->file,true);
+		$criteria->compare('id_berita',$this->id_berita);
+		$criteria->compare('judul',$this->judul,true);
+		$criteria->compare('isi',$this->isi,true);
+		$criteria->compare('author',$this->author,true);
+		$criteria->compare('status',$this->status);
 		$criteria->compare('tgl_entry',$this->tgl_entry,true);
-		$criteria->compare('periode',$this->periode);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -94,7 +98,7 @@ class Luarankinerja extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Luarankinerja the static model class
+	 * @return Berita the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

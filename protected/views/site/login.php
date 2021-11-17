@@ -4,7 +4,7 @@
                 src="<?php echo Yii::app()->request->baseUrl; ?>/images/ulm.png" height="100px"
                 alt="logo" /><br />
            
-                <h3 class="mt-2">SIMKIMAHAL</h3>
+                <h3 class="mt-2">SIMKATMAWA</h3>
     </div>
     <!-- Form -->
     <div class="row">
@@ -47,7 +47,7 @@
                     <center>
                     <p class="text-center" style="bottom:0;width:100%;text-decoration:none;">Ulahan
                         buhan <a href="https://borneomediateknologi.co.id/" target="_blank" class="text-primary">Borneo
-                            Media Teknologi</a> | 2021</p>
+                            Media Teknologi</a> | 2021 SIMKATMAWA</p>
         </center>
                 </div>
             </div>

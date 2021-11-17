@@ -1,12 +1,12 @@
 <?php
 
-class ProjekindependenController extends Controller
+class BeritaController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/tema';
+	public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -15,7 +15,7 @@ class ProjekindependenController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			//'postOnly + delete', // we only allow deletion via POST request
+			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -28,15 +28,15 @@ class ProjekindependenController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','adminn','update','detail','export'),
+				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('tambah','edit'),
+				'actions'=>array('create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','hapus'),
+				'actions'=>array('admin','delete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -55,59 +55,28 @@ class ProjekindependenController extends Controller
 			'model'=>$this->loadModel($id),
 		));
 	}
-	public function actionAdminn()
-	{
-		$this->renderpartial('adminn');
-	}
-	
-	public function actionUpdate()
-	{
-		$this->renderpartial('update');
-	}
-	public function actionExport()
-	{
-		$this->renderpartial('export');
-	}
-	public function actionDetail($id)
-	{
-		$this->render('detail',array(
-			'id'=>$id,
-		));
-	}
 
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionTambah()
+	public function actionCreate()
 	{
-		$model=new Projekindependen;
+		$model=new Berita;
 
-		$model->program = $_POST['modal_program'];
-		$model->produk = $_POST['modal_produk'];
-		$model->link_sosmed = $_POST['modal_link'];
-		$model->jml_mhs = $_POST['modal_mhs'];
-		$model->jml_dosen = $_POST['modal_dosen'];
-		$model->luaran_kegiatan = $_POST['modal_luaran'];
-		$model->periode = $_POST['modal_periode'];
-		$model->save();
-		
-	
-		if($model->save())
-		 {
-			
-		  // fungsi untuk membuat format json
-		  header('Content-Type: application/json');
-		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('projekindependen/adminn'), true);
-		  $data = array('status'=>'success', 'data'=> $content);
-		  echo json_encode($data);
-		 }
-		 else // jika insert data gagal
-		 {
-		  $data = array('status'=>'failed', 'data'=> null);
-		  echo json_encode($data);
-		 }
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Berita']))
+		{
+			$model->attributes=$_POST['Berita'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->id_berita));
+		}
+
+		$this->render('create',array(
+			'model'=>$model,
+		));
 	}
 
 	/**
@@ -115,18 +84,18 @@ class ProjekindependenController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
-	public function actionEdit($id)
+	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Projekindependen']))
+		if(isset($_POST['Berita']))
 		{
-			$model->attributes=$_POST['Projekindependen'];
+			$model->attributes=$_POST['Berita'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id_independen));
+				$this->redirect(array('view','id'=>$model->id_berita));
 		}
 
 		$this->render('update',array(
@@ -139,26 +108,13 @@ class ProjekindependenController extends Controller
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
-	public function actionHapus()
+	public function actionDelete($id)
 	{
-		$id=$_POST['id_independen'];
-		$model=$this->loadModel($id)->delete();
-		
-		
-		if($model)
-		 {
-		  // fungsi untuk membuat format json
-		  header('Content-Type: application/json');
-		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('projekindependen/adminn'), true);
-		  $data = array('status'=>'success', 'data'=> $content);
-		  echo json_encode($data);
-		 }
-		 else // jika insert data gagal
-		 {
-		  $data = array('status'=>'failed', 'data'=> null);
-		  echo json_encode($data);
-		 }
+		$this->loadModel($id)->delete();
+
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -166,7 +122,7 @@ class ProjekindependenController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Projekindependen');
+		$dataProvider=new CActiveDataProvider('Berita');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -177,10 +133,10 @@ class ProjekindependenController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Projekindependen('search');
+		$model=new Berita('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Projekindependen']))
-			$model->attributes=$_GET['Projekindependen'];
+		if(isset($_GET['Berita']))
+			$model->attributes=$_GET['Berita'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -191,12 +147,12 @@ class ProjekindependenController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Projekindependen the loaded model
+	 * @return Berita the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Projekindependen::model()->findByPk($id);
+		$model=Berita::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -204,11 +160,11 @@ class ProjekindependenController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Projekindependen $model the model to be validated
+	 * @param Berita $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='projekindependen-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='berita-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

@@ -56,10 +56,7 @@ $(document).ready(function() {
 							<h6 class="card-subtitle">Deskripsi Halaman Luaran Kinerja</h6>
 						</div>
 						<div class="float-right">
-						<!--
-							<?= CHtml::link('Hapus', array(''),array('class'=>'btn waves-effect waves-light btn-danger')); ?>
-							<?= CHtml::link('Tambah', array('pertukaranpelajar/create'),array('class'=>'btn waves-effect waves-light btn-success')); ?>
-						-->
+						
 						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
 						</div>
 					</div>

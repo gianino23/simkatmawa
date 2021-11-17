@@ -13,7 +13,7 @@ $luaran=Luarankinerja::model()->findByAttributes(array('id'=>$id));
                                 <div class="modal-body">
                                 
                                 <div class="card-body">
-                                    <embed src="<?= Yii::app()->request->baseUrl.'/upload/'.$luaran->file; ?>" height="350px" width="100%" />
+                                    <embed src="<?= Yii::app()->request->baseUrl.'/uploaddokumen/'.$luaran->file; ?>" height="350px" width="100%" />
 											
                                 </div>
                             

@@ -31,8 +31,8 @@
                     <div id="logo">
                         <a href="index.html">
                             
-                            <span class="logo-default">SIMKIMAHAL</span>
-                            <span class="logo-dark">SIMKIMAHAL</span>
+                            <span class="logo-default">SIMAHAL</span>
+                            <span class="logo-dark">SIMIHAL</span>
                         </a>
                     </div>
                     <!--End: Logo-->
@@ -118,7 +118,7 @@
                                             <li><a href="#">SOP Pengajuan Insentif Prestasi</a></li> -->
                                         </ul>
                                     </li>
-                                            <li><?= CHtml::link('SIMKIMAHAL',array('site/login')) ?></li>
+                                            <li><?= CHtml::link('SIMAHAL',array('site/login')) ?></li>
                                 </ul>
                             </nav>
                         </div>
@@ -194,7 +194,7 @@
             </div>
             <div class="copyright-content">
                 <div class="container">
-                    <div class="copyright-text text-center">&copy; 2021 SIMKIMAHAL - Ulahan Buhan<a href="https://borneomediateknologi.co.id" target="_blank" rel="noopener"> BMT</a> </div>
+                    <div class="copyright-text text-center">&copy; 2021 SIMKATMAWA - Ulahan Buhan<a href="https://borneomediateknologi.co.id" target="_blank" rel="noopener"> BMT</a> </div>
                 </div>
             </div>
         </footer>

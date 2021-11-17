@@ -60,7 +60,9 @@ $(document).ready(function() {
 							<?= CHtml::link('Hapus', array(''),array('class'=>'btn waves-effect waves-light btn-danger')); ?>
 							<?= CHtml::link('Tambah', array('pertukaranpelajar/create'),array('class'=>'btn waves-effect waves-light btn-success')); ?>
 						-->
+						 
 						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
+						 <a href="?r=pertukaranpelajar/export" type="button" class="btn waves-effect waves-light btn-danger" >Export Excel</a>
 						</div>
 					</div>
 					<div class="col-12">

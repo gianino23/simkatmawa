@@ -82,7 +82,7 @@ class LuarankinerjaController extends Controller
 	 */
 	public function actionTambah()
 	{
-		$temp = "upload/";
+		$temp = "uploaddokumen/";
 		
 		if (!file_exists($temp))
 			mkdir($temp);
@@ -127,7 +127,7 @@ class LuarankinerjaController extends Controller
 				$model1->ormas_id=Yii::app()->user->ormawa;
 				$model1->file=$NewImageName;
 				$model1->periode=$_POST['modal_periode'];
-				// $model1->tgl_entry=date('Y-m-d');
+			    $model1->tgl_entry=date('Y-m-d');
 				$model1->save();
 			  }
 		   }
@@ -178,7 +178,7 @@ class LuarankinerjaController extends Controller
 	{
 		$id=$_POST['id'];
 		$model=Luarankinerja::model()->findByAttributes(array('id'=>$id));
-		unlink(Yii::app()->basePath . '/../upload/'.$model->file);
+		unlink(Yii::app()->basePath . '/../uploaddokumen/'.$model->file);
 		$model=$this->loadModel($id)->delete();
 		
 		
