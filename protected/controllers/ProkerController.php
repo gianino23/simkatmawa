@@ -77,6 +77,11 @@ class ProkerController extends Controller
 	 */
 	public function actionTambah()
 	{
+		$temp = "uploaddokumen/";
+		
+		if (!file_exists($temp))
+			mkdir($temp);
+		
 		$model=new Proker;
 
 		$model1=Ormawa::model()->findByAttributes(array('id_ormawa'=>Yii::app()->user->ormawa));
@@ -87,9 +92,47 @@ class ProkerController extends Controller
 		$model->status = $_POST['modal_status'];
 		$model->keterangan = $_POST['modal_keterangan'];
 		$model->periode = $_POST['modal_periode'];
-		
 		$model->save();
 		
+		$countfiles = count($_FILES['files']['name']);
+		$files_arr = array();
+		// Loop all files
+		for($index = 0;$index < $countfiles;$index++){
+
+		   if(isset($_FILES['files']['name'][$index]) && $_FILES['files']['name'][$index] != ''){
+			  // File name
+			  $filename = $_FILES['files']['name'][$index];
+			  $ImageType       = $_FILES['files']['type'][$index];
+			  
+				$acak           = rand(11111111, 99999999);
+				$ImageExt       = substr($filename, strrpos($filename, '.'));
+				$ImageExt       = str_replace('.','',$ImageExt); // Extension
+				$ImageName      = preg_replace("/\.[^.\s]{3,4}$/", "", $filename);
+				$NewImageName   = str_replace(' ', '', $acak.'.'.$ImageExt);
+
+			  // Get extension
+			  $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+
+			  // Valid image extension
+			  $valid_ext = array("png","jpeg","jpg","zip","pdf","docx");
+
+			  // Check extension
+			  if(in_array($ext, $valid_ext)){
+
+				 // File path
+				 $path = $temp.$NewImageName;
+
+				 // Upload file
+				 if(move_uploaded_file($_FILES['files']['tmp_name'][$index],$path)){
+					$files_arr[] = $path;
+				 }
+				$model1 =new Luarankinerja ;
+				$model1->proker_id=$model->id_proker;
+				$model1->file=$NewImageName;
+				$model1->save();
+			  }
+		   }
+		}
 	
 		if($model->save())
 		 {
@@ -148,6 +191,15 @@ class ProkerController extends Controller
 	public function actionHapus()
 	{
 		$id_proker=$_POST['id_proker'];
+		$model1=Luarankinerja::model()->findAllByAttributes(array('proker_id'=>$id_proker));
+		if(count($model1)==1){
+			$model2=Luarankinerja::model()->findByAttributes(array('proker_id'=>$id_proker));
+			unlink(Yii::app()->basePath . '/../uploaddokumen/'.$model2->file);
+		}else{
+		foreach($model1 as $mdl){
+		unlink(Yii::app()->basePath . '/../uploaddokumen/'.$mdl->file);
+		}
+		}
 		$model=$this->loadModel($id_proker)->delete();
 		
 		

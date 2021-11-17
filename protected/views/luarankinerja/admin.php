@@ -57,7 +57,7 @@ $(document).ready(function() {
 						</div>
 						<div class="float-right">
 						
-						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
+						<!-- <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>-->
 						</div>
 					</div>
 					<div class="col-12">
@@ -65,19 +65,24 @@ $(document).ready(function() {
 							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
 								<thead>
 									<tr>
+										<th>No</th>
+										<th>Nama Program Kerja</th>
 										<th>File</th>
-										<th>Tgl Entry</th>
 										<th></th>
 									</tr>
 								</thead>
 								<tbody id="modal-data">
 									<?php
 										 	$perjar = Luarankinerja::model()->findAll(array('order'=>'id DESC'));
+											$i=0;
 											 foreach ($perjar as $p) {
+												 $proker=Proker::model()->findByAttributes(array('id_proker'=>$p->proker_id));
+												 $i++;
 										 ?>
 									<tr>
+										<td><?= $i; ?></td>
+										<td><?= $proker->agenda; ?></td>
 										<td><?= $p->file; ?></td>
-										<td><?= $p->tgl_entry; ?></td>
 										<td align="center">
 											
 											<a href="javascript:void(0)" class="view_modal" id='<?php echo  $p->id; ?>'><i class="fas fa-download"></i></a>

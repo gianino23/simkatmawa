@@ -15,7 +15,7 @@ $users=Proker::model()->findByAttributes(array('id_proker'=>$id_proker));
                                 <div class="card-body">
                                     <div class="form-group row align-items-center mb-0">
                                         <label for="inputUsername3"
-                                            class="col-md-3 text-right control-label col-form-label">Agenda</label>
+                                            class="col-md-3 text-right control-label col-form-label">Nama Program Kerja</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
 										 <input type="hidden" name="modal_idproker" id="edit-idproker"  class="form-control" value="<?php echo $users->id_proker; ?>" />
                                              <textarea cols="3" rows="3" class="form-control" name="modal_agenda" id="edit-agenda"

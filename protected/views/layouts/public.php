@@ -32,7 +32,7 @@
                         <a href="index.html">
                             
                             <span class="logo-default">SIMAHAL</span>
-                            <span class="logo-dark">SIMIHAL</span>
+                            <span class="logo-dark">SIMAHAL</span>
                         </a>
                     </div>
                     <!--End: Logo-->
@@ -118,7 +118,7 @@
                                             <li><a href="#">SOP Pengajuan Insentif Prestasi</a></li> -->
                                         </ul>
                                     </li>
-                                            <li><?= CHtml::link('SIMAHAL',array('site/login')) ?></li>
+                                            <li><?= CHtml::link('SIMKATMAWA',array('site/login')) ?></li>
                                 </ul>
                             </nav>
                         </div>

@@ -14,6 +14,7 @@
  * @property string $keterangan
  *
  * The followings are the available model relations:
+ * @property TFileluaran[] $tFileluarans
  * @property TOrmawa $ormawa
  * @property TPeriode $periode0
  */
@@ -52,6 +53,7 @@ class Proker extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'tFileluarans' => array(self::HAS_MANY, 'TFileluaran', 'proker_id'),
 			'ormawa' => array(self::BELONGS_TO, 'TOrmawa', 'ormawa_id'),
 			'periode0' => array(self::BELONGS_TO, 'TPeriode', 'periode'),
 		);

@@ -5,10 +5,11 @@
  *
  * The followings are the available columns in table 't_fileluaran':
  * @property integer $id
- * @property integer $ormas_id
+ * @property integer $proker_id
  * @property string $file
- * @property string $tgl_entry
- * @property integer $periode
+ *
+ * The followings are the available model relations:
+ * @property TProker $proker
  */
 class Luarankinerja extends CActiveRecord
 {
@@ -28,11 +29,11 @@ class Luarankinerja extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('ormas_id, file, tgl_entry, periode', 'required'),
-			array('ormas_id, periode', 'numerical', 'integerOnly'=>true),
+			array('proker_id, file', 'required'),
+			array('proker_id', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, ormas_id, file, tgl_entry, periode', 'safe', 'on'=>'search'),
+			array('id, proker_id, file', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -44,6 +45,7 @@ class Luarankinerja extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'proker' => array(self::BELONGS_TO, 'TProker', 'proker_id'),
 		);
 	}
 
@@ -54,10 +56,8 @@ class Luarankinerja extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'ormas_id' => 'Ormas',
+			'proker_id' => 'Proker',
 			'file' => 'File',
-			'tgl_entry' => 'Tgl Entry',
-			'periode' => 'Periode',
 		);
 	}
 
@@ -80,10 +80,8 @@ class Luarankinerja extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('ormas_id',$this->ormas_id);
+		$criteria->compare('proker_id',$this->proker_id);
 		$criteria->compare('file',$this->file,true);
-		$criteria->compare('tgl_entry',$this->tgl_entry,true);
-		$criteria->compare('periode',$this->periode);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -68,7 +68,7 @@ $(document).ready(function() {
 							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
 								<thead>
 									<tr>
-										<th>Agenda</th>
+										<th>Nama Program Kerja</th>
 										<th>Waktu</th>
 										<th>Jenis</th>
 										<th>Status</th>
@@ -137,14 +137,14 @@ $(document).ready(function() {
                                                     aria-hidden="true">×</button>
                                             </div>
                                             <div class="modal-body">
-                                <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=proker/tambah" method="POST" >
+                                <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=proker/tambah" method="POST" enctype='multipart/form-data'>
                                 <div class="card-body">
                                     <div class="form-group row align-items-center mb-0">
                                         <label for="inputUsername3"
-                                            class="col-md-3 text-right control-label col-form-label">Agenda</label>
+                                            class="col-md-3 text-right control-label col-form-label">Nama Program Kerja</label>
                                         <div class="col-md-9 border-left pb-2 pt-2">
                                             <textarea cols="3" rows="3" class="form-control" name="modal_agenda" id="modal-agenda"
-                                                placeholder="Isi Agenda" required></textarea>
+                                                placeholder="Nama Program Kerja" required></textarea>
                                         </div>
                                     </div>
 									<div class="form-group row align-items-center mb-0">
@@ -203,6 +203,19 @@ $(document).ready(function() {
 										   </select>
                                         </div>
                                     </div>
+									<div class="form-group row align-items-center mb-0">
+                                        <label for="inputLevel3"
+                                            class="col-md-3 text-right control-label col-form-label">Upload Luaran Kinerja (Multiple Upload)</label>
+                                        <div class="col-md-9 border-left pb-2 pt-2 ">
+                                           <input type="file" accept="application/pdf" name="files[]" id="files" class="form-control" multiple required />
+                                        </div>
+                                    </div>
+                                 <br>
+											<div class="progress progress-lg mb-2" style="display:none">
+												<div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%">
+													<span class="sr-only">0%</span>
+												</div>
+											</div> 
 								
                                 </div>
                             
@@ -265,19 +278,35 @@ $(document).ready(function() {
  
   
   let formData = new FormData();
- 
+   var totalfiles = document.getElementById('files').files.length;
+   for (var index = 0; index < totalfiles; index++) {
+      formData.append("files[]", document.getElementById('files').files[index]);
+   }
+   
   formData.append('modal_agenda', $('#modal-agenda').val());
   formData.append('modal_jenis', $('#modal-jenis').val());
   formData.append('modal_waktu', $('#modal-waktu').val());
   formData.append('modal_status', $('#modal-status').val());
   formData.append('modal_keterangan', $('#modal-keterangan').val());
   formData.append('modal_periode', $('#modal-periode').val());
+   $('.progress').show();
   
   $.ajax({
-	
+	 xhr: function() {
+                var xhr = new window.XMLHttpRequest();         
+                xhr.upload.addEventListener("progress", function(element) {
+                    if (element.lengthComputable) {
+                        var percentComplete = ((element.loaded / element.total) * 100);
+                        $("#progressBar").width(percentComplete + '%');
+                        $("#progressBar").html(percentComplete+'%');
+                    }
+                }, false);
+                return xhr;
+            },
 			
    method:  $(this).attr("method"), // untuk mendapatkan attribut method pada form
    url: $(this).attr("action"),  // untuk mendapatkan attribut action pada form
+    enctype: 'multipart/form-data',
    data: formData,
     processData: false,
     contentType: false,
