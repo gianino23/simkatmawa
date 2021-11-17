@@ -79,7 +79,7 @@ $(document).ready(function() {
 										<td><?= $p->file; ?></td>
 										<td><?= $p->tgl_entry; ?></td>
 										<td align="center">
-											<!--<a href="upload/<?php// echo $p->isi;?>" onclick="return confirm('Apakah Anda ingin mendownload file ini ?');"><i class="fas fa-download"></i></a>-->
+											
 											<a href="javascript:void(0)" class="view_modal" id='<?php echo  $p->id; ?>'><i class="fas fa-download"></i></a>
 											<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id; ?>'><i class="fas fa-trash-alt"></i></a>
 										</td>
