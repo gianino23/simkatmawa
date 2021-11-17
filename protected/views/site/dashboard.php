@@ -1,4 +1,43 @@
+<head>
+<link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/calendar/lib/main.css" rel="stylesheet" />
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/calendar/lib/main.js"></script>
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: {
+        left: 'prevYear,prev,next,nextYear today',
+        center: 'title',
+        right: 'dayGridMonth,dayGridWeek,dayGridDay'
+      },
+      initialDate: '<?php echo date("Y-m-d")?>',
+      navLinks: true, // can click day/week names to navigate views
+      editable: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+      events: [
+	  <?php
+	  $prokers = Proker::model()->findAll();
+	  foreach($prokers as $proker){
+	  ?>
+        {
+          title: '<?php echo $proker->agenda;?>',
+		  description: 'lalala',
+          start: '<?php echo $proker->waktu;?>'
+        },
+       <?php
+	  }
+	  ?>
+      ]
+    });
+    calendar.render();
+  });
+
+</script>
+</head>
 <div class="container-fluid">
+<div class="body">
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
@@ -78,6 +117,11 @@
                         </div>
                     </div>
                 </div>
+				 <div class="col-lg-12">
+                        <div class="card-body b-l calender-sidebar">
+                            <div id="calendar" ></div>
+                        </div>
+                    </div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->
@@ -90,4 +134,7 @@
                 <!-- ============================================================== -->
             </div>
             </div>
+            </div>
         <!--end: Inspiro Slider -->
+
+	
