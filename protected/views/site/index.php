@@ -30,14 +30,14 @@
         <!--end: Inspiro Slider -->
         <section id="page-content" class="no-sidebar">
             <div class="container">
-			</br>
-			</br>
-                <!-- Calendar -->
                 <div class="row mb-5">
-                    <div class="col-lg-6">
-                        <h4>Basic veiws</h4>
+                    <div class="col-lg-12">
+                        <div id="calendar"></div>
                     </div>
-					 <div class="col-lg-6">
+                </div>
+                <!-- Calendar -->
+                <div class="row mb-5" style="display:none">
+					 <div class="col-lg-12">
                         <?php
 						$c=Visitor::model()->findAllByAttributes(array('browser'=>'Chrome/Opera'));
 						$i=0;
@@ -106,11 +106,6 @@
                     </div>
                     <!-- <div class="col-lg-6"><button type="button" class="btn btn-light btn-shadow float-right"><i class="icon-calendar"></i>
                             Add Event</button></div> -->
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div id="calendar"></div>
-                    </div>
                 </div>
                 <!-- end: Calendar -->
             </div>

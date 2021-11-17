@@ -6,7 +6,7 @@ class BeritaController extends Controller
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
+	public $layout='//layouts/tema';
 
 	/**
 	 * @return array action filters
@@ -122,6 +122,7 @@ class BeritaController extends Controller
 	 */
 	public function actionIndex()
 	{
+		$this->layout = 'public';
 		$dataProvider=new CActiveDataProvider('Berita');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,

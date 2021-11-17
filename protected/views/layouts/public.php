@@ -32,7 +32,7 @@
                         <a href="index.html">
                             
                             <span class="logo-default">SIMAHAL</span>
-                            <span class="logo-dark">SIMAHAL</span>
+                            <span class="logo-dark">SIMIHAL</span>
                         </a>
                     </div>
                     <!--End: Logo-->
@@ -102,6 +102,7 @@
                                         </ul>
                                     </li>
                                     <li><?= CHtml::link('Galeri',array('galery/folder')) ?></li>
+                                    <li><?= CHtml::link('Berita',array('berita/index')) ?></li>
                                     <li class="dropdown"><a href="#">Regulasi Bid. Kemahasiswaan</a>
                                         <ul class="dropdown-menu">
                                             <?php
@@ -118,7 +119,7 @@
                                             <li><a href="#">SOP Pengajuan Insentif Prestasi</a></li> -->
                                         </ul>
                                     </li>
-                                            <li><?= CHtml::link('SIMKATMAWA',array('site/login')) ?></li>
+                                            <li><?= CHtml::link('SIMAHAL',array('site/login')) ?></li>
                                 </ul>
                             </nav>
                         </div>
@@ -204,12 +205,14 @@
     <!-- Scroll top -->
     <a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
     <!--Plugins-->
+    <!--Infinite Scroll plugin files-->
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/js/jquery.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/js/plugins.js"></script>
     <!--Template functions-->
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/js/functions.js"></script>
-    <script src='<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/moment/moment.min.js'></script>
-    <script src='<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/fullcalendar/fullcalendar.min.js'></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/moment/moment.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/fullcalendar/fullcalendar.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/metafizzy/infinite-scroll.min.js"></script>
     <script>
         $('#calendar').fullCalendar({
             header: {

@@ -12,6 +12,10 @@
 
 		<li class="nav-small-cap"><i class="mdi mdi-dots-horizontal"></i>
 			<span class="hide-menu">Web Profil</span></li>
+		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('slide/admin')?>"
+				aria-expanded="false"><i class="mdi mdi-creation"></i><span class="hide-menu">
+					Slider
+				</span></a></li>
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('profil/admin')?>"
 				aria-expanded="false"><i class="mdi mdi-comment-processing-outline"></i><span class="hide-menu">Profil</span></a></li>
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('regulasimhs/admin')?>"
@@ -22,21 +26,17 @@
 				aria-expanded="false"><i class="mdi mdi-book"></i><span class="hide-menu">
 					Galeri
 				</span></a></li>
-		<!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('galery/admin')?>"
+		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('berita/admin')?>"
 				aria-expanded="false"><i class="mdi mdi-account-box"></i><span class="hide-menu">
-					Galery
-				</span></a></li> -->
-		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('periode/admin')?>"
+					Berita
+				</span></a></li>
+		<!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('periode/admin')?>"
 				aria-expanded="false"><i class="mdi mdi-arrange-bring-forward"></i><span class="hide-menu">
 					Periode
-				</span></a></li>
+				</span></a></li> -->
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('ormawa/admin')?>"
 				aria-expanded="false"><i class="mdi mdi-cube-send"></i><span class="hide-menu">
 					Ormawa
-				</span></a></li>
-		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('slide/admin')?>"
-				aria-expanded="false"><i class="mdi mdi-creation"></i><span class="hide-menu">
-					Slider
 				</span></a></li>
 		<!--
 		<li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?= Yii::app()->createAbsoluteUrl('jenis/admin')?>"

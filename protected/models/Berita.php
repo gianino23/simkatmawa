@@ -7,6 +7,7 @@
  * @property integer $id_berita
  * @property string $judul
  * @property string $isi
+ * @property string $cover
  * @property string $author
  * @property integer $status
  * @property string $tgl_entry
@@ -29,12 +30,12 @@ class Berita extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('judul, isi, author, status, tgl_entry', 'required'),
+			array('judul, isi, cover, author, status, tgl_entry', 'required'),
 			array('status', 'numerical', 'integerOnly'=>true),
 			array('author', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_berita, judul, isi, author, status, tgl_entry', 'safe', 'on'=>'search'),
+			array('id_berita, judul, isi, cover, author, status, tgl_entry', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,6 +59,7 @@ class Berita extends CActiveRecord
 			'id_berita' => 'Id Berita',
 			'judul' => 'Judul',
 			'isi' => 'Isi',
+			'cover' => 'Cover',
 			'author' => 'Author',
 			'status' => 'Status',
 			'tgl_entry' => 'Tgl Entry',
@@ -85,6 +87,7 @@ class Berita extends CActiveRecord
 		$criteria->compare('id_berita',$this->id_berita);
 		$criteria->compare('judul',$this->judul,true);
 		$criteria->compare('isi',$this->isi,true);
+		$criteria->compare('cover',$this->cover,true);
 		$criteria->compare('author',$this->author,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('tgl_entry',$this->tgl_entry,true);
