@@ -23,7 +23,7 @@
                                 if(isset($luar)) {
                                     foreach ($luar as $l) {
                             ?>
-							<h2><center>Program Kerja <?php echo $i;?></h2>
+							<h2><center>Program Kerja <?php echo $proker->agenda;?></h2>
                             <embed src="<?= Yii::app()->request->baseUrl.'/uploaddokumen/'.$l->file; ?>" height="1000px" />
 						
 							</br>
