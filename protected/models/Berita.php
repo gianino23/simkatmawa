@@ -30,7 +30,7 @@ class Berita extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('judul, isi, cover, author, status, tgl_entry', 'required'),
+			array('judul, isi, status', 'required'),
 			array('status', 'numerical', 'integerOnly'=>true),
 			array('author', 'length', 'max'=>200),
 			// The following rule is used by search().

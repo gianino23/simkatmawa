@@ -251,15 +251,15 @@ $(document).ready(function() {
  <!-- Ajax untuk delete data--> 
 <script type="text/javascript">
     $('body').on('click','.delete_modal', function(e){
-  let id_ormawa = $(this).data('id');
+  let id_berita = $(this).data('id');
   $('#modal_delete').modal('show', {backdrop: 'static'});
   $("#delete_link").on("click", function(){
    e.preventDefault();
    $.ajax({
     method:  'POST', // untuk mendapatkan attribut method pada form
-    url: '?r=ormawa/hapus',  // untuk mendapatkan attribut action pada form
+    url: '?r=berita/delete',  // untuk mendapatkan attribut action pada form
     data: { 
-     id_ormawa: id_ormawa
+     id_berita: id_berita
     },
     success:function(response){
 	//console.log(response);

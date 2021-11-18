@@ -15,7 +15,7 @@ class BeritaController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+			// 'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -28,7 +28,7 @@ class BeritaController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','adminn'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -64,12 +64,17 @@ class BeritaController extends Controller
 	{
 		$model=new Berita;
 
+		if(Yii::app()->user->level == 1) $ormawa = 0;
+		else $ormawa = Yii::app()->user->ormawa;
+
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Berita']))
 		{
 			$model->attributes=$_POST['Berita'];
+			$simpanSementara=CUploadedFile::getInstance($model,'cover');
+			$model->author=$ormawa;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id_berita));
 		}
@@ -110,11 +115,24 @@ class BeritaController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
-
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		$id=$_POST['id_berita'];
+		$model=$this->loadModel($id)->delete();
+		
+		
+		if($model)
+		 {
+		  // fungsi untuk membuat format json
+		  header('Content-Type: application/json');
+		  // untuk load data yang sudah ada dari tabel
+		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('berita/adminn'), true);
+		  $data = array('status'=>'success', 'data'=> $content);
+		  echo json_encode($data);
+		 }
+		 else // jika insert data gagal
+		 {
+		  $data = array('status'=>'failed', 'data'=> null);
+		  echo json_encode($data);
+		 }
 	}
 
 	/**
