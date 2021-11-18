@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v12.5.1 (64 bit)
-MySQL - 10.4.21-MariaDB : Database - db_simkatmawa
+MySQL - 10.4.21-MariaDB : Database - db_kedokteran
 *********************************************************************
 */
 
@@ -12,6 +12,9 @@ MySQL - 10.4.21-MariaDB : Database - db_simkatmawa
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`db_kedokteran` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+
+USE `db_kedokteran`;
 
 /*Table structure for table `t_belanegara` */
 
@@ -43,6 +46,7 @@ CREATE TABLE `t_berita` (
   `author` varchar(200) NOT NULL,
   `status` int(1) NOT NULL,
   `tgl_entry` datetime NOT NULL,
+  `cover` text DEFAULT NULL,
   PRIMARY KEY (`id_berita`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -570,7 +574,7 @@ CREATE TABLE `t_visitor` (
   `counter` varchar(20) DEFAULT NULL,
   `browser` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id_visitor`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Data for the table `t_visitor` */
 
@@ -588,7 +592,8 @@ insert  into `t_visitor`(`id_visitor`,`tanggal`,`ip_address`,`counter`,`browser`
 (11,'2021-11-17','::1','1','Safari'),
 (12,'2021-11-17','::1','1','Safari'),
 (13,'2021-11-17','::1','1','Safari'),
-(14,'2021-11-17','::1','1','Safari');
+(14,'2021-11-17','::1','1','Safari'),
+(15,'2021-11-18','::1','1','Safari');
 
 /*Table structure for table `t_wirausaha` */
 
