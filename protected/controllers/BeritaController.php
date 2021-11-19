@@ -28,7 +28,7 @@ class BeritaController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','adminn'),
+				'actions'=>array('index','view','adminn','post'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -53,6 +53,14 @@ class BeritaController extends Controller
 	{
 		$this->render('view',array(
 			'model'=>$this->loadModel($id),
+		));
+	}
+
+	public function actionPost($id)
+	{
+		$this->layout='public';
+		$this->render('post',array(
+			'id'=>$id,
 		));
 	}
 

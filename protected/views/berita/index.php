@@ -1,5 +1,4 @@
 
-        
         <section id="page-title" data-bg-parallax="https://images.pexels.com/photos/4185957/pexels-photo-4185957.jpeg?cs=srgb&dl=pexels-alleksana-4185957.jpg&fm=jpg">
             <div class="bg-overlay"></div>
             <div class="container">
@@ -24,16 +23,15 @@
 									<div class="post-item border">
 											<div class="post-item-wrap">
                             <div class="post-image">
-                                <a href="#">
+                                <a href="<?= $this->createAbsoluteUrl('berita/post',array('id'=>$b->id_berita)) ?>">
                                     <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/upload/berita/<?= $b->cover; ?>">
                                 </a>
-                                <span class="post-meta-category"><a href=""><?= $b->author; ?></a></span>
+                                <span class="post-meta-category"><?php if($b->author == 0) echo "Admin"; else echo $ormawa->nama_ormawa; ?></span>
                             </div>
 													<div class="post-item-description">
-															<h2><a href="#"><?= $b->judul; ?></a></h2>
-															<span class="post-meta-date"><i class="fa fa-calendar-o"></i><?= date('d F Y', strtotime($b->tgl_entry)); ?></span>
-															<p><?= $b->isi; ?></p>
-															<a href="#" class="item-link">Read More <i class="icon-chevron-right"></i></a>
+															<span class="post-meta-date"><i class="icon-calendar"></i><?= date('d F Y', strtotime($b->tgl_entry)); ?></span>
+															<h2><a href="<?= $this->createAbsoluteUrl('berita/post',array('id'=>$b->id_berita)) ?>"><?= $b->judul; ?></a></h2>
+															<a href="<?= $this->createAbsoluteUrl('berita/post',array('id'=>$b->id_berita)) ?>" class="item-link">Read More <i class="icon-chevron-right"></i></a>
 													</div>
 											</div>
 									</div>
@@ -43,7 +41,7 @@
                 </div>
                 <!-- end: Blog -->
                 <!-- Pagination -->
-                <ul class="pagination">
+                <!-- <ul class="pagination">
                     <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a></li>
                     <li class="page-item"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -51,7 +49,7 @@
                     <li class="page-item"><a class="page-link" href="#">4</a></li>
                     <li class="page-item"><a class="page-link" href="#">5</a></li>
                     <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
-                </ul>
+                </ul> -->
                 <!-- end: Pagination -->
             </div>
             <!-- end: post content -->

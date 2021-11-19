@@ -7,12 +7,12 @@
 			<li class="breadcrumb-item active">View</li>
 		</ol>
 	</div>
-	<div class="col-md-7 col-12 align-self-center d-none d-md-block">
+	<!-- <div class="col-md-7 col-12 align-self-center d-none d-md-block">
 		<div class="d-flex mt-2 justify-content-end">
 			<div class="alert alert-danger" role="alert">masih dalam pengembangan
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
 <div class="container-fluid">
 	<!-- ============================================================== -->
