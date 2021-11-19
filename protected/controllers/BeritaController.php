@@ -154,10 +154,25 @@ class BeritaController extends Controller
 	public function actionIndex()
 	{
 		$this->layout = 'public';
-		$dataProvider=new CActiveDataProvider('Berita');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
+
+		$criteria=new CDbCriteria();
+		$criteria->order = 'tgl_entry DESC';
+    $count=Berita::model()->count($criteria);
+    $pages=new CPagination($count);
+
+    // results per page
+    $pages->pageSize=9;
+    $pages->applyLimit($criteria);
+    $models=Berita::model()->findAll($criteria);
+
+    $this->render('index', array(
+    'models' => $models,
+         'pages' => $pages
+    ));
+		// $dataProvider=new CActiveDataProvider('Berita');
+		// $this->render('index',array(
+		// 	'dataProvider'=>$dataProvider,
+		// ));
 	}
 
 	/**

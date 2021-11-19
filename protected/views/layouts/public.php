@@ -18,6 +18,7 @@
     <style>
         #header .header-inner #logo a, #header .header-inner #logo a span, #header #header-wrap #logo a, #header #header-wrap #logo a span { font-size: 30px; }
         /* .fc-event .fc-content span{ display: block; } */
+        ul.yiiPager a:link, ul.yiiPager a:visited {color: #3c4043;background-color: #fff;border-color: #e4e6ef;}
     </style>
 </head>
 <body>
