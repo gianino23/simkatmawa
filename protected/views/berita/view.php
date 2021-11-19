@@ -31,7 +31,7 @@
 					<small class="text-muted">Tanggal </small>
 					<h6><?= date('d F y, H:i:s', strtotime($model->tgl_entry)); ?></h6>
 					<small class="text-muted">Penulis </small>
-					<h6><?php if($model->author == 0) echo "Admin"; else echo $ormawa->nama_ormawa; ?></h6>
+					<h6><?php if($model->author == 0) echo "Admin"; else $ormawa = Ormawa::model()->findByAttributes(['id_ormawa'=>$model->author]);echo $ormawa->nama_ormawa; ?></h6>
 					<small class="text-muted pt-4 db">Status</small>
 					<h6><?php if($model->status == 1) echo "<span class='badge badge-success'>Publish</span>"; else echo "<span class='badge badge-danger'>Draft</span>"?></h6>
 					<hr>

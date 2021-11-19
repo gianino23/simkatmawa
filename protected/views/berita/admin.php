@@ -55,7 +55,12 @@ $(document).ready(function() {
 								</thead>
 								<tbody id="show-data">
 									<?php
+                                        if(Yii::app()->user->level == 1)
 										 	$berita = Berita::model()->findAll(array('order'=>'tgl_entry DESC'));
+                                        else {
+                                            $ormawa = Yii::app()->user->ormawa;
+                                            $berita = Berita::model()->findAll(array('condition'=>"author = $ormawa",'order'=>'tgl_entry DESC'));
+                                        }
 											 foreach ($berita as $p) {
                                                  $ormawa = Ormawa::model()->findByAttributes(['id_ormawa'=>$p->author]);
 										 ?>

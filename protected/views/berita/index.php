@@ -23,7 +23,7 @@
                                 src="<?php echo Yii::app()->request->baseUrl; ?>/upload/berita/<?= $model->cover; ?>">
                         </a>
                         <span
-                            class="post-meta-category"><?php if($model->author == 0) echo "Admin"; else echo $ormawa->nama_ormawa; ?></span>
+                            class="post-meta-category"><?php if($model->author == 0) echo "Admin"; else {$ormawa = Ormawa::model()->findByAttributes(['id_ormawa'=>$model->author]);echo $ormawa->nama_ormawa;} ?></span>
                     </div>
                     <div class="post-item-description">
                         <span class="post-meta-date"><i

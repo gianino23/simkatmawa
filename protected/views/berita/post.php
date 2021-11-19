@@ -27,7 +27,7 @@
                                     <span class="post-meta-date"><i class="icon-calendar"></i><?= date('d F Y', strtotime($berita->tgl_entry)); ?></span>
                                     <!-- <span class="post-meta-comments"><a href=""><i class="fa fa-comments-o"></i>33
                                             Comments</a></span> -->
-                                    <span class="post-meta-category"><i class="icon-user"></i><?php if($berita->author == 0) echo "Admin"; else echo $ormawa->nama_ormawa; ?></span>
+                                    <span class="post-meta-category"><i class="icon-user"></i><?php if($berita->author == 0) echo "Admin"; else {$ormawa = Ormawa::model()->findByAttributes(['id_ormawa'=>$berita->author]);echo $ormawa->nama_ormawa;} ?></span>
                                     <!-- <div class="post-meta-share">
                                         <a class="btn btn-xs btn-slide btn-facebook" href="#">
                                             <i class="fab fa-facebook-f"></i>
@@ -88,7 +88,7 @@
                             <div class="post-thumbnail-content">
                                 <a href="<?= $this->createAbsoluteUrl('berita/post',array('id'=>$n->id_berita)) ?>"><?= $n->judul ?></a>
                                 <span class="post-date"><i class="icon-calendar"></i> <?= date('d M y', strtotime($n->tgl_entry)); ?></span>
-                                <span class="post-category"><i class="fa fa-user"></i> <?php if($berita->author == 0) echo "Admin"; else echo $ormawa->nama_ormawa; ?></span>
+                                <span class="post-category"><i class="fa fa-user"></i> <?php if($n->author == 0) echo "Admin"; else echo $ormawa->nama_ormawa; ?></span>
                             </div>
                         </div>
                         <?php } ?>
