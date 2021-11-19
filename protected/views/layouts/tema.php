@@ -815,6 +815,8 @@
 	 <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/summernote/dist/summernote-bs4.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/magnific-popup/meg.init.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/libs/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src//assets/extra-libs/sweetalert2/sweet-alert.init.js"></script>
 	  <script>
         /************************************/
         //default editor

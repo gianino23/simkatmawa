@@ -8,7 +8,7 @@ $(document).ready(function() {
 		<h3 class="text-themecolor mb-0">SIMKATMAWA</h3>
 		<ol class="breadcrumb mb-0">
 			<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-			<li class="breadcrumb-item active">Ormawa</li>
+			<li class="breadcrumb-item active">Berita</li>
 		</ol>
 	</div>
                 <div class="col-md-7 col-12 align-self-center d-none d-md-block">
@@ -53,7 +53,7 @@ $(document).ready(function() {
 										
 									</tr>
 								</thead>
-								<tbody id="modal-data">
+								<tbody id="show-data">
 									<?php
 										 	$berita = Berita::model()->findAll(array('order'=>'tgl_entry DESC'));
 											 foreach ($berita as $p) {
@@ -61,12 +61,12 @@ $(document).ready(function() {
 										 ?>
 									<tr>
 										<td><?php if($p->status == 1) echo "<span class='badge badge-success'>Publish</span>"; else echo "<span class='badge badge-danger'>Draft</span>"?> <?= date('d M y', strtotime($p->tgl_entry)); ?></td>
-										<td><?= $p->judul; ?></td>
+										<td><?= CHtml::link($p->judul, $this->createAbsoluteUrl('berita/view',array('id'=>$p->id_berita))); ?></td>
 										<td><?php if($p->author == 0) echo "Admin"; else echo $ormawa->nama_ormawa; ?></td>
 										
 										<td align="center">
                                         <?= CHtml::link('<i class="fas fa-edit text-warning"></i>', $this->createAbsoluteUrl('berita/update',array('id'=>$p->id_berita))); ?>
-                                        <?= CHtml::link('<i class="fas fa-trash-alt text-danger"></i>', $this->createAbsoluteUrl('berita/delete',array('id'=>$p->id_berita))); ?>
+                                        <?= CHtml::link('<i class="fas fa-trash-alt text-danger"></i>', $this->createAbsoluteUrl('berita/delete',array('id'=>$p->id_berita)),array('id'=>'sa-delete')); ?>
 										<!-- <a href="javascript:void(0)" class='open_modal' id='<?php// echo  $p->id_berita; ?>'><i class="fas fa-edit text-warning"></i></a> -->
 										<!-- <a href="javascript:void(0)" class="delete_modal" data-id='<?php //echo  $p->id_berita; ?>'><i class="fas fa-trash-alt text-danger"></i></a>	 -->
                                     </td>
@@ -153,6 +153,13 @@ $(document).ready(function() {
             $("#ModalEdit").modal('show',{backdrop: 'true'});
            }
          });
+        });
+        $('#sa-delete').click(function () {
+            Swal.fire({
+                title: "Berita dihapus!",
+                type: "success",
+                showConfirmButton: false,
+            });
         });
     });
 </script>
