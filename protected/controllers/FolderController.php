@@ -211,14 +211,20 @@ class FolderController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Folder('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Folder']))
-			$model->attributes=$_GET['Folder'];
+		$criteria=new CDbCriteria();
+		$criteria->order = 'id_folder DESC';
+    $count=Folder::model()->count($criteria);
+    $pages=new CPagination($count);
 
-		$this->render('admin',array(
-			'model'=>$model,
-		));
+    // results per page
+    $pages->pageSize=8;
+    $pages->applyLimit($criteria);
+    $models=Folder::model()->findAll($criteria);
+
+    $this->render('admin', array(
+    'models' => $models,
+         'pages' => $pages
+    ));
 	}
 
 	/**

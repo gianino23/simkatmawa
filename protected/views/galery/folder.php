@@ -59,20 +59,17 @@
                 <!-- Portfolio -->
                 <div id="portfolio" class="grid-layout portfolio-3-columns" data-margin="20">
                     <!-- portfolio item -->
-                    <?php
-                      $folder = Folder::model()->findAll();
-                      foreach ($folder as $fol) {
-                    ?>
+                    <?php foreach($models as $model): ?>
                     <div class="portfolio-item no-overlay ct-photography ct-media ct-branding ct-Media ct-webdesign">
                         <div class="portfolio-item-wrap">
                             <div class="portfolio-slider">
                                 <div class="carousel dots-inside dots-dark arrows-dark" data-items="1" data-loop="true" data-autoplay="true" data-animate-in="fadeIn" data-animate-out="fadeOut" data-autoplay="1500">
                                     <?php
-                                        $galeri = Galery::model()->findAllByAttributes(['folder'=>$fol->id_folder],['limit'=>3]);
+                                        $galeri = Galery::model()->findAllByAttributes(['folder'=>$model->id_folder],['limit'=>3]);
                                         if(!empty($galeri)) {
                                         foreach ($galeri as $gal) {
                                     ?>
-                                    <a href="<?= Yii::app()->createAbsoluteUrl('galery/view',['id'=>$fol->id_folder])?>"><img src="<?php echo Yii::app()->request->baseUrl.'/images/thumbnail/'.$gal->file; ?>" alt=""></a>
+                                    <a href="<?= Yii::app()->createAbsoluteUrl('galery/view',['id'=>$model->id_folder])?>"><img src="<?php echo Yii::app()->request->baseUrl.'/images/thumbnail/'.$gal->file; ?>" alt=""></a>
                                     <?php }
                                     } else { ?>
                                     <a href="#"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/portfolio/22.jpg" alt=""></a>
@@ -82,16 +79,25 @@
                                 </div>
                             </div>
                             <div class="portfolio-description">
-                                <a href="<?= Yii::app()->createAbsoluteUrl('galery/view',['id'=>$fol->id_folder])?>">
-                                    <h3><?= $fol->nama_folder; ?></h3>
-                                    <?php if($fol->ormas_id != 0) echo '<span>'.$fol->ormas_id.'</span>'; ?>
+                                <a href="<?= Yii::app()->createAbsoluteUrl('galery/view',['id'=>$model->id_folder])?>">
+                                    <h3><?= $model->nama_folder; ?></h3>
+                                    <?php if($model->ormas_id != 0) echo '<span>'.$model->ormas_id.'</span>'; ?>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php endforeach; ?>
                     <!-- end: portfolio item -->
                 </div>
+                <center>
+                <?php $this->widget('CLinkPager', array(
+    'pages' => $pages,
+    'header'=>'',
+    'prevPageLabel'=>'<',
+    'nextPageLabel'=>'>',
+    'maxButtonCount'=>3,
+)) ?>
+</center>
                 <!-- end: Portfolio -->
             </div>
         </section>

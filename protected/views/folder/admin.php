@@ -23,33 +23,32 @@
 <div class="row el-element-overlay">
 
 <?php
-            $folder = Folder::model()->findAll(array('order'=>'id_folder DESC'));
-            foreach ($folder as $fg) {
-                $pic = Galery::model()->findByAttributes(['folder'=>$fg->id_folder]);
+            foreach($models as $model):
+                $pic = Galery::model()->findByAttributes(['folder'=>$model->id_folder]);
         ?>
                     <div class="col-lg-3 col-md-6">
                         <div class="card">
                             <div class="el-card-item pb-3">
-                                <div class="el-card-avatar mb-3 el-overlay-1 w-100 overflow-hidden position-relative text-center"> <img src="<?php if(!empty($pic)) echo Yii::app()->request->baseUrl.'/upload/'.$fg->nama_folder.'/'.$pic->file; else echo Yii::app()->request->baseUrl.'/themes/materialpro/material-pro/src/assets/images/big/img2.jpg' ?>" class="d-block position-relative w-100" alt="user" />
+                                <div class="el-card-avatar mb-3 el-overlay-1 w-100 overflow-hidden position-relative text-center"> <img src="<?php if(!empty($pic)) echo Yii::app()->request->baseUrl.'/upload/'.$model->nama_folder.'/'.$pic->file; else echo Yii::app()->request->baseUrl.'/themes/materialpro/material-pro/src/assets/images/big/img2.jpg' ?>" class="d-block position-relative w-100" alt="user" />
                                     <div class="el-overlay w-100 overflow-hidden">
                                         <ul class="list-style-none el-info text-white text-uppercase d-inline-block p-0">
                                         <div id="mytable">
                                         
-                                            <li class="el-item d-inline-block my-0  mx-1"><a href="?r=galery/adminn&id=<?php echo $fg->id_folder;?>" class="btn default btn-outline el-link text-white border-white""><i class="icon-magnifier"></i></a></li>
+                                            <li class="el-item d-inline-block my-0  mx-1"><a href="?r=galery/adminn&id=<?php echo $model->id_folder;?>" class="btn default btn-outline el-link text-white border-white""><i class="icon-magnifier"></i></a></li>
               <!--  <?= CHtml::link('<i class="fas fa-search text-info"></i>',['galery/admin']) ?>-->
                     
-              <li class="el-item d-inline-block my-0  mx-1"><a href="javascript:void(0)" class='btn default btn-outline el-link text-white border-white open_modal' id='<?php echo  $fg->id_folder; ?>'><i class="icon-note"></i></a></li>
-              <li class="el-item d-inline-block my-0  mx-1"><a href="javascript:void(0)" class="btn default btn-outline el-link text-white border-white delete_modal" data-id='<?php echo  $fg->id_folder; ?>'><i class="icon-trash"></i></a></li>
+              <li class="el-item d-inline-block my-0  mx-1"><a href="javascript:void(0)" class='btn default btn-outline el-link text-white border-white open_modal' id='<?php echo $model->id_folder; ?>'><i class="icon-note"></i></a></li>
+              <li class="el-item d-inline-block my-0  mx-1"><a href="javascript:void(0)" class="btn default btn-outline el-link text-white border-white delete_modal" data-id='<?php echo  $model->id_folder; ?>'><i class="icon-trash"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="el-card-content text-center">
-                                    <h4 class="mb-0"><?= $fg->nama_folder; ?></h4> <span class="text-muted"><?= $fg->deskripsi; ?></span>
+                                    <h4 class="mb-0"><?= $model->nama_folder; ?></h4> <span class="text-muted"><?= $model->deskripsi; ?></span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php endforeach; ?>
                 </div>
 	<!-- <ul class="nav nav-pills p-3 bg-white mb-3 rounded-pill align-items-center">
 		<li class="nav-item"> <a href="javascript:void(0)"
@@ -94,74 +93,16 @@
 			</div>
 		</div>
 	</div> -->
+
+<?php $this->widget('CLinkPager', array(
+    'pages' => $pages,
+    'header'=>'',
+    'prevPageLabel'=>'<',
+    'nextPageLabel'=>'>',
+    'maxButtonCount'=>3,
+)) ?>
 </div>
 </div>
-<!-- ============================================================== -->
-<!-- End Bread crumb and right sidebar toggle -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- Container fluid  -->
-<!-- ============================================================== -->
-<!--
-<div class="container-fluid">
-   
-    
-    <div class="row">
-       
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="float-left">
-                            <h3 class="card-title">Halaman Folder</h3>
-                            <h6 class="card-subtitle">Deskripsi Halaman Folder</h6>
-                        </div>
-                        <div class="float-right">
-                         
-                            <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal"
-                                data-target="#tambahData">Tambah Data</button>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="table-responsive">
-                            <table id="mytable" class="table table-striped table-bordered display" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>Nomor</th>
-                                        <th>Nama Folder</th>
-                                        <th>Lokasi Folder</th>
-                                        <th width="10%"></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="modal-data">
-                                    <?php
-											 $i=0;
-											 foreach ($folder as $f) {
-												 $i++;
-										 ?>
-                                    <tr>
-                                        <td><?= $i; ?></td>
-                                        <td><?= $f->nama_folder; ?></td>
-                                        <td><?= "upload/".$f->nama_folder."/"; ?></td>
-                                        <td align="center">
-                                            <a href="javascript:void(0)" class='open_modal'
-                                                id='<?php echo  $f->id_folder; ?>'><i class="fas fa-edit"></i></a>
-                                            <a href="javascript:void(0)" class="delete_modal"
-                                                data-id='<?php echo  $f->id_folder; ?>'><i
-                                                    class="fas fa-trash-alt"></i></a>
-                                        </td>
-                                    </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
--->
 <div id="tambahData" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

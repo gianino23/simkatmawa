@@ -52,7 +52,21 @@ class GaleryController extends Controller
 	public function actionFolder()
 	{
 		$this->layout = 'public';
-		$this->render('folder');
+		$criteria=new CDbCriteria();
+		$criteria->order = 'id_folder DESC';
+    $count=Folder::model()->count($criteria);
+    $pages=new CPagination($count);
+
+    // results per page
+    $pages->pageSize=9;
+    $pages->applyLimit($criteria);
+    $models=Folder::model()->findAll($criteria);
+
+    $this->render('folder', array(
+    'models' => $models,
+         'pages' => $pages
+    ));
+		// $this->render('folder');
 	}
 
 	public function actionView($id)
