@@ -11,30 +11,12 @@ $(document).ready(function() {
 			<li class="breadcrumb-item active">Ormawa</li>
 		</ol>
 	</div>
-	<!--
                 <div class="col-md-7 col-12 align-self-center d-none d-md-block">
                     <div class="d-flex mt-2 justify-content-end">
-                        <div class="d-flex mr-3 ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>THIS MONTH</small></h6>
-                                <h4 class="mt-0 text-info">$58,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="monthchart"></div>
-                            </div>
-                        </div>
-                        <div class="d-flex ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>LAST MONTH</small></h6>
-                                <h4 class="mt-0 text-primary">$48,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="lastmonthchart"></div>
-                            </div>
-                        </div>
+                    <div class="alert alert-danger" role="alert">masih dalam pengembangan
+                                </div>
                     </div>
                 </div>
-				-->
 </div>
 
 <!-- ============================================================== -->
@@ -55,7 +37,7 @@ $(document).ready(function() {
 							<!-- <h6 class="card-subtitle">Deskripsi Halaman Ormawa </h6> -->
 						</div>
 						<div class="float-right">
-						<?= CHtml::link('Tambah Data',array('berita/create'),array('class'=>'btn waves-effect waves-light btn-success')) ?>
+						<?= CHtml::link('Berita Baru',array('berita/create'),array('class'=>'btn waves-effect waves-light btn-primary')) ?>
 						 <!-- <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button> -->
 						</div>
 					</div>
@@ -64,9 +46,9 @@ $(document).ready(function() {
 							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
 								<thead>
 									<tr>
-										<th>Tgl</th>
+										<th width="120px">Tgl</th>
 										<th>Judul</th>
-										<th>Author</th>
+										<th width="150px">Author</th>
 										<th width="100px"></th>
 										
 									</tr>
@@ -75,17 +57,18 @@ $(document).ready(function() {
 									<?php
 										 	$berita = Berita::model()->findAll(array('order'=>'tgl_entry DESC'));
 											 foreach ($berita as $p) {
+                                                 $ormawa = Ormawa::model()->findByAttributes(['id_ormawa'=>$p->author]);
 										 ?>
 									<tr>
-										<td><?= $p->tgl_entry; ?></td>
+										<td><?php if($p->status == 1) echo "<span class='badge badge-success'>Publish</span>"; else echo "<span class='badge badge-danger'>Draft</span>"?> <?= date('d M y', strtotime($p->tgl_entry)); ?></td>
 										<td><?= $p->judul; ?></td>
-										<td><?= $p->author; ?></td>
+										<td><?php if($p->author == 0) echo "Admin"; else echo $ormawa->nama_ormawa; ?></td>
 										
 										<td align="center">
-                                            <div class="btn-group">
-										<a href="javascript:void(0)" class='btn btn-sm btn-warning open_modal' id='<?php echo  $p->id_berita; ?>'><i class="fas fa-edit"></i></a>
-										<a href="javascript:void(0)" class="btn btn-sm btn-danger delete_modal" data-id='<?php echo  $p->id_berita; ?>'><i class="fas fa-trash-alt"></i></a>	
-                                             </div>
+                                        <?= CHtml::link('<i class="fas fa-edit text-warning"></i>', $this->createAbsoluteUrl('berita/update',array('id'=>$p->id_berita))); ?>
+                                        <?= CHtml::link('<i class="fas fa-trash-alt text-danger"></i>', $this->createAbsoluteUrl('berita/delete',array('id'=>$p->id_berita))); ?>
+										<!-- <a href="javascript:void(0)" class='open_modal' id='<?php// echo  $p->id_berita; ?>'><i class="fas fa-edit text-warning"></i></a> -->
+										<!-- <a href="javascript:void(0)" class="delete_modal" data-id='<?php //echo  $p->id_berita; ?>'><i class="fas fa-trash-alt text-danger"></i></a>	 -->
                                     </td>
 									</tr>
 									<?php } ?>

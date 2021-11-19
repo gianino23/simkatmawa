@@ -25,7 +25,7 @@
 											<div class="post-item-wrap">
                             <div class="post-image">
                                 <a href="#">
-                                    <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/images/blog/12.jpg">
+                                    <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/upload/berita/<?= $b->cover; ?>">
                                 </a>
                                 <span class="post-meta-category"><a href=""><?= $b->author; ?></a></span>
                             </div>

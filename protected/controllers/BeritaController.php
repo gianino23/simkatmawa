@@ -73,9 +73,14 @@ class BeritaController extends Controller
 		if(isset($_POST['Berita']))
 		{
 			$model->attributes=$_POST['Berita'];
-			$simpanSementara=CUploadedFile::getInstance($model,'cover');
+
+			$upload=CUploadedFile::getInstance($model,'cover');
+			$filename=$upload;
+
 			$model->author=$ormawa;
+			$model->cover = $filename;
 			if($model->save())
+				$upload->saveAs(Yii::app()->basePath.'/../upload/berita/'.$filename);
 				$this->redirect(array('view','id'=>$model->id_berita));
 		}
 
@@ -93,13 +98,24 @@ class BeritaController extends Controller
 	{
 		$model=$this->loadModel($id);
 
+		if(Yii::app()->user->level == 1) $ormawa = 0;
+		else $ormawa = Yii::app()->user->ormawa;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Berita']))
 		{
+
+			unlink(Yii::app()->basePath.'/../upload/berita/'.$model->cover);
 			$model->attributes=$_POST['Berita'];
+
+			$upload=CUploadedFile::getInstance($model,'cover');
+			$filename=$upload;
+
+			$model->author=$ormawa;
+			$model->cover = $filename;
 			if($model->save())
+				$upload->saveAs(Yii::app()->basePath.'/../upload/berita/'.$filename);
 				$this->redirect(array('view','id'=>$model->id_berita));
 		}
 
@@ -115,24 +131,13 @@ class BeritaController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$id=$_POST['id_berita'];
-		$model=$this->loadModel($id)->delete();
-		
-		
-		if($model)
-		 {
-		  // fungsi untuk membuat format json
-		  header('Content-Type: application/json');
-		  // untuk load data yang sudah ada dari tabel
-		  $content = file_get_contents(Yii::app()->createAbsoluteUrl('berita/adminn'), true);
-		  $data = array('status'=>'success', 'data'=> $content);
-		  echo json_encode($data);
-		 }
-		 else // jika insert data gagal
-		 {
-		  $data = array('status'=>'failed', 'data'=> null);
-		  echo json_encode($data);
-		 }
+		$model=$this->loadModel($id);
+
+			unlink(Yii::app()->basePath.'/../upload/berita/'.$model->cover);
+			$this->loadModel($id)->delete();
+			if(!isset($_GET['ajax']))
+				$this->redirect(isset($_POST['returnUrl'])
+                                 ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
