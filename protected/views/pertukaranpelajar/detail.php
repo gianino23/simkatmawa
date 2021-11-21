@@ -103,8 +103,7 @@
 									<td><?php echo $i;?></td>
 										<td><?= $p->isi; ?></td>
 										<td align="center">
-										<a href=""><i class="fas fa-download"></i></a>
-										<a href=""><i class="fas fa-trash"></i></a>
+										<a target="_BLANK" href="/uploaddokumen/<?php echo $p->isi;?>"><i class="fas fa-download"></i></a>
 										</td>
 									</tr>
 									<?php } ?>

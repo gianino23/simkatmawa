@@ -74,13 +74,7 @@ class FolderController extends Controller
 
 		$model->nama_folder=$_POST['modal_namafolder'];
 		$model->deskripsi=$_POST['modal_deskripsi'];
-		if(Yii::app()->user->level == 1){
-			$er=0;
-			 $model->ormas_id = 0;
-		}elseif(Yii::app()->user->level != 1){
-			$er=1;
-		 	$model->ormas_id = Yii::app()->user->ormawa;
-		}
+		if(Yii::app()->user->level == 1) $model->ormas_id = 0;
 		if($model->save())
 		 {
 			 $temp = "upload/".$model->nama_folder."/";
@@ -218,18 +212,16 @@ class FolderController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		if(Yii::app()->user->level == 1) $ormas = 0;
-		else $ormas = Yii::app()->user->ormawa;
 		$criteria=new CDbCriteria();
 		$criteria->order = 'id_folder DESC';
-		$criteria->condition = "ormas_id = $ormas";
     $count=Folder::model()->count($criteria);
     $pages=new CPagination($count);
 
     // results per page
     $pages->pageSize=8;
     $pages->applyLimit($criteria);
-    $models=Folder::model()->findAll($criteria);
+    
+  $models=Folder::model()->findAll($criteria);
 
     $this->render('admin', array(
     'models' => $models,

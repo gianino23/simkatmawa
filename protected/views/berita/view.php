@@ -31,13 +31,13 @@
 					<small class="text-muted">Tanggal </small>
 					<h6><?= date('d F y, H:i:s', strtotime($model->tgl_entry)); ?></h6>
 					<small class="text-muted">Penulis </small>
-					<h6><?php if($model->author == 0) echo "Admin"; else $ormawa = Ormawa::model()->findByAttributes(['id_ormawa'=>$model->author]);echo $ormawa->nama_ormawa; ?></h6>
+					<h6><?php if($model->author == 0) echo "Admin"; else {$ormawa = Ormawa::model()->findByAttributes(['id_ormawa'=>$model->author]);echo $ormawa->nama_ormawa;} ?></h6>
 					<small class="text-muted pt-4 db">Status</small>
 					<h6><?php if($model->status == 1) echo "<span class='badge badge-success'>Publish</span>"; else echo "<span class='badge badge-danger'>Draft</span>"?></h6>
 					<hr>
 					<div class="row text-center justify-content-md-center">
-					<div class="col-4"><?= CHtml::link('Kembali', array('berita/admin'),array('class'=>'btn btn-success btn-block')); ?></div>
-						<div class="col-4"><?= CHtml::link('Edit', $this->createAbsoluteUrl('berita/update',array('id'=>$model->id_berita)),array('class'=>'btn btn-warning btn-block')); ?></div>
+					<div class="col-6"><?= CHtml::link('Kembali', array('berita/admin'),array('class'=>'btn btn-success btn-block')); ?></div>
+						<div class="col-6"><?= CHtml::link('Edit', $this->createAbsoluteUrl('berita/update',array('id'=>$model->id_berita)),array('class'=>'btn btn-warning btn-block')); ?></div>
 						
 						<!-- <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div> -->
 				</div>

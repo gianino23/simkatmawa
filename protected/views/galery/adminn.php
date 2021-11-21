@@ -98,14 +98,19 @@ $folder = Folder::model()->findByAttributes(array('id_folder'=>$id));
 $(document).ready(function(){
  
  Dropzone.options.dropzoneFrom = {
-  parallelUploads: 50,
-   maxFiles : 500,
+  parallelUploads: 10,
+  maxFiles : 10,
+  maxFilesize : 2,
   autoProcessQueue : false,
   autoQueue : true,
   autoProcessQueue: false,
-   dictDefaultMessage: "Letakan File Disini | File Maksimal 50 File",
+   dictDefaultMessage: "Letakan File Disini | File Maksimal 10 File | Setiap File Maks 2MB",
   acceptedFiles:".png,.jpg,.gif,.bmp,.jpeg",
   init: function(){
+ this.on("error", function (file, message) {
+                        alert(message);
+                        this.removeFile(file);
+                    }); 
    var submitButton = document.querySelector('#submit-all');
    myDropzone = this;
    submitButton.addEventListener("click", function(){

@@ -140,7 +140,8 @@ $(document).ready(function(){
  
  Dropzone.options.dropzoneFrom = {
   autoProcessQueue: false,
-   parallelUploads: 50,
+   parallelUploads: 10,
+   maxFiles: 10,
   acceptedFiles:".png,.jpg,.gif,.bmp,.jpeg",
   init: function(){
    var submitButton = document.querySelector('#submit-all');

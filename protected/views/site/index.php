@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <!-- Calendar -->
-                <div class="row mb-5" style="display:none">
+                <div class="row mb-5" style="">
 					 <div class="col-lg-12">
                         <?php
 						$c=Visitor::model()->findAllByAttributes(array('browser'=>'Chrome/Opera'));
@@ -64,11 +64,11 @@
 						foreach($o as $x){
 							$p++;
 						}
-						$chrome=($i/($i+$z+$k+$l+$p))*100;
-						$firefox=($z/($i+$z+$k+$l+$p))*100;
-						$ie=($k/($i+$z+$k+$l+$p))*100;
-						$safari=($l/($i+$z+$k+$l+$p))*100;
-						$edge=($p/($i+$z+$k+$l+$p))*100;
+						$chrome=$i;
+						$firefox=$z;
+						$ie=$k;
+						$safari=$l;
+						$edge=$p;
 						$dataPoints = array( 
 							array("label"=>"Chrome", "y"=>$chrome),
 							array("label"=>"Firefox", "y"=>$firefox),
@@ -85,14 +85,15 @@
 						var chart = new CanvasJS.Chart("chartContainer", {
 							animationEnabled: true,
 							title: {
-								text: "Total Pengunjung Aplikasi"
+								text: "Jumlah Pengunjung SIMAHAL"
 							},
 							subtitles: [{
-								text: "Sampai Tanggal <?php echo date('j F Y');?>"
+								text: "Per <?php echo date('j F Y');?>"
 							}],
 							data: [{
 								type: "pie",
-								yValueFormatString: "#,##0.00\"%\"",
+								//yValueFormatString: "#,##0.00\"%\"",
+								yValueFormatString: "#,##0 \"Pengunjung\"",
 								indexLabel: "{label} ({y})",
 								dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
 							}]
