@@ -25,7 +25,7 @@
                         $i++;
                         $folder = Folder::model()->findByAttributes(['id_folder'=>$id]);
                     ?>
-                    <?php if($i == 3) { ?>
+                    <?php if($i == 4) { ?>
                     <div class="portfolio-item large-width  img-zoom ct-photography ct-media ct-branding ct-Media">
                     <?php } else { ?>  
                     <div class="portfolio-item img-zoom ct-photography ct-marketing ct-media">
