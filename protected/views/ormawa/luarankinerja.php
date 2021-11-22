@@ -61,7 +61,7 @@
                             <div class="ac-item">
                                 <h5 class="ac-title">Luaran Kinerja #<?= $i; ?></h5>
                                 <div class="ac-content" style="display: none;">
-                                <embed src="<?= Yii::app()->request->baseUrl.'/uploaddokumen/'.$l->file; ?>" height="500px" width="100%" />
+                                <iframe src="<?= Yii::app()->request->baseUrl.'/uploaddokumen/'.$l->file; ?>" height="500px" width="100%" ></iframe>
                                 </div>
                             </div>
                     <?php }} ?>

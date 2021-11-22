@@ -3,6 +3,23 @@
             <!-- Slide 1 -->
             <?php
                 $slide = Slide::model()->findAllByAttributes(['status'=>1],['order'=>'urutan ASC','limit'=>3]);
+                if(empty($slide)){
+            ?>
+            <div class="slide" data-bg-image="https://iku.fk.ulm.ac.id/images/bg-login.jpg">
+                <div class="bg-overlay"></div>
+                <div class="container">
+                    <div class="slide-captions text-center text-light">
+                        <!-- Captions -->
+                        <h1 data-caption-animate="zoom-out">SIMAHAL</h1>
+                        <p>Fakultas Kedokteran ULM</p>
+                        <!-- <div><a href="#welcome" class="btn btn-primary scroll-to">Explore more</a></div> -->
+                        </span>
+                        <!-- end: Captions -->
+                    </div>
+                </div>
+            </div>
+            <?php
+                }else{
                 foreach ($slide as $s) {
                     $filename = $s->file;    
                     $ext = substr($filename, -4);
@@ -24,7 +41,7 @@
                     </div>
                 </div>
             </div>
-            <?php } ?>
+            <?php }} ?>
             <!-- end: Slide 1 -->
         </div>
         <!--end: Inspiro Slider -->
