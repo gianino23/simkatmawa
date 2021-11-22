@@ -10,8 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Document title -->
     <title><?php echo CHtml::encode(Yii::app()->name); ?></title>
-    <!-- Full Calendar files -->
+
     <link href='<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/fullcalendar/fullcalendar.min.css' rel='stylesheet' /> 
+    <link href='<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/datatables/datatables.min.css' rel='stylesheet' />
     <!-- Stylesheets & Fonts -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/css/plugins.css" rel="stylesheet">
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/css/style.css" rel="stylesheet">
@@ -206,6 +207,7 @@
     <!-- Scroll top -->
     <a id="scrollTop"><i class="icon-chevron-up"></i><i class="icon-chevron-up"></i></a>
     <!--Plugins-->
+    <?php Yii::app()->clientScript->registerCoreScript("jquery");?>
     <!--Infinite Scroll plugin files-->
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/js/jquery.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/js/plugins.js"></script>
@@ -213,7 +215,8 @@
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/js/functions.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/moment/moment.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/fullcalendar/fullcalendar.min.js"></script>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/metafizzy/infinite-scroll.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/themes/polo/plugins/datatables/datatables.min.js"></script>
+
     <script>
         $('#calendar').fullCalendar({
             header: {
@@ -239,6 +242,12 @@
             },
             <?php } ?>],
         });
+
+        $('#datatable').DataTable({
+                "scrollY": "500px",
+                "scrollCollapse": true,
+                "paging": false
+            });
     </script>
 </body>
 

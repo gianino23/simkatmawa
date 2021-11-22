@@ -267,6 +267,7 @@
                         <li class="nav-item dropdown">
 						<?php
 							$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));
+                            if(Yii::app()->user->level == 1) {
 						?>
                         	<?php
 	if(Yii::app()->user->level != 1) {
@@ -281,7 +282,7 @@
 								}
 								?>
                                 <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
-                            </a>
+                            </span>
 						</li>
 						<!--
                         <li class="nav-item dropdown">
