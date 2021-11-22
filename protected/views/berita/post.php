@@ -83,7 +83,7 @@
                             $news = Berita::model()->findAll(['order'=>'tgl_entry DESC'],['limit'=>3]);
                             foreach ($news as $n) {
                         ?>
-                        <div class="post-thumbnail-entry">
+                        <div class="post-thumbnail-entry" style="width:100%">
                             <img alt="" src="<?php echo Yii::app()->request->baseUrl; ?>/upload/berita/<?= $n->cover; ?>">
                             <div class="post-thumbnail-content">
                                 <a href="<?= $this->createAbsoluteUrl('berita/post',array('id'=>$n->id_berita)) ?>"><?= $n->judul ?></a>
