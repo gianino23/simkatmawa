@@ -88,7 +88,7 @@
                             <div class="post-thumbnail-content">
                                 <a href="<?= $this->createAbsoluteUrl('berita/post',array('id'=>$n->id_berita)) ?>"><?= $n->judul ?></a>
                                 <span class="post-date"><i class="icon-calendar"></i> <?= date('d M y', strtotime($n->tgl_entry)); ?></span>
-                                <span class="post-category"><i class="fa fa-user"></i> <?php if($n->author == 0) echo "Admin"; else echo $ormawa->nama_ormawa; ?></span>
+                                <span class="post-category"><i class="fa fa-user"></i> <?php if($n->author == 0) echo "Admin"; else {$ormawa = Ormawa::model()->findByAttributes(['id_ormawa'=>$n->author]);echo $ormawa->nama_ormawa;} ?></span>
                             </div>
                         </div>
                         <?php } ?>
