@@ -46,6 +46,7 @@ $(document).ready(function() {
 <div class="container-fluid">
 	<!-- Row -->
 	<div class="row">
+                    <div class="col-12">
 		<!-- Column -->
 		<div class="card">
 			<div class="card-body">
@@ -96,6 +97,7 @@ $(document).ready(function() {
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 </div>

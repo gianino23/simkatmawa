@@ -46,6 +46,7 @@ $(document).ready(function() {
 <div class="container-fluid">
 	<!-- Row -->
 	<div class="row">
+                    <div class="col-12">
 		<!-- Column -->
 		<div class="card">
 			<div class="card-body">
@@ -85,7 +86,7 @@ $(document).ready(function() {
 											foreach($periode as $per){
 											$re=$per->id;
 											}
-										 	$praker = Proker::model()->findAllByAttributes(array('ormawa_id'=>Yii::app()->user->ormawa,'periode'=>$re),array('order'=>'id_proker ASC'));
+										 	$praker = Proker::model()->findAllByAttributes(array('ormawa_id'=>Yii::app()->user->ormawa,'periode'=>$this->periode->id),array('order'=>'id_proker ASC'));
 											 foreach ($praker as $p) {
 										 ?>
 									<tr>
@@ -125,6 +126,7 @@ $(document).ready(function() {
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </div>
 							<div id="tambahData" class="modal fade" tabindex="-1" role="dialog"

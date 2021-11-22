@@ -196,7 +196,7 @@
             </div>
             <div class="copyright-content">
                 <div class="container">
-                    <div class="copyright-text text-center">&copy; 2021 SIMKATMAWA - Ulahan Buhan<a href="https://borneomediateknologi.co.id" target="_blank" rel="noopener"> BMT</a> </div>
+                    <div class="copyright-text text-center">&copy; 2021 SIMAHAL - Ulahan Buhan<a href="https://borneomediateknologi.co.id" target="_blank" rel="noopener"> BMT</a> </div>
                 </div>
             </div>
         </footer>

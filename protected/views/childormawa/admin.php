@@ -46,6 +46,7 @@ $(document).ready(function() {
 <div class="container-fluid">
 	<!-- Row -->
 	<div class="row">
+                    <div class="col-12">
 		<!-- Column -->
 		<div class="card">
 			<div class="card-body">
@@ -63,17 +64,12 @@ $(document).ready(function() {
 											foreach($periode as $per){
 											$re=$per->id;
 											}
-						$child=Childormawa::model()->findByAttributes(array('ormawa_id'=>Yii::app()->user->ormawa,'periode'=>$re));
+						$child=Childormawa::model()->findByAttributes(array('ormawa_id'=>Yii::app()->user->ormawa,'periode'=>$this->periode->id));
 						if($child==null){
 						?>
 						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
 						<?php
-						}else{
-						?>
-						 <a type="button" class="btn waves-effect waves-light btn-success" disabled>Tambah Data</a>
-						<?php
-						}
-						?>
+						}?>
 						</div>
 						
 					</div>
@@ -116,6 +112,7 @@ $(document).ready(function() {
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 </div>
