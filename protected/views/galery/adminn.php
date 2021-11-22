@@ -14,7 +14,7 @@ $folder = Folder::model()->findByAttributes(array('id_folder'=>$id));
                 <div class="col-md-7 col-12 align-self-center d-none d-md-block">
                     <div class="d-flex mt-2 justify-content-end">
 						 <a href="?r=folder/admin" type="button" class="btn waves-effect waves-light btn-danger mr-2" >Kembali</a>
-						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
+						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Upload Gambar</button>
                     </div>
                 </div>
 
@@ -33,19 +33,18 @@ $folder = Folder::model()->findByAttributes(array('id_folder'=>$id));
 					
 					<div id="tambahData" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
+                                    <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title" id="myModalLabel">Tambah Data Galery</h4>
+                                                <h4 class="modal-title" id="myModalLabel">Upload Gambar</h4>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-hidden="true">×</button>
                                             </div>
                                             <div class="modal-body">
                                
-                                <div class="card-body">
                                    <form action="?r=galery/tambah" class="dropzone" id="dropzoneFrom" method="POST">
 								    <input type="text" class="form-control" name="modal_namafolder" id="modal-namafolder" value="<?php echo $folder->nama_folder;?>" hidden>
-                                </div>
+
                             
                                             </div>
                                             <div class="modal-footer">
@@ -70,7 +69,7 @@ $folder = Folder::model()->findByAttributes(array('id_folder'=>$id));
                      foreach($files as $file){
                       if('.' !=  $file && '..' != $file){
                        $output .= '
-                       <div class="card">
+                       <div class="card border border-danger">
                         <div class="el-card-item pb-3">
                             <div class="el-card-avatar el-overlay-1 w-100 overflow-hidden position-relative text-center">
                                 <a class="image-popup-vertical-fit" href="'.$folder_name.$file.'"> <img src="'.$folder_name.$file.'" class="d-block position-relative w-100" alt="user" /> </a>
@@ -78,7 +77,7 @@ $folder = Folder::model()->findByAttributes(array('id_folder'=>$id));
                         </div>
 
                         <div class="el-card-content text-center pb-3">
-                        <button type="button" class="btn btn-danger btn-sm remove_image" id="'.$file.'">Hapus Gambar</button>
+                        <button type="button" class="btn btn-danger btn-block btn-sm remove_image" id="'.$file.'"><i class="fa fa-trash-alt"></i> Hapus Gambar</button>
                     </div>
                     </div>
                        

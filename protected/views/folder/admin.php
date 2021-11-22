@@ -50,49 +50,6 @@
                     </div>
                     <?php endforeach; ?>
                 </div>
-	<!-- <ul class="nav nav-pills p-3 bg-white mb-3 rounded-pill align-items-center">
-		<li class="nav-item"> <a href="javascript:void(0)"
-				class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2 active"
-				id="all-category">
-				<i class="icon-layers mr-1"></i><span class="d-none d-md-block">All Notes</span></a>
-		</li>
-		<li class="nav-item"> <a href="javascript:void(0)"
-				class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" id="note-business">
-				<i class="icon-briefcase mr-1"></i><span class="d-none d-md-block">Business</span></a>
-		</li>
-		<li class="nav-item"> <a href="javascript:void(0)"
-				class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" id="note-social">
-				<i class="icon-share-alt mr-1"></i><span class="d-none d-md-block">Social</span></a>
-		</li>
-		<li class="nav-item"> <a href="javascript:void(0)"
-				class="nav-link rounded-pill note-link d-flex align-items-center px-2 px-md-3 mr-0 mr-md-2" id="note-important">
-				<i class="icon-tag mr-1"></i><span class="d-none d-md-block">Important</span></a>
-		</li>
-		<li class="nav-item ml-auto"> <a href="javascript:void(0)"
-				class="nav-link btn-primary rounded-pill d-flex align-items-center px-3" id="add-notes">
-				<i class="icon-note m-1"></i><span class="d-none d-md-block font-14">Add Notes</span></a>
-		</li>
-	</ul> -->
-	<!-- <div class="row">
-		<div class="col-lg-3 col-md-6">
-			<div class="card bg-white">
-				<div class="card-body">
-					<div id="myCarousel4" class="carousel vert slide" data-ride="carousel">
-						<div class="carousel-inner">
-							<div class="carousel-item flex-column">
-								<i class="ti-wordpress font-20"></i>
-								<p>SIMKATMAWA</p>
-								<h3>Dynamic website with responsive</h3>
-								<div>
-									<button class="btn btn-info justify-content-start waves-effect waves-light mt-3">Default</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
 
 <?php $this->widget('CLinkPager', array(
     'pages' => $pages,
@@ -110,33 +67,24 @@
                 <h4 class="modal-title" id="myModalLabel">Tambah Data Folder</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
-            <div class="modal-body">
                 <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=folder/tambah"
                     method="POST">
-                    <div class="card-body">
-                        <div class="form-group row align-items-center mb-0">
-                            <label for="inputUsername3" class="col-md-3 text-right control-label col-form-label">Nama
-                                Folder</label>
-                            <div class="col-md-9 border-left pb-2 pt-2">
-                                <input type="text" class="form-control" name="modal_namafolder" id="modal-namafolder"
+            <div class="modal-body">
+							            <div class="form-group">
+							              <label>Nama Folder</label>
+							              <input type="text" class="form-control" name="modal_namafolder" id="modal-namafolder"
                                     placeholder="Nama Folder" required>
-                            </div>
-                        </div>
-                    </div>
-					  <div class="card-body">
-                        <div class="form-group row align-items-center mb-0">
-                            <label for="inputUsername3" class="col-md-3 text-right control-label col-form-label">Deskripsi</label>
-                            <div class="col-md-9 border-left pb-2 pt-2">
-                                <textarea cols="3" rows="3" class="form-control" name="modal_deskripsi" id="modal-deskripsi"
+							            </div>
+							            <div class="form-group">
+							              <label>Deskripsi</label>
+                                          <textarea cols="3" rows="4" class="form-control" name="modal_deskripsi" id="modal-deskripsi"
                                     placeholder="Deskripsi" required></textarea>
-                            </div>
-                        </div>
-                    </div>
+							            </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Simpan</button>
             </div>
             </form>
         </div><!-- /.modal-content -->

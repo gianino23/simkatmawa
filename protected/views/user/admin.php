@@ -11,30 +11,12 @@ $(document).ready(function() {
 			<li class="breadcrumb-item active"> Data Pengguna</li>
 		</ol>
 	</div>
-	<!--
-                <div class="col-md-7 col-12 align-self-center d-none d-md-block">
-                    <div class="d-flex mt-2 justify-content-end">
-                        <div class="d-flex mr-3 ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>THIS MONTH</small></h6>
-                                <h4 class="mt-0 text-info">$58,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="monthchart"></div>
-                            </div>
-                        </div>
-                        <div class="d-flex ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>LAST MONTH</small></h6>
-                                <h4 class="mt-0 text-primary">$48,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="lastmonthchart"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				-->
+    <div class="col-md-7 col-12 align-self-center d-none d-md-block">
+        <div class="d-flex mt-2 justify-content-end">
+            <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal"
+                data-target="#tambahData">Tambah Data</button>
+        </div>
+    </div>
 </div>
 
 <!-- ============================================================== -->
@@ -49,21 +31,11 @@ $(document).ready(function() {
 		<!-- Column -->
 		<div class="col-12">
 		<div class="card">
+			<div class="card-header bg-success">
+            <h3 class="card-title text-white">Halaman Pengguna</h3>
+</div>
 			<div class="card-body">
 				<div class="row">
-					<div class="col-12">
-						<div class="float-left">
-							<h3 class="card-title">Halaman Pengguna</h3>
-							<h6 class="card-subtitle">Deskripsi Halaman Pengguna</h6>
-						</div>
-						<div class="float-right">
-						<!--
-							<?= CHtml::link('Hapus', array(''),array('class'=>'btn waves-effect waves-light btn-danger')); ?>
-							<?= CHtml::link('Tambah', array('user/create'),array('class'=>'btn waves-effect waves-light btn-success')); ?>
-						-->
-						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
-						</div>
-					</div>
 					<div class="col-12">
 						<div class="table-responsive">
 							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
@@ -71,8 +43,8 @@ $(document).ready(function() {
 									<tr>
 										<th>Username</th>
 										<th>Nama</th>
-										<th width="15%">Level</th>
-										<th width="10%"></th>
+										<th width="120px">Level</th>
+										<th width="50px"></th>
 									</tr>
 								</thead>
 								<tbody id="modal-data">
@@ -121,82 +93,65 @@ $(document).ready(function() {
 		</div>
 	</div>
 </div>
-							<div id="tambahData" class="modal fade" tabindex="-1" role="dialog"
-                                    aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title" id="myModalLabel">Tambah Data Pengguna</h4>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-hidden="true">×</button>
-                                            </div>
-                                            <div class="modal-body">
-                                <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=user/tambah" method="POST">
-                                <div class="card-body">
-                                    <div class="form-group row align-items-center mb-0">
-                                        <label for="inputUsername3"
-                                            class="col-md-3 text-right control-label col-form-label">Username</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="text" class="form-control" name="modal_username" id="modal-username"
-                                                placeholder="Username" required>
-                                        </div>
-                                    </div>
-									<div class="form-group row align-items-center mb-0">
-                                        <label for="inputPassword3"
-                                            class="col-md-3 text-right control-label col-form-label">Password</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="password" class="form-control" name="modal_password" id="modal-password"
-                                                placeholder="Password" required>
-                                        </div>
-                                    </div>
-									<div class="form-group row align-items-center mb-0">
-                                        <label for="inputNama3"
-                                            class="col-md-3 text-right control-label col-form-label">Nama</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-                                            <input type="text" class="form-control" name="modal_nama" id="modal-nama"
-                                                placeholder="Nama" required>
-                                        </div>
-                                    </div>
-									<div class="form-group row align-items-center mb-0">
-                                        <label for="inputLevel3"
-                                            class="col-md-3 text-right control-label col-form-label">Level</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-                                           <select name="modal_level" id="modal-level" class="select2 form-control costum-select" style="width: 100%;" required>
-												<option value="" selected="selected">-- Pilih Satu --</option>
-												<option value=2>Ormawa</option>
-										   </select>
-                                        </div>
-                                    </div>
-									<div class="form-group row align-items-center mb-0">
-                                        <label for="inputLevel3"
-                                            class="col-md-3 text-right control-label col-form-label">Ormawa</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-                                           <select name="modal_ormawa" id="modal-ormawa" class="form-control select2" style="width: 100%;" required>
-												<option value="" selected="selected">-- Pilih Satu --</option>
-												<?php
+							<div id="tambahData" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+							  aria-hidden="true">
+							  <div class="modal-dialog">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h4 class="modal-title" id="myModalLabel">Tambah Data Pengguna</h4>
+							        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+							      </div>
+							      <div class="modal-body">
+							        <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=user/tambah"
+							          method="POST">
+							            <div class="form-group">
+							              <label>Username</label>
+							              <input type="text" class="form-control" name="modal_username" id="modal-username"
+							                placeholder="Username" required>
+							            </div>
+							            <div class="form-group">
+							              <label>Password</label>
+							              <input type="password" class="form-control" name="modal_password" id="modal-password"
+							                placeholder="Password" required>
+							            </div>
+							            <div class="form-group">
+							              <label>Nama</label>
+							              <input type="text" class="form-control" name="modal_nama" id="modal-nama" placeholder="Nama"
+							                required>
+							            </div>
+
+							            <div class="form-group">
+							              <label>Level</label>
+							              <select name="modal_level" id="modal-level" class="select2 form-control costum-select"
+							                style="width: 100%;" required>
+							                <option value="" selected="selected">-- Pilih Satu --</option>
+							                <option value=2>Ormawa</option>
+							              </select>
+							            </div>
+							            <div class="form-group">
+							              <label>Ormawa</label>
+							              <select name="modal_ormawa" id="modal-ormawa" class="form-control select2" style="width: 100%;"
+							                required>
+							                <option value="" selected="selected">-- Pilih Satu --</option>
+							                <?php
 												$periode=Ormawa::model()->findAll();
 												foreach($periode as $per){
 												?>
-												<option value=<?php echo $per->id_ormawa;?>><?php echo $per->nama_ormawa;?></option>
-												<?php
+							                <option value=<?php echo $per->id_ormawa;?>><?php echo $per->nama_ormawa;?></option>
+							                <?php
 												}
 												?>
-										   </select>
-                                        </div>
-                                    </div>
-                                  
-                                </div>
-                            
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light"
-                                                    data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
-                                            </div>
-											</form>
-                                        </div><!-- /.modal-content -->
-                                    </div><!-- /.modal-dialog -->
-                                </div><!-- /.modal -->
+							              </select>
+							            </div>
+							  <div class="modal-footer">
+							    <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+							    <button type="submit" class="btn btn-primary">Simpan</button>
+							  </div>
+							  </form>
+							</div><!-- /.modal-content -->
+							</div><!-- /.modal-content -->
+							</div><!-- /.modal-content -->
+							</div><!-- /.modal-content -->
 <!-- Modal Popup untuk Edit--> 
 <div id="ModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 

@@ -11,30 +11,13 @@ $(document).ready(function() {
 			<li class="breadcrumb-item active">Slider</li>
 		</ol>
 	</div>
-	<!--
-                <div class="col-md-7 col-12 align-self-center d-none d-md-block">
-                    <div class="d-flex mt-2 justify-content-end">
-                        <div class="d-flex mr-3 ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>THIS MONTH</small></h6>
-                                <h4 class="mt-0 text-info">$58,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="monthchart"></div>
-                            </div>
-                        </div>
-                        <div class="d-flex ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>LAST MONTH</small></h6>
-                                <h4 class="mt-0 text-primary">$48,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="lastmonthchart"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				-->
+	
+    <div class="col-md-7 col-12 align-self-center d-none d-md-block">
+        <div class="d-flex mt-2 justify-content-end">
+            <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal"
+                data-target="#tambahData">Tambah Data</button>
+        </div>
+    </div>
 </div>
 
 <!-- ============================================================== -->
@@ -48,27 +31,24 @@ $(document).ready(function() {
     <div class="row">
                     <div class="col-12">
 		<div class="card">
+			<div class="card-header bg-success">
+            <h3 class="card-title text-white">Halaman Slider</h3>
+</div>
 			<div class="card-body">
 				<div class="row">
 					<div class="col-12">
-						<div class="float-left">
-							<h3 class="card-title">Halaman Slider</h3>
-							<h6 class="card-subtitle">Deskripsi Slider</h6>
-						</div>
-						<div class="float-right">
-						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
-						</div>
+							
 					</div>
 					<div class="col-12">
 						<div class="table-responsive">
 							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
 								<thead>
 									<tr>
+										<th width="20px">#</th>
 										<th>Teks</th>
 										<th>File</th>
-										<th>Urutan</th>
 										<th>Status</th>
-										<th>Aksi</th>
+										<th width="50px">Aksi</th>
 										
 									</tr>
 								</thead>
@@ -79,9 +59,9 @@ $(document).ready(function() {
 											 foreach ($praker as $p) {
 										 ?>
 									<tr>
+										<td><?= $p->urutan; ?></td>
 										<td><?= $p->judul.'<br>'.$p->subjudul; ?></td>
 										<td><?= $p->file; ?></td>
-										<td><?= $p->urutan; ?></td>
 										<td><?= $p->status; ?></td>
 										
 										<td align="center">
@@ -108,64 +88,49 @@ $(document).ready(function() {
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-hidden="true">×</button>
                                             </div>
+                                            <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=slide/tambah" method="POST" enctype='multipart/form-data'>
                                             <div class="modal-body">
                                 <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=slide/tambah" method="POST" enctype='multipart/form-data'>
-                                <div class="card-body">
-                                    <div class="form-group row align-items-center mb-0">
-                                        <label for="inputUsername3"
-                                            class="col-md-3 text-right control-label col-form-label">Judul Slide </label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-                                             <textarea cols="3" rows="3" class="form-control" name="modal_judul" id="modal-judul"
-                                                placeholder="Judul Slider" required></textarea>
-                                        </div>
-                                    </div>
-									<div class="form-group row align-items-center mb-0">
-                                        <label for="inputPassword3"
-                                            class="col-md-3 text-right control-label col-form-label">Sub Judul Slide</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-                                           <textarea cols="3" rows="3" class="form-control" name="modal_subjudul" id="modal-subjudul"
-                                                placeholder="Subjudul Slide" required></textarea>
-                                        </div>
-                                    </div>
-									<div class="form-group row align-items-center mb-0">
-                                        <label for="inputNama3"
-                                            class="col-md-3 text-right control-label col-form-label">Urutan</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-                                             <input type="number" class="form-control" name="modal_urutan" id="modal-urutan"
+
+							            <div class="form-group">
+							              <label>Judul Slide</label>
+							              <input type="text" class="form-control" name="modal_judul" id="modal-judul"
+							                placeholder="Judul Slide" required>
+							            </div>
+							            <div class="form-group">
+							              <label>Sub Judul Slide</label>
+							              <input type="text" class="form-control" name="modal_modal_subjuduljudul" id="modal-subjudul"
+							                placeholder="Sub Judul Slide" required>
+							            </div>
+							            <div class="form-group">
+							              <label>Urutan</label>
+							              <input type="number" class="form-control" name="modal_urutan" id="modal-urutan"
                                                 placeholder="Urutan Slide" required>
-                                        </div>
-                                    </div>
-									<div class="form-group row align-items-center mb-0">
-                                        <label for="inputLevel3"
-                                            class="col-md-3 text-right control-label col-form-label">Status</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-                                           <select name="modal_status" id="modal-status" class="form-control select2" style="width: 100%;" required>
-												<option value="" selected="selected">-- Pilih Satu --</option>
+							            </div>
+							            <div class="form-group">
+							              <label>Status</label>
+							              <select name="modal_status" id="modal-status" class="form-control select2" style="width: 100%;" required>
+												<option value="" selected="selected">Pilih..</option>
 												<option value=1 >Aktif</option>
 												<option value=0 >Tidak AKtif</option>
 										   </select>
-                                        </div>
-                                    </div>
-									<div class="form-group row align-items-center mb-0">
-                                        <label for="inputLevel3"
-                                            class="col-md-3 text-right control-label col-form-label">Upload File Background</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2 ">
-                                           <input type="file" name="files[]" id="files" class="form-control" required />
-                                        </div>
-                                    </div>
+							            </div>
+							            <div class="form-group">
+							              <label>Upload File Background</label>
+                                          <input type="file" name="files[]" id="files" class="form-control" required />
+							            </div>
                                  <br>
 											<div class="progress progress-lg mb-2" style="display:none">
 												<div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%">
 													<span class="sr-only">0%</span>
 												</div>
 											</div> 
-                                </div>
                             
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light"
                                                     data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
                                             </div>
 											</form>
 											

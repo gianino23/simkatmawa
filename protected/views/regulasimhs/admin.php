@@ -11,30 +11,20 @@ $(document).ready(function() {
 			<li class="breadcrumb-item active">Regulasi Bidang Kemahasiswaan</li>
 		</ol>
 	</div>
-	<!--
-                <div class="col-md-7 col-12 align-self-center d-none d-md-block">
-                    <div class="d-flex mt-2 justify-content-end">
-                        <div class="d-flex mr-3 ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>THIS MONTH</small></h6>
-                                <h4 class="mt-0 text-info">$58,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="monthchart"></div>
-                            </div>
-                        </div>
-                        <div class="d-flex ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>LAST MONTH</small></h6>
-                                <h4 class="mt-0 text-primary">$48,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="lastmonthchart"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				-->
+	<?php
+        $jenis = Jenis::model()->findAllByAttributes(['tabel'=>'regulasi']);
+        $reg = Regulasimhs::model()->findAllByAttributes(['periode'=>$this->periode->id]);
+        // echo count($reg);
+        if(count($reg) != count($jenis)) {
+      ?>
+						<div class="col-md-7 col-12 align-self-center d-none d-md-block">
+        <div class="d-flex mt-2 justify-content-end">
+            <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal"
+                data-target="#tambahData">Tambah Data</button>
+        </div>
+    </div>
+                         <?php } ?>
+  
 </div>
 
 <!-- ============================================================== -->
@@ -49,26 +39,20 @@ $(document).ready(function() {
                     <div class="col-12">
 		<!-- Column -->
 		<div class="card">
+			<div class="card-header bg-success">
+							<h3 class="card-title text-white">Regulasi Bidang Kemahasiswaan</h3>
+        </div>
 			<div class="card-body">
 				<div class="row">
 					<div class="col-12">
 						<div class="float-left">
-							<h3 class="card-title">Halaman Regulasi Bidang Kemahasiswaan</h3>
-							<h6 class="card-subtitle">Deskripsi Halaman Regulasi Bidang Kemahasiswaan</h6>
 						</div>
 						<div class="float-right">
 						<!--
 							<?= CHtml::link('Hapus', array(''),array('class'=>'btn waves-effect waves-light btn-danger')); ?>
 							<?= CHtml::link('Tambah', array('pertukaranpelajar/create'),array('class'=>'btn waves-effect waves-light btn-success')); ?>
 						-->
-                        <?php
-        $jenis = Jenis::model()->findAllByAttributes(['tabel'=>'regulasi']);
-        $reg = Regulasimhs::model()->findAllByAttributes(['periode'=>$this->periode->id]);
-        // echo count($reg);
-        if(count($reg) != count($jenis)) {
-      ?>
-						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
-                         <?php } ?>
+                        
 						</div>
 					</div>
 					<div class="col-12">
@@ -100,8 +84,8 @@ $(document).ready(function() {
 										?></td>
 										<td align="center">
 											<!--<a href="upload/<?php echo $p->isi;?>" onclick="return confirm('Apakah Anda ingin mendownload file ini ?');"><i class="fas fa-download"></i></a>-->
-											<a href="javascript:void(0)" class="view_modal" id='<?php echo  $p->id_regulasimhs; ?>'><i class="fas fa-download"></i></a>
-											<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id_regulasimhs; ?>'><i class="fas fa-trash-alt"></i></a>
+											<a href="javascript:void(0)" class="view_modal" id='<?php echo  $p->id_regulasimhs; ?>'><i class="fas fa-file text-info"></i></a>
+											<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id_regulasimhs; ?>'><i class="fas fa-trash-alt text-danger"></i></a>
 										</td>
 									</tr>
 									<?php } ?>
@@ -124,14 +108,13 @@ $(document).ready(function() {
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-hidden="true">×</button>
                                             </div>
+                                            <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=regulasimhs/tambah" method="POST" enctype='multipart/form-data'>
                                             <div class="modal-body">
-                                <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=regulasimhs/tambah" method="POST" enctype='multipart/form-data'>
-                                <div class="card-body">
-                                    <div class="form-group row align-items-center mb-0">
-                                        <label for="inputUsername3"
-                                            class="col-md-3 text-right control-label col-form-label">Nama Regulasi</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-                                           <select name="modal_nama" id="modal-nama" class="form-control select2" style="width: 100%;" required>
+                                
+                                    
+							            <div class="form-group">
+							              <label>Nama Regulasi</label>
+                                          <select name="modal_nama" id="modal-nama" class="form-control select2" style="width: 100%;" required>
 												<option value="" selected="selected">-- Pilih Satu --</option>
 												<?php
                                                     
@@ -145,13 +128,10 @@ $(document).ready(function() {
 												}}
 												?>
 										   </select>
-                                        </div>
-                                    </div>
-									<div class="form-group row align-items-center mb-0">
-                                        <label for="inputLevel3"
-                                            class="col-md-3 text-right control-label col-form-label">Periode</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2">
-                                           <select name="modal_periode" id="modal-periode" class="form-control select2" style="width: 100%;" required>
+							            </div>
+							            <div class="form-group">
+							              <label>Periode</label>
+                                          <select name="modal_periode" id="modal-periode" class="form-control select2" style="width: 100%;" required>
 												<option value="" selected="selected">-- Pilih Satu --</option>
 												<?php
 												$periode=Periode::model()->findAllByAttributes(array('status'=>1));
@@ -162,28 +142,23 @@ $(document).ready(function() {
 												}
 												?>
 										   </select>
-                                        </div>
-                                    </div>
-									<div class="form-group row align-items-center mb-0">
-                                        <label for="inputLevel3"
-                                            class="col-md-3 text-right control-label col-form-label">Upload File Pendukung (.pdf)</label>
-                                        <div class="col-md-9 border-left pb-2 pt-2 ">
-                                           <input type="file" accept="application/pdf" name="files[]" id="files" class="form-control" multiple required />
-                                        </div>
-                                    </div>
+							            </div>
+							            <div class="form-group">
+							              <label>Upload File (.pdf)</label>
+                                          <input type="file" accept="application/pdf" name="files[]" id="files" class="form-control" multiple required />
+							            </div>
                                  <br>
 											<div class="progress progress-lg mb-2" style="display:none">
 												<div id="progressBar" class="progress-bar bg-success" role="progressbar" style="width: 0%">
 													<span class="sr-only">0%</span>
 												</div>
 											</div> 
-                                </div>
                             
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light"
                                                     data-dismiss="modal">Close</button>
-                                                <button id="submit-all" type="submit" class="btn btn-primary">Save changes</button>
+                                                <button id="submit-all" type="submit" class="btn btn-primary">Simpan</button>
                                             </div>
 											</form>
 											

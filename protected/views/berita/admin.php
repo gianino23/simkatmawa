@@ -11,12 +11,12 @@ $(document).ready(function() {
 			<li class="breadcrumb-item active">Berita</li>
 		</ol>
 	</div>
-                <!-- <div class="col-md-7 col-12 align-self-center d-none d-md-block">
-                    <div class="d-flex mt-2 justify-content-end">
-                    <div class="alert alert-danger" role="alert">masih dalam pengembangan
-                                </div>
-                    </div>
-                </div> -->
+              
+    <div class="col-md-7 col-12 align-self-center d-none d-md-block">
+        <div class="d-flex mt-2 justify-content-end">
+        <?= CHtml::link('Berita Baru',array('berita/create'),array('class'=>'btn waves-effect waves-light btn-success')) ?>
+        </div>
+    </div>
 </div>
 
 <!-- ============================================================== -->
@@ -29,18 +29,11 @@ $(document).ready(function() {
 <div class="row">
                     <div class="col-12">
                         <div class="card">
+			<div class="card-header bg-success">
+            <h3 class="card-title text-white">Halaman Berita</h3>
+</div>
                             <div class="card-body">
 				<div class="row">
-					<div class="col-12 mb-4">
-						<div class="float-left">
-							<h3 class="card-title">Halaman Berita</h3>
-							<!-- <h6 class="card-subtitle">Deskripsi Halaman Ormawa </h6> -->
-						</div>
-						<div class="float-right">
-						<?= CHtml::link('Berita Baru',array('berita/create'),array('class'=>'btn waves-effect waves-light btn-primary')) ?>
-						 <!-- <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button> -->
-						</div>
-					</div>
 					<div class="col-12">
 						<div class="table-responsive">
 							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
@@ -49,7 +42,7 @@ $(document).ready(function() {
 										<th width="120px">Tgl</th>
 										<th>Judul</th>
 										<th width="150px">Author</th>
-										<th width="100px"></th>
+										<th width="50px"></th>
 										
 									</tr>
 								</thead>

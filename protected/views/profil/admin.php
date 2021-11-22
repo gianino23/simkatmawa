@@ -125,61 +125,51 @@
         <h4 class="modal-title" id="myModalLabel">Tambah Data Profil</h4>
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
       </div>
-      <div class="modal-body">
-        <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=profil/tambah"
-          method="POST">
-          <div class="card-body">
-            <div class="form-group row align-items-center mb-0">
-              <label for="inputUsername3" class="col-md-3 text-right control-label col-form-label">Nama Profil</label>
-              <div class="col-md-9 border-left pb-2 pt-2">
-                <select name="modal_nama" id="modal-nama" class="form-control select2" style="width: 100%;" required>
-                  <option value="" selected="selected">-- Pilih Satu --</option>
-                  <?php
+      <form id="form-save" class="form-horizontal r-separator" name="modal_popup" action="?r=profil/tambah"
+        method="POST">
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Nama Profil</label>
+            <select name="modal_nama" id="modal-nama" class="form-control select2" style="width: 100%;" required>
+              <option value="" selected="selected">-- Pilih Satu --</option>
+              <?php
 												  $jeniss=Jenis::model()->findAllByAttributes(array('tabel'=>'profil'));
 												foreach($jeniss as $jen){
                           $prof = Profil::model()->findByAttributes(['jenis_id'=>$jen->id_jenis,'periode'=>$this->periode->id]);
                                                     if(empty($prof)){
 												?>
-                  <option value=<?php echo $jen->id_jenis;?>><?php echo $jen->nama;?></option>
-                  <?php
+              <option value=<?php echo $jen->id_jenis;?>><?php echo $jen->nama;?></option>
+              <?php
 												}}
 												?>
-                </select>
-
-              </div>
-            </div>
-            <div class="form-group row align-items-center mb-0">
-              <label for="inputPassword3" class="col-md-3 text-right control-label col-form-label">Isi Profil</label>
-              <div class="col-md-9 border-left pb-2 pt-2">
-                <textarea cols="3" rows="3" class="summernote" name="modal_isi" id="modal-isi" placeholder="Isi Profil"
-                  required></textarea>
-              </div>
-            </div>
-            <div class="form-group row align-items-center mb-0">
-              <label for="inputLevel3" class="col-md-3 text-right control-label col-form-label">Periode</label>
-              <div class="col-md-9 border-left pb-2 pt-2">
-                <select name="modal_periode" id="modal-periode" class="form-control select2" style="width: 100%;"
-                  required>
-                  <option value="" selected="selected">-- Pilih Satu --</option>
-                  <?php
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Isi</label>
+            <textarea cols="3" height="300px" class="summernote" name="modal_isi" id="modal-isi" placeholder="Isi Profil"
+                required></textarea>
+          </div>
+          <div class="form-group">
+            <label>Periode</label>
+            <select name="modal_periode" id="modal-periode" class="form-control select2" style="width: 100%;"
+                required>
+                <option value="" selected="selected">Pilih..</option>
+                <?php
 												$periode=Periode::model()->findAllByAttributes(array('status'=>1));
 												foreach($periode as $per){
 												?>
-                  <option value=<?php echo $per->id;?>><?php echo $per->periode;?></option>
-                  <?php
+                <option value=<?php echo $per->id;?>><?php echo $per->periode;?></option>
+                <?php
 												}
 												?>
-                </select>
-              </div>
-            </div>
-
+              </select>
           </div>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
       </form>
 
     </div><!-- /.modal-content -->
