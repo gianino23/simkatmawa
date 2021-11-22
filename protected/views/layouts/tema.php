@@ -65,7 +65,7 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="index.php">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -77,11 +77,13 @@
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
-                            <!-- dark Logo text -->
+			SIMAHAL
+                            <!-- dark Logo text 
                             <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/logo-text.png" alt="homepage" class="dark-logo" />
-                            <!-- Light Logo text -->
+                             Light Logo text 
                             <img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
-                        </span>
+                        	-->
+			</span>
                     </a>
                     <!-- ============================================================== -->
                     <!-- End Logo -->
@@ -266,9 +268,14 @@
 						<?php
 							$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));
 						?>
-                        
+                        	<?php
+	if(Yii::app()->user->level != 1) {
+?>
+<a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" > Periode : 
+<?php } else { ?>
+
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="<?= Yii::app()->createAbsoluteUrl('periode/admin')?>" > Periode : 
-								<?php 
+								<?php }
 								foreach($periode as $per){
 								echo $per->periode;
 								}
@@ -397,7 +404,7 @@
                                             <div class="u-img"><img src="<?php echo Yii::app()->request->baseUrl; ?>/themes/materialpro/material-pro/src/assets/images/users/1.jpg" alt="user" class="rounded" width="80"></div>
                                             <div class="u-text ml-2">
                                                 <h4 class="mb-0"><?php echo Yii::app()->user->nama;?></h4>
-                                                <p class="text-muted mb-1 font-14"><?php echo Yii::app()->user->nama;?>@gmail.com</p>
+                                                <p class="text-muted mb-1 font-14"><?php echo Yii::app()->user->nama;?></p>
 												<!--
                                                 <a href="pages-profile.html" class="btn btn-rounded btn-danger btn-sm text-white d-inline-block">View
                                                     Profile</a>

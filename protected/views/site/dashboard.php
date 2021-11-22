@@ -42,7 +42,7 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="card">
                             <div class="card-body">
                                 
@@ -74,11 +74,11 @@
 						foreach($o as $x){
 							$p++;
 						}
-						$chrome=($i/($i+$z+$k+$l+$p))*100;
-						$firefox=($z/($i+$z+$k+$l+$p))*100;
-						$ie=($k/($i+$z+$k+$l+$p))*100;
-						$safari=($l/($i+$z+$k+$l+$p))*100;
-						$edge=($p/($i+$z+$k+$l+$p))*100;
+						$chrome=$i;
+						$firefox=$z;
+						$ie=$k;
+						$safari=$l;
+						$edge=$p;
 						$dataPoints = array( 
 							array("label"=>"Chrome", "y"=>$chrome),
 							array("label"=>"Firefox", "y"=>$firefox),
@@ -95,14 +95,15 @@
 						var chart = new CanvasJS.Chart("chartContainer", {
 							animationEnabled: true,
 							title: {
-								text: "% Pengunjung Aplikasi"
+								text: "Jumlah Pengunjung SIMAHAL"
 							},
 							subtitles: [{
 								text: "Per <?php echo date('j F Y');?>"
 							}],
 							data: [{
 								type: "pie",
-								yValueFormatString: "#,##0.00\"%\"",
+								//yValueFormatString: "#,##0.00\"%\"",
+								yValueFormatString: "#,##0 \"Pengunjung\"",
 								indexLabel: "{label} ({y})",
 								dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
 							}]
@@ -117,11 +118,20 @@
                         </div>
                     </div>
                 </div>
-				 <div class="col-lg-12">
+<!--
+		<div class="col-lg-12">
                         <div class="card-body b-l calender-sidebar">
                             <div id="calendar" ></div>
                         </div>
-                    </div>
+                 </div>
+-->
+		<div class="col-6">
+		<div class="card">
+		<div class="card-body">
+<iframe src="https://instagram.com/p/CWA40jcPqkt/embed" width="400" height="400" frameborder="0" valign="middle" allowtransparency="true"></iframe>
+		</div>
+		</div>
+		</div>
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
                 <!-- ============================================================== -->

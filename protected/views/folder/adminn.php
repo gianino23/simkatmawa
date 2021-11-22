@@ -1,5 +1,6 @@
 
-									<?php
+
+								<?php
 										 	$folder = Folder::model()->findAll(array('order'=>'id_folder ASC'));
 											$i=0;
 											 foreach ($folder as $f) {
@@ -15,4 +16,3 @@
 										</td>
 									</tr>
 									<?php } ?>
-								
