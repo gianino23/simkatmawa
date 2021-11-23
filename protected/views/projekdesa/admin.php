@@ -11,30 +11,13 @@ $(document).ready(function() {
 			<li class="breadcrumb-item active">Projek di Desa</li>
 		</ol>
 	</div>
-	<!--
-                <div class="col-md-7 col-12 align-self-center d-none d-md-block">
-                    <div class="d-flex mt-2 justify-content-end">
-                        <div class="d-flex mr-3 ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>THIS MONTH</small></h6>
-                                <h4 class="mt-0 text-info">$58,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="monthchart"></div>
-                            </div>
-                        </div>
-                        <div class="d-flex ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>LAST MONTH</small></h6>
-                                <h4 class="mt-0 text-primary">$48,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="lastmonthchart"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				-->
+    <div class="col-md-7 col-12 align-self-center d-none d-md-block">
+        <div class="d-flex mt-2 justify-content-end">
+        <?= CHtml::link('Export Excel',array('projekdesa/export'),array('class'=>'btn waves-effect waves-light btn-excel')) ?>
+            <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal"
+                data-target="#tambahData">Tambah Data</button>
+        </div>
+    </div>
 </div>
 
 <!-- ============================================================== -->
@@ -46,20 +29,14 @@ $(document).ready(function() {
 <div class="container-fluid">
 	<!-- Row -->
 	<div class="row">
+	<div class="col-12">
 		<!-- Column -->
 		<div class="card">
+			<div class="card-header bg-success">
+            <h3 class="card-title text-white">Halaman Projek di Desa</h3>
+</div>
 			<div class="card-body">
 				<div class="row">
-					<div class="col-12">
-						<div class="float-left">
-							<h3 class="card-title">Halaman Projek di Desa</h3>
-							<h6 class="card-subtitle">Deskripsi Halaman Projek di Desa</h6>
-						</div>
-						<div class="float-right">
-						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
-						 <a href="?r=projekdesa/export" type="button" class="btn waves-effect waves-light btn-danger" >Export Excel</a>
-						</div>
-					</div>
 					<div class="col-12">
 						<div class="table-responsive">
 							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
@@ -101,6 +78,7 @@ $(document).ready(function() {
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>

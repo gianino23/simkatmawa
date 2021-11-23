@@ -35,6 +35,8 @@
 <![endif]-->
 <style>
      ul.yiiPager a:link, ul.yiiPager a:visited {color: #3c4043;background-color: #fff;border-color: #e4e6ef;}
+     .btn-excel {background: #1D6F42;color: #fff;}
+     .btn-excel:hover {background: #2E7F53;color: #fff;}
 </style>
 </head>
 
