@@ -4,3 +4,4 @@ upload/slide/*
 protected/config/database.php
 protected/runtime/*
 images/thumbnail/*
+uploaddokumen/*
