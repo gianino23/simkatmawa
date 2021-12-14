@@ -99,7 +99,7 @@ $(document).ready(function() {
 	</div>
 	</div>
 </div>
-							<div id="tambahData" class="modal fade" tabindex="-1" role="dialog"
+							<div id="tambahData" class="modal fade" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -166,7 +166,7 @@ $(document).ready(function() {
                                     </div><!-- /.modal-dialog -->
                                 </div><!-- /.modal -->
 <!-- Modal Popup untuk Edit--> 
-<div id="ModalEdit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="ModalEdit" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
 </div>
 <!-- Modal Popup untuk View--> 
