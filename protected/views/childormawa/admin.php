@@ -8,35 +8,26 @@ $(document).ready(function() {
 		<h3 class="text-themecolor mb-0">SIMKATMAWA</h3>
 		<ol class="breadcrumb mb-0">
 			<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-			<li class="breadcrumb-item active">Ormawa</li>
+			<li class="breadcrumb-item active">Profil</li>
 		</ol>
 	</div>
-	<!--
-                <div class="col-md-7 col-12 align-self-center d-none d-md-block">
-                    <div class="d-flex mt-2 justify-content-end">
-                        <div class="d-flex mr-3 ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>THIS MONTH</small></h6>
-                                <h4 class="mt-0 text-info">$58,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="monthchart"></div>
-                            </div>
-                        </div>
-                        <div class="d-flex ml-2">
-                            <div class="chart-text mr-2">
-                                <h6 class="mb-0"><small>LAST MONTH</small></h6>
-                                <h4 class="mt-0 text-primary">$48,356</h4>
-                            </div>
-                            <div class="spark-chart">
-                                <div id="lastmonthchart"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-				-->
-</div>
 
+    <div class="col-md-7 col-12 align-self-center d-none d-md-block">
+        <div class="d-flex mt-2 justify-content-end">
+       
+<?php
+						$child = Childormawa::model()->findByAttributes(array('ormawa_id'=>Yii::app()->user->ormawa,'periode'=>$this->periode->id));
+						if($child==null){
+						?>
+                        <?= CHtml::link('Isi Profile',array('childormawa/create'),array('class'=>'btn waves-effect waves-light btn-success')) ?>
+						 <!-- <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button> -->
+						<?php
+						} else {
+                            echo CHtml::link('Edit', $this->createAbsoluteUrl('childormawa/ubah',array('id'=>$child->id)),array('class'=>'btn waves-effect waves-light btn-warning'));
+                        } ?>
+        </div>
+    </div>
+</div>
 <!-- ============================================================== -->
 <!-- End Bread crumb and right sidebar toggle -->
 <!-- ============================================================== -->
@@ -44,77 +35,83 @@ $(document).ready(function() {
 <!-- Container fluid  -->
 <!-- ============================================================== -->
 <div class="container-fluid">
-	<!-- Row -->
-	<div class="row">
-                    <div class="col-12">
-		<!-- Column -->
-		<div class="card">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-12">
-						<div class="float-left">
-							<h3 class="card-title">Halaman Profil Ormawa</h3>
-							<h6 class="card-subtitle">Deskripsi Halaman Profil Ormawa</h6>
-						</div>
-						
-						<div class="float-right">
-						<?php
-						$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));														
-											$re=0;
-											foreach($periode as $per){
-											$re=$per->id;
-											}
-						$child=Childormawa::model()->findByAttributes(array('ormawa_id'=>Yii::app()->user->ormawa,'periode'=>$this->periode->id));
-						if($child==null){
-						?>
-						 <button type="button" class="btn waves-effect waves-light btn-success" data-toggle="modal" data-target="#tambahData">Tambah Data</button>
-						<?php
-						}?>
-						</div>
-						
-					</div>
-					<div class="col-12">
-						<div class="table-responsive">
-							<table id="mytable" class="table table-striped table-bordered display" style="width:100%">
-								<thead>
-									<tr>
-										<th>Profil</th>
-										<th>Struktur Organisasi</th>
-										<th>Visi Misi</th>
-										<th>Aksi</th>
-										
-									</tr>
-								</thead>
-								<tbody id="modal-data">
-									<?php
-									
-											$periode=Periode::model()->findAllByAttributes(array('status'=>1),array('limit'=>1));														
-											$re=0;
-											foreach($periode as $per){
-											$re=$per->id;
-											}
-										 	$praker = Childormawa::model()->findAllByAttributes(array('ormawa_id'=>Yii::app()->user->ormawa,'periode'=>$re),array('order'=>'id ASC'));
-											 foreach ($praker as $p) {
-										 ?>
-									<tr>
-										<td><?= $p->profil; ?></td>
-										<td><?= $p->struktur_organisasi; ?></td>
-										<td><?= $p->visi_misi; ?></td>
-										<td align="center">
-										<a href="javascript:void(0)" class='open_modal' id='<?php echo  $p->id; ?>'><i class="fas fa-edit"></i></a>
-										<a href="javascript:void(0)" class="delete_modal" data-id='<?php echo  $p->id; ?>'><i class="fas fa-trash-alt"></i></a>	
-										</td>
-									</tr>
-									<?php } ?>
-								</tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
-	</div>
+<div class="row">
+                    <!-- Column -->
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <center class="mt-4"> <img src="../assets/images/users/5.jpg" class="rounded-circle" width="150" />
+                                    <h4 class="card-title mt-2"><?php $ormawa = Ormawa::model()->findByAttributes(['id_ormawa'=>Yii::app()->user->ormawa]); echo $ormawa->nama_ormawa; ?></h4>
+                                    <!-- <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
+                                    <div class="row text-center justify-content-md-center">
+                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-people"></i> <font class="font-medium">254</font></a></div>
+                                        <div class="col-4"><a href="javascript:void(0)" class="link"><i class="icon-picture"></i> <font class="font-medium">54</font></a></div>
+                                    </div> -->
+                                </center>
+                            </div>
+                            <!-- <div>
+                                <hr> </div>
+                            <div class="card-body"> <small class="text-muted">Email address </small>
+                                <h6>hannagover@gmail.com</h6> <small class="text-muted pt-4 db">Phone</small>
+                                <h6>+91 654 784 547</h6> <small class="text-muted pt-4 db">Address</small>
+                                <h6>71 Pilgrim Avenue Chevy Chase, MD 20815</h6>
+                                <div class="map-box">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d470029.1604841957!2d72.29955005258641!3d23.019996818380896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1493204785508" width="100%" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                </div> <small class="text-muted pt-4 db">Social Profile</small>
+                                <br/>
+                                <button class="btn btn-circle btn-secondary"><i class="fab fa-facebook-f"></i></button>
+                                <button class="btn btn-circle btn-secondary"><i class="fab fa-twitter"></i></button>
+                                <button class="btn btn-circle btn-secondary"><i class="fab fa-youtube"></i></button>
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-md-9">
+                        <div class="card">
+                            <!-- Tabs -->
+                            <ul class="nav nav-pills custom-pills" id="pills-tab" role="tablist">
+                                <li class="nav-item">   
+                                    <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#last-month" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="pills-timeline-tab" data-toggle="pill" href="#current-month" role="tab" aria-controls="pills-timeline" aria-selected="true">Struktur Organisasi</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="pills-setting-tab" data-toggle="pill" href="#previous-month" role="tab" aria-controls="pills-setting" aria-selected="false">Visi Misi</a>
+                                </li>
+                            </ul>
+                            <!-- Tabs -->
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="last-month" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                    <div class="card-body">
+                                        <?php
+                                            if(isset($child->profil)) echo $child->profil;
+                                            else echo "-";
+                                        ?>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="current-month" role="tabpanel" aria-labelledby="pills-timeline-tab">
+                                    <div class="card-body">
+                                    <?php
+                                            if(isset($child->struktur_organisasi)) echo $child->struktur_organisasi;
+                                            else echo "-";
+                                        ?>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="previous-month" role="tabpanel" aria-labelledby="pills-setting-tab">
+                                    <div class="card-body">
+                                    <?php
+                                            if(isset($child->visi_misi)) echo $child->visi_misi;
+                                            else echo "-";
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
 </div>
 							<div id="tambahData" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">

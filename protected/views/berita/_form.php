@@ -1,8 +1,3 @@
-<?php
-/* @var $this BeritaController */
-/* @var $model Berita */
-/* @var $form CActiveForm */
-?>
 <style>
 	.note-editor.note-frame .note-editing-area .note-editable {
 		height: 300px;
