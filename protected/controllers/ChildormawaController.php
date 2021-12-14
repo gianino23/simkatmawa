@@ -36,7 +36,7 @@ class ChildormawaController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','hapus','tambah','edit'),
+				'actions'=>array('admin','hapus','tambah','edit','create','ubah'),
 				'expression'=>'Yii::app()->user->level==2',
 			),
 			array('deny',  // deny all users
@@ -71,6 +71,25 @@ class ChildormawaController extends Controller
 		));
 	}
 
+	public function actionCreate()
+	{
+		$model=new Childormawa;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Childormawa']))
+		{
+			$model->attributes=$_POST['Childormawa'];
+			$model->ormawa_id = Yii::app()->user->ormawa;
+			if($model->save())
+				$this->redirect(array('admin'));
+		}
+
+		$this->render('create',array(
+			'model'=>$model,
+		));
+	}
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -104,6 +123,27 @@ class ChildormawaController extends Controller
 		  echo json_encode($data);
 		 }
 	}
+
+
+	public function actionUbah($id)
+	{
+		$model=$this->loadModel($id);
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Childormawa']))
+		{
+			$model->attributes=$_POST['Childormawa'];
+			if($model->save())
+				$this->redirect(array('admin'));
+		}
+
+		$this->render('updatee',array(
+			'model'=>$model,
+		));
+	}
+
 
 	/**
 	 * Updates a particular model.
